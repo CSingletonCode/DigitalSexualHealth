@@ -2,10 +2,14 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
 
 
 public class HelloFX extends Application {
@@ -43,9 +47,13 @@ public class HelloFX extends Application {
         VBox layout = new VBox(20);
         layout.setAlignment(Pos.CENTER);
 
+        Image avatar = new Image("Assets/Avatar.png");
+        ImageView avatarView = new ImageView(avatar);
+        Label avatarImage = new Label("",avatarView);
         Label title = new Label("Login");
+        title.setFont(Font.font("Inter",FontWeight.BOLD,20));
 
-        layout.getChildren().add(title); //can also use addAll?
+        layout.getChildren().addAll(avatarImage,title);
         appContent.getChildren().setAll(layout);
     } 
 
