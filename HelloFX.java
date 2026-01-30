@@ -15,7 +15,7 @@ public class HelloFX extends Application {
 
     @Override
     public void start(Stage stage) {
-        //Defines screen region + background colour
+        //Defines screen region, background colour
         appContent = new StackPane();
         appContent.setStyle("-fx-background-color: white;");
         //Defines window, background colour, and positioning
@@ -32,20 +32,20 @@ public class HelloFX extends Application {
         stage.setTitle("MyHealth");
         stage.setScene(scene);
         stage.show();
-
+        
+        //inits
         resizeContent(appContent, scene);
-
-        showLogin();
+        showLogin(); 
         
     }
 
-    private void showLogin(){
+    private void showLogin(){ //creates the initial login screen format. 
         VBox layout = new VBox(20);
         layout.setAlignment(Pos.CENTER);
 
         Label title = new Label("Login");
 
-        layout.getChildren().add(title);
+        layout.getChildren().add(title); //can also use addAll?
         appContent.getChildren().setAll(layout);
     } 
 
