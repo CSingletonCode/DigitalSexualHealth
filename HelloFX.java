@@ -1,19 +1,22 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.geometry.Pos;
-// import javafx.scene.control.Label;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
+
 
 public class HelloFX extends Application {
 
     private static final double ASPECT_RATIO = 9.0/16.0;
+    private StackPane appContent;
 
     @Override
     public void start(Stage stage) {
         //Defines screen region + background colour
-        Region appContent = new Region();
+        appContent = new StackPane();
         appContent.setStyle("-fx-background-color: white;");
         //Defines window, background colour, and positioning
         StackPane root = new StackPane(appContent);
@@ -31,8 +34,20 @@ public class HelloFX extends Application {
         stage.show();
 
         resizeContent(appContent, scene);
+
+        showLogin();
         
     }
+
+    private void showLogin(){
+        VBox layout = new VBox(20);
+        layout.setAlignment(Pos.CENTER);
+
+        Label title = new Label("Login");
+
+        layout.getChildren().add(title);
+        appContent.getChildren().setAll(layout);
+    } 
 
     private void resizeContent(Region content, Scene scene){
         double width = scene.getWidth();
