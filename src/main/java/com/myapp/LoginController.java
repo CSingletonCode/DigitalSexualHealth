@@ -33,6 +33,11 @@ public class LoginController {
         switchScene(event, "/signup.fxml");
     }
 
+    @FXML
+    void handleForgotLink(ActionEvent event) {
+        System.out.println("User clicked Forgot Password!");
+    }
+
     // 3. The Helper Method to Switch Scenes
     private void switchScene(ActionEvent event, String fxmlFile) {
         try {

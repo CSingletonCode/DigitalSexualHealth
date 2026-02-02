@@ -44,14 +44,14 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
 
                         <Region HBox.hgrow="ALWAYS" />
-                        <Hyperlink fx:id="forgotLink" alignment="CENTER_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" prefHeight="25.0" prefWidth="117.0" style="-fx-font-weight: bold; -fx-text-fill: #4C039B; -fx-font-size: 10;" text="Forgot Password?" textFill="#4c039b" textOverrun="CLIP" />
+                        <Hyperlink fx:id="forgotLink" alignment="CENTER_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" onAction="#handleForgotLink" prefHeight="25.0" prefWidth="117.0" style="-fx-font-weight: bold; -fx-text-fill: #4C039B; -fx-font-size: 10;" text="Forgot Password?" textFill="#4c039b" textOverrun="CLIP" />
                      </children>
                   </HBox>
 
                   <TextField fx:id="passwordField" prefHeight="38.0" prefWidth="233.0" promptText="Enter your Password" styleClass="fancy-text-field" />
                </children>
             </VBox>
-            <Button fx:id="loginButton" layoutX="51.0" layoutY="466.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="233.0" style="-fx-background-radius: 30; -fx-background-color: #4C039B;" text="Login" textFill="WHITE" />
+            <Button fx:id="loginButton" layoutX="51.0" layoutY="466.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="233.0" style="-fx-background-radius: 30; -fx-background-color: #4C039B;" text="Login" textFill="WHITE" />
             <HBox alignment="CENTER" layoutX="68.0" layoutY="513.0" prefHeight="26.0" prefWidth="200.0">
                <children>
                   <Text fill="#757575" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
