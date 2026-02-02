@@ -1,0 +1,11 @@
+.fancy-text-field {
+    -fx-background-color: #E6E0E9;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+/* Change look when user clicks inside */
+.fancy-text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: #f0f8ff;
+}
