@@ -9,9 +9,5 @@
         <module name="demo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="digitalsexualhealth" target="21" />
-      <module name="DSH" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
