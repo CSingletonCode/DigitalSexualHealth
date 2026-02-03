@@ -7,17 +7,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.IOException;
-import javafx.scene.control.TextField;
 
-public class SignupController {
-
+public class TermsAndConditionsController {
     @FXML
     void handleCreateAccount(ActionEvent event) {
-        switchScene(event, "/signup2.fxml");
+        System.out.println("Create Account");
+        switchScene(event, "/login.fxml");
+        //switchScene(event, "/signupcomplete.fxml");
     }
-
-    // Reuse the helper method
     private void switchScene(ActionEvent event, String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));

@@ -9,12 +9,37 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 
-public class SignupController {
+public class Signup2Controller {
+
+    @FXML
+    private TextField firstName;
+    @FXML
+    private TextField lastName;
+    @FXML
+    private DatePicker dobBox;
+    @FXML
+    private ComboBox<String> genderBox;
+
+    @FXML
+    public void initialize() {
+        // This adds items when the screen loads
+        genderBox.getItems().addAll("Woman",
+                "Man",
+                "Non-binary",
+                "Transgender Woman",
+                "Transgender Man",
+                "Intersex",
+                "Prefer not to say",
+                "Another identity");
+    }
 
     @FXML
     void handleCreateAccount(ActionEvent event) {
-        switchScene(event, "/signup2.fxml");
+        System.out.println("Create Account");
+        switchScene(event, "/TermsAndConditions.fxml");
     }
 
     // Reuse the helper method
