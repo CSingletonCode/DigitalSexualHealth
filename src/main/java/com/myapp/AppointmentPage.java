@@ -8,14 +8,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class App extends Application {
+public class AppointmentPage extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
         // Load the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppointmentPage.class.getResource("/appointment.fxml"));
         Parent root = fxmlLoader.load();
 
         // Create the scene (Width, Height)
