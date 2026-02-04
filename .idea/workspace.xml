@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Edited Signup page">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/Signup2Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/TermsAndConditionsController.java" afterDir="false" />
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Added Second Signup page&#10;Added Terms &amp; Conditions Page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/Signup2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/Signup2Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +106,7 @@
       <workItem from="1770035545783" duration="336000" />
       <workItem from="1770036797172" duration="3709000" />
       <workItem from="1770043969871" duration="42000" />
-      <workItem from="1770085568187" duration="3512000" />
+      <workItem from="1770085568187" duration="8248000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -154,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770040249980</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added Second Signup page&#10;Added Terms &amp; Conditions Page">
+      <option name="closed" value="true" />
+      <created>1770089316913</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1770089316913</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +175,7 @@
     <MESSAGE value="Changed Username to Email" />
     <MESSAGE value="Edited Login Page&#10;Added Signup Page" />
     <MESSAGE value="Edited Signup page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited Signup page" />
+    <MESSAGE value="Added Second Signup page&#10;Added Terms &amp; Conditions Page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Second Signup page&#10;Added Terms &amp; Conditions Page" />
   </component>
 </project>

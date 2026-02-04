@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.control.TextField;
@@ -13,8 +16,78 @@ import javafx.scene.control.TextField;
 public class SignupController {
 
     @FXML
+    private TextField emailField;
+
+    @FXML
+    private TextField passwordField;
+
+    @FXML
+    private TextField passwordField1;
+
+    @FXML
+    private Button continueButton;
+
+    @FXML
     void handleCreateAccount(ActionEvent event) {
+
+        if (!validateinputs()){
+            return;
+        }
+
         switchScene(event, "/signup2.fxml");
+    }
+
+    private boolean validateinputs() {
+        boolean isValid = true;
+        StringBuilder Errors = new StringBuilder();
+
+        String email = emailField.getText().trim();
+        if (!email.matches("^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$")){
+            setErrorStyle(emailField);
+            Errors.append("Please enter a valid email address.\n");
+            isValid = false;
+        } else {
+            clearErrorStyle(emailField);
+        }
+
+        String password = passwordField.getText().trim();
+        if (password.length() < 8){
+            setErrorStyle(passwordField);
+            Errors.append("Password must be at least 8 characters.\n");
+            isValid = false;
+        } else {
+            clearErrorStyle(passwordField);
+        }
+        String password1 = passwordField1.getText().trim();
+        if (!password1.equals(password)){
+            setErrorStyle(passwordField1);
+            Errors.append("Passwords do not match.\n");
+            isValid = false;
+        } else {
+            clearErrorStyle(passwordField1);
+        }
+
+        if (!isValid){
+            showAlert(Errors.toString());
+        }
+
+        return isValid;
+    }
+
+    private void setErrorStyle(Control node) {
+        node.setStyle("-fx-border-color: #ff4444; -fx-border-width: 2px; -fx-border-radius: 5px;");
+    }
+
+    private void clearErrorStyle(Control node) {
+        node.setStyle(null);
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Registration Error");
+        alert.setHeaderText("Please Rectify the Following:");
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     // Reuse the helper method

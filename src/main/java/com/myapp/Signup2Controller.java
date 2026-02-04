@@ -6,11 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
+import java.time.LocalDate;
+import java.time.Period;
 
 public class Signup2Controller {
 
@@ -39,7 +39,80 @@ public class Signup2Controller {
     @FXML
     void handleCreateAccount(ActionEvent event) {
         System.out.println("Create Account");
+        if (!validateInputs()) {
+            return;
+        }
         switchScene(event, "/TermsAndConditions.fxml");
+    }
+
+    private Boolean validateInputs(){
+        boolean isValid = true;
+        StringBuilder Errors = new StringBuilder();
+
+        String firstN = firstName.getText().trim();
+        String lastN = lastName.getText().trim();
+        if (firstN.isEmpty()){
+            setErrorStyle(firstName);
+            Errors.append("First name cannot be empty.\n");
+            isValid = false;
+        } else {
+            clearErrorStyle(firstName);
+        }
+        if (lastN.isEmpty()){
+            setErrorStyle(lastName);
+            Errors.append("Last name cannot be empty.\n");
+            isValid = false;
+        } else {
+            clearErrorStyle(lastName);
+        }
+
+        if (dobBox.getValue() == null){
+            setErrorStyle(dobBox);
+            Errors.append("Date of Birth cannot be empty.\n");
+            isValid = false;
+        } else {
+            if (Period.between(dobBox.getValue(), LocalDate.now()).getYears() < 16){
+                setErrorStyle(dobBox);
+                Errors.append("You must be at least 16 years old.\n");
+                isValid = false;
+            } else if (dobBox.getValue().isAfter(LocalDate.now())){
+                setErrorStyle(dobBox);
+                Errors.append("Date of Birth cannot be in the future.\n");
+                isValid = false;
+            } else {
+                clearErrorStyle(dobBox);
+            }
+        }
+
+        if (genderBox.getValue() == null){
+            setErrorStyle(genderBox);
+            Errors.append("Please select a gender identity.\n");
+            isValid = false;
+        } else {
+            clearErrorStyle(genderBox);
+        }
+
+        if (!isValid){
+            showAlert(Errors.toString());
+        }
+
+        return isValid;
+    }
+
+    private void setErrorStyle(Control node) {
+        node.setStyle("-fx-border-color: #ff4444; -fx-border-width: 2px; -fx-border-radius: 5px;");
+    }
+
+    private void clearErrorStyle(Control node) {
+        node.setStyle(null);
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Registration Error");
+        alert.setHeaderText("Please Rectify the Following:");
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     // Reuse the helper method
