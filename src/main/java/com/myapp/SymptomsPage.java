@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -22,7 +23,7 @@ public class SymptomsPage extends Application {
         scene = new Scene(root, 335, 600);
 
         // Set the window title
-        stage.setTitle("Symptoms-Logger");
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
     }
