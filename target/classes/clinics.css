@@ -1,0 +1,64 @@
+.screen {
+    -fx-background-color: white;
+    -fx-padding: 22 22 22 22;
+}
+
+.topbar {
+    -fx-padding: 6 0 0 0;
+}
+
+.back-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #6C4AB6;
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+    -fx-padding: 6 10 6 6;
+}
+
+.title {
+    -fx-font-size: 44px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #111111;
+    -fx-padding: 0 0 6 0;
+}
+
+.list-scroll {
+    -fx-background-color: transparent;
+}
+
+.list-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.clinic-card {
+    -fx-background-color: #F4F0FB;
+    -fx-background-radius: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.14), 12, 0.18, 0, 4);
+}
+
+.card-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #6C4AB6;
+}
+
+.distance {
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #2F2F2F;
+}
+
+.card-body {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2B2B2B;
+}
+
+.contact-button {
+    -fx-background-color: #6C4AB6;
+    -fx-background-radius: 18px;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-padding: 8 16 8 16;
+}
