@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,9 +15,26 @@ public class TermsAndConditionsController {
     @FXML
     void handleCreateAccount(ActionEvent event) {
         System.out.println("Create Account");
+        if (!createAcc()){
+            showAlert("Account Creation Failed","Please try again later.");
+            return;
+        }
+        showAlert( "Account Created","Please login through the main page.");
         switchScene(event, "/login.fxml");
-        //switchScene(event, "/signupcomplete.fxml");
     }
+
+    private void showAlert(String title,String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Registration");
+        alert.setHeaderText(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private boolean createAcc() {
+        return false;
+    }
+
     private void switchScene(ActionEvent event, String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
