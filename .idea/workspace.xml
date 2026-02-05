@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Input Box Validation&#10;Added:&#10;Input Validation for Login Page&#10;Input Validation for Signup Pages">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/forgotPasswordController.java" afterDir="false" />
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Implemented Fxml of Forgot Password&#10;Added:&#10;- verification fxml&#10;- verification Controller&#10;Todo:&#10;- link to database&#10;- password change fxml&#10;- password change Controller">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/changePasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/TermsAndConditionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/TermsAndConditionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/forgotPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/forgotPasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TermsAndConditionsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/TermsAndConditionsController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +108,7 @@
       <workItem from="1770035545783" duration="336000" />
       <workItem from="1770036797172" duration="3709000" />
       <workItem from="1770043969871" duration="42000" />
-      <workItem from="1770085568187" duration="11288000" />
+      <workItem from="1770085568187" duration="14866000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -179,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770210963164</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Implemented Fxml of Forgot Password&#10;Added:&#10;- verification fxml&#10;- verification Controller&#10;Todo:&#10;- link to database&#10;- password change fxml&#10;- password change Controller">
+      <option name="closed" value="true" />
+      <created>1770214157336</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1770214157336</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +205,7 @@
     <MESSAGE value="Input Box Validation&#10;Added validation to Login Page&#10;Added validation to Signup pages" />
     <MESSAGE value="Input Box Validation&#10;Added:" />
     <MESSAGE value="Input Box Validation&#10;Added:&#10;Input Validation for Login Page&#10;Input Validation for Signup Pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Input Box Validation&#10;Added:&#10;Input Validation for Login Page&#10;Input Validation for Signup Pages" />
+    <MESSAGE value="Implemented Fxml of Forgot Password&#10;Added:&#10;- verification fxml&#10;- verification Controller&#10;Todo:&#10;- link to database&#10;- password change fxml&#10;- password change Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Fxml of Forgot Password&#10;Added:&#10;- verification fxml&#10;- verification Controller&#10;Todo:&#10;- link to database&#10;- password change fxml&#10;- password change Controller" />
   </component>
 </project>

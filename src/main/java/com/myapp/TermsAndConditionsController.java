@@ -32,7 +32,7 @@ public class TermsAndConditionsController {
     }
 
     private boolean createAcc() {
-        return false;
+        return true;
     }
 
     private void switchScene(ActionEvent event, String fxmlFile) {

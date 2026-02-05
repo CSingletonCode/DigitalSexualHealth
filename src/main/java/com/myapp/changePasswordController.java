@@ -13,56 +13,50 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class forgotPasswordController {
+public class changePasswordController {
 
     @FXML
-    private TextField emailField;
+    private TextField passwordField;
 
     @FXML
-    private TextField codeField;
+    private TextField password1Field;
 
     @FXML
-    void handleContinue(ActionEvent event) {
+    void handleChange(ActionEvent event) {
         if (!validateinputs()){
             return;
         }
-        switchScene(event, "/changePassword.fxml");
+        switchScene(event, "/login.fxml");
     }
 
-    @FXML
-    void sendCode(ActionEvent event) {
-    }
-
-    private boolean validateinputs() {
+    private boolean validateinputs(){
         boolean isValid = true;
         StringBuilder Errors = new StringBuilder();
 
-        String email = emailField.getText().trim();
-        if (!email.matches("^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$")) {
-            setErrorStyle(emailField);
-            Errors.append("Please enter a valid email address.\n");
-            isValid = false;
-        } else {
-            clearErrorStyle(emailField);
 
-        }
-        String code = codeField.getText().trim();
-        if (!checkCode(code)){
-            setErrorStyle(codeField);
-            Errors.append("Invalid Code");
+        String password = passwordField.getText().trim();
+        if (password.length() < 8){
+            setErrorStyle(passwordField);
+            Errors.append("Password must be at least 8 characters.\n");
             isValid = false;
         } else {
-            clearErrorStyle(codeField);
+            clearErrorStyle(passwordField);
+        }
+        String password1 = password1Field.getText().trim();
+        if (!password1.equals(password)){
+            setErrorStyle(password1Field);
+            Errors.append("Passwords do not match.\n");
+            isValid = false;
+        } else {
+            clearErrorStyle(password1Field);
         }
 
         if (!isValid){
-            showAlert(Errors.toString());
+            showAlert("Please Rectify the Following:",Errors.toString());
+        } else {
+            showAlert("Password Change Successful!","Please login again.");
         }
         return isValid;
-    }
-
-    private boolean checkCode(String code){
-        return true;
     }
 
     private void setErrorStyle(Control node) {
@@ -73,10 +67,10 @@ public class forgotPasswordController {
         node.setStyle(null);
     }
 
-    private void showAlert(String message) {
+    private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Registration Error");
-        alert.setHeaderText("Please Rectify the Following:");
+        alert.setTitle("Password Change");
+        alert.setHeaderText(title);
         alert.setContentText(message);
         alert.showAndWait();
     }

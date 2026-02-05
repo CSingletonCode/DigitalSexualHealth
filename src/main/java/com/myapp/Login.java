@@ -22,7 +22,7 @@ public class Login extends Application {
         scene = new Scene(root, 335, 600);
 
         // Set the window title
-        stage.setTitle("Login");
+        stage.setTitle("Digital Health System");
         stage.setScene(scene);
         stage.show();
     }
