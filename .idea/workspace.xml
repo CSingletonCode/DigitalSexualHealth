@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="First commit - simple features">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PopupController.java" afterDir="false" />
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Third commit - New symptom form shows and closes">
+      <change afterPath="$PROJECT_DIR$/localdata/enteredSymptoms.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/SymptomEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/SymptomsDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/TrackerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/TrackerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/newSymptom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/newSymptom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/symptoms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/symptoms.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/symptoms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/symptoms.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Symptom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/Symptom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/SymptomHandling.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/newSymptom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/newSymptom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-cli/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-cli/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-cli/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-cli/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="package.json" />
         <option value="Class" />
       </list>
     </option>
@@ -68,6 +78,8 @@
     &quot;Application.App.executor&quot;: &quot;Run&quot;,
     &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.SymptomsPage.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [org.apache.maven.plugins:maven-clean-plugin:2.5:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;SymptomsPages&quot;,
@@ -88,8 +100,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
       </set>
     </attachedChunks>
   </component>
@@ -102,6 +114,8 @@
       <option name="presentableId" value="Default" />
       <updated>1770035544628</updated>
       <workItem from="1770035545783" duration="336000" />
+      <workItem from="1770485730012" duration="1943000" />
+      <workItem from="1770489523667" duration="3194000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -127,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770247228819</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Third commit - New symptom form shows and closes">
+      <option name="closed" value="true" />
+      <created>1770252545718</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1770252545718</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +169,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="javafx project" />
     <MESSAGE value="First commit - simple features" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit - simple features" />
+    <MESSAGE value="Third commit - New symptom form shows and closes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Third commit - New symptom form shows and closes" />
   </component>
 </project>
