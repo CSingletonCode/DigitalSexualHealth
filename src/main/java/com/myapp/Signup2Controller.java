@@ -23,6 +23,8 @@ public class Signup2Controller {
     @FXML
     private ComboBox<String> genderBox;
 
+    private User currentUser;
+
     @FXML
     public void initialize() {
         // This adds items when the screen loads
@@ -38,11 +40,14 @@ public class Signup2Controller {
 
     @FXML
     void handleCreateAccount(ActionEvent event) {
-        System.out.println("Create Account");
         if (!validateInputs()) {
             return;
         }
         switchScene(event, "/TermsAndConditions.fxml");
+    }
+
+    public void setUserData(User currentUser) {
+        this.currentUser = currentUser;
     }
 
     private Boolean validateInputs(){
@@ -120,6 +125,14 @@ public class Signup2Controller {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
+
+            TermsAndConditionsController nextController = loader.getController();
+            currentUser.setFirstName(firstName.getText());
+            currentUser.setLastName(lastName.getText());
+            currentUser.setDob(dobBox.getValue().toString());
+            currentUser.setGender(genderBox.getValue());
+            nextController.setUserData(currentUser);
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);

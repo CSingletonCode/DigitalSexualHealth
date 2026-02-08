@@ -95,6 +95,13 @@ public class SignupController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
+
+            Signup2Controller nextController = loader.getController();
+            User partialUser = new User();
+            partialUser.setEmail(emailField.getText());
+            partialUser.setPassword(passwordField.getText());
+            nextController.setUserData(partialUser);
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);

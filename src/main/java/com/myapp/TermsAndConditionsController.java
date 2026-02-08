@@ -11,7 +11,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.myapp.DatabaseManager.saveToDatabase;
+
 public class TermsAndConditionsController {
+
+    private User currentUser;
+
     @FXML
     void handleCreateAccount(ActionEvent event) {
         System.out.println("Create Account");
@@ -23,6 +28,10 @@ public class TermsAndConditionsController {
         switchScene(event, "/login.fxml");
     }
 
+    public void setUserData(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
     private void showAlert(String title,String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Registration");
@@ -32,7 +41,7 @@ public class TermsAndConditionsController {
     }
 
     private boolean createAcc() {
-        return true;
+        return saveToDatabase(currentUser);
     }
 
     private void switchScene(ActionEvent event, String fxmlFile) {

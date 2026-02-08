@@ -17,6 +17,8 @@ public class Login extends Application {
         // Load the FXML file
         FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("/login.fxml"));
         Parent root = fxmlLoader.load();
+        
+        DatabaseManager.initialiseDatabase();
 
         // Create the scene (Width, Height)
         scene = new Scene(root, 335, 600);

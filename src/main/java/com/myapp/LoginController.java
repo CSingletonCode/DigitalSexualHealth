@@ -27,8 +27,15 @@ public class LoginController {
         if (!validateinputs()){
             return;
         }
-        System.out.println("Username: " + emailField.getText());
-        // switchScene(event, "/dashboard.fxml");
+        String email = emailField.getText();
+        String password = passwordField.getText();
+        if (DatabaseManager.validateLogin(email, password)){
+            // switchScene(event, "/dashboard.fxml");
+            System.out.println("Login Successful");
+        } else {
+            showAlert("Invalid email or password");
+        }
+
     }
 
     private boolean validateinputs(){
