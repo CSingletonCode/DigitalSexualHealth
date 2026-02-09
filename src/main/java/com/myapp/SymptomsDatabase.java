@@ -6,22 +6,60 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class SymptomsDatabase {
     private static final String FILE_PATH = "localdata/enteredSymptoms.json";
     private ObjectMapper mapper = new ObjectMapper();
-    private File file;
+    private File trackerFile;
 
-    public SymptomsDatabase() {
-        file = new File(FILE_PATH);
-        if (!file.exists()) {
-            try {
-                file.getParentFile().mkdirs();
-                mapper.writeValue(file, new ArrayList<SymptomEntry>());
-            } catch (IOException e) {
-                System.out.println("File missing.");
+    public SymptomsDatabase() throws IOException {
+        trackerFile = new File(FILE_PATH);
+        if (!trackerFile.exists()) {
+            trackerFile.createNewFile();
+            mapper.writeValue(trackerFile, new ArrayList<>());
+        }
+    }
+
+    private ArrayList<SymptomEntry> getAllSymptoms() throws IOException {
+        trackerFile = new File(FILE_PATH);
+        if (!trackerFile.exists()) {
+            return new ArrayList<>();
+        } else{
+            return mapper.readValue(trackerFile, new TypeReference<ArrayList<SymptomEntry>>(){});
+        }
+    }
+
+    private void setAllSymptoms(ArrayList<SymptomEntry> symptoms) throws IOException {
+        trackerFile = new File(FILE_PATH);
+        if (!trackerFile.exists()) {
+            trackerFile.createNewFile();
+            mapper.writeValue(trackerFile, new ArrayList<>());
+        } else {
+            mapper.readValue(trackerFile, new TypeReference<ArrayList<SymptomEntry>>(){});
+        }
+    }
+
+    public void recordSymptom(SymptomEntry symptom) {
+        try {
+            ArrayList<SymptomEntry> tracked = getAllSymptoms();
+            tracked.add(symptom);
+            setAllSymptoms(tracked);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void removeByID(String id) {
+        try {
+            ArrayList<SymptomEntry> tracked = getAllSymptoms();
+            for (SymptomEntry symptom : tracked) {
+                if (symptom.getId().equals(id)) {
+                    tracked.remove(symptom);
+                    break;
+                }
             }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
