@@ -90,7 +90,7 @@ public class SignupController {
         alert.showAndWait();
     }
 
-    // Reuse the helper method
+
     private void switchScene(ActionEvent event, String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));

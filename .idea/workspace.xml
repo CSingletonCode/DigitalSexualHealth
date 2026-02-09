@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Added password change page&#10;Todo:&#10;- Implement backend database">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/DatabaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Implemented database&#10;Added&#10;- Implemented backend database&#10;- Implemented functional registering&#10;- Implemented functional login page&#10;Todo&#10;- Hashing&#10;- Dynamic database functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/Signup2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/Signup2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/identifier.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/DatabaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/SignupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/TermsAndConditionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/TermsAndConditionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/DatabaseManager.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +117,8 @@
       <workItem from="1770043969871" duration="42000" />
       <workItem from="1770085568187" duration="14935000" />
       <workItem from="1770286498255" duration="2829000" />
-      <workItem from="1770578071355" duration="4980000" />
+      <workItem from="1770578071355" duration="6799000" />
+      <workItem from="1770649049550" duration="3011000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -214,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770286014953</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Implemented database&#10;Added&#10;- Implemented backend database&#10;- Implemented functional registering&#10;- Implemented functional login page&#10;Todo&#10;- Hashing&#10;- Dynamic database functions">
+      <option name="closed" value="true" />
+      <created>1770586522981</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1770586522981</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +233,7 @@
     <MESSAGE value="Input Box Validation&#10;Added:&#10;Input Validation for Login Page&#10;Input Validation for Signup Pages" />
     <MESSAGE value="Implemented Fxml of Forgot Password&#10;Added:&#10;- verification fxml&#10;- verification Controller&#10;Todo:&#10;- link to database&#10;- password change fxml&#10;- password change Controller" />
     <MESSAGE value="Added password change page&#10;Todo:&#10;- Implement backend database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added password change page&#10;Todo:&#10;- Implement backend database" />
+    <MESSAGE value="Implemented database&#10;Added&#10;- Implemented backend database&#10;- Implemented functional registering&#10;- Implemented functional login page&#10;Todo&#10;- Hashing&#10;- Dynamic database functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented database&#10;Added&#10;- Implemented backend database&#10;- Implemented functional registering&#10;- Implemented functional login page&#10;Todo&#10;- Hashing&#10;- Dynamic database functions" />
   </component>
 </project>

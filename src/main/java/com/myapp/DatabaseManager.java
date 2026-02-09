@@ -54,6 +54,7 @@ public class DatabaseManager {
         try (Connection con = getConnection();
             PreparedStatement psmt = con.prepareStatement(sql)) {
             psmt.setString(1,email);
+
             psmt.setString(2,password);
             try (ResultSet rs = psmt.executeQuery()){
                 if (rs.next()){
