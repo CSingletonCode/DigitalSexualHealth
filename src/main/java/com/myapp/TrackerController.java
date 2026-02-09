@@ -13,6 +13,12 @@ import java.io.IOException;
 
 public class TrackerController{
 
+    private SymptomsDatabase symptomsDatabase;
+
+    public TrackerController() throws IOException{
+        this.symptomsDatabase = new SymptomsDatabase();
+    }
+
     @FXML
     private void addNew() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(SymptomsPage.class.getResource("/newSymptom.fxml"));
@@ -26,6 +32,7 @@ public class TrackerController{
 
         PopupController controller = fxmlLoader.getController();
         controller.setStage(popupStage);
+        controller.setDatabase(symptomsDatabase);
 
         popupStage.show();
     }

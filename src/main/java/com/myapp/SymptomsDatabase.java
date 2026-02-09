@@ -33,10 +33,8 @@ public class SymptomsDatabase {
         trackerFile = new File(FILE_PATH);
         if (!trackerFile.exists()) {
             trackerFile.createNewFile();
-            mapper.writeValue(trackerFile, new ArrayList<>());
-        } else {
-            mapper.readValue(trackerFile, new TypeReference<ArrayList<SymptomEntry>>(){});
         }
+        mapper.writerWithDefaultPrettyPrinter().writeValue(trackerFile, symptoms);
     }
 
     public void recordSymptom(SymptomEntry symptom) {

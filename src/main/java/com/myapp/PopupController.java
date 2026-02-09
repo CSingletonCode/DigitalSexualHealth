@@ -3,6 +3,7 @@ package com.myapp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
@@ -11,8 +12,19 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 
 public class PopupController {
-
+    private SymptomsDatabase symptomsDatabase;
     private Stage stage;
+
+    @FXML
+    private TextField nameField;
+    @FXML
+    private TextField dateField;
+    @FXML
+    private TextField descriptionField;
+
+    public void setDatabase(SymptomsDatabase symptomsDatabase) {
+        this.symptomsDatabase = symptomsDatabase;
+    }
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -21,5 +33,12 @@ public class PopupController {
     @FXML
     private void cancel() throws IOException{
         this.stage.close();
+    }
+
+    @FXML
+    private void submit() throws IOException{
+        SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getText(), descriptionField.getText());
+        symptomsDatabase.recordSymptom(newSymptom);
+        cancel();
     }
 }

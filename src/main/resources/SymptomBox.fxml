@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="600.0" style="-fx-border-color: #4c039b;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="52.0" prefWidth="598.0">
+         <children>
+            <Label contentDisplay="CENTER" prefHeight="58.0" prefWidth="153.0" text="Label" />
+         </children>
+      </VBox>
+      <Label prefHeight="46.0" prefWidth="601.0" text="Label" />
+      <VBox>
+         <children>
+            <Label alignment="TOP_LEFT" prefHeight="172.0" prefWidth="598.0" text="Label" />
+         </children>
+      </VBox>
+   </children>
+</VBox>
