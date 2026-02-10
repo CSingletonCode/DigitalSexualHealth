@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="424.0" style="-fx-border-color: #4c039b;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.PopupController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="232.0" prefWidth="335.0" style="-fx-border-color: #4c039b;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.PopupController">
    <children>
-      <TextField fx:id="nameField" layoutX="17.0" layoutY="14.0" prefHeight="25.0" prefWidth="228.0" promptText="Enter Name" style="-fx-border-color: #4c039b; -fx-border-radius: 10; -fx-background-radius: 10;" />
+      <TextField fx:id="nameField" layoutX="17.0" layoutY="14.0" onMouseClicked="#showDropDown" prefHeight="25.0" prefWidth="228.0" promptText="Enter Name" style="-fx-border-color: #4c039b; -fx-border-radius: 10; -fx-background-radius: 10;" />
       <TextField fx:id="dateField" layoutX="17.0" layoutY="50.0" prefHeight="25.0" prefWidth="228.0" promptText="Enter Date" style="-fx-border-color: #4c039b; -fx-background-radius: 10; -fx-border-radius: 10;" />
-      <TextField fx:id="descriptionField" alignment="TOP_LEFT" layoutX="17.0" layoutY="91.0" prefHeight="133.0" prefWidth="387.0" promptText="Enter Description" style="-fx-border-color: #4c039b; -fx-background-radius: 10; -fx-border-radius: 10;" />
-      <Button layoutX="17.0" layoutY="241.0" mnemonicParsing="false" onAction="#submit" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #4c039b; -fx-background-radius: 10;" text="Enter" textAlignment="CENTER" textFill="WHITE" />
-      <Button layoutX="352.0" layoutY="15.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #4c039b; -fx-background-radius: 10;" text="Cancel" textFill="WHITE" />
+      <TextField fx:id="descriptionField" alignment="TOP_LEFT" layoutX="17.0" layoutY="91.0" prefHeight="95.0" prefWidth="299.0" promptText="Enter Description" style="-fx-border-color: #4c039b; -fx-background-radius: 10; -fx-border-radius: 10;" />
+      <Button layoutX="17.0" layoutY="193.0" mnemonicParsing="false" onAction="#submit" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #4c039b; -fx-background-radius: 10;" text="Enter" textAlignment="CENTER" textFill="WHITE" />
+      <Button layoutX="260.0" layoutY="15.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #4c039b; -fx-background-radius: 10;" text="Cancel" textFill="WHITE" />
+      <ScrollPane fx:id="optionsScroll" hbarPolicy="NEVER" layoutX="24.0" layoutY="38.0" visible="false">
+         <content>
+            <VBox fx:id="optionsBox" prefHeight="271.0" prefWidth="214.0" visible="false" />
+         </content>
+      </ScrollPane>
    </children>
 </Pane>

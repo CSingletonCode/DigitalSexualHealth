@@ -63,4 +63,7 @@ public class TrackerController{
             scrollbox.getChildren().add(symptomBox);
         }
     }
+
+    @FXML
+    public void goHome() throws IOException{}
 }

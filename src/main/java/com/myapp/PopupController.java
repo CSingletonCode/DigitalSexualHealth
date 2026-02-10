@@ -3,7 +3,9 @@ package com.myapp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
@@ -22,6 +24,10 @@ public class PopupController {
     private TextField dateField;
     @FXML
     private TextField descriptionField;
+    @FXML
+    private VBox optionsBox;
+    @FXML
+    private ScrollPane optionsScroll;
 
     public void setDatabase(SymptomsDatabase symptomsDatabase) {
         this.symptomsDatabase = symptomsDatabase;
@@ -46,5 +52,13 @@ public class PopupController {
         symptomsDatabase.recordSymptom(newSymptom);
         trackerController.displaySymptoms();
         this.stage.close();
+    }
+
+    @FXML
+    private void showDropDown() throws IOException{
+        System.out.println("Show drop down");
+        optionsScroll.setVisible(true);
+        optionsBox.setVisible(true);
+
     }
 }

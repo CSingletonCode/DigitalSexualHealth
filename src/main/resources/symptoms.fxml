@@ -13,7 +13,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #4c039b;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="addSymptomButton" contentDisplay="CENTER" layoutX="105.0" layoutY="72.0" mnemonicParsing="false" onAction="#addNew" style="-fx-background-color: #4C039B; -fx-background-radius: 10;" text="Enter New Symptom" textAlignment="CENTER" textFill="WHITE" />
+            <Button fx:id="addSymptomButton" contentDisplay="CENTER" layoutX="112.0" layoutY="94.0" mnemonicParsing="false" onAction="#addNew" style="-fx-background-color: #4C039B; -fx-background-radius: 10;" text="Enter New Symptom" textAlignment="CENTER" textFill="WHITE" />
             <ScrollPane fx:id="scroll" hbarPolicy="NEVER" layoutY="141.0" prefHeight="459.0" prefWidth="335.0" vbarPolicy="ALWAYS">
                <content>
                   <VBox fx:id="scrollbox" alignment="TOP_CENTER" prefHeight="458.0" prefWidth="322.0" spacing="10.0" style="-fx-border-color: #4c039b;">
@@ -21,11 +21,12 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding></VBox>
                </content></ScrollPane>
-            <Text fill="#4c039b" layoutX="67.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Track Your Symptoms">
+            <Text fill="#4c039b" layoutX="67.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Track Your Symptoms">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Text>
+            <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: #4c039b; -fx-background-radius: 10;" text="Back" textFill="WHITE" />
          </children>
       </AnchorPane>
    </center>
