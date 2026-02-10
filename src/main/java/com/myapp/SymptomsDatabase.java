@@ -29,7 +29,7 @@ public class SymptomsDatabase {
         }
     }
 
-    private void setAllSymptoms(ArrayList<SymptomEntry> symptoms) throws IOException {
+    public void setAllSymptoms(ArrayList<SymptomEntry> symptoms) throws IOException {
         trackerFile = new File(FILE_PATH);
         if (!trackerFile.exists()) {
             trackerFile.createNewFile();
@@ -42,20 +42,6 @@ public class SymptomsDatabase {
             ArrayList<SymptomEntry> tracked = getAllSymptoms();
             tracked.add(symptom);
             setAllSymptoms(tracked);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void removeByID(String id) {
-        try {
-            ArrayList<SymptomEntry> tracked = getAllSymptoms();
-            for (SymptomEntry symptom : tracked) {
-                if (symptom.getId().equals(id)) {
-                    tracked.remove(symptom);
-                    break;
-                }
-            }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

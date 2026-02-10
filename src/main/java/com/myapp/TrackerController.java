@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class TrackerController{
 
-    private SymptomsDatabase symptomsDatabase;
+    public SymptomsDatabase symptomsDatabase;
 
     @FXML
     private ScrollPane scroll;
@@ -58,7 +58,7 @@ public class TrackerController{
             FXMLLoader fxmlLoader = new FXMLLoader(SymptomsPage.class.getResource("/SymptomBox.fxml"));
             Node symptomBox = fxmlLoader.load();
             BoxController boxController = fxmlLoader.getController();
-
+            boxController.setTrackerController(this);
             boxController.setData(symptomEntry);
             scrollbox.getChildren().add(symptomBox);
         }
