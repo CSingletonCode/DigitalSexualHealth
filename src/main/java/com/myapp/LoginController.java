@@ -30,7 +30,7 @@ public class LoginController {
         String email = emailField.getText();
         String password = passwordField.getText();
         if (DatabaseManager.validateLogin(email, password)){
-            // switchScene(event, "/dashboard.fxml");
+           switchScene(event, "/homepage.fxml");
             System.out.println("Login Successful");
         } else {
             showAlert("Invalid email or password");
