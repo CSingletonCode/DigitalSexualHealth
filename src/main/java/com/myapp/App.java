@@ -15,14 +15,14 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Load the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/homepage.fxml"));
         Parent root = fxmlLoader.load();
 
         // Create the scene (Width, Height)
         scene = new Scene(root, 335, 600);
 
         // Set the window title
-        stage.setTitle("Login");
+        stage.setTitle("Home");
         stage.setScene(scene);
         stage.show();
     }
