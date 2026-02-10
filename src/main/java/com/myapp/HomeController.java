@@ -18,13 +18,13 @@ public class HomeController {
         String targetFxml = "";
 
         if (source == symptomsCard) {
-            targetFxml = "symptoms.fxml";
+            targetFxml = "/symptoms.fxml";
         } else if(source == chatCard) {
-            targetFxml = "chat.fxml";
+            targetFxml = "/chat.fxml";
         } else if(source == evaluationCard) {
-            targetFxml = "evaluation.fxml";
+            targetFxml = "/evaluation.fxml";
         } else if(source == apptCard) {
-            targetFxml = "appt.fxml";
+            targetFxml = "/appointmentSchedule.fxml";
         }
 
         if (!targetFxml.isEmpty()) {

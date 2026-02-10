@@ -1,8 +1,15 @@
 package com.myapp;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class AppointmentPage {
@@ -21,7 +28,7 @@ public class AppointmentPage {
         loadClinicData();
 
         appointmentTimeBox.getItems().addAll("09:00", "10:00", "11:00", "14:00", "15:00");
-        returnButton.setOnAction(event -> handleReturn());
+        returnButton.setOnAction(event -> handleReturn(event));
         appointmentSubmitButton.setOnAction(event -> handleSubmit());
 
         // Disable past dates in DatePicker
@@ -39,9 +46,8 @@ public class AppointmentPage {
         currentClinicAddress.setText("36 Burgess Road, Southampton, SO16 5NE");
     }
 
-    private void handleReturn() {
-        // switch page
-        // return to previous page
+    private void handleReturn(ActionEvent event) {
+        switchScene(event,"/appointmentSchedule.fxml");
     }
 
     private void handleSubmit() {
@@ -73,5 +79,19 @@ public class AppointmentPage {
         boolean purposeFilled = !appointmentPurposeText.getText().trim().isEmpty();
 
         return dateSelected && timeSelected && purposeFilled;
+    }
+
+    private void switchScene(ActionEvent event, String fxmlFile) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Could not load FXML file: " + fxmlFile);
+        }
     }
 }

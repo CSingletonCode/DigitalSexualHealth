@@ -1,6 +1,11 @@
 package com.myapp;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -9,6 +14,9 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class AppointmentSchedulePage {
 
@@ -23,21 +31,19 @@ public class AppointmentSchedulePage {
 
     @FXML
     public void initialize() {
-        returnButton.setOnAction(event -> handleReturn());
-        bookAppointmentButton.setOnAction(event -> handleBookAppointment());
+        returnButton.setOnAction(event -> handleReturn(event));
+        bookAppointmentButton.setOnAction(event -> handleBookAppointment(event));
 
         // Database placeholder
         loadAppointments();
     }
 
-    private void handleReturn() {
-        // switch page
-        // return to previous page
+    private void handleReturn(ActionEvent event) {
+        switchScene(event, "/homepage.fxml");
     }
 
-    private void handleBookAppointment() {
-        // switch page
-        // go to next page
+    private void handleBookAppointment(ActionEvent event) {
+        switchScene(event,"/appointment.fxml");
     }
 
     private void loadAppointments() {
@@ -103,5 +109,19 @@ public class AppointmentSchedulePage {
         card.getChildren().addAll(header, nameLabel, timeLabel, addressLabel);
 
         return card;
+    }
+
+    private void switchScene(ActionEvent event, String fxmlFile) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Could not load FXML file: " + fxmlFile);
+        }
     }
 }
