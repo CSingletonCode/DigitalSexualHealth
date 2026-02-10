@@ -44,7 +44,8 @@ public class TrackerController{
 
         PopupController controller = fxmlLoader.getController();
         controller.setStage(popupStage);
-        controller.setDatabase(this.symptomsDatabase);
+        controller.setSymptomsDatabase(this.symptomsDatabase);
+
         controller.setTrackerController(this);
 
         popupStage.show();
