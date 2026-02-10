@@ -15,8 +15,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Load the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/homepage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/Login.fxml"));
         Parent root = fxmlLoader.load();
+
+        DatabaseManager.initialiseDatabase();
 
         // Create the scene (Width, Height)
         scene = new Scene(root, 335, 600);
