@@ -128,6 +128,13 @@ public class PopupController {
         enterButton.setDisable(true);
     }
 
+    public void unlock(){
+        dateField.setDisable(false);
+        descriptionField.setDisable(false);
+        cancelButton.setDisable(false);
+        enterButton.setDisable(false);
+    }
+
     public void hideDropDown(){
         optionsBox.setVisible(false);
         optionsScroll.setVisible(false);

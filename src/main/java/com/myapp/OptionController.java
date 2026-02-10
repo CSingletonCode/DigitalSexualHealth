@@ -17,6 +17,7 @@ public class OptionController {
     private void pickOption(){
         this.popupController.hideDropDown();
         this.popupController.setName(optionLabel.getText());
+        this.popupController.unlock();
     }
 
     public void setOption(String option){
