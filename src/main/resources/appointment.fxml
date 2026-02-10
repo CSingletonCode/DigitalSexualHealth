@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" spacing="18.0" styleClass="root" stylesheets="@appointmentPageStyle.css" fx:controller="com.myapp.AppointmentPage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="returnButton" mnemonicParsing="false" text="←" />
+
+      <Label styleClass="header-label" text="Book an Appointment" />
+
+      <VBox spacing="5.0" styleClass="clinic-card">
+         <children>
+            <Label fx:id="currentClinic" styleClass="clinic-name" text="Clinic 1" />
+            <Label fx:id="currentClinicAddress" styleClass="clinic-address" text="36 Burgess Road, Southampton, SO16 5NE" wrapText="true" />
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </VBox>
+
+      <VBox spacing="8.0">
+         <children>
+            <Label styleClass="field-label" text="Appointment Date" />
+            <DatePicker fx:id="appointmentDatePicker" maxWidth="1.7976931348623157E308" prefHeight="45.0" promptText="YYYY/MM/DD" />
+         </children>
+      </VBox>
+
+      <VBox spacing="8.0">
+         <children>
+            <Label styleClass="field-label" text="Appointment Time" />
+            <ComboBox fx:id="appointmentTimeBox" maxWidth="1.7976931348623157E308" prefHeight="45.0" promptText="Select a time" />
+         </children>
+      </VBox>
+
+      <VBox spacing="8.0">
+         <children>
+            <Label styleClass="field-label" text="Appointment Purpose" />
+            <TextArea fx:id="appointmentPurposeText" prefHeight="120.0" promptText="Describe the reason..." wrapText="true" />
+         </children>
+      </VBox>
+
+      <VBox alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="appointmentSubmitButton" maxWidth="1.7976931348623157E308" minHeight="50.0" text="Submit" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+   </padding>
+</VBox>

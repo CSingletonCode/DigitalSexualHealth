@@ -1,0 +1,111 @@
+/* --- Global Styles --- */
+.root {
+    -fx-background-color: #FFFFFF;
+    -fx-font-family: "Segoe UI", sans-serif;
+    /* We keep colors as variables, as they don't cause the Size error */
+    -fx-accent-purple: #6C54B6;
+    -fx-light-bg: #EFEBF7;
+}
+
+/* --- Navigation & Titles --- */
+#returnButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: #7B61FF;
+    -fx-font-size: 26px;
+    -fx-cursor: hand;
+}
+
+.header-label {
+    -fx-text-fill: #222222;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+/* --- Clinic Info Card --- */
+.clinic-card {
+    -fx-background-color: #F9F7FF;
+    -fx-background-radius: 15px; /* Added px */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 4);
+}
+
+.clinic-name {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+.clinic-address {
+    -fx-font-size: 13px;
+    -fx-text-fill: #666666;
+}
+
+.field-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #444444;
+    -fx-font-size: 14px;
+}
+
+/* --- Consistent Input Styling --- */
+.date-picker, .combo-box, .text-area {
+    -fx-background-color: -fx-light-bg;
+    /* FIXED: Removed variable and used direct value with px */
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-insets: 0px;
+}
+
+/* Internal field consistency */
+.date-picker > .text-field,
+.combo-box > .list-cell,
+.text-area .content {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0px;
+    -fx-prompt-text-fill: #A0A0A0;
+    -fx-padding: 10px 12px 10px 12px; /* Added px to all */
+}
+
+/* Aligning Icons and Arrows */
+.date-picker > .arrow-button > .button-content > .arrow,
+.combo-box > .arrow-button > .arrow {
+    -fx-background-color: -fx-accent-purple;
+}
+
+/* --- Popups & Dropdowns --- */
+.date-picker-popup {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: -fx-accent-purple;
+    -fx-background-radius: 12px 12px 0px 0px;
+}
+
+.date-picker-popup > .month-year-pane .label { -fx-text-fill: white; }
+
+.date-picker-popup > .calendar-grid > .day-cell:selected {
+    -fx-background-color: -fx-accent-purple;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+}
+
+.combo-box-popup .list-cell:filled:hover {
+    -fx-background-color: -fx-light-bg;
+    -fx-text-fill: -fx-accent-purple;
+}
+
+/* --- Submit Button --- */
+#appointmentSubmitButton {
+    -fx-background-color: -fx-accent-purple;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 30px;
+    -fx-cursor: hand;
+}
+
+#appointmentSubmitButton:hover { -fx-background-color: #5A4499; }
