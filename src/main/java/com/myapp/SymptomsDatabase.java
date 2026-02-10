@@ -20,7 +20,7 @@ public class SymptomsDatabase {
         }
     }
 
-    private ArrayList<SymptomEntry> getAllSymptoms() throws IOException {
+    public ArrayList<SymptomEntry> getAllSymptoms() throws IOException {
         trackerFile = new File(FILE_PATH);
         if (!trackerFile.exists()) {
             return new ArrayList<>();

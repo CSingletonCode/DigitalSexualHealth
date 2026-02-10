@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="600.0" style="-fx-border-color: #4c039b;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="305.0" spacing="5.0" style="-fx-border-color: #4c039b;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.BoxController">
    <children>
-      <VBox prefHeight="52.0" prefWidth="598.0">
-         <children>
-            <Label contentDisplay="CENTER" prefHeight="58.0" prefWidth="153.0" text="Label" />
-         </children>
-      </VBox>
-      <Label prefHeight="46.0" prefWidth="601.0" text="Label" />
-      <VBox>
-         <children>
-            <Label alignment="TOP_LEFT" prefHeight="172.0" prefWidth="598.0" text="Label" />
-         </children>
-      </VBox>
+      <Label fx:id="nameLabel" contentDisplay="CENTER" maxWidth="177.0" minWidth="76.0" prefHeight="18.0" prefWidth="177.0" text="Label" />
+      <VBox prefHeight="52.0" prefWidth="598.0" />
+      <Label fx:id="dateLabel" maxWidth="177.0" minWidth="177.0" prefHeight="46.0" prefWidth="177.0" text="Label" />
+      <VBox />
+      <Label fx:id="descriptionLabel" alignment="TOP_LEFT" maxWidth="305.0" minWidth="305.0" prefHeight="172.0" prefWidth="305.0" text="Label" />
    </children>
+   <padding>
+      <Insets left="5.0" />
+   </padding>
 </VBox>

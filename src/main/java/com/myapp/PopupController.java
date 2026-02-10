@@ -14,6 +14,7 @@ import java.io.IOException;
 public class PopupController {
     private SymptomsDatabase symptomsDatabase;
     private Stage stage;
+    private TrackerController trackerController;
 
     @FXML
     private TextField nameField;
@@ -30,6 +31,10 @@ public class PopupController {
         this.stage = stage;
     }
 
+    public void setTrackerController(TrackerController trackerController) {
+        this.trackerController = trackerController;
+    }
+
     @FXML
     private void cancel() throws IOException{
         this.stage.close();
@@ -39,6 +44,7 @@ public class PopupController {
     private void submit() throws IOException{
         SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getText(), descriptionField.getText());
         symptomsDatabase.recordSymptom(newSymptom);
-        cancel();
+        trackerController.displaySymptoms();
+        this.stage.close();
     }
 }

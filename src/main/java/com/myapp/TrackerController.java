@@ -2,21 +2,33 @@ package com.myapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class TrackerController{
 
     private SymptomsDatabase symptomsDatabase;
 
-    public TrackerController() throws IOException{
+    @FXML
+    private ScrollPane scroll;
+    @FXML
+    private VBox scrollbox;
+
+    @FXML
+    public void initialize() throws IOException{
         this.symptomsDatabase = new SymptomsDatabase();
+        displaySymptoms();
     }
 
     @FXML
@@ -32,8 +44,23 @@ public class TrackerController{
 
         PopupController controller = fxmlLoader.getController();
         controller.setStage(popupStage);
-        controller.setDatabase(symptomsDatabase);
+        controller.setDatabase(this.symptomsDatabase);
+        controller.setTrackerController(this);
 
         popupStage.show();
+    }
+
+    @FXML
+    public void displaySymptoms() throws IOException{
+        scrollbox.getChildren().clear();
+        ArrayList<SymptomEntry> tracked = this.symptomsDatabase.getAllSymptoms();
+        for (SymptomEntry symptomEntry : tracked){
+            FXMLLoader fxmlLoader = new FXMLLoader(SymptomsPage.class.getResource("/SymptomBox.fxml"));
+            Node symptomBox = fxmlLoader.load();
+            BoxController boxController = fxmlLoader.getController();
+
+            boxController.setData(symptomEntry);
+            scrollbox.getChildren().add(symptomBox);
+        }
     }
 }

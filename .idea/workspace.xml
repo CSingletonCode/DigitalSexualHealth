@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Fifth commit - local repository for tracked symptoms completed">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/SymptomBox.fxml" afterDir="false" />
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Sixth commit - Adding symptoms to database">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/BoxController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/localdata/enteredSymptoms.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/enteredSymptoms.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/SymptomsDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/SymptomsDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/TrackerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/TrackerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SymptomBox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SymptomBox.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/newSymptom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/newSymptom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/symptoms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/symptoms.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/newSymptom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/newSymptom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/symptoms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/symptoms.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -109,7 +113,7 @@
       <updated>1770035544628</updated>
       <workItem from="1770035545783" duration="336000" />
       <workItem from="1770485730012" duration="1943000" />
-      <workItem from="1770489523667" duration="12404000" />
+      <workItem from="1770489523667" duration="20432000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -159,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770642034824</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Sixth commit - Adding symptoms to database">
+      <option name="closed" value="true" />
+      <created>1770666834924</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1770666834924</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +194,7 @@
     <MESSAGE value="Third commit - New symptom form shows and closes" />
     <MESSAGE value="Fourth commit - local repository for tracked symptoms" />
     <MESSAGE value="Fifth commit - local repository for tracked symptoms completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fifth commit - local repository for tracked symptoms completed" />
+    <MESSAGE value="Sixth commit - Adding symptoms to database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sixth commit - Adding symptoms to database" />
   </component>
 </project>
