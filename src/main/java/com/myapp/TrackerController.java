@@ -1,6 +1,7 @@
 package com.myapp;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -33,7 +34,7 @@ public class TrackerController{
 
     @FXML
     private void addNew() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(SymptomsPage.class.getResource("/newSymptom.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/newSymptom.fxml"));
         Parent newSymForm = fxmlLoader.load();
         Scene newForm = new Scene(newSymForm);
 
@@ -56,7 +57,7 @@ public class TrackerController{
         scrollbox.getChildren().clear();
         ArrayList<SymptomEntry> tracked = this.symptomsDatabase.getAllSymptoms();
         for (SymptomEntry symptomEntry : tracked){
-            FXMLLoader fxmlLoader = new FXMLLoader(SymptomsPage.class.getResource("/SymptomBox.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/SymptomBox.fxml"));
             Node symptomBox = fxmlLoader.load();
             BoxController boxController = fxmlLoader.getController();
             boxController.setTrackerController(this);
@@ -66,5 +67,12 @@ public class TrackerController{
     }
 
     @FXML
-    public void goHome() throws IOException{}
+    public void goHome(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/homepage.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

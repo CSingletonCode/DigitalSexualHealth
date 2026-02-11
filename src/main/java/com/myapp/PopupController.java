@@ -89,7 +89,7 @@ public class PopupController {
                 ArrayList<String> registered = this.registeredDatabase.getRegistered();
                 for (String symptom : registered) {
                     if (symptom.toLowerCase().startsWith(nameField.getText().toLowerCase()) || nameField.getText().isEmpty()) {
-                        FXMLLoader fxmlLoader = new FXMLLoader(SymptomsPage.class.getResource("/RegisteredOption.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/RegisteredOption.fxml"));
                         Node option = fxmlLoader.load();
                         OptionController optionController = fxmlLoader.getController();
                         optionController.setPopup(this);
@@ -108,7 +108,7 @@ public class PopupController {
             ArrayList<String> registered = this.registeredDatabase.getRegistered();
             for (String symptom : registered) {
                 if (symptom.toLowerCase().startsWith(nameField.getText().toLowerCase()) || nameField.getText().isEmpty()) {
-                    FXMLLoader fxmlLoader = new FXMLLoader(SymptomsPage.class.getResource("/RegisteredOption.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/RegisteredOption.fxml"));
                     Node option = fxmlLoader.load();
                     OptionController optionController = fxmlLoader.getController();
                     optionController.setPopup(this);
