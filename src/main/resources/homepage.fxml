@@ -62,7 +62,7 @@
 
     <VBox spacing="8.0">
         <Label styleClass="sub-header" text="Quick status" />
-        <Label styleClass="status-text" text="Last symptom log: {time of last symptom log}" />
-        <Label styleClass="status-text" text="Next appointment: {date of next appt}" />
+        <Label fx:id="symptom_log_label" styleClass="status-text" text="Last symptom log: {time of last symptom log}" />
+        <Label fx:id="next_appt_label" styleClass="status-text" text="Next appointment: {date of next appt}" />
     </VBox>
 </VBox>

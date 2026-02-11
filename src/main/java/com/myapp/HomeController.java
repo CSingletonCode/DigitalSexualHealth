@@ -10,16 +10,29 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HomeController {
 
     @FXML private HBox logOut;
     @FXML private Label name_label;
+    @FXML private Label symptom_log_label;
+    @FXML private Label next_appt_label;
     @FXML private VBox symptomsCard, chatCard, evaluationCard, apptCard;
 
-    public void initialize() {
+    public void initialize() throws IOException {
         String firstName = userSession.getInstance().getFirstName();
+
+        //String nextAppt = DatabaseManager.getLastAppointment();
+
+
         name_label.setText("back, " + firstName);
+        ArrayList<SymptomEntry> symptomList = SymptomsDatabase.getAllSymptoms();
+        String lastLog = symptomList.get(symptomList.size() - 1).getName();
+
+        symptom_log_label.setText("Last symptom log: " + lastLog);
+        //next_appt_label.setText("Next appointment: " + nextAppt);
+
     }
     @FXML
     private void handleNavigation(MouseEvent event) {
