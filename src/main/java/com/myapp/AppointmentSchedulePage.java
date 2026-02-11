@@ -17,6 +17,10 @@ import javafx.geometry.Pos;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Locale;
 
 public class AppointmentSchedulePage {
 
@@ -29,10 +33,11 @@ public class AppointmentSchedulePage {
     @FXML
     private VBox appointmentListContainer;
 
+
     @FXML
     public void initialize() {
-        returnButton.setOnAction(event -> handleReturn(event));
-        bookAppointmentButton.setOnAction(event -> handleBookAppointment(event));
+        returnButton.setOnAction(this::handleReturn);
+        bookAppointmentButton.setOnAction(this::handleBookAppointment);
 
         // Database placeholder
         loadAppointments();
@@ -51,26 +56,27 @@ public class AppointmentSchedulePage {
             appointmentListContainer.getChildren().clear();
         }
 
-        // Database placeholder
-        int databaseRecordCount = 1;
+        List<VBox> cards = DatabaseManager.pullAppointments();
+        appointmentListContainer.getChildren().addAll(cards);
+    }
 
-        for (int i = 0; i < databaseRecordCount; i++) {
+    public static String getAppStatus(String date) {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-            // Database placeholder
+            LocalDate apptDate = LocalDate.parse(date, formatter);
+            LocalDate today = LocalDate.now();
 
-            VBox card = createAppointmentCard(
-                    "16th December 2025",
-                    "UPCOMING",
-                    "Clinic 1",
-                    "14:00",
-                    "38, Burgess Road, SO16 5NE"
-            );
-
-            appointmentListContainer.getChildren().add(card);
+            if (apptDate.isBefore(today)) return "Past";
+            if (apptDate.isAfter(today)) return "Upcoming";
+            return "Today";
+        } catch (Exception e) {
+            System.err.println("Failed to parse date: " + date);
+            return "Unknown";
         }
     }
 
-    private VBox createAppointmentCard(String date, String status, String name, String time, String address) {
+    public static VBox createAppointmentCard(String date, String status, String name, String time, String address) {
         VBox card = new VBox();
         card.setSpacing(8.0);
         card.getStyleClass().add("schedule-card");

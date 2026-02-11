@@ -15,7 +15,7 @@
         <Insets bottom="30.0" left="25.0" right="25.0" top="40.0" />
     </padding>
 
-    <HBox alignment="CENTER_LEFT">
+    <HBox fx:id="logOut" onMouseClicked="#handleNavigation" alignment="CENTER_LEFT">
         <Label styleClass="text-silent" text="Log Out" />
         <Region HBox.hgrow="ALWAYS" />
         <Label styleClass="icon-purple" text="⚙" >
@@ -25,7 +25,7 @@
 
     <VBox spacing="5.0">
         <Label styleClass="header-text" text="Welcome" />
-        <Label styleClass="header-text" text="back, {name}👋" />
+        <Label fx:id="name_label" styleClass="header-text" text="back, {name}👋" />
         <Label styleClass="text-silent" text="Here's what you can do today:" />
     </VBox>
 

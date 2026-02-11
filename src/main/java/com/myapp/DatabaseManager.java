@@ -1,5 +1,10 @@
 package com.myapp;
+import javafx.scene.layout.VBox;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class DatabaseManager {
     private static final String URL = "jdbc:sqlite:app_database.db";
@@ -9,7 +14,7 @@ public class DatabaseManager {
     }
 
     public static void initialiseDatabase() {
-        String sql = "CREATE TABLE IF NOT EXISTS users (" +
+        String userTable = "CREATE TABLE IF NOT EXISTS users (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "email TEXT NOT NULL," +
                 "password TEXT," +
@@ -18,9 +23,31 @@ public class DatabaseManager {
                 "dob TEXT," +
                 "gender TEXT" +
                 ");";
+
+        String clinicTable = "CREATE TABLE IF NOT EXISTS clinics (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "name TEXT," +
+                "address TEXT" +
+                "lat REAL" +
+                "long REAL" +
+                ");";
+
+        String appTable = "CREATE TABLE IF NOT EXISTS appointments(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "user_id INTEGER," +
+                "clinic_id INTEGER," +
+                "date TEXT," +
+                "time TEXT," +
+                "purpose TEXT," +
+                "FOREIGN KEY (user_id) REFERENCES users(id)," +
+                "FOREIGN KEY (clinic_id) REFERENCES clinics(id)" +
+                ");";
+
         try (Connection con = getConnection();
             Statement smt = con.createStatement()) {
-                smt.execute(sql);
+                smt.execute(userTable);
+                smt.execute(clinicTable);
+                smt.execute(appTable);
                 System.out.println("Database init");
             }
         catch (Exception e){
@@ -65,5 +92,128 @@ public class DatabaseManager {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static void fetchAndStartSession(String email) {
+        String sql = "SELECT id, email, first_name, last_name, dob, gender FROM users WHERE email = ?";
+
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            psmt.setString(1, email);
+            ResultSet rs = psmt.executeQuery();
+
+            if (rs.next()) {
+                userSession.login(
+                        rs.getInt("id"),
+                        rs.getString("email"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("dob"),
+                        rs.getString("gender")
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<VBox> pullAppointments() {
+        int currentId = userSession.getInstance().getUserId();
+        List<VBox> cards = new ArrayList<>();
+
+        String sql = "SELECT appointments.*,clinics.name,clinics.address " +
+                "FROM appointments " +
+                "JOIN clinics ON appointments.clinic_id = clinics.id " +
+                "WHERE appointments.user_id = ?";
+
+        try (Connection con = getConnection();
+            PreparedStatement psmt = con.prepareStatement(sql)) {
+            psmt.setInt(1, currentId);
+            ResultSet rs = psmt.executeQuery();
+            while (rs.next()) {
+                String appDate = rs.getString("date");
+                System.out.print(appDate);
+                String status = AppointmentSchedulePage.getAppStatus(appDate);
+                VBox card = AppointmentSchedulePage.createAppointmentCard(
+                    appDate,
+                    status,
+                    rs.getString("name"),
+                    rs.getString("time"),
+                    rs.getString("address")
+                );
+                cards.add(card);
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return cards;
+    }
+
+    public static boolean insertAppointment(String date, String time, int clinic_id, String purpose) {
+        String sql = "INSERT INTO appointments (user_id, clinic_id, date, time, purpose) " +
+                "VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection con = getConnection();
+            PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            int id = userSession.getInstance().getUserId();
+
+            psmt.setInt(1, id);
+            psmt.setInt(2, clinic_id);
+            psmt.setString(3, date);
+            psmt.setString(4, time);
+            psmt.setString(5, purpose);
+
+            psmt.executeUpdate();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static List<Clinic> getClinics(double userLat, double userLon) {
+        List<Clinic> clinics = new ArrayList<>();
+        String sql = "SELECT * FROM clinics";
+
+        try (Connection conn = getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                double dist = calculateDistance(userLat, userLon, rs.getDouble("lat"), rs.getDouble("long"));
+                Clinic c = new Clinic(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("address"),
+                        rs.getDouble("lat"),
+                        rs.getDouble("long"),
+                        dist);
+
+                clinics.add(c);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        clinics.sort(Comparator.comparingDouble(Clinic::getDistance));
+
+        return clinics;
+    }
+
+    public static double calculateDistance(double userLat, double userLon, double clinicLat, double clinicLon) {
+        double earthRadius = 6371; // Kilometers
+        double dLat = Math.toRadians(clinicLat - userLat);
+        double dLon = Math.toRadians(clinicLon - userLon);
+
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(Math.toRadians(userLat)) * Math.cos(Math.toRadians(clinicLat)) *
+                        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return earthRadius * c;
     }
 }

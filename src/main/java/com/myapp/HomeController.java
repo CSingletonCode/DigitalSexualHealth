@@ -3,18 +3,27 @@ package com.myapp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import java.io.IOException;
 
 public class HomeController {
+
+    @FXML private HBox logOut;
+    @FXML private Label name_label;
     @FXML private VBox symptomsCard, chatCard, evaluationCard, apptCard;
 
+    public void initialize() {
+        String firstName = userSession.getInstance().getFirstName();
+        name_label.setText("back, " + firstName);
+    }
     @FXML
     private void handleNavigation(MouseEvent event) {
-        VBox source = (VBox) event.getSource();
+        Object source = event.getSource();
         String targetFxml = "";
 
         if (source == symptomsCard) {
@@ -25,6 +34,9 @@ public class HomeController {
             targetFxml = "/evaluation.fxml";
         } else if(source == apptCard) {
             targetFxml = "/appointmentSchedule.fxml";
+        } else if(source == logOut){
+            userSession.cleanUserSession();
+            targetFxml = "/login.fxml";
         }
 
         if (!targetFxml.isEmpty()) {

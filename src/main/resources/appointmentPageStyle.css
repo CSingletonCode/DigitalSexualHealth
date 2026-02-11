@@ -45,6 +45,43 @@
     -fx-font-size: 14px;
 }
 
+.clinic-card-primary {
+    -fx-background-color: #F9F7FF;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 4);
+    -fx-cursor: hand;
+}
+
+.clinic-dropdown-container {
+    -fx-background-color: white;
+    -fx-border-color: -fx-light-bg;
+    -fx-border-width: 0px 2px 2px 2px;
+    -fx-background-radius: 0px 0px 15px 15px;
+    -fx-border-radius: 0px 0px 15px 15px;
+}
+
+.clinic-list-row {
+    -fx-padding: 12px;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #EFEBF7 transparent;
+}
+
+.clinic-list-row:hover {
+    -fx-background-color: -fx-light-bg;
+}
+
+.clinic-distance-tag {
+    -fx-font-size: 11px;
+    -fx-text-fill: -fx-accent-purple;
+    -fx-font-weight: bold;
+}
+
+.clinic-list-row .clinic-name-small {
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
+}
+
 /* --- Consistent Input Styling --- */
 .date-picker, .combo-box, .text-area {
     -fx-background-color: -fx-light-bg;
