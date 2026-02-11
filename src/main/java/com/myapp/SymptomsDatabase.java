@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class SymptomsDatabase {
     private static final String FILE_PATH = "localdata/enteredSymptoms.json";
-    private ObjectMapper mapper = new ObjectMapper();
-    private File trackerFile;
+    private static ObjectMapper mapper = new ObjectMapper();
+    private static File trackerFile;
 
     public SymptomsDatabase() throws IOException {
         trackerFile = new File(FILE_PATH);
@@ -20,7 +20,7 @@ public class SymptomsDatabase {
         }
     }
 
-    public ArrayList<SymptomEntry> getAllSymptoms() throws IOException {
+    public static ArrayList<SymptomEntry> getAllSymptoms() throws IOException {
         trackerFile = new File(FILE_PATH);
         if (!trackerFile.exists()) {
             return new ArrayList<>();
