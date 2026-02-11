@@ -9,14 +9,25 @@
 
       <Label styleClass="header-label" text="Book an Appointment" />
 
-      <VBox spacing="5.0" styleClass="clinic-card">
+      <VBox fx:id="accordionWrapper" spacing="0.0" style="-fx-background-color: transparent;">
          <children>
-            <Label fx:id="currentClinic" styleClass="clinic-name" text="Clinic 1" />
-            <Label fx:id="currentClinicAddress" styleClass="clinic-address" text="36 Burgess Road, Southampton, SO16 5NE" wrapText="true" />
+            <VBox fx:id="closestClinicBox" onMouseClicked="#toggleClinicList" spacing="5.0" styleClass="clinic-card-primary">
+               <children>
+                  <Label fx:id="currentClinic" styleClass="clinic-name" text="Loading closest clinic..." />
+                  <Label fx:id="currentClinicAddress" styleClass="clinic-address" text="Detecting location..." wrapText="true" />
+                  <Label text="▼ Click to change clinic" style="-fx-font-size: 10px; -fx-text-fill: gray;" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+
+            <ScrollPane fx:id="clinicScrollPane" fitToWidth="true" managed="false" prefHeight="400.0" maxHeight="600.0" visible="false">
+               <content>
+                  <VBox fx:id="clinicListContainer" spacing="2.0" styleClass="dropdown-list-container" />
+               </content>
+            </ScrollPane>
          </children>
-         <padding>
-            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-         </padding>
       </VBox>
 
       <VBox spacing="8.0">
