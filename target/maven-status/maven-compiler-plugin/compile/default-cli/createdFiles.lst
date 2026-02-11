@@ -1,0 +1,6 @@
+com\myapp\Symptom.class
+com\myapp\SymptomHandling.class
+com\myapp\SymptomsPage.class
+com\myapp\TrackerController.class
+module-info.class
+com\myapp\PopupController.class
