@@ -15,10 +15,10 @@
         <Insets bottom="30.0" left="25.0" right="25.0" top="40.0" />
     </padding>
 
-    <HBox fx:id="logOut" onMouseClicked="#handleNavigation" alignment="CENTER_LEFT">
-        <Label styleClass="text-silent" text="Log Out" />
+    <HBox alignment="CENTER_LEFT">
+        <Label fx:id="logOut" onMouseClicked="#handleNavigation" styleClass="text-silent" text="Log Out" />
         <Region HBox.hgrow="ALWAYS" />
-        <Label styleClass="icon-purple" text="⚙" >
+        <Label fx:id="settings" onMouseClicked="#handleNavigation" styleClass="icon-purple" text="⚙" >
             <HBox.margin><Insets left="15.0" /></HBox.margin>
         </Label>
     </HBox>

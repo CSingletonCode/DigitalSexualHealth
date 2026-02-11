@@ -13,8 +13,7 @@ import java.io.IOException;
 
 public class HomeController {
 
-    @FXML private HBox logOut;
-    @FXML private Label name_label;
+    @FXML private Label name_label,logOut,settings;
     @FXML private VBox symptomsCard, chatCard, evaluationCard, apptCard;
 
     public void initialize() {
@@ -37,6 +36,8 @@ public class HomeController {
         } else if(source == logOut){
             userSession.cleanUserSession();
             targetFxml = "/login.fxml";
+        } else if(source == settings){
+            targetFxml = "/settings.fxml";
         }
 
         if (!targetFxml.isEmpty()) {
