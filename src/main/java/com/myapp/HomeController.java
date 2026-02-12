@@ -22,7 +22,7 @@ public class HomeController {
     public void initialize() throws IOException {
         String firstName = userSession.getInstance().getFirstName();
 
-        //String nextAppt = DatabaseManager.getLastAppointment();
+        String nextAppt = DatabaseManager.getNextAppt();
 
 
         name_label.setText("back, " + firstName);
@@ -30,7 +30,7 @@ public class HomeController {
         String lastLog = symptomList.get(symptomList.size() - 1).getName();
 
         symptom_log_label.setText("Last symptom log: " + lastLog);
-        //next_appt_label.setText("Next appointment: " + nextAppt);
+        next_appt_label.setText("Next appointment: " + nextAppt);
 
     }
     @FXML

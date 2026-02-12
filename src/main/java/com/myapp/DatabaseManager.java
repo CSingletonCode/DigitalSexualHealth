@@ -122,10 +122,11 @@ public class DatabaseManager {
         int currentId = userSession.getInstance().getUserId();
         List<VBox> cards = new ArrayList<>();
 
-        String sql = "SELECT appointments.*,clinics.name,clinics.address " +
+        String sql = "SELECT appointments.*, clinics.name, clinics.address " +
                 "FROM appointments " +
                 "JOIN clinics ON appointments.clinic_id = clinics.id " +
-                "WHERE appointments.user_id = ?";
+                "WHERE appointments.user_id = ? " +
+                "ORDER BY appointments.date , appointments.time ";
 
         try (Connection con = getConnection();
             PreparedStatement psmt = con.prepareStatement(sql)) {
@@ -175,7 +176,32 @@ public class DatabaseManager {
         }
     }
 
-    public static List<Clinic> getClinics(double userLat, double userLon) {
+    public static String getNextAppt() {
+        int currentId = userSession.getInstance().getUserId();
+
+        String sql = "SELECT date, time FROM appointments " +
+                "WHERE user_id = ? AND (date > date('now') OR (date = date('now') AND time > time('now'))) " +
+                "ORDER BY date , time LIMIT 1";
+
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            psmt.setInt(1, currentId);
+            ResultSet rs = psmt.executeQuery();
+
+            if (rs.next()) {
+                String date = rs.getString("date");
+                String time = rs.getString("time");
+                return date + " at " + time;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "No upcoming appointments";
+    }
+
+        public static List<Clinic> getClinics(double userLat, double userLon) {
         List<Clinic> clinics = new ArrayList<>();
         String sql = "SELECT * FROM clinics";
 
