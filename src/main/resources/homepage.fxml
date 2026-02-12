@@ -50,7 +50,15 @@
         </VBox>
 
         <VBox fx:id="evaluationCard" onMouseClicked="#handleNavigation" styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="1">
-            <Label styleClass="icon-purple" text="✔️=" />
+            <Label styleClass="icon-purple">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@Checkmark.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Label>
             <Label styleClass="card-title" text="Evaluation" />
             <Label styleClass="card-desc" text="Perform an evaluation of your health" wrapText="true" />
         </VBox>
