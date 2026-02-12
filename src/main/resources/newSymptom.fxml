@@ -6,14 +6,30 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="232.0" prefWidth="335.0" style="-fx-border-color: #4c039b;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.PopupController">
+<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="232.0" prefWidth="335.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.PopupController">
    <children>
-      <TextField fx:id="nameField" layoutX="17.0" layoutY="14.0" onMouseClicked="#showDropDown" prefHeight="25.0" prefWidth="228.0" promptText="Click to show registered, or enter own" style="-fx-border-color: #4c039b; -fx-border-radius: 10; -fx-background-radius: 10;" />
-      <TextField fx:id="dateField" layoutX="17.0" layoutY="50.0" prefHeight="25.0" prefWidth="228.0" promptText="Enter Date" style="-fx-border-color: #4c039b; -fx-background-radius: 10; -fx-border-radius: 10;" />
-      <TextField fx:id="descriptionField" alignment="TOP_LEFT" layoutX="17.0" layoutY="91.0" prefHeight="95.0" prefWidth="299.0" promptText="Enter Description" style="-fx-border-color: #4c039b; -fx-background-radius: 10; -fx-border-radius: 10;" />
-      <Button fx:id="enterButton" layoutX="17.0" layoutY="193.0" mnemonicParsing="false" onAction="#submit" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #4c039b; -fx-background-radius: 10;" text="Enter" textAlignment="CENTER" textFill="WHITE" />
-      <Button fx:id="cancelButton" layoutX="260.0" layoutY="15.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #4c039b; -fx-background-radius: 10;" text="Cancel" textFill="WHITE" />
-      <ScrollPane fx:id="optionsScroll" hbarPolicy="NEVER" layoutX="24.0" layoutY="38.0" prefHeight="95.0" prefWidth="216.0" style="-fx-border-color: #4c039b;" visible="false">
+      <TextField fx:id="nameField" layoutX="17.0" layoutY="14.0" onMouseClicked="#showDropDown"
+                 prefHeight="25.0" prefWidth="228.0" promptText="Click to show registered, or enter own"
+                 styleClass="fancy-text-field" />
+
+      <TextField fx:id="dateField" layoutX="17.0" layoutY="50.0" prefHeight="25.0" prefWidth="228.0"
+                 promptText="Enter Date" styleClass="fancy-text-field" />
+
+      <TextField fx:id="descriptionField" alignment="TOP_LEFT" layoutX="17.0" layoutY="91.0"
+                 prefHeight="95.0" prefWidth="299.0" promptText="Enter Description"
+                 styleClass="fancy-text-field" />
+
+      <Button fx:id="enterButton" layoutX="17.0" layoutY="193.0" mnemonicParsing="false"
+              onAction="#submit" prefHeight="25.0" prefWidth="84.0" styleClass="submit-button"
+              text="Enter" textAlignment="CENTER" />
+
+      <Button fx:id="cancelButton" layoutX="260.0" layoutY="15.0" mnemonicParsing="false"
+              onAction="#cancel" styleClass="button-small" text="Cancel" />
+
+      <ScrollPane fx:id="optionsScroll" hbarPolicy="NEVER" layoutX="24.0" layoutY="38.0"
+                  prefHeight="95.0" prefWidth="216.0" styleClass="edge-to-edge-scroll" visible="false">
          <content>
             <VBox fx:id="optionsBox" prefHeight="94.0" prefWidth="214.0" spacing="2.0" visible="false" />
          </content>

@@ -9,7 +9,7 @@ public class userSession {
     private String lastName;
     private String Dob;
     private String gender;
-    private boolean highContrast = false;
+    private boolean highContrast = true;
 
     private userSession(int userId,String email, String firstName, String lastName, String Dob, String gender) {
         this.userId = userId;

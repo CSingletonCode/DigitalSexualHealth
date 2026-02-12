@@ -72,8 +72,10 @@
     -fx-background-color: #f0f8ff;
 }
 
+/* --- Consistent Input Styling --- */
 .date-picker, .combo-box, .text-area {
-    -fx-background-color: -fx-light-bg;
+    /* Change -fx-light-bg to the actual hex value: #EFEBF7 */
+    -fx-background-color: #EFEBF7;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
     -fx-background-insets: 0px;
@@ -90,7 +92,7 @@
 
 .date-picker > .arrow-button > .button-content > .arrow,
 .combo-box > .arrow-button > .arrow {
-    -fx-background-color: -fx-accent-purple;
+    -fx-background-color: #6C54B6; /* Use the hex code directly */
 }
 
 /* =========================================
@@ -239,8 +241,10 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);
 }
 
+/* --- Popups & Dropdowns --- */
 .date-picker-popup > .month-year-pane {
-    -fx-background-color: -fx-accent-purple;
+    /* Change -fx-accent-purple to #6C54B6 */
+    -fx-background-color: #6C54B6;
     -fx-background-radius: 12px 12px 0px 0px;
 }
 
@@ -265,5 +269,19 @@
 .edge-to-edge-scroll .scroll-bar:vertical .thumb {
     -fx-background-color: #D1C4E9;
     -fx-background-radius: 10px;
+}
+
+.button-small {
+    -fx-background-color: -fx-accent-purple;
+    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px 15px; /* Size based on text length */
+    -fx-font-size: 12px;
+}
+
+.edge-to-edge-scroll,
+.edge-to-edge-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
 }
 

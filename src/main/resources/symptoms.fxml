@@ -14,7 +14,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #4c039b;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="addSymptomButton" contentDisplay="CENTER" layoutX="112.0" layoutY="94.0" mnemonicParsing="false" onAction="#addNew" style="-fx-background-color: #4C039B; -fx-background-radius: 10;" text="Enter New Symptom" textAlignment="CENTER" textFill="WHITE" />
-            <ScrollPane fx:id="scroll" hbarPolicy="NEVER" layoutY="141.0" prefHeight="459.0" prefWidth="335.0" vbarPolicy="ALWAYS">
+            <ScrollPane styleClass="edge-to-edge-scroll" fx:id="scroll" hbarPolicy="NEVER" layoutY="141.0" prefHeight="459.0" prefWidth="335.0" vbarPolicy="ALWAYS">
                <content>
                   <VBox fx:id="scrollbox" alignment="TOP_CENTER" prefHeight="458.0" prefWidth="322.0" spacing="10.0" style="-fx-border-color: #4c039b;">
                      <padding>

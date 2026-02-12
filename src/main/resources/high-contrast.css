@@ -79,6 +79,10 @@
     -fx-text-fill: #FFFFFF !important;
 }
 
+.root .date-picker-popup > .month-year-pane {
+    -fx-background-color: #FFFF00 !important; /* High contrast yellow */
+}
+
 .fancy-text-field:focused {
     -fx-border-color: #FFFF00 !important;
     -fx-border-width: 3px;
@@ -128,4 +132,22 @@
 .text-area {
     -fx-display-caret: true;
     -fx-caret-fill: #FFFFFF !important;
+}
+
+.root .button-small {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+}
+
+.edge-to-edge-scroll,
+.edge-to-edge-scroll > .viewport,
+.edge-to-edge-scroll .content {
+    -fx-background-color: #000000 !important;
+    -fx-background: #000000 !important;
+}
+
+/* Ensure the VBox inside also turns black */
+#scrollbox {
+    -fx-background-color: #000000 !important;
 }
