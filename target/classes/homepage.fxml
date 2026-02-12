@@ -41,10 +41,10 @@
             <Label styleClass="card-desc" text="Track your symptoms" wrapText="true" />
         </VBox>
 
-        <VBox fx:id="adviceCard" onMouseClicked="#handleNavigation" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <VBox fx:id="chatCard" onMouseClicked="#handleNavigation" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="0">
             <Label styleClass="icon-purple" text="💬" />
-            <Label styleClass="card-title" text="Advice" />
-            <Label styleClass="card-desc" text="Some external available advice" wrapText="true" />
+            <Label styleClass="card-title" text="Chat" />
+            <Label styleClass="card-desc" text="Chat to a doctor or an AI chatbot" wrapText="true" />
         </VBox>
 
         <VBox fx:id="evaluationCard" onMouseClicked="#handleNavigation" styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="1">
@@ -62,7 +62,7 @@
 
     <VBox spacing="8.0">
         <Label styleClass="sub-header" text="Quick status" />
-        <Label fx:id="symptom_log_label" styleClass="status-text" text="Last symptom log: {time of last symptom log}" />
-        <Label fx:id="next_appt_label" styleClass="status-text" text="Next appointment: {date of next appt}" />
+        <Label styleClass="status-text" text="Last symptom log: {time of last symptom log}" />
+        <Label styleClass="status-text" text="Next appointment: {date of next appt}" />
     </VBox>
 </VBox>
