@@ -151,3 +151,17 @@
 #scrollbox {
     -fx-background-color: #000000 !important;
 }
+
+.root .switch-button {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+}
+
+.root .switch-button:selected {
+    -fx-background-color: #FFFF00 !important; /* Yellow for 'ON' state */
+}
+
+.root .switch-button .label {
+    -fx-background-color: #FFFFFF !important;
+}

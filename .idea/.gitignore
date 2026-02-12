@@ -7,3 +7,14 @@
 /dataSources/
 /dataSources.local.xml
 *.db
+
+# Maven build output
+target/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+out/
+
+# Log files
+*.log

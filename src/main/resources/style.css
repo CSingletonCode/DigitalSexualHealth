@@ -285,3 +285,28 @@
     -fx-background: transparent;
 }
 
+.switch-button {
+    -fx-background-color: #7056a1; /* The purple background */
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+/* Creating the white circle (thumb) using a nested background */
+.switch-button .label {
+    -fx-background-color: white;
+    -fx-background-radius: 100;
+    -fx-min-width: 18px;
+    -fx-min-height: 18px;
+    -fx-translate-x: -12px; /* Start position (OFF) */
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+/* When the toggle is selected (ON) */
+.switch-button:selected {
+    -fx-background-color: #4c039b; /* Darker purple when on */
+}
+
+.switch-button:selected .label {
+    -fx-translate-x: 12px; /* Move thumb to the right */
+}
