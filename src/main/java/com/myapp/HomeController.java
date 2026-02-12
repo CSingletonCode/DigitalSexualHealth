@@ -17,7 +17,7 @@ public class HomeController {
     @FXML private Label name_label;
     @FXML private Label symptom_log_label;
     @FXML private Label next_appt_label;
-    @FXML private VBox symptomsCard, chatCard, evaluationCard, apptCard;
+    @FXML private VBox symptomsCard, adviceCard, evaluationCard, apptCard;
 
     public void initialize() throws IOException {
         String firstName = userSession.getInstance().getFirstName();
@@ -40,8 +40,8 @@ public class HomeController {
 
         if (source == symptomsCard) {
             targetFxml = "/symptoms.fxml";
-        } else if(source == chatCard) {
-            targetFxml = "/chat.fxml";
+        } else if(source == adviceCard) {
+            targetFxml = "/advice.fxml";
         } else if(source == evaluationCard) {
             targetFxml = "/evaluation.fxml";
         } else if(source == apptCard) {
