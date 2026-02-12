@@ -25,7 +25,6 @@ public class HomeController {
 
         String nextAppt = DatabaseManager.getNextAppt();
 
-
         name_label.setText("back, " + firstName);
         ArrayList<SymptomEntry> symptomList = SymptomsDatabase.getAllSymptoms();
         String lastLog;
@@ -34,7 +33,6 @@ public class HomeController {
         } else {
             lastLog = "No symptoms found";
         }
-
 
         symptom_log_label.setText("Last symptom log: " + lastLog);
         next_appt_label.setText("Next appointment: " + nextAppt);
@@ -71,7 +69,10 @@ public class HomeController {
             Scene scene = new Scene(loader.load());
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            ThemeManager.applyTheme(scene);
+            if (!fxml.equals("/login.fxml")){
+                ThemeManager.applyTheme(scene);
+            }
+
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
