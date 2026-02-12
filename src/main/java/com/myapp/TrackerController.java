@@ -34,7 +34,7 @@ public class TrackerController{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/newSymptom.fxml"));
         Parent newSymForm = fxmlLoader.load();
         Scene newForm = new Scene(newSymForm);
-
+        ThemeManager.applyTheme(newForm);
         Stage popupStage = new Stage();
         popupStage.setScene(newForm);
         popupStage.initStyle(StageStyle.UNDECORATED);
@@ -69,6 +69,7 @@ public class TrackerController{
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+        ThemeManager.applyTheme(scene);
         stage.setScene(scene);
         stage.show();
     }

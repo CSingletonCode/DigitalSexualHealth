@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class HomeController {
 
     @FXML private Label logOut;
+    @FXML private Label settings;
     @FXML private Label name_label;
     @FXML private Label symptom_log_label;
     @FXML private Label next_appt_label;
@@ -27,7 +28,13 @@ public class HomeController {
 
         name_label.setText("back, " + firstName);
         ArrayList<SymptomEntry> symptomList = SymptomsDatabase.getAllSymptoms();
-        String lastLog = symptomList.get(symptomList.size() - 1).getName();
+        String lastLog;
+        if (!symptomList.isEmpty()) {
+            lastLog = symptomList.get(symptomList.size() - 1).getName();
+        } else {
+            lastLog = "No symptoms found";
+        }
+
 
         symptom_log_label.setText("Last symptom log: " + lastLog);
         next_appt_label.setText("Next appointment: " + nextAppt);
@@ -49,6 +56,8 @@ public class HomeController {
         } else if(source == logOut){
             userSession.cleanUserSession();
             targetFxml = "/login.fxml";
+        } else if(source == settings){
+            targetFxml = "/settings.fxml";
         }
 
         if (!targetFxml.isEmpty()) {
@@ -62,6 +71,7 @@ public class HomeController {
             Scene scene = new Scene(loader.load());
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            ThemeManager.applyTheme(scene);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
