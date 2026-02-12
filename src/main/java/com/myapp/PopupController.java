@@ -2,6 +2,7 @@ package com.myapp;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -62,10 +63,18 @@ public class PopupController {
 
     @FXML
     private void submit() throws IOException{
-        SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getText(), descriptionField.getText());
-        symptomsDatabase.recordSymptom(newSymptom);
-        trackerController.displaySymptoms();
-        this.stage.close();
+        if (!nameField.getText().isEmpty() &&
+            !dateField.getText().isEmpty() &&
+            !descriptionField.getText().isEmpty()){
+            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getText(), descriptionField.getText());
+            symptomsDatabase.recordSymptom(newSymptom);
+            trackerController.displaySymptoms();
+            this.stage.close();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Invalid symptom details");
+            alert.showAndWait();
+        }
     }
 
     @FXML
