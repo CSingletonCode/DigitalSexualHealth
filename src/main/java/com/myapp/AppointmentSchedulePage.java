@@ -122,6 +122,7 @@ public class AppointmentSchedulePage {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
+            ThemeManager.applyTheme(scene);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
