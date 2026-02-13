@@ -27,9 +27,13 @@ public class DatabaseManager {
         String clinicTable = "CREATE TABLE IF NOT EXISTS clinics (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "name TEXT," +
-                "address TEXT" +
-                "lat REAL" +
-                "long REAL" +
+                "address TEXT," +
+                "lat REAL," +
+                "long REAL," +
+                "email TEXT," +
+                "phone TEXT," +
+                "urgentPhone TEXT," +
+                "hours TEXT" +
                 ");";
 
         String appTable = "CREATE TABLE IF NOT EXISTS appointments(" +
@@ -201,9 +205,11 @@ public class DatabaseManager {
         return "No upcoming appointments";
     }
 
-        public static List<Clinic> getClinics(double userLat, double userLon) {
+        public static List<Clinic> getClinics() {
         List<Clinic> clinics = new ArrayList<>();
         String sql = "SELECT * FROM clinics";
+        double userLat = userSession.getInstance().getMyLat();
+        double userLon = userSession.getInstance().getMyLon();
 
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement();
@@ -217,7 +223,12 @@ public class DatabaseManager {
                         rs.getString("address"),
                         rs.getDouble("lat"),
                         rs.getDouble("long"),
-                        dist);
+                        dist,
+                        rs.getString("email"),
+                        rs.getString("phone"),
+                        rs.getString("urgentPhone"),
+                        rs.getString("hours")
+                );
 
                 clinics.add(c);
             }

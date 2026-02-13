@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
 
 public class AppointmentPage {
 
@@ -24,30 +23,24 @@ public class AppointmentPage {
     @FXML private ComboBox<String> appointmentTimeBox;
     @FXML private TextArea appointmentPurposeText;
     @FXML private Button appointmentSubmitButton;
-    @FXML private VBox clinicListContainer, closestClinicBox;
-    @FXML private ScrollPane clinicScrollPane;
-    private int selected_clinic_id = -1;
-    List<Clinic> clinics;
+    private Clinic clinic;
+
+    public void setClinicData(Clinic cl) {
+        this.clinic = cl;
+        if (clinic != null) {
+            currentClinic.setText(clinic.getName());
+            currentClinicAddress.setText(clinic.getAddress());
+
+        }
+    }
 
     @FXML
     public void initialize() {
-        double myLat = 50.9097;
-        double myLon = -1.4044;
-        clinics = DatabaseManager.getClinics(myLat,myLon);
-        if (!clinics.isEmpty()) {
-            Clinic closest = clinics.get(0);
-            updateHeader(closest);
-
-            for (Clinic clinic : clinics) {
-                clinicListContainer.getChildren().add(createListRow(clinic));
-            }
-        }
-
-        appointmentTimeBox.getItems().addAll("09:00", "10:00", "11:00", "14:00", "15:00");
         returnButton.setOnAction(this::handleReturn);
         appointmentSubmitButton.setOnAction(this::handleSubmit);
 
-        // Disable past dates in DatePicker
+        appointmentTimeBox.getItems().addAll("09:00", "10:00", "11:00", "14:00", "15:00");
+
         appointmentDatePicker.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
@@ -56,64 +49,26 @@ public class AppointmentPage {
         });
     }
 
-    @FXML
-    private void toggleClinicList() {
-        boolean isVisible = clinicScrollPane.isVisible();
-        clinicScrollPane.setVisible(!isVisible);
-        clinicScrollPane.setManaged(!isVisible);
-    }
-
-    private HBox createListRow(Clinic clinic) {
-        HBox row = new HBox(10);
-        row.getStyleClass().add("clinic-list-row");
-
-        VBox textData = new VBox(2);
-
-        Label name = new Label(clinic.getName());
-        name.getStyleClass().add("clinic-name-small");
-
-        Label dist = new Label(String.format("%.1f km away", clinic.getDistance()));
-        dist.getStyleClass().add("clinic-distance-tag");
-
-        textData.getChildren().addAll(name, dist);
-        row.getChildren().add(textData);
-
-        row.setOnMouseClicked(e -> {
-            updateHeader(clinic);
-            toggleClinicList();
-        });
-
-        return row;
-    }
-
-    private void updateHeader(Clinic clinic) {
-        currentClinic.setText(clinic.getName());
-        currentClinicAddress.setText(clinic.getAddress() + " (" + String.format("%.1f", clinic.getDistance()) + " km)");
-        selected_clinic_id = clinic.getId();
-    }
-
     private void handleReturn(ActionEvent event) {
-        switchScene(event,"/appointmentSchedule.fxml");
+        switchScene(event,"/clinicPage.fxml");
     }
 
     private void handleSubmit(ActionEvent event) {
-        // Check if all fields are filled
         if (validateFields()) {
 
             boolean success = DatabaseManager.insertAppointment(
                     appointmentDatePicker.getValue().toString(),
                     appointmentTimeBox.getValue(),
-                    selected_clinic_id,
+                    clinic.getId(),
                     appointmentPurposeText.getText().trim()
                     );
             if (success) {
                 showAlert("Success",null,"Appointment booked successfully!");
+                switchScene(event,"/appointmentSchedule.fxml");
             } else {
                 showAlert("Error",null,"Appointment booking failed. Try again later.");
             }
 
-            // Close the current window
-            switchScene(event,"/appointmentSchedule.fxml");
         } else {
             // Show error if fields are missing
             showAlert("Incomplete Form","Missing Information","Please ensure all fields are filled before submitting.");

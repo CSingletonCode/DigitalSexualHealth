@@ -125,10 +125,6 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 4);
 }
 
-.clinic-card-primary {
-    -fx-cursor: hand;
-}
-
 .clinic-name {
     -fx-font-weight: bold;
     -fx-font-size: 14px;
@@ -277,6 +273,7 @@
     -fx-background-radius: 10px;
     -fx-padding: 5px 15px; /* Size based on text length */
     -fx-font-size: 12px;
+    -fx-cursor: hand;
 }
 
 .edge-to-edge-scroll,

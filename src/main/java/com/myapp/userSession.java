@@ -10,6 +10,8 @@ public class userSession {
     private String Dob;
     private String gender;
     private boolean highContrast = false;
+    private double myLat = 50.9097;
+    private double myLon = -1.4044;
 
     private userSession(int userId,String email, String firstName, String lastName, String Dob, String gender) {
         this.userId = userId;
@@ -52,4 +54,8 @@ public class userSession {
     }
     public boolean isHighContrast() { return highContrast; }
     public void setHighContrast(boolean highContrast) { this.highContrast = highContrast; }
+    public double getMyLat() { return myLat; }
+    public double getMyLon() { return myLon; }
+    public void setMyLat(double myLat) { this.myLat = myLat; }
+    public void setMyLon(double myLon) { this.myLon = myLon; }
 }

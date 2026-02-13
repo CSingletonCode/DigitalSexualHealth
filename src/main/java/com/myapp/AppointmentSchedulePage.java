@@ -47,7 +47,7 @@ public class AppointmentSchedulePage {
     }
 
     private void handleBookAppointment(ActionEvent event) {
-        switchScene(event,"/appointment.fxml");
+        switchScene(event,"/clinicPage.fxml");
     }
 
     private void loadAppointments() {
