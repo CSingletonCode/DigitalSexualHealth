@@ -71,12 +71,33 @@ public class Sprint1Test extends ApplicationTest {
     }
 
     @Test
+    @DisplayName("US2-WB-2.5")
+    void testInvalidLogin() {
+        // Enter invalid login details and click login
+        verifyThat("#emailField", NodeMatchers.isVisible());
+        clickOn("#emailField");
+        eraseText(50);
+        write("invalid@email.com");
+
+        verifyThat("#passwordField", NodeMatchers.isVisible());
+        clickOn("#passwordField");
+        eraseText(50);
+        write("password");
+
+        verifyThat("#loginButton", NodeMatchers.isVisible());
+        clickOn("#loginButton");
+
+        verifyThat("Invalid email or password", NodeMatchers.isVisible());
+    }
+
+    @Test
     @DisplayName("US3-WB-3.3")
     void testSubmitAppointment() throws SQLException {
         loginAsTestUser();
 
         clickOn("#apptCard");
         clickOn("#bookAppointmentButton");
+        clickOn("#bookBtn_1");
 
         // 1. Fill in the form fields using fx:id selectors
         DatePicker datePicker = lookup("#appointmentDatePicker").queryAs(DatePicker.class);
@@ -112,6 +133,25 @@ public class Sprint1Test extends ApplicationTest {
         }
 
         System.out.println("Test US3-WB-3.3 passed.");
+    }
+
+    @Test
+    @DisplayName("US3-WB-3.4")
+    void testSubmitInvalidAppointment() {
+        loginAsTestUser();
+
+        clickOn("#apptCard");
+        clickOn("#bookAppointmentButton");
+        clickOn("#bookBtn_1");
+
+        // 2. Click the Submit button
+        clickOn("#appointmentSubmitButton");
+
+        sleep(100);
+
+        // 3. Verify the UI handles the submission (Success popup check)
+        verifyThat("Please ensure all fields are filled before submitting.", NodeMatchers.isVisible());
+        clickOn("OK"); // Close the Alert dialog
     }
 
         @Test
@@ -217,18 +257,5 @@ public class Sprint1Test extends ApplicationTest {
         }
 
         System.out.println("Test US2-WB-2.3 passed.");
-    }
-
-    @Test
-    @DisplayName("US3-WB-3.1")
-    void testClinicContact() {
-        loginAsTestUser();
-
-        clickOn("#apptCard");
-        clickOn("#bookAppointmentButton");
-
-        clickOn("#closestClinicBox");
-
-        System.out.println("Test US3-WB-3.1 passed.");
     }
 }

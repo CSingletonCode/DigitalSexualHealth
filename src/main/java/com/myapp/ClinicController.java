@@ -84,6 +84,7 @@ public class ClinicController {
         Button bookBtn = new Button("Book");
         bookBtn.getStyleClass().add("button-small");
         bookBtn.setOnAction(event -> controller.switchScene(event, "/appointment.fxml", clinic));
+        bookBtn.setId("bookBtn_" + clinic.getId());
 
         Button infoBtn = new Button("More Info");
         infoBtn.getStyleClass().add("button-small");
