@@ -66,7 +66,8 @@ public class PopupController {
         if (!nameField.getText().isEmpty() &&
             !dateField.getText().isEmpty() &&
             !descriptionField.getText().isEmpty()){
-            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getText(), descriptionField.getText());
+            String userID = String.valueOf(userSession.getInstance().getUserId());
+            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getText(), descriptionField.getText(), userID);
             symptomsDatabase.recordSymptom(newSymptom);
             trackerController.displaySymptoms();
             this.stage.close();

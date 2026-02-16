@@ -53,7 +53,14 @@ public class TrackerController{
     public void displaySymptoms() throws IOException{
         scrollbox.getChildren().clear();
         ArrayList<SymptomEntry> tracked = this.symptomsDatabase.getAllSymptoms();
-        for (SymptomEntry symptomEntry : tracked){
+        String userID = String.valueOf(userSession.getInstance().getUserId());
+        ArrayList<SymptomEntry> filteredList = new ArrayList<>();
+        for (SymptomEntry symptomEntry : tracked) {
+            if (symptomEntry.getUserID().equals(userID)) {
+                filteredList.add(symptomEntry);
+            }
+        }
+        for (SymptomEntry symptomEntry : filteredList){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/SymptomBox.fxml"));
             Node symptomBox = fxmlLoader.load();
             BoxController boxController = fxmlLoader.getController();
