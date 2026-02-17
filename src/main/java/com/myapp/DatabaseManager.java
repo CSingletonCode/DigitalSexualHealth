@@ -5,6 +5,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 
 public class DatabaseManager {
     private static final String URL = "jdbc:sqlite:app_database.db";
@@ -60,12 +62,15 @@ public class DatabaseManager {
     }
 
     public static boolean saveToDatabase(User user) {
+        Argon2 argon2 = Argon2Factory.create();
+        String hashedPassword = argon2.hash(10,65536,1, user.getPassword());
+
         String sql = "INSERT INTO users (email, password, first_name, last_name, dob, gender) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection con = getConnection();
         PreparedStatement psmt = con.prepareStatement(sql)){
             psmt.setString(1,user.getEmail());
-            psmt.setString(2,user.getPassword());
+            psmt.setString(2,hashedPassword);
             psmt.setString(3, user.getFirstName());
             psmt.setString(4, user.getLastName());
             psmt.setString(5, user.getDob());
@@ -76,26 +81,35 @@ public class DatabaseManager {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        } finally {
+            argon2.wipeArray(user.getPassword().toCharArray());
         }
     }
 
     public static boolean validateLogin(String email, String password) {
-        String sql = "SELECT count(1) FROM users WHERE email = ? AND password = ?";
+        String sql = "SELECT password FROM users where email = ?";
+        String storedHash = null;
 
         try (Connection con = getConnection();
             PreparedStatement psmt = con.prepareStatement(sql)) {
             psmt.setString(1,email);
 
-            psmt.setString(2,password);
             try (ResultSet rs = psmt.executeQuery()){
                 if (rs.next()){
-                    return rs.getInt(1) > 0;
+                    storedHash = rs.getString("password");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+
+        if (storedHash == null){ return false; }
+        Argon2 argon2 = Argon2Factory.create();
+        try{
+            return argon2.verify(storedHash,password.toCharArray());
+        } finally {
+            argon2.wipeArray(password.toCharArray());
+        }
     }
 
     public static void fetchAndStartSession(String email) {
