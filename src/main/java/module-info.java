@@ -1,4 +1,4 @@
-module org.example.demo {
+module com.myapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
