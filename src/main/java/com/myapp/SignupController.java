@@ -46,7 +46,12 @@ public class SignupController {
             setErrorStyle(emailField);
             Errors.append("Please enter a valid email address.\n");
             isValid = false;
-        } else {
+        } else if (DatabaseManager.emailExists(email)) {
+            setErrorStyle(emailField);
+            Errors.append("This email is already registered.\n");
+            isValid = false;
+        }
+        else {
             clearErrorStyle(emailField);
         }
 

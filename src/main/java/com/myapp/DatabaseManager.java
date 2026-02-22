@@ -18,7 +18,7 @@ public class DatabaseManager {
     public static void initialiseDatabase() {
         String userTable = "CREATE TABLE IF NOT EXISTS users (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "email TEXT NOT NULL," +
+                "email TEXT NOT NULL UNIQUE," +
                 "password TEXT," +
                 "first_name TEXT," +
                 "last_name TEXT," +
@@ -62,13 +62,16 @@ public class DatabaseManager {
     }
 
     public static boolean saveToDatabase(User user) {
-        Argon2 argon2 = Argon2Factory.create();
-        String hashedPassword = argon2.hash(10,65536,1, user.getPassword());
 
         String sql = "INSERT INTO users (email, password, first_name, last_name, dob, gender) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
+
+        Argon2 argon2 = Argon2Factory.create();
+
         try (Connection con = getConnection();
         PreparedStatement psmt = con.prepareStatement(sql)){
+            String hashedPassword = argon2.hash(10,65536,1, user.getPassword());
+
             psmt.setString(1,user.getEmail());
             psmt.setString(2,hashedPassword);
             psmt.setString(3, user.getFirstName());
@@ -77,12 +80,30 @@ public class DatabaseManager {
             psmt.setString(6, user.getGender());
 
             psmt.executeUpdate();
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         } finally {
-            argon2.wipeArray(user.getPassword().toCharArray());
+            if (user.getPassword() != null) {
+                argon2.wipeArray(user.getPassword().toCharArray());
+            }
+        }
+    }
+
+    public static boolean emailExists(String email) {
+        String sql = "SELECT 1 FROM users WHERE email = ?";
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            psmt.setString(1, email);
+            try (ResultSet rs = psmt.executeQuery()) {
+                return rs.next();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

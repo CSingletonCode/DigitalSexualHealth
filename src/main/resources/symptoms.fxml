@@ -2,31 +2,26 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.TrackerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.TrackerController">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #4c039b;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="120.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="addSymptomButton" contentDisplay="CENTER" layoutX="112.0" layoutY="94.0" mnemonicParsing="false" onAction="#addNew" style="-fx-background-color: #4C039B; -fx-background-radius: 10;" text="Enter New Symptom" textAlignment="CENTER" textFill="WHITE" />
-            <ScrollPane styleClass="edge-to-edge-scroll" fx:id="scroll" hbarPolicy="NEVER" layoutY="141.0" prefHeight="459.0" prefWidth="335.0" vbarPolicy="ALWAYS">
+            <Button fx:id="addSymptomButton" contentDisplay="CENTER" layoutX="79.0" layoutY="141.0" mnemonicParsing="false" onAction="#addNew" prefHeight="31.0" prefWidth="178.0" styleClass="button-small" text="Enter New Symptom" textAlignment="CENTER" textFill="WHITE" />
+            <ScrollPane fx:id="scroll" hbarPolicy="NEVER" layoutY="197.0" prefHeight="402.0" prefWidth="335.0" styleClass="edge-to-edge-scroll" vbarPolicy="ALWAYS">
                <content>
-                  <VBox fx:id="scrollbox" alignment="TOP_CENTER" prefHeight="458.0" prefWidth="322.0" spacing="10.0" style="-fx-border-color: #4c039b;">
+                  <VBox fx:id="scrollbox" alignment="TOP_CENTER" prefHeight="453.0" prefWidth="322.0" spacing="10.0" style="-fx-border-color: #4c039b;">
                      <padding>
                         <Insets bottom="10.0" top="10.0" />
                      </padding></VBox>
                </content></ScrollPane>
-            <Text fill="#4c039b" layoutX="67.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Track Your Symptoms">
-               <font>
-                  <Font name="System Bold" size="21.0" />
-               </font>
-            </Text>
-            <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: #4c039b; -fx-background-radius: 10;" text="Back" textFill="WHITE" />
+            <Label alignment="TOP_LEFT" layoutX="16.0" layoutY="59.0" prefHeight="74.0" prefWidth="157.0" styleClass="header-label" text="Track your Symptoms" wrapText="true" />
+            <Button fx:id="returnButton" mnemonicParsing="false" onAction="#goHome" text="←" />
          </children>
       </AnchorPane>
    </center>
