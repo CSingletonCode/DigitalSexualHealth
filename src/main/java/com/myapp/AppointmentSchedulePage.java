@@ -38,7 +38,6 @@ public class AppointmentSchedulePage {
         returnButton.setOnAction(this::handleReturn);
         bookAppointmentButton.setOnAction(this::handleBookAppointment);
 
-        // Database placeholder
         loadAppointments();
     }
 
@@ -56,6 +55,39 @@ public class AppointmentSchedulePage {
         }
 
         List<VBox> cards = DatabaseManager.pullAppointments();
+
+        cards.sort((a, b) -> {
+            Label dateLabelA = (Label) a.lookup(".card-date-header");
+            Label dateLabelB = (Label) b.lookup(".card-date-header");
+            LocalDate dateA = LocalDate.parse(dateLabelA.getText());
+            LocalDate dateB = LocalDate.parse(dateLabelB.getText());
+
+            // compare dates
+            int cmp = dateB.compareTo(dateA);
+            if (cmp != 0) return cmp;
+
+            // if same date, compare time
+            Label timeLabelA = (Label) a.getChildren().stream()
+                    .filter(node -> node instanceof Label && ((Label) node).getText().startsWith("Time:"))
+                    .map(node -> (Label) node)
+                    .findFirst()
+                    .orElse(null);
+
+            Label timeLabelB = (Label) b.getChildren().stream()
+                    .filter(node -> node instanceof Label && ((Label) node).getText().startsWith("Time:"))
+                    .map(node -> (Label) node)
+                    .findFirst()
+                    .orElse(null);
+
+            if (timeLabelA == null || timeLabelB == null) return 0;
+
+            // parse time (HH:mm)
+            String tA = timeLabelA.getText().substring(6);
+            String tB = timeLabelB.getText().substring(6);
+
+            return tB.compareTo(tA);
+        });
+
         appointmentListContainer.getChildren().addAll(cards);
     }
 
