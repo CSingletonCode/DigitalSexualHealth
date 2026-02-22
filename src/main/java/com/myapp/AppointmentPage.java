@@ -15,6 +15,8 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
 
 public class AppointmentPage {
 
@@ -26,6 +28,7 @@ public class AppointmentPage {
     @FXML private TextArea appointmentPurposeText;
     @FXML private Button appointmentSubmitButton;
     private Clinic clinic;
+    private final List<String> allTimeSlots = List.of("09:00", "10:00", "11:00", "14:00", "15:00", "16:00");
 
     public void setClinicData(Clinic cl) {
         this.clinic = cl;
@@ -47,6 +50,10 @@ public class AppointmentPage {
                 super.updateItem(date, empty);
                 setDisable(empty || date.isBefore(LocalDate.now()));
             }
+        });
+
+        appointmentDatePicker.valueProperty().addListener((obs, oldDate, newDate) -> {
+            updateAvailableTimes(newDate);
         });
     }
 
@@ -130,7 +137,40 @@ public class AppointmentPage {
         alert.setTitle(title);
         alert.setHeaderText(Header);
         alert.setContentText(message);
-        alert.getDialogPane().setPrefWidth(200);
+        alert.getDialogPane().setPrefWidth(250);
         alert.showAndWait();
+    }
+
+    private void updateAvailableTimes(LocalDate selectedDate) {
+
+        appointmentTimeBox.getItems().clear();
+
+        if (selectedDate == null) return;
+
+        LocalDate today = LocalDate.now();
+
+        // If Not today → show all times
+        if (!selectedDate.equals(today)) {
+            appointmentTimeBox.getItems().addAll(allTimeSlots);
+            return;
+        }
+
+        if (appointmentTimeBox.getItems().isEmpty()) {
+            showAlert("No Available Slots", null, "There are no available time slots remaining for today.");
+        }
+
+        // If today → filter times after now
+        LocalTime now = LocalTime.now();
+
+        for (String timeSlot : allTimeSlots) {
+            LocalTime slotTime = LocalTime.parse(timeSlot);
+
+            if (slotTime.isAfter(now)) {
+                appointmentTimeBox.getItems().add(timeSlot);
+            }
+        }
+
+        // Clear previous selection if invalid
+        appointmentTimeBox.setValue(null);
     }
 }
