@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox fx:id="mainContainer" spacing="25" alignment="TOP_CENTER" prefWidth="400" prefHeight="700"
+      styleClass="root" xmlns:fx="https://javafx.com/fxml/1" fx:controller="com.myapp.EvaluationController">
+    <padding>
+        <Insets top="40" right="20" bottom="20" left="20" />
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button fx:id="returnButton" text="&lt;-" onAction="#handleBackToHome" styleClass="return-button"/>
+        <Label text="Evaluation" styleClass="header-text" />
+    </HBox>
+
+    <VBox spacing="15" VBox.vgrow="ALWAYS">
+        <VBox styleClass="card" spacing="10" alignment="CENTER">
+            <Label fx:id="q1Label" text="Loading question..." wrapText="true" textAlignment="CENTER" styleClass="sub-header"/>
+            <HBox spacing="10" alignment="CENTER">
+                  <ToggleButton text="Yes" fx:id="q1Yes" styleClass="button-small">
+                      <toggleGroup><ToggleGroup fx:id="group1"/></toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton text="Not Sure" fx:id="q1Maybe" styleClass="button-small" toggleGroup="$group1"/>
+                  <ToggleButton text="No" fx:id="q1No" styleClass="button-small" toggleGroup="$group1"/>
+            </HBox>
+        </VBox>
+
+        <VBox styleClass="card" spacing="10" alignment="CENTER">
+            <Label fx:id="q2Label" text="Loading question..." wrapText="true" textAlignment="CENTER" styleClass="sub-header"/>
+            <HBox spacing="10" alignment="CENTER">
+                <ToggleButton text="Yes" fx:id="q2Yes" styleClass="button-small">
+                    <toggleGroup><ToggleGroup fx:id="group2"/></toggleGroup>
+                </ToggleButton>
+                <ToggleButton text="Not Sure" fx:id="q2Maybe" styleClass="button-small" toggleGroup="$group2"/>
+                <ToggleButton text="No" fx:id="q2No" styleClass="button-small" toggleGroup="$group2"/>
+            </HBox>
+        </VBox>
+
+        <VBox styleClass="card" spacing="10" alignment="CENTER">
+            <Label fx:id="q3Label" text="Loading question..." wrapText="true" textAlignment="CENTER" styleClass="sub-header"/>
+            <HBox spacing="10" alignment="CENTER">
+                <ToggleButton text="Yes" fx:id="q3Yes" styleClass="button-small">
+                    <toggleGroup><ToggleGroup fx:id="group3"/></toggleGroup>
+                </ToggleButton>
+                <ToggleButton text="Not Sure" fx:id="q3Maybe" styleClass="button-small" toggleGroup="$group3"/>
+                <ToggleButton text="No" fx:id="q3No" styleClass="button-small" toggleGroup="$group3"/>
+            </HBox>
+        </VBox>
+    </VBox>
+
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Go back" onAction="#handlePrevPage" style="-fx-background-color: transparent;" styleClass="text-silent"/>
+        <Button fx:id="nextButton" text="Next" onAction="#handleNextPage" styleClass="submit-button" prefWidth="150"/>
+    </HBox>
+</VBox>
+
+
+

@@ -224,6 +224,12 @@
     -fx-padding: 8px 15px;
 }
 
+.submit-button:disabled {
+    -fx-opacity: 0.4;
+    -fx-cursor: default;
+    -fx-background-color: #cccccc !important;
+}
+
 #appointmentSubmitButton:hover, .submit-button:hover {
     -fx-background-color: #5A4499;
 }
@@ -274,6 +280,17 @@
     -fx-padding: 5px 15px; /* Size based on text length */
     -fx-font-size: 12px;
     -fx-cursor: hand;
+}
+
+.button-small:hover {
+    -fx-background-color: #7B61FF;
+    -fx-cursor: hand;
+}
+
+.button-small:selected {
+    -fx-background-color: #B2A4FF;
+    -fx-text-fill: white;
+    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
 }
 
 .edge-to-edge-scroll,
