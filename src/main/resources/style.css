@@ -167,6 +167,40 @@
     -fx-font-weight: bold;
 }
 
+.evaluation-card {
+    -fx-background-color: white;
+    -fx-background-radius: 25;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 15, 0, 0, 5);
+}
+
+.evaluation-sub-header {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #333333;
+}
+
+.button-small-eval {
+    -fx-background-color: #EBE8F7;
+    -fx-background-radius: 15;
+    -fx-text-fill: #555555;
+    -fx-font-size: 14px;
+    -fx-min-width: 85;
+    -fx-min-height: 35;
+    -fx-cursor: hand;
+}
+
+.button-small-eval:hover {
+    -fx-background-color: #DEDAF2;
+}
+
+.button-small-eval:selected {
+    -fx-background-color: #7158B7;
+    -fx-text-fill: white;
+    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 1);
+}
+
+
 /* =========================================
    5. APPOINTMENT SCHEDULE & BADGES
    ========================================= */
@@ -271,6 +305,32 @@
 .edge-to-edge-scroll .scroll-bar:vertical .thumb {
     -fx-background-color: #D1C4E9;
     -fx-background-radius: 10px;
+}
+
+.icon-button {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-max-width: 60;
+    -fx-max-height: 60;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+    -fx-text-fill: #7A59C1;
+    -fx-padding: 0;
+    -fx-alignment: CENTER;
+
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.icon-button:hover {
+    -fx-background-color: #F8F8F8;
+}
+
+.icon-button:disabled {
+    -fx-opacity: 0.5;
+    -fx-background-color: #F0F0F0;
 }
 
 .button-small {

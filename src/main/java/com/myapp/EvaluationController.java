@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EvaluationController {
-    @FXML private Label q1Label, q2Label, q3Label;
+    @FXML private Label q1Label, q2Label, q3Label, nextLabel;
     @FXML private Button nextButton;
     @FXML private ToggleGroup group1, group2, group3;
 
@@ -72,10 +72,12 @@ public class EvaluationController {
         validateSelections();
 
         if (currentPage == 3) {
-            nextButton.setText("Finish");
-            nextButton.setStyle("-fx-background-color: #9444E5FF;");
+            nextLabel.setText("Finish");
+            nextButton.setText(">");
+            nextButton.setStyle("-fx-background-color: #9444E5;");
         } else {
             nextButton.setText("Next");
+            nextButton.setText(">");
             nextButton.setStyle("");
         }
     }
