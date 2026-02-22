@@ -32,7 +32,7 @@
                                         <Label fx:id="appointmentStatus" styleClass="status-badge, upcoming" text="UPCOMING" />
                                     </children>
                                 </HBox>
-                                <Label fx:id="clinicName" styleClass="card-detail-text" text="Name: Clinic 1" />
+                                <Label fx:id="clinicName" styleClass="card-detail-text" text="Name: Clinic 1" wrapText="true" />
                                 <Label fx:id="appointmentTime" styleClass="card-detail-text" text="Time: 14:00" />
                                 <Label fx:id="clinicAddress" styleClass="card-detail-text" text="Address: 38, Burgess Road, SO16 5NE, Southampton" wrapText="true" />
                             </children>

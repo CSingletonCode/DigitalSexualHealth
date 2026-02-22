@@ -90,6 +90,7 @@ public class AppointmentConfirmationController {
         alert.setTitle("Success");
         alert.setHeaderText(null);
         alert.setContentText("Appointment booked successfully!");
+        alert.getDialogPane().setPrefWidth(200);
         alert.initOwner(popupStage);
         alert.showAndWait();
 
@@ -117,6 +118,7 @@ public class AppointmentConfirmationController {
         alert.setTitle(title);
         alert.setHeaderText(Header);
         alert.setContentText(message);
+        alert.getDialogPane().setPrefWidth(200);
         alert.showAndWait();
     }
 

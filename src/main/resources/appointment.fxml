@@ -18,7 +18,7 @@
          <children>
             <VBox prefHeight="102.0" prefWidth="295.0" spacing="5.0" styleClass="clinic-card-primary">
                <children>
-                  <Label fx:id="currentClinic" prefHeight="18.0" prefWidth="137.0" styleClass="clinic-name" text="Current Clinic" />
+                  <Label fx:id="currentClinic" prefHeight="18.0" prefWidth="265.0" styleClass="clinic-name" text="Current Clinic" wrapText="true" />
                   <Label fx:id="currentClinicAddress" alignment="TOP_LEFT" prefHeight="54.0" prefWidth="265.0" styleClass="clinic-address" text="Clinic Address" wrapText="true" />
                </children>
                <padding>

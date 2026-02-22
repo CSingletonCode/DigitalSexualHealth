@@ -130,6 +130,7 @@ public class AppointmentPage {
         alert.setTitle(title);
         alert.setHeaderText(Header);
         alert.setContentText(message);
+        alert.getDialogPane().setPrefWidth(200);
         alert.showAndWait();
     }
 }

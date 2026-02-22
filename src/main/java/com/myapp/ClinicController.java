@@ -55,7 +55,7 @@ public class ClinicController {
         card.setSpacing(8);
         card.getStyleClass().add("schedule-card");
         card.setPadding(new Insets(15, 15, 15, 15));
-        card.setPrefSize(282, 143);
+        card.setPrefSize(282, 125);
 
         HBox header = new HBox();
         header.setAlignment(Pos.CENTER_LEFT);
@@ -63,23 +63,19 @@ public class ClinicController {
 
         Label nameLabel = new Label(clinic.getName());
         nameLabel.getStyleClass().add("card-date-header");
-        Region headerSpacer = new Region();
-        HBox.setHgrow(headerSpacer, Priority.ALWAYS);
+
         Label distanceLabel = new Label(clinic.getStringDistance() + " miles away");
         distanceLabel.setTextFill(Color.BLACK);
-        header.getChildren().addAll(nameLabel, headerSpacer, distanceLabel);
+        header.getChildren().addAll(nameLabel);
 
         Label addressLabel = new Label(clinic.getAddress());
         addressLabel.getStyleClass().add("card-detail-text");
         addressLabel.setWrapText(true);
 
         HBox actionRow = new HBox();
-        actionRow.setAlignment(Pos.CENTER);
+        actionRow.setAlignment(Pos.CENTER_RIGHT);
         actionRow.setSpacing(10.0);
         actionRow.setPrefHeight(38.0);
-
-        Region buttonSpacer = new Region();
-        buttonSpacer.setPrefWidth(82.0);
 
         Button bookBtn = new Button("Book");
         bookBtn.getStyleClass().add("button-small");
@@ -91,7 +87,7 @@ public class ClinicController {
         infoBtn.setStyle("-fx-background-color: #5e6b70;");
         infoBtn.setOnAction(event -> controller.switchScene(event, "/clinicInfoPage.fxml", clinic));
 
-        actionRow.getChildren().addAll(buttonSpacer, bookBtn, infoBtn);
+        actionRow.getChildren().addAll(distanceLabel, bookBtn, infoBtn);
 
         card.getChildren().addAll(header, addressLabel, actionRow);
 
