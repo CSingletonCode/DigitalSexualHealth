@@ -9,7 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -30,7 +32,6 @@ public class AppointmentPage {
         if (clinic != null) {
             currentClinic.setText(clinic.getName());
             currentClinicAddress.setText(clinic.getAddress());
-
         }
     }
 
@@ -54,24 +55,50 @@ public class AppointmentPage {
     }
 
     private void handleSubmit(ActionEvent event) {
-        if (validateFields()) {
 
-            boolean success = DatabaseManager.insertAppointment(
-                    appointmentDatePicker.getValue().toString(),
-                    appointmentTimeBox.getValue(),
-                    clinic.getId(),
-                    appointmentPurposeText.getText().trim()
-                    );
-            if (success) {
-                showAlert("Success",null,"Appointment booked successfully!");
-                switchScene(event,"/appointmentSchedule.fxml");
-            } else {
-                showAlert("Error",null,"Appointment booking failed. Try again later.");
-            }
+        if (!validateFields()) {
+            showAlert("Incomplete Form","Missing Information", "Please ensure all fields are filled before submitting.");
+            return;
+        }
 
-        } else {
-            // Show error if fields are missing
-            showAlert("Incomplete Form","Missing Information","Please ensure all fields are filled before submitting.");
+        try {
+            //load confirmation fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/appointmentConfirmation.fxml"));
+            Parent root = loader.load();
+
+            Stage ownerStage = (Stage) appointmentSubmitButton.getScene().getWindow();
+
+            AppointmentConfirmationController controller = loader.getController();
+
+            controller.setClinic(currentClinic.getText() + "\n" + currentClinicAddress.getText());
+            controller.setClinicID(this.clinic.getId());
+            controller.setDate(appointmentDatePicker.getValue().toString());
+            controller.setTime(appointmentTimeBox.getValue());
+            controller.setPurpose(appointmentPurposeText.getText().trim());
+
+            //create popup stage
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(ownerStage);
+
+            stage.setOnShown(e -> {
+                double ownerContentX = ownerStage.getX() + ownerStage.getScene().getX();
+                double ownerContentY = ownerStage.getY() + ownerStage.getScene().getY();
+
+                double ownerWidth = ownerStage.getScene().getWidth();
+                double ownerHeight = ownerStage.getScene().getHeight();
+
+                stage.setX(ownerContentX + (ownerWidth - stage.getWidth()) / 2);
+                stage.setY(ownerContentY + (ownerHeight - stage.getHeight()) / 2);
+            });
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Error", null, "Unable to open confirmation window.");
         }
     }
 

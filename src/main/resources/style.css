@@ -307,3 +307,50 @@
 .switch-button:selected .label {
     -fx-translate-x: 12px; /* Move thumb to the right */
 }
+
+/* --- Updated Confirmation Page Styling --- */
+.confirmation-card {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 15px;
+    -fx-border-width: 1px;
+}
+
+/* Reduced size to fit 300px width */
+.header-text-small {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+
+.detail-header {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #555555;
+}
+
+.detail-value {
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
+}
+
+/* Red and Green Buttons with identical fixed width */
+.btn-red-fixed, .btn-green-fixed {
+    -fx-pref-width: 95px;
+    -fx-pref-height: 35px;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.btn-red-fixed {
+    -fx-background-color: #FF4D6D;
+}
+.btn-red-fixed:hover { -fx-background-color: #D63D5A; }
+
+.btn-green-fixed {
+    -fx-background-color: #4BD37B;
+}
+.btn-green-fixed:hover { -fx-background-color: #3EB868; }
