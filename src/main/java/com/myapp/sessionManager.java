@@ -16,12 +16,12 @@ public class sessionManager {
         ObjectNode root = mapper.createObjectNode();
         root.put("email", email);
         root.put("has_PIN",has_PIN);
-        mapper.writeValue(new File("loggedIn.json"),root);
+        mapper.writeValue(new File("localdata/loggedIn.json"),root);
     }
 
     public static String[] getSession() throws IOException{
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(new File("loggedIn.json"));
+        JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
         try {
             String email = root.get("email").asText();
             boolean has_PIN = root.get("has_PIN").asBoolean();
@@ -30,5 +30,12 @@ public class sessionManager {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public static void clearSession() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode root = mapper.createObjectNode();
+        mapper.writeValue(new File("localdata/loggedIn.json"),root);
+        System.out.println("clear session");
     }
 }

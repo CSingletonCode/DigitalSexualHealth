@@ -33,6 +33,7 @@ public class WordLoginController {
     @FXML private void handleLogin(){}
 
     @FXML private void toPIN(ActionEvent event) throws IOException{
+        sessionManager.clearSession();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/LoginPIN.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -42,6 +43,7 @@ public class WordLoginController {
     }
 
     @FXML private void changeAccount(ActionEvent event) throws IOException{
+        sessionManager.clearSession();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Login.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

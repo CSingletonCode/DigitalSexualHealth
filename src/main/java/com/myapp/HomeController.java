@@ -39,7 +39,7 @@ public class HomeController {
 
     }
     @FXML
-    private void handleNavigation(MouseEvent event) {
+    private void handleNavigation(MouseEvent event) throws IOException {
         Object source = event.getSource();
         String targetFxml = "";
 
@@ -52,6 +52,7 @@ public class HomeController {
         } else if(source == apptCard) {
             targetFxml = "/appointmentSchedule.fxml";
         } else if(source == logOut){
+            sessionManager.clearSession();
             userSession.cleanUserSession();
             targetFxml = "/login.fxml";
         } else if(source == settings){

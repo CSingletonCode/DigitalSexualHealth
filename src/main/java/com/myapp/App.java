@@ -21,9 +21,9 @@ public class App extends Application {
         String[] current_session = sessionManager.getSession();
         if (current_session != null) {
             if (current_session[1].equals("true")) {
-                page = "/PINLoginController.fxml";
+                page = "/LoginPIN.fxml";
             } else {
-                page = "/WordLoginController.fxml";
+                page = "/LoginPassword.fxml";
             }
         }
 

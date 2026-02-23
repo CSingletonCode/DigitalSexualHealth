@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Control;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
+import javafx.scene.control.CheckBox;
 
 import java.io.IOException;
 
@@ -21,9 +22,12 @@ public class LoginController {
     @FXML
     private TextField passwordField;
 
+    @FXML
+    private CheckBox stayLoggedIn;
+
     // 2. The Button/Hyperlink Action Methods
     @FXML
-    void handleLogin(ActionEvent event) {
+    void handleLogin(ActionEvent event) throws IOException {
         if (!validateinputs()){
             return;
         }
@@ -31,6 +35,9 @@ public class LoginController {
         String password = passwordField.getText();
         if (DatabaseManager.validateLogin(email, password)){
             DatabaseManager.fetchAndStartSession(email);
+            if (stayLoggedIn.isSelected()) {
+                sessionManager.setSession();
+            }
             switchScene(event, "/homepage.fxml");
         } else {
             showAlert("Invalid email or password");
