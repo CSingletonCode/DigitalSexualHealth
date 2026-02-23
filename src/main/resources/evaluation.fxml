@@ -19,9 +19,9 @@
         <Label text="Evaluation" style="-fx-font-size: 26px; -fx-font-weight: 900; -fx-text-fill: black;" />
     </HBox>
 
-    <VBox spacing="25" VBox.vgrow="ALWAYS">
-        <VBox styleClass="evaluation-card" spacing="10" alignment="CENTER">
-            <Label fx:id="q1Label" text="Loading question..." wrapText="true" textAlignment="CENTER" styleClass="evaluation-sub-header"/>
+    <VBox spacing="20" VBox.vgrow="ALWAYS">
+        <VBox styleClass="evaluation-card" spacing="15" alignment="CENTER">
+            <Label fx:id="q1Label" text="Loading question..." wrapText="true" textAlignment="CENTER" prefWidth="320" minHeight="-Infinity" styleClass="evaluation-sub-header"/>
             <HBox spacing="10" alignment="CENTER">
                   <ToggleButton text="Yes" fx:id="q1Yes" styleClass="button-small-eval">
                       <toggleGroup><ToggleGroup fx:id="group1"/></toggleGroup>
@@ -32,7 +32,7 @@
         </VBox>
 
         <VBox styleClass="evaluation-card" spacing="10" alignment="CENTER">
-            <Label fx:id="q2Label" text="Loading question..." wrapText="true" textAlignment="CENTER" styleClass="evaluation-sub-header"/>
+            <Label fx:id="q2Label" text="Loading question..." wrapText="true" textAlignment="CENTER" prefWidth="320" minHeight="-Infinity" styleClass="evaluation-sub-header"/>
             <HBox spacing="10" alignment="CENTER">
                 <ToggleButton text="Yes" fx:id="q2Yes" styleClass="button-small-eval">
                     <toggleGroup><ToggleGroup fx:id="group2"/></toggleGroup>
@@ -43,7 +43,7 @@
         </VBox>
 
         <VBox styleClass="evaluation-card" spacing="10" alignment="CENTER">
-            <Label fx:id="q3Label" text="Loading question..." wrapText="true" textAlignment="CENTER" styleClass="evaluation-sub-header"/>
+            <Label fx:id="q3Label" text="Loading question..." wrapText="true" textAlignment="CENTER" prefWidth="320" minHeight="-Infinity" styleClass="evaluation-sub-header"/>
             <HBox spacing="10" alignment="CENTER">
                 <ToggleButton text="Yes" fx:id="q3Yes" styleClass="button-small-eval">
                     <toggleGroup><ToggleGroup fx:id="group3"/></toggleGroup>

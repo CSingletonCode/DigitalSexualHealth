@@ -177,3 +177,34 @@
     -fx-border-color: #FFFF00 !important;
     -fx-border-width: 3px !important;
 }
+
+.evaluation-card {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+    -fx-backgroud-radius: 25px;
+    -fx-border-radius: 25px;
+}
+
+.evaluation-sub-header {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.button-small-eval {
+    -fx-background-color: #000000 !important;
+    -fx-text-fill: #FFFFFF !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 1px !important;
+}
+
+.button-small-eval:selected {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+}
+
+.icon-button {
+    -fx-background-color: #1A1A1A !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-text-fill: #FFFF00 !important;
+}

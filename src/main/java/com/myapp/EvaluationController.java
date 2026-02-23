@@ -21,18 +21,18 @@ public class EvaluationController {
     private int currentPage = 0;
     private String[] userAnswers = new String[12];
     private final List<String> questions = Arrays.asList(
-            "Question 1?",
-            "Question 2?",
-            "Question 3?",
-            "Question 4?",
-            "Question 5?",
-            "Question 6?",
-            "Question 7?",
-            "Question 8?",
-            "Question 9?",
-            "Question 10?",
-            "Question 11?",
-            "Question 12?"
+            "Have you had a sexual health check-up in the last year?",
+            "Do you currently experience any unusual symptoms (pains, sores)?",
+            "Have you been sexually active in the last 12 months?",
+            "Are you and your partner using a reliable form of contraception, if needed?",
+            "Have you had any new sexual partners in the past 3 months?",
+            "Are you comfortable discussing sexual health issues with your partner",
+            "Are you aware of PReP as a way to prevent HIV?",
+            "Have you ever been tested for an STI (Sexually Transmitted Infection)?",
+            "Have you received recommended vaccinations for HPV and Hepatitis B?",
+            "Do you feel as though you have enough information to make informed choices?",
+            "Do you have a regular 'check up' routine for sexual health?",
+            "Do you feel that your current healthcare provider is non-judgemental and inclusive?"
     );
 
     public void initialize() {
@@ -105,8 +105,47 @@ public class EvaluationController {
             currentPage++;
             updatePageContent();
         } else {
+            int userRiskScore = calculateRiskScore();
             System.out.println("Evaluation Completed. Answers: " + Arrays.toString(userAnswers));
+            System.out.println("Final Risk Score: " + userRiskScore);
+            System.out.println("Risk level: " + checkRisk(userRiskScore));
             handleBackNavigation(event, "/homepage.fxml");
+        }
+    }
+
+    private int calculateRiskScore() {
+        int riskScore = 0;
+        for (int i = 0; i < userAnswers.length; i++) {
+            String answer = userAnswers[i];
+            int  questionNum = i + 1;
+
+            if (answer == null) continue;
+            switch (questionNum) {
+                //Questions where Yes = 1, Not sure = 2 and No = 3
+                case 1: case 4: case 6: case 7: case 8: case 10: case 11: case 12:
+                    if (answer.equals("Yes")) riskScore += 1;
+                    else if (answer.equals("Not Sure")) riskScore += 2;
+                    else if (answer.equals("No")) riskScore += 3;
+                    break;
+
+                    //Questions where Yes = 3, Not sure = 2 and No = 1
+                case 2: case 3: case 5: case 9:
+                    if (answer.equals("Yes")) riskScore += 3;
+                    else if (answer.equals("Not Sure")) riskScore += 2;
+                    else if (answer.equals("No")) riskScore += 1;
+                    break;
+            }
+        }
+        return riskScore;
+    }
+
+    private String checkRisk(int riskScore) {
+        if (riskScore < 24) {
+            return "Low risk";
+        } else if (riskScore < 30) {
+            return "Medium risk";
+        } else{
+            return "High risk";
         }
     }
 
