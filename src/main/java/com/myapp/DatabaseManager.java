@@ -48,11 +48,19 @@ public class DatabaseManager {
                 "FOREIGN KEY (clinic_id) REFERENCES clinics(id)" +
                 ");";
 
+        String PINTable = "CREATE TABLE IF NOT EXISTS pin(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "user_id INTEGER," +
+                "PIN TEXT," +
+                "FOREIGN KEY (user_id) REFERENCES users(id)" +
+                ");";
+
         try (Connection con = getConnection();
             Statement smt = con.createStatement()) {
                 smt.execute(userTable);
                 smt.execute(clinicTable);
                 smt.execute(appTable);
+                smt.execute(PINTable);
                 System.out.println("Database init");
             }
         catch (Exception e){
@@ -99,7 +107,67 @@ public class DatabaseManager {
         return false;
     }
 
-    public static void fetchAndStartSession(String email) {
+    public static void storePIN(String pin) {
+        String sql = "INSERT INTO pin (user_id, PIN) VALUES (?, ?)";
+
+        // Argon2 argon2 = Argon2Factory.create();
+
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            // String hashedPIN = argon2.hash(10,65536,1, pin);
+
+            int id = userSession.getInstance().getUserId();
+
+            psmt.setInt(1, id);
+            psmt.setString(2, pin);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } /* finally {
+            if (pin != null){
+                argon2.wipeArray(pin.toCharArray());
+            }
+        } */
+    }
+
+    public static boolean validatePIN(String pin) {
+        String sql = "SELECT count(1) FROM pin WHERE user_id = ?";
+        String storedHash = null;
+
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            int id = userSession.getInstance().getUserId();
+
+            psmt.setInt(1, id);
+
+            try (ResultSet rs = psmt.executeQuery()){
+                if (rs.next()){
+                    storedHash = rs.getString("PIN");
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (storedHash == null){ return false; } /* WILL ADD HASHING ONCE MERGED
+        Argon2 argon2 = Argon2Factory.create();
+        try{
+            return argon2.verify(storedHash,pin.toCharArray());
+        } finally {
+            argon2.wipeArray(pin.toCharArray());
+        }*/
+
+        if (storedHash.equals(pin)){
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+        public static void fetchAndStartSession(String email) {
         String sql = "SELECT id, email, first_name, last_name, dob, gender FROM users WHERE email = ?";
 
         try (Connection con = getConnection();
