@@ -4,20 +4,65 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Symptom log home screen update">
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="added some more registered symptoms">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/TempApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/app_database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/DatabaseManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Symptom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/Symptom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomsDatabase$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/SymptomsDatabase$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TermsAndConditions.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/appointment.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/changePassword.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clinics.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clinics.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentSchedulePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Clinic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/DatabaseManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/OptionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/RegisteredDatabase$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/RegisteredDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Symptom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomEntry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomHandling.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomsDatabase$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomsDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomsPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TermsAndConditionsController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/changePasswordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/forgotPasswordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/userSession.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/forgotPassword.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/homepage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/newSymptom.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/demo/HelloApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/demo/HelloController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/demo/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/signup.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/signup2.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/symptoms.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-cli/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-cli/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +98,7 @@
   <component name="GitLabMergeRequestsSettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;first&quot;: &quot;https://git.soton.ac.uk/nd3g24/digitalsexualhealth.git&quot;,
-    &quot;second&quot;: &quot;20b681cc-fe67-4a4f-82f4-7a72618429a6&quot;
+    &quot;second&quot;: &quot;276f24b3-88b8-42aa-95f4-79bf17ae1b0d&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -76,9 +121,10 @@
   "keyToString": {
     "Application.App.executor": "Run",
     "Application.HelloApplication.executor": "Run",
+    "Application.TempApp.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "AddingPIN",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -96,8 +142,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
       </set>
     </attachedChunks>
   </component>
@@ -110,6 +156,9 @@
       <option name="presentableId" value="Default" />
       <updated>1770035544628</updated>
       <workItem from="1770035545783" duration="336000" />
+      <workItem from="1770988534362" duration="4344000" />
+      <workItem from="1771711854593" duration="2532000" />
+      <workItem from="1771774452385" duration="9306000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />

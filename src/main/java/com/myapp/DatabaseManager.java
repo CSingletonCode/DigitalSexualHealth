@@ -18,6 +18,7 @@ public class DatabaseManager {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "email TEXT NOT NULL," +
                 "password TEXT," +
+                "pin TEXT," +
                 "first_name TEXT," +
                 "last_name TEXT," +
                 "dob TEXT," +
