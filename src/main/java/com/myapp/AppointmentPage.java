@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -16,6 +17,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Period;
 import java.util.List;
 
 public class AppointmentPage {
@@ -29,6 +31,20 @@ public class AppointmentPage {
     @FXML private Button appointmentSubmitButton;
     private Clinic clinic;
     private final List<String> allTimeSlots = List.of("09:00", "10:00", "11:00", "14:00", "15:00", "16:00");
+    @FXML private VBox tutorialOverlay;
+    @FXML private Label tutorialText;
+    @FXML private Button tutorialNextButton;
+    @FXML private Button tutorialSkipButton;
+    @FXML private StackPane confirmationOverlay;
+    @FXML private Label nameLabel;
+    @FXML private Label ageLabel;
+    @FXML private Label genderLabel;
+    @FXML private Label clinicDetails;
+    @FXML private Label dateLabel;
+    @FXML private Label timeLabel;
+    @FXML private Label purposeLabel;
+    @FXML private Button backButton;
+    @FXML private Button confirmButton;
 
     public void setClinicData(Clinic cl) {
         this.clinic = cl;
@@ -42,8 +58,8 @@ public class AppointmentPage {
     public void initialize() {
         returnButton.setOnAction(this::handleReturn);
         appointmentSubmitButton.setOnAction(this::handleSubmit);
-
-        appointmentTimeBox.getItems().addAll("09:00", "10:00", "11:00", "14:00", "15:00");
+        backButton.setOnAction(this::handleBack);
+        confirmButton.setOnAction(this::handleConfirm);
 
         appointmentDatePicker.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
@@ -62,7 +78,6 @@ public class AppointmentPage {
     }
 
     private void handleSubmit(ActionEvent event) {
-
         if (!validateFields()) {
             showAlert("Incomplete Form","Missing Information", "Please ensure all fields are filled before submitting.");
             return;
@@ -94,19 +109,20 @@ public class AppointmentPage {
                 double ownerContentX = ownerStage.getX() + ownerStage.getScene().getX();
                 double ownerContentY = ownerStage.getY() + ownerStage.getScene().getY();
 
-                double ownerWidth = ownerStage.getScene().getWidth();
-                double ownerHeight = ownerStage.getScene().getHeight();
+        String fullName = userSession.getInstance().getFirstName() + " " + userSession.getInstance().getLastName();
+        nameLabel.setText(fullName);
 
-                stage.setX(ownerContentX + (ownerWidth - stage.getWidth()) / 2);
-                stage.setY(ownerContentY + (ownerHeight - stage.getHeight()) / 2);
-            });
+        LocalDate dob = LocalDate.parse(userSession.getInstance().getDob());
+        ageLabel.setText(String.valueOf(Period.between(dob, LocalDate.now()).getYears()));
+        genderLabel.setText(userSession.getInstance().getGender());
 
-            stage.show();
+        clinicDetails.setText(currentClinic.getText() + "\n" + currentClinicAddress.getText());
+        dateLabel.setText(appointmentDatePicker.getValue().toString());
+        timeLabel.setText(appointmentTimeBox.getValue());
+        purposeLabel.setText(appointmentPurposeText.getText().trim());
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            showAlert("Error", null, "Unable to open confirmation window.");
-        }
+        // Show the Overlay
+        confirmationOverlay.setVisible(true);
     }
 
     private boolean validateFields() {
@@ -168,6 +184,10 @@ public class AppointmentPage {
             if (slotTime.isAfter(now)) {
                 appointmentTimeBox.getItems().add(timeSlot);
             }
+        }
+
+        if (appointmentTimeBox.getItems().isEmpty()) {
+            showAlert("No Available Slots", null, "There are no available time slots remaining for today.");
         }
 
         // Clear previous selection if invalid
