@@ -220,3 +220,16 @@
     -fx-background-color: #FFFF00 !important;
     -fx-text-fill: #000000 !important;
 }
+
+.root .allergy-checkbox {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.root .evaluation-card {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+}
+
+.root .allergy-checkbox .label {
+    -fx-text-fill: #FFFFFF !important;
+}
