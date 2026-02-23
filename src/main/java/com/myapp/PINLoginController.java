@@ -28,10 +28,16 @@ public class PINLoginController {
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        //ThemeManager.applyTheme(scene);
         stage.setScene(scene);
         stage.show();
     }
 
-    @FXML private void changeAccount(){}
+    @FXML private void changeAccount(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Login.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
