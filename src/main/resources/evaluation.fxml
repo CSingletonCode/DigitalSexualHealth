@@ -77,6 +77,13 @@
             <Label fx:id="nextLabel" text="Next" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
         </VBox>
     </HBox>
+    <HBox alignment="CENTER">
+        <padding>
+            <Insets bottom="10" />
+        </padding>
+        <Label fx:id="pageIndicatorLabel" text="Page 1 / 4"
+               style="-fx-font-size: 14px; -fx-text-fill: #888888; -fx-font-weight: bold;"/>
+    </HBox>
 </VBox>
 
 

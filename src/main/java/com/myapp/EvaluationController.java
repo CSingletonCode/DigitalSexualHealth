@@ -14,25 +14,25 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EvaluationController {
-    @FXML private Label q1Label, q2Label, q3Label, nextLabel;
+    @FXML private Label q1Label, q2Label, q3Label, nextLabel, pageIndicatorLabel;
     @FXML private Button nextButton;
     @FXML private ToggleGroup group1, group2, group3;
 
     private int currentPage = 0;
     private String[] userAnswers = new String[12];
     private final List<String> questions = Arrays.asList(
-            "Have you had a sexual health check-up in the last year?",
-            "Do you currently experience any unusual symptoms (pains, sores)?",
-            "Have you been sexually active in the last 12 months?",
-            "Are you and your partner using a reliable form of contraception, if needed?",
-            "Have you had any new sexual partners in the past 3 months?",
-            "Are you comfortable discussing sexual health issues with your partner",
-            "Are you aware of PReP as a way to prevent HIV?",
-            "Have you ever been tested for an STI (Sexually Transmitted Infection)?",
-            "Have you received recommended vaccinations for HPV and Hepatitis B?",
-            "Do you feel as though you have enough information to make informed choices?",
-            "Do you have a regular 'check up' routine for sexual health?",
-            "Do you feel that your current healthcare provider is non-judgemental and inclusive?"
+            "Have you had a sexual health check-up in the last year?", //Q1
+            "Do you currently experience any unusual symptoms (pains, sores)?", //Q2
+            "Have you been sexually active in the last 12 months?", //Q3
+            "Are you and your partner using a reliable form of contraception, if needed?", //Q4
+            "Have you had any new sexual partners in the past 3 months?", //Q5
+            "Are you comfortable discussing sexual health issues with your partner", //Q6
+            "Are you aware of PReP as a way to prevent HIV?", //Q7
+            "Have you ever been tested for an STI (Sexually Transmitted Infection)?", //Q8
+            "Have you received recommended vaccinations for HPV and Hepatitis B?", //Q9
+            "Do you feel as though you have enough information to make informed choices?", //10
+            "Do you have a regular 'check up' routine for sexual health?", //Q11
+            "Do you feel that your current healthcare provider is non-judgemental and inclusive?" //Q12
     );
 
     public void initialize() {
@@ -70,6 +70,10 @@ public class EvaluationController {
         restoreToggleSelection(group3, userAnswers[startIndex + 2]);
 
         validateSelections();
+
+        if (pageIndicatorLabel != null) {
+            pageIndicatorLabel.setText("Page " + (currentPage +1)+ " / 4");
+        }
 
         if (currentPage == 3) {
             nextLabel.setText("Finish");
@@ -140,9 +144,9 @@ public class EvaluationController {
     }
 
     private String checkRisk(int riskScore) {
-        if (riskScore < 24) {
+        if (riskScore < 21) {
             return "Low risk";
-        } else if (riskScore < 30) {
+        } else if (riskScore < 27) {
             return "Medium risk";
         } else{
             return "High risk";

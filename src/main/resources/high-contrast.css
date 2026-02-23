@@ -233,3 +233,7 @@
 .root .allergy-checkbox .label {
     -fx-text-fill: #FFFFFF !important;
 }
+
+#pageIndicatorLabel {
+    -fx-text-fill: #FFFFFF !important;
+}
