@@ -12,10 +12,22 @@ public class App extends Application {
 
     private static Scene scene;
 
+    String page = "/Login.fxml";
+
     @Override
     public void start(Stage stage) throws IOException {
         // Load the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/Login.fxml"));
+
+        String[] current_session = sessionManager.getSession();
+        if (current_session != null) {
+            if (current_session[1].equals("true")) {
+                page = "/PINLoginController.fxml";
+            } else {
+                page = "/WordLoginController.fxml";
+            }
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(page));
         Parent root = fxmlLoader.load();
 
         DatabaseManager.initialiseDatabase();

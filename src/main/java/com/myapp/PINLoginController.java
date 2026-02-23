@@ -17,8 +17,12 @@ public class PINLoginController {
 
     @FXML private TextField pinField;
 
+    String email;
+
     public void initialize() throws IOException{
         pinField.setFocusTraversable(false);
+        String[] current_session = sessionManager.getSession();
+        email = current_session[0];
     }
 
     @FXML private void handleLogin(){}

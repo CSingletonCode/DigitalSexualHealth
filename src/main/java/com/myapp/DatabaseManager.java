@@ -131,7 +131,7 @@ public class DatabaseManager {
         } */
     }
 
-    public static boolean validatePIN(String pin) {
+    public static boolean validatePIN(String pin, boolean exists) {
         String sql = "SELECT count(1) FROM pin WHERE user_id = ?";
         String storedHash = null;
 
@@ -143,8 +143,11 @@ public class DatabaseManager {
             psmt.setInt(1, id);
 
             try (ResultSet rs = psmt.executeQuery()){
-                if (rs.next()){
-                    storedHash = rs.getString("PIN");
+                if (exists) {return rs.next();}
+                else {
+                    if (rs.next()) {
+                        storedHash = rs.getString("PIN");
+                    }
                 }
             }
 
@@ -167,7 +170,7 @@ public class DatabaseManager {
 
     }
 
-        public static void fetchAndStartSession(String email) {
+    public static void fetchAndStartSession(String email) {
         String sql = "SELECT id, email, first_name, last_name, dob, gender FROM users WHERE email = ?";
 
         try (Connection con = getConnection();
