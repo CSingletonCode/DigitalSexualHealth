@@ -17,6 +17,10 @@
         <Button fx:id="returnButton" text="←" onAction="#handleBackToHome"
                 styleClass="-fx-background-color: transparent; -fx-text-fill: #7158B7; -fx-font-size: 24px; -fx-font-weight: bold; "/>
         <Label text="Evaluation" style="-fx-font-size: 26px; -fx-font-weight: 900; -fx-text-fill: black;" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="Allergies" onAction="#handleGoToAllergies"
+                styleClass="button-small-eval"
+                style="-fx-font-size: 16px; -fx-font-weight: bold; --fx-min-width:100px;"/>
     </HBox>
 
     <VBox spacing="20" VBox.vgrow="ALWAYS">

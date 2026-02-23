@@ -170,6 +170,10 @@ public class EvaluationController {
     }
 
     @FXML
+    private void handleGoToAllergies(ActionEvent event) {
+        handleBackNavigation(event, "/allergies.fxml");
+    }
+    @FXML
     private void handleBackToHome(ActionEvent event) {
         handleBackNavigation(event, "/homepage.fxml");
     }

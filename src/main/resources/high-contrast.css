@@ -208,3 +208,15 @@
     -fx-border-color: #FFFFFF !important;
     -fx-text-fill: #FFFF00 !important;
 }
+
+.root .hbox .button-small-eval {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-text-fill: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+}
+
+.root .hbox .button-small-eval:hover {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+}
