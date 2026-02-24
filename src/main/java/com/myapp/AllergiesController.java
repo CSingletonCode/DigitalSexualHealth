@@ -19,15 +19,15 @@ public class AllergiesController {
     public void initialize() {
         for (Node node : allergyList.getChildren()) {
             if (node instanceof CheckBox checkbox) {
-                if (SavedAllergies.selectedAllergies.contains(checkbox.getText())) {
+                if (EvaluationData.selectedAllergies.contains(checkbox.getText())) {
                     checkbox.setSelected(true);
                 }
 
                 checkbox.selectedProperty().addListener((obs, wasSelected, nowSelected) -> {
                     if (nowSelected) {
-                        SavedAllergies.selectedAllergies.add(checkbox.getText());
+                        EvaluationData.selectedAllergies.add(checkbox.getText());
                     } else {
-                        SavedAllergies.selectedAllergies.remove(checkbox.getText());
+                        EvaluationData.selectedAllergies.remove(checkbox.getText());
                     }
                 });
             }
@@ -36,6 +36,7 @@ public class AllergiesController {
 
     @FXML
     private void handleBacktoEvaluation(ActionEvent event) {
+        EvaluationData.saveDataToFile();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/evaluation.fxml"));
             Parent root = loader.load();

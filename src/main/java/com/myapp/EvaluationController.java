@@ -8,10 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.io.FileWriter;
+import java.util.stream.Collectors;
 
 public class EvaluationController {
     @FXML private Label q1Label, q2Label, q3Label, nextLabel, pageIndicatorLabel;
@@ -110,6 +111,9 @@ public class EvaluationController {
             updatePageContent();
         } else {
             int userRiskScore = calculateRiskScore();
+            EvaluationData.riskScore = userRiskScore;
+            EvaluationData.saveDataToFile();
+            System.out.println("Data saved to JSON.");
             System.out.println("Evaluation Completed. Answers: " + Arrays.toString(userAnswers));
             System.out.println("Final Risk Score: " + userRiskScore);
             System.out.println("Risk level: " + checkRisk(userRiskScore));
