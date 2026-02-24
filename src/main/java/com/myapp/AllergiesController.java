@@ -22,21 +22,20 @@ public class AllergiesController {
                 if (EvaluationData.selectedAllergies.contains(checkbox.getText())) {
                     checkbox.setSelected(true);
                 }
-
-                checkbox.selectedProperty().addListener((obs, wasSelected, nowSelected) -> {
-                    if (nowSelected) {
-                        EvaluationData.selectedAllergies.add(checkbox.getText());
-                    } else {
-                        EvaluationData.selectedAllergies.remove(checkbox.getText());
-                    }
-                    EvaluationData.saveDataToFile();
-                });
             }
         }
     }
 
     @FXML
     private void handleBacktoEvaluation(ActionEvent event) {
+        EvaluationData.selectedAllergies.clear();
+        for (Node node : allergyList.getChildren()) {
+            if (node instanceof CheckBox checkbox) {
+                if (checkbox.isSelected()) {
+                    EvaluationData.selectedAllergies.add(checkbox.getText());
+                }
+            }
+        }
         EvaluationData.saveDataToFile();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/evaluation.fxml"));
@@ -51,4 +50,22 @@ public class AllergiesController {
             System.out.println("Could not load Evaluation FXML file");
         }
     }
+
+    @FXML
+    private void handleCancel(ActionEvent event) {
+        System.out.println("Cancel pressed.");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/evaluation.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            ThemeManager.applyTheme(scene);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Could not load Evaluation FXML file");
+        }
+    }
 }
+

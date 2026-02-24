@@ -14,7 +14,7 @@
     </padding>
 
     <HBox alignment="CENTER_LEFT" spacing="15">
-        <Button text="←" onAction="#handleBacktoEvaluation"
+        <Button text="←" onAction="#handleCancel"
                 style="-fx-background-color: transparent; -fx-text-fill: #7158B7; -fx-font-size: 24px; -fx-font-weight: bold; -fx-cursor: hand;"/>
         <Label text="Allergies" style="-fx-font-size: 26px; -fx-font-weight: 900; -fx-text-fill:black;"/>
     </HBox>

@@ -102,6 +102,33 @@ public class EvaluationController {
         }
     }
 
+    private void evaluationCompletionAlert(int score) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Evaluation Complete");
+        alert.setHeaderText("These are your results");
+
+        javafx.scene.control.DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        dialogPane.getStyleClass().add("root");
+
+        String levelRisk = checkRisk(score);
+
+        String allergy;
+        if (EvaluationData.selectedAllergies.isEmpty()) {
+            allergy = "None recorded.";
+        } else {
+            allergy = String.join(", ", EvaluationData.selectedAllergies);
+        }
+
+        String msgOutput = String.format(
+                "Risk Level: %s \n\nRecorded Allergies: \n%s",
+                levelRisk, allergy
+        );
+        alert.setContentText(msgOutput);
+        alert.showAndWait();
+
+    }
+
     @FXML
     private void handleNextPage(ActionEvent event) {
         saveCurrentPageAnswers();
@@ -113,6 +140,7 @@ public class EvaluationController {
             int userRiskScore = calculateRiskScore();
             EvaluationData.riskScore = userRiskScore;
             EvaluationData.saveDataToFile();
+            evaluationCompletionAlert(userRiskScore);
             System.out.println("Data saved to JSON.");
             System.out.println("Evaluation Completed. Answers: " + Arrays.toString(userAnswers));
             System.out.println("Final Risk Score: " + userRiskScore);
@@ -180,7 +208,18 @@ public class EvaluationController {
 
     @FXML
     private void handleGoToAllergies(ActionEvent event) {
-        handleBackNavigation(event, "/allergies.fxml");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/allergies.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            ThemeManager.applyTheme(scene);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Could not load Allergies FXML file: ");
+        }
     }
     @FXML
     private void handleBackToHome(ActionEvent event) {
