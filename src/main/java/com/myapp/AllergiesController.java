@@ -29,6 +29,7 @@ public class AllergiesController {
                     } else {
                         EvaluationData.selectedAllergies.remove(checkbox.getText());
                     }
+                    EvaluationData.saveDataToFile();
                 });
             }
         }

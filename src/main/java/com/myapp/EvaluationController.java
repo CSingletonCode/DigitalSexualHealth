@@ -144,6 +144,7 @@ public class EvaluationController {
                     break;
             }
         }
+        riskScore += (EvaluationData.selectedAllergies.size() * 4);
         return riskScore;
     }
 
