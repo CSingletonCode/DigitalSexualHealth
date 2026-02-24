@@ -9,8 +9,30 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
+import javafx.scene.control.CheckBox;
 
 public class AllergiesController {
+
+    @FXML private VBox allergyList;
+
+    @FXML
+    public void initialize() {
+        for (Node node : allergyList.getChildren()) {
+            if (node instanceof CheckBox checkbox) {
+                if (SavedAllergies.selectedAllergies.contains(checkbox.getText())) {
+                    checkbox.setSelected(true);
+                }
+
+                checkbox.selectedProperty().addListener((obs, wasSelected, nowSelected) -> {
+                    if (nowSelected) {
+                        SavedAllergies.selectedAllergies.add(checkbox.getText());
+                    } else {
+                        SavedAllergies.selectedAllergies.remove(checkbox.getText());
+                    }
+                });
+            }
+        }
+    }
 
     @FXML
     private void handleBacktoEvaluation(ActionEvent event) {

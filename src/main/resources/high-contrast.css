@@ -182,7 +182,7 @@
     -fx-background-color: #000000 !important;
     -fx-border-color: #FFFFFF !important;
     -fx-border-width: 2px !important;
-    -fx-backgroud-radius: 25px;
+    -fx-background-radius: 25px;
     -fx-border-radius: 25px;
 }
 
@@ -194,7 +194,9 @@
     -fx-background-color: #000000 !important;
     -fx-text-fill: #FFFFFF !important;
     -fx-border-color: #FFFFFF !important;
-    -fx-border-width: 1px !important;
+    -fx-border-width: 2px !important;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
 }
 
 .button-small-eval:selected {
@@ -209,12 +211,6 @@
     -fx-text-fill: #FFFF00 !important;
 }
 
-.root .hbox .button-small-eval {
-    -fx-background-color: #000000 !important;
-    -fx-border-color: #FFFFFF !important;
-    -fx-text-fill: #FFFFFF !important;
-    -fx-border-width: 2px !important;
-}
 
 .root .hbox .button-small-eval:hover {
     -fx-background-color: #FFFF00 !important;
@@ -225,15 +221,40 @@
     -fx-text-fill: #FFFFFF !important;
 }
 
-.root .evaluation-card {
-    -fx-background-color: #000000 !important;
-    -fx-border-color: #FFFFFF !important;
-}
-
 .root .allergy-checkbox .label {
     -fx-text-fill: #FFFFFF !important;
 }
 
+.root .allergy-checkbox:selected .box {
+    -fx-background-color: #FFFF00 !important;
+    -fx-border-color: #FFFFFF !important;
+}
+
+.root .allergy-checkbox:selected .mark {
+    -fx-background-color: #000000 !important;
+}
+
+.root .allergy-checkbox .box {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+}
 #pageIndicatorLabel {
     -fx-text-fill: #FFFFFF !important;
+}
+
+
+
+#saveAllergies {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.root .button-small-eval:hover {
+    -fx-background-color: #FFFFFF !important;
+    -fx-text-fill: #000000 !important;
 }

@@ -406,13 +406,13 @@
 
 .allergy-checkbox .box {
     -fx-background-color: #EBE8F7;
-    -fx-backgroud-radius: 5;
+    -fx-background-radius: 5;
     -fx-border-color: #7158B7;
     -fx-border-radius: 5;
 }
 
 .allergy-checkbox.mark {
-    -fx-bakground-color: white;
+    -fx-background-color: white;
 }
 
 .allergy-checkbox:selected .box {

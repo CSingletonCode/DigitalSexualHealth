@@ -23,18 +23,17 @@
            wrapText="true" style="-fx-text-fill: #666666; -fx-font-size: 14px;" textAlignment="CENTER"/>
 
     <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
-        <VBox fx:id="allergyListContainer" spacing="15" styleClass="evaluation-card">
-            <CheckBox text="Allergy 1" styleClass="allergy-checkbox"/>
-            <CheckBox text="Allergy 2" styleClass="allergy-checkbox"/>
-            <CheckBox text="Allergy 3" styleClass="allergy-checkbox"/>
-            <CheckBox text="Allergy 4" styleClass="allergy-checkbox"/>
-            <CheckBox text="Allergy 5" styleClass="allergy-checkbox"/>
-            <CheckBox text="Allergy 6" styleClass="allergy-checkbox"/>
-            <CheckBox text="Allergy 7" styleClass="allergy-checkbox"/>
-            <CheckBox text="Allergy 8" styleClass="allergy-checkbox"/>
+        <VBox fx:id="allergyList" spacing="15" styleClass="evaluation-card">
+            <CheckBox text="Latex" styleClass="allergy-checkbox"/>
+            <CheckBox text="Penicillin" styleClass="allergy-checkbox"/>
+            <CheckBox text="Lidocaine" styleClass="allergy-checkbox"/>
+            <CheckBox text="Fragrances" styleClass="allergy-checkbox"/>
+            <CheckBox text="Adhesive tape" styleClass="allergy-checkbox"/>
+            <CheckBox text="Nickel" styleClass="allergy-checkbox"/>
+            <CheckBox text="Ibuprofen" styleClass="allergy-checkbox"/>
         </VBox>
     </ScrollPane>
 
-    <Button text="Save &amp; Return" onAction="#handleBacktoEvaluation"
+    <Button fx:id="saveAllergies" text="Save &amp; Return" onAction="#handleBacktoEvaluation"
             styleClass="button-small-eval" prefWidth="200" prefHeight="45" style="fx-font-weight: bold;" />
 </VBox>
