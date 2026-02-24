@@ -20,7 +20,7 @@ public class EvaluationData {
                 " \"recordedAllergies\": [" + allergiesList + "]\n" +
                 "}";
 
-        try (FileWriter file = new FileWriter("allergies.json", false)) {
+        try (FileWriter file = new FileWriter("localdata/allergies.json", false)) {
             file.write(content);
             System.out.println("Successfully written to allergies json file");
         } catch (IOException e) {
