@@ -16,7 +16,7 @@
                       <Label fx:id="helpButton" styleClass="icon-purple" text="Need Help?" StackPane.alignment="TOP_RIGHT" />
                     </children>
                 </HBox>
-                <Label maxWidth="Infinity" styleClass="header-label" text="Appointment Schedule" wrapText="true" VBox.vgrow="ALWAYS" />
+                <Label maxWidth="Infinity" minHeight="-Infinity" styleClass="header-label" text="Appointment Schedule" wrapText="true" />
                 <HBox fx:id="bookButtonContainer" alignment="CENTER">
                     <children>
                         <Button fx:id="bookAppointmentButton" mnemonicParsing="false" styleClass="submit-button" text="Book an Appointment" />
