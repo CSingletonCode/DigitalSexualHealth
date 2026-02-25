@@ -27,7 +27,6 @@ public class WordLoginController {
         }
 
         email = current_session[0];
-
     }
 
     @FXML private void handleLogin(ActionEvent event) throws IOException {

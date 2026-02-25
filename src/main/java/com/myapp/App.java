@@ -20,8 +20,13 @@ public class App extends Application {
 
         String[] current_session = sessionManager.getSession();
         if (current_session != null) {
-            page = "/LoginPassword.fxml";
+            if (current_session[1].equals("true")) {
+                page = "/LoginPIN.fxml";
+            } else {
+                page = "/LoginPassword.fxml";
+            }
         }
+        System.out.println(current_session[1]);
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(page));
         Parent root = fxmlLoader.load();

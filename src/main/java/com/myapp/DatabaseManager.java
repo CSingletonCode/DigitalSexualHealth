@@ -133,18 +133,14 @@ public class DatabaseManager {
         } */
     }
 
-    public static boolean lockoutPIN(){
+    //public static boolean lockoutPIN(){}
 
-    }
-
-    public static boolean validatePIN(String pin, boolean exists) {
-        String sql = "SELECT count(1) FROM pin WHERE user_id = ?";
+    public static boolean validatePIN(String pin, boolean exists, String id) {
+        String sql = "SELECT user_id, PIN FROM pin WHERE user_id = ? ORDER BY ROWID DESC";
         String storedHash = null;
 
         try (Connection con = getConnection();
              PreparedStatement psmt = con.prepareStatement(sql)) {
-
-            int id = userSession.getInstance().getUserId();
 
             psmt.setInt(1, id);
 

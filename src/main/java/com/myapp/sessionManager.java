@@ -10,12 +10,14 @@ import static com.myapp.DatabaseManager.validatePIN;
 public class sessionManager {
     public static void setSession() throws IOException{
         String email = userSession.getInstance().getEmail();
-        boolean has_PIN = validatePIN(null,true);
+        int id = userSession.getInstance().getUserId();
+        boolean has_PIN = validatePIN(null,true,null);
 
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode root = mapper.createObjectNode();
         root.put("email", email);
         root.put("has_PIN",has_PIN);
+        root.put("id", id);
         mapper.writeValue(new File("localdata/loggedIn.json"),root);
     }
 
@@ -26,7 +28,7 @@ public class sessionManager {
             String email = root.get("email").asText();
             boolean has_PIN = root.get("has_PIN").asBoolean();
 
-            return new String[]{email, String.valueOf(has_PIN)};
+            return new String[]{email, String.valueOf(has_PIN),String.valueOf(root.get("id"))};
         } catch (Exception e) {
             return null;
         }
@@ -36,6 +38,12 @@ public class sessionManager {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
         return root.get("email").asText();
+    }
+
+    public static String getId() throws IOException{
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
+        return String.valueOf(root.get("id").asInt());
     }
 
     public static void clearSession() throws IOException {
