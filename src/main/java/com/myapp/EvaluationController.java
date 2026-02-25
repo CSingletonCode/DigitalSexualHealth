@@ -27,7 +27,7 @@ public class EvaluationController {
             "Have you been sexually active in the last 12 months?", //Q3
             "Are you and your partner using a reliable form of contraception, if needed?", //Q4
             "Have you had any new sexual partners in the past 3 months?", //Q5
-            "Are you comfortable discussing sexual health issues with your partner", //Q6
+            "Are you comfortable discussing sexual health issues with your partner?", //Q6
             "Are you aware of PReP as a way to prevent HIV?", //Q7
             "Have you ever been tested for an STI (Sexually Transmitted Infection)?", //Q8
             "Have you received recommended vaccinations for HPV and Hepatitis B?", //Q9
