@@ -25,8 +25,9 @@ public class App extends Application {
             } else {
                 page = "/LoginPassword.fxml";
             }
+            System.out.println(current_session[1]);
         }
-        System.out.println(current_session[1]);
+
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(page));
         Parent root = fxmlLoader.load();

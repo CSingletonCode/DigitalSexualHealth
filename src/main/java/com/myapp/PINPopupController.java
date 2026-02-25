@@ -5,6 +5,8 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class PINPopupController {
 
     @FXML private TextField firstPINField;
@@ -34,10 +36,11 @@ public class PINPopupController {
     }
 
     @FXML
-    private void submit(){
+    private void submit() throws IOException {
         if (validate()){
             System.out.println(firstPINField.getText().trim());
             DatabaseManager.storePIN(firstPINField.getText().trim());
+            sessionManager.setSession();
         } else {
             System.out.println(error);
         }

@@ -143,34 +143,47 @@ public class DatabaseManager {
     }
 
     public static void storePIN(String pin) {
-        String sql = "INSERT INTO pin (user_id, PIN) VALUES (?, ?)";
+        int id = userSession.getInstance().getUserId();
+        String sql;
+        int idIdx,pinIdx;
 
-        // Argon2 argon2 = Argon2Factory.create();
+        boolean pin_exists = validatePIN(pin,true,id);
+        if (pin_exists){
+            sql = "UPDATE pin SET pin = ? WHERE user_id = ?";
+            idIdx = 2;
+            pinIdx = 1;
+        } else{
+            sql = "INSERT INTO pin (user_id, PIN) VALUES (?, ?)";
+            idIdx = 1;
+            pinIdx = 2;
+        }
+
+
+        Argon2 argon2 = Argon2Factory.create();
 
         try (Connection con = getConnection();
 
              PreparedStatement psmt = con.prepareStatement(sql)) {
 
-            // String hashedPIN = argon2.hash(10,65536,1, pin);
-            System.out.println("fjsduiahf");
-            int id = userSession.getInstance().getUserId();
+            String hashedPIN = argon2.hash(10,65536,1, pin);
 
-            psmt.setInt(1, id);
-            psmt.setString(2, pin);
+
+            psmt.setInt(idIdx, id);
+            psmt.setString(pinIdx, hashedPIN);
             psmt.executeUpdate();
 
         } catch (Exception e) {
             e.printStackTrace();
-        } /* finally {
+        } finally {
             if (pin != null){
                 argon2.wipeArray(pin.toCharArray());
             }
-        } */
+        }
     }
 
     //public static boolean lockoutPIN(){}
 
-    public static boolean validatePIN(String pin, boolean exists, String id) {
+    public static boolean validatePIN(String pin, boolean exists, int id) {
         String sql = "SELECT user_id, PIN FROM pin WHERE user_id = ? ORDER BY ROWID DESC";
         String storedHash = null;
 
@@ -191,18 +204,12 @@ public class DatabaseManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (storedHash == null){ return false; } /* WILL ADD HASHING ONCE MERGED
+        if (storedHash == null){ return false; }
         Argon2 argon2 = Argon2Factory.create();
         try{
             return argon2.verify(storedHash,pin.toCharArray());
         } finally {
             argon2.wipeArray(pin.toCharArray());
-        }*/
-
-        if (storedHash.equals(pin)){
-            return true;
-        } else {
-            return false;
         }
 
     }

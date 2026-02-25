@@ -11,7 +11,7 @@ public class sessionManager {
     public static void setSession() throws IOException{
         String email = userSession.getInstance().getEmail();
         int id = userSession.getInstance().getUserId();
-        boolean has_PIN = validatePIN(null,true,null);
+        boolean has_PIN = validatePIN(null,true,id);
 
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode root = mapper.createObjectNode();
@@ -40,10 +40,10 @@ public class sessionManager {
         return root.get("email").asText();
     }
 
-    public static String getId() throws IOException{
+    public static int getId() throws IOException{
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
-        return String.valueOf(root.get("id").asInt());
+        return root.get("id").asInt();
     }
 
     public static void clearSession() throws IOException {
