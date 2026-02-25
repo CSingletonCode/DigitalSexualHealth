@@ -263,7 +263,7 @@ public class DatabaseManager {
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                return rs.getInt("appointment_tutorial_completed") == 1;
+                return rs.getInt("tutorialStatus") == 1;
             }
 
         } catch (Exception e) {

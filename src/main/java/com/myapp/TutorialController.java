@@ -4,8 +4,7 @@ public class TutorialController {
 
     private static TutorialController instance;
 
-    private boolean active = DatabaseManager.isAppointmentTutorialCompleted(userSession.getInstance().getUserId());
-    private boolean completed = false;
+    private boolean active = false;
     private int step = 0;
 
     private TutorialController() {}
@@ -25,15 +24,10 @@ public class TutorialController {
     public void stop() {
         DatabaseManager.updateTutorialStatus(userSession.getInstance().getUserId());
         active = false;
-        completed = true;
     }
 
     public boolean isActive() {
         return active;
-    }
-
-    public boolean isCompleted() {
-        return completed;
     }
 
     public int getStep() {

@@ -46,7 +46,7 @@ public class AppointmentSchedulePage {
 
         loadAppointments();
 
-        if (!TutorialController.getInstance().isCompleted()) {
+        if (!DatabaseManager.isAppointmentTutorialCompleted(userSession.getInstance().getUserId())) {
             TutorialController.getInstance().start();
             startTutorial();
         }
