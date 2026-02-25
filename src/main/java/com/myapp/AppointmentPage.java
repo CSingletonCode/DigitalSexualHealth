@@ -1,13 +1,17 @@
 package com.myapp;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -34,7 +38,6 @@ public class AppointmentPage {
     @FXML private VBox tutorialOverlay;
     @FXML private Label tutorialText;
     @FXML private Button tutorialNextButton;
-    @FXML private Button tutorialSkipButton;
     @FXML private StackPane confirmationOverlay;
     @FXML private Label nameLabel;
     @FXML private Label ageLabel;
@@ -45,6 +48,11 @@ public class AppointmentPage {
     @FXML private Label purposeLabel;
     @FXML private Button backButton;
     @FXML private Button confirmButton;
+    @FXML private DatePicker fakeDatePicker;
+    @FXML private ComboBox<String> fakeTimeBox;
+    @FXML private TextArea fakePurposeText;
+    @FXML private Button fakeSubmitButton;
+    @FXML private Label helpButton;
 
     public void setClinicData(Clinic cl) {
         this.clinic = cl;
@@ -60,6 +68,12 @@ public class AppointmentPage {
         appointmentSubmitButton.setOnAction(this::handleSubmit);
         backButton.setOnAction(this::handleBack);
         confirmButton.setOnAction(this::handleConfirm);
+        helpButton.setOnMouseClicked(event -> {
+            TutorialController.getInstance().start();
+            TutorialController.getInstance().nextStep();
+            TutorialController.getInstance().nextStep();
+            startAppointmentTutorial();
+        });
 
         appointmentDatePicker.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
@@ -71,6 +85,14 @@ public class AppointmentPage {
         appointmentDatePicker.valueProperty().addListener((obs, oldDate, newDate) -> {
             updateAvailableTimes(newDate);
         });
+
+        if (TutorialController.getInstance().isActive()
+                && TutorialController.getInstance().getStep() >= 2) {
+
+            startAppointmentTutorial();
+        }
+
+        confirmationOverlay.setVisible(false);
     }
 
     private void handleReturn(ActionEvent event) {
@@ -83,31 +105,11 @@ public class AppointmentPage {
             return;
         }
 
-        try {
-            //load confirmation fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/appointmentConfirmation.fxml"));
-            Parent root = loader.load();
-
-            Stage ownerStage = (Stage) appointmentSubmitButton.getScene().getWindow();
-
-            AppointmentConfirmationController controller = loader.getController();
-
-            controller.setClinic(currentClinic.getText() + "\n" + currentClinicAddress.getText());
-            controller.setClinicID(this.clinic.getId());
-            controller.setDate(appointmentDatePicker.getValue().toString());
-            controller.setTime(appointmentTimeBox.getValue());
-            controller.setPurpose(appointmentPurposeText.getText().trim());
-
-            //create popup stage
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(new Scene(root));
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.initOwner(ownerStage);
-
-            stage.setOnShown(e -> {
-                double ownerContentX = ownerStage.getX() + ownerStage.getScene().getX();
-                double ownerContentY = ownerStage.getY() + ownerStage.getScene().getY();
+        if (TutorialController.getInstance().isActive()
+                && TutorialController.getInstance().getStep() == 2) {
+            tutorialOverlay.setVisible(false);
+            returnButton.setDisable(false);
+        }
 
         String fullName = userSession.getInstance().getFirstName() + " " + userSession.getInstance().getLastName();
         nameLabel.setText(fullName);
@@ -171,10 +173,6 @@ public class AppointmentPage {
             return;
         }
 
-        if (appointmentTimeBox.getItems().isEmpty()) {
-            showAlert("No Available Slots", null, "There are no available time slots remaining for today.");
-        }
-
         // If today → filter times after now
         LocalTime now = LocalTime.now();
 
@@ -192,5 +190,117 @@ public class AppointmentPage {
 
         // Clear previous selection if invalid
         appointmentTimeBox.setValue(null);
+    }
+
+    private void startAppointmentTutorial() {
+
+        tutorialOverlay.setVisible(true);
+        returnButton.setDisable(true);
+
+        Platform.runLater(() -> {
+            if (tutorialOverlay.getScene() == null) return;
+            StackPane root = (StackPane) tutorialOverlay.getParent();
+
+            // Helper to position clones
+            syncClone(appointmentDatePicker, fakeDatePicker, root);
+            syncClone(appointmentTimeBox, fakeTimeBox, root);
+            syncClone(appointmentPurposeText, fakePurposeText, root);
+            syncClone(appointmentSubmitButton, fakeSubmitButton, root);
+
+            // Hide real ones while tutorial is active
+            appointmentDatePicker.setVisible(false);
+            appointmentTimeBox.setVisible(false);
+            appointmentPurposeText.setVisible(false);
+            appointmentSubmitButton.setVisible(false);
+        });
+
+        tutorialText.setText("Step 4:\nSelect a date, choose a time, enter your purpose, then click Submit.");
+
+        tutorialNextButton.setDisable(false);
+        tutorialNextButton.setOnAction(e -> {
+            TutorialController.getInstance().stop();
+            tutorialOverlay.setVisible(false);
+            returnButton.setDisable(false);
+
+            fakeDatePicker.setVisible(false);
+            fakeTimeBox.setVisible(false);
+            fakePurposeText.setVisible(false);
+            fakeSubmitButton.setVisible(false);
+
+            appointmentDatePicker.setVisible(true);
+            appointmentTimeBox.setVisible(true);
+            appointmentPurposeText.setVisible(true);
+            appointmentSubmitButton.setVisible(true);
+            switchScene(new ActionEvent(returnButton, null), "/appointmentSchedule.fxml");
+        });
+    }
+
+    private void syncClone(Node real, Node fake, StackPane root) {
+        // 1. Get exact pixel dimensions
+        Bounds boundsInScene = real.localToScene(real.getBoundsInLocal());
+        Bounds boundsInRoot = root.sceneToLocal(boundsInScene);
+
+        double w = boundsInScene.getWidth();
+        double h = boundsInScene.getHeight();
+
+        if (fake instanceof DatePicker) fake.getStyleClass().add("date-picker");
+        else if (fake instanceof ComboBox) fake.getStyleClass().add("combo-box");
+        else if (fake instanceof TextArea) fake.getStyleClass().add("text-area");
+        else if (fake instanceof Button) {
+            fake.getStyleClass().add(".submit-button-large");
+            ((Button) fake).setAlignment(Pos.CENTER); // Fix text alignment
+        }
+
+        // 3. LOCK DIMENSIONS: This stops window enlargement and fixes icon scaling
+        if (fake instanceof Region) {
+            Region r = (Region) fake;
+            r.setMinWidth(w);
+            r.setPrefWidth(w);
+            r.setMaxWidth(w);
+
+            r.setMinHeight(h);
+            r.setPrefHeight(h);
+            r.setMaxHeight(h);
+        }
+
+        // 4. Reset padding/insets to 0 to prevent internal shifting
+        fake.setStyle("-fx-background-insets: 0; -fx-padding: 0;");
+
+        // 5. Apply Translation
+        fake.setTranslateX(boundsInRoot.getMinX());
+        fake.setTranslateY(boundsInRoot.getMinY());
+
+        fake.setVisible(true);
+        fake.toFront();
+    }
+
+    private void handleBack(ActionEvent event) {
+        confirmationOverlay.setVisible(false);
+    }
+
+    //confirm button -> submit appointment
+    private void handleConfirm(ActionEvent event) {
+
+        boolean success = DatabaseManager.insertAppointment(
+                dateLabel.getText(),
+                timeLabel.getText(),
+                clinic.getId(),
+                purposeLabel.getText().trim()
+        );
+
+        if (!success) {
+            showAlert("Error", null, "Appointment booking failed. Try again later.");
+            confirmationOverlay.setVisible(false);
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Appointment booked successfully!");
+        alert.getDialogPane().setPrefWidth(250);
+        alert.showAndWait();
+
+        switchScene(event,"/appointmentSchedule.fxml");
     }
 }

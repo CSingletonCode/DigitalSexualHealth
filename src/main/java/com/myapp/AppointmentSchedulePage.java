@@ -1,20 +1,21 @@
 package com.myapp;
 
+import javafx.animation.ScaleTransition;
+import javafx.application.Platform;   // ✅ ADDED
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;       // ✅ ADDED
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -23,22 +24,32 @@ import java.util.List;
 
 public class AppointmentSchedulePage {
 
-    @FXML
-    private Button returnButton;
-
-    @FXML
-    private Button bookAppointmentButton;
-
-    @FXML
-    private VBox appointmentListContainer;
-
+    @FXML private Button returnButton;
+    @FXML private Button bookAppointmentButton;
+    @FXML private VBox appointmentListContainer;
+    @FXML private Pane dimLayer;
+    @FXML private VBox tutorialOverlay;
+    @FXML private Label tutorialText;
+    @FXML private Button tutorialNextButton;
+    @FXML private Button tutorialSkipButton;
+    @FXML private Button fakeBookButton;
+    @FXML private Label helpButton;
 
     @FXML
     public void initialize() {
         returnButton.setOnAction(this::handleReturn);
         bookAppointmentButton.setOnAction(this::handleBookAppointment);
+        helpButton.setOnMouseClicked(event -> {
+            TutorialController.getInstance().start();
+            startTutorial();
+        });
 
         loadAppointments();
+
+        if (!TutorialController.getInstance().isCompleted()) {
+            TutorialController.getInstance().start();
+            startTutorial();
+        }
     }
 
     private void handleReturn(ActionEvent event) {
@@ -46,6 +57,12 @@ public class AppointmentSchedulePage {
     }
 
     private void handleBookAppointment(ActionEvent event) {
+        if (TutorialController.getInstance().isActive()) {
+            TutorialController.getInstance().nextStep();
+            tutorialOverlay.setVisible(false);
+            returnButton.setDisable(false);
+        }
+
         switchScene(event,"/clinicPage.fxml");
     }
 
@@ -62,11 +79,9 @@ public class AppointmentSchedulePage {
             LocalDate dateA = LocalDate.parse(dateLabelA.getText());
             LocalDate dateB = LocalDate.parse(dateLabelB.getText());
 
-            // compare dates
             int cmp = dateB.compareTo(dateA);
             if (cmp != 0) return cmp;
 
-            // if same date, compare time
             Label timeLabelA = (Label) a.getChildren().stream()
                     .filter(node -> node instanceof Label && ((Label) node).getText().startsWith("Time:"))
                     .map(node -> (Label) node)
@@ -81,7 +96,6 @@ public class AppointmentSchedulePage {
 
             if (timeLabelA == null || timeLabelB == null) return 0;
 
-            // parse time (HH:mm)
             String tA = timeLabelA.getText().substring(6);
             String tB = timeLabelB.getText().substring(6);
 
@@ -161,5 +175,63 @@ public class AppointmentSchedulePage {
             e.printStackTrace();
             System.out.println("Could not load FXML file: " + fxmlFile);
         }
+    }
+
+    private void startTutorial() {
+
+        dimLayer.setVisible(true);
+        tutorialOverlay.setVisible(true);
+        returnButton.setDisable(true);
+
+        Platform.runLater(() -> {
+
+            // Get the button's bounds in SCENE coordinates
+            Bounds sceneBounds = bookAppointmentButton.localToScene(
+                    bookAppointmentButton.getBoundsInLocal()
+            );
+
+            // Convert scene coordinates into StackPane (root) coordinates
+            StackPane root = (StackPane) dimLayer.getParent();
+
+            Bounds localBounds = root.sceneToLocal(sceneBounds);
+
+            // Apply exact same position & size
+            fakeBookButton.setTranslateX(localBounds.getMinX());
+            fakeBookButton.setTranslateY(localBounds.getMinY());
+            fakeBookButton.setPrefWidth(bookAppointmentButton.getWidth());
+            fakeBookButton.setPrefHeight(bookAppointmentButton.getHeight());
+
+            fakeBookButton.setVisible(true);
+            fakeBookButton.toFront();
+            bookAppointmentButton.setVisible(false);
+        });
+
+        tutorialText.setText("Step 1:\nClick 'Book an Appointment' to begin booking.");
+
+        tutorialNextButton.setDisable(false);
+        tutorialNextButton.setOnAction(e -> {
+
+            TutorialController.getInstance().nextStep();
+
+            tutorialOverlay.setVisible(false);
+            returnButton.setDisable(false);
+
+            fakeBookButton.setVisible(false);
+            bookAppointmentButton.setVisible(true);
+
+            switchScene(new ActionEvent(returnButton, null), "/clinicPage.fxml");
+        });
+
+        tutorialSkipButton.setOnAction(e -> skipTutorial());
+    }
+
+    private void skipTutorial() {
+        TutorialController.getInstance().stop();
+        dimLayer.setVisible(false);
+        tutorialOverlay.setVisible(false);
+        returnButton.setDisable(false);
+
+        fakeBookButton.setVisible(false);
+        bookAppointmentButton.setVisible(true);
     }
 }
