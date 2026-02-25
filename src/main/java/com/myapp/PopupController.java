@@ -63,18 +63,31 @@ public class PopupController {
 
     @FXML
     private void submit() throws IOException{
-        if (!nameField.getText().isEmpty() &&
-            !dateField.getText().isEmpty() &&
-            !descriptionField.getText().isEmpty()){
-            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getText(), descriptionField.getText());
+        String check = checkValid();
+        if (check.equals("valid")){
+            String userID = String.valueOf(userSession.getInstance().getUserId());
+            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getText(), descriptionField.getText(), userID);
             symptomsDatabase.recordSymptom(newSymptom);
             trackerController.displaySymptoms();
             this.stage.close();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Invalid symptom details");
+            alert.setContentText(check);
             alert.showAndWait();
         }
+    }
+
+    private String checkValid(){
+        if (nameField.getText().isEmpty()){
+            return "Enter a name";
+        }
+        if (dateField.getText().isEmpty() || !dateField.getText().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")){
+            return "Enter a valid date";
+        }
+        if (descriptionField.getText().isEmpty()){
+            return "Enter a description";
+        }
+        return "valid";
     }
 
     @FXML

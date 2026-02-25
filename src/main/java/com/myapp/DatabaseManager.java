@@ -5,6 +5,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 
 public class DatabaseManager {
     private static final String URL = "jdbc:sqlite:app_database.db";
@@ -16,7 +18,7 @@ public class DatabaseManager {
     public static void initialiseDatabase() {
         String userTable = "CREATE TABLE IF NOT EXISTS users (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "email TEXT NOT NULL," +
+                "email TEXT NOT NULL UNIQUE," +
                 "password TEXT," +
                 "pin TEXT," +
                 "first_name TEXT," +
@@ -69,19 +71,45 @@ public class DatabaseManager {
     }
 
     public static boolean saveToDatabase(User user) {
+
         String sql = "INSERT INTO users (email, password, first_name, last_name, dob, gender) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
+
+        Argon2 argon2 = Argon2Factory.create();
+
         try (Connection con = getConnection();
         PreparedStatement psmt = con.prepareStatement(sql)){
+            String hashedPassword = argon2.hash(10,65536,1, user.getPassword());
+
             psmt.setString(1,user.getEmail());
-            psmt.setString(2,user.getPassword());
+            psmt.setString(2,hashedPassword);
             psmt.setString(3, user.getFirstName());
             psmt.setString(4, user.getLastName());
             psmt.setString(5, user.getDob());
             psmt.setString(6, user.getGender());
 
             psmt.executeUpdate();
+
             return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (user.getPassword() != null) {
+                argon2.wipeArray(user.getPassword().toCharArray());
+            }
+        }
+    }
+
+    public static boolean emailExists(String email) {
+        String sql = "SELECT 1 FROM users WHERE email = ?";
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            psmt.setString(1, email);
+            try (ResultSet rs = psmt.executeQuery()) {
+                return rs.next();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -89,22 +117,29 @@ public class DatabaseManager {
     }
 
     public static boolean validateLogin(String email, String password) {
-        String sql = "SELECT count(1) FROM users WHERE email = ? AND password = ?";
+        String sql = "SELECT password FROM users where email = ?";
+        String storedHash = null;
 
         try (Connection con = getConnection();
             PreparedStatement psmt = con.prepareStatement(sql)) {
             psmt.setString(1,email);
 
-            psmt.setString(2,password);
             try (ResultSet rs = psmt.executeQuery()){
                 if (rs.next()){
-                    return rs.getInt(1) > 0;
+                    storedHash = rs.getString("password");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+
+        if (storedHash == null){ return false; }
+        Argon2 argon2 = Argon2Factory.create();
+        try{
+            return argon2.verify(storedHash,password.toCharArray());
+        } finally {
+            argon2.wipeArray(password.toCharArray());
+        }
     }
 
     public static void storePIN(String pin) {

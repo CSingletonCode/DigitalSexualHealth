@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -22,6 +23,9 @@ public class TrackerController{
     private ScrollPane scroll;
     @FXML
     private VBox scrollbox;
+
+    @FXML
+    private Button returnButton;
 
     @FXML
     public void initialize() throws IOException{
@@ -53,7 +57,14 @@ public class TrackerController{
     public void displaySymptoms() throws IOException{
         scrollbox.getChildren().clear();
         ArrayList<SymptomEntry> tracked = this.symptomsDatabase.getAllSymptoms();
-        for (SymptomEntry symptomEntry : tracked){
+        String userID = String.valueOf(userSession.getInstance().getUserId());
+        ArrayList<SymptomEntry> filteredList = new ArrayList<>();
+        for (SymptomEntry symptomEntry : tracked) {
+            if (symptomEntry.getUserID().equals(userID)) {
+                filteredList.add(symptomEntry);
+            }
+        }
+        for (SymptomEntry symptomEntry : filteredList){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/SymptomBox.fxml"));
             Node symptomBox = fxmlLoader.load();
             BoxController boxController = fxmlLoader.getController();

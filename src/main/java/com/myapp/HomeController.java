@@ -22,14 +22,20 @@ public class HomeController {
 
     public void initialize() throws IOException {
         String firstName = userSession.getInstance().getFirstName();
-
+        String userID = String.valueOf(userSession.getInstance().getUserId());
         String nextAppt = DatabaseManager.getNextAppt();
 
         name_label.setText("back, " + firstName);
         ArrayList<SymptomEntry> symptomList = SymptomsDatabase.getAllSymptoms();
+        ArrayList<SymptomEntry> filteredList = new ArrayList<>();
+        for (SymptomEntry symptomEntry : symptomList) {
+            if (symptomEntry.getUserID().equals(userID)) {
+                filteredList.add(symptomEntry);
+            }
+        }
         String lastLog;
-        if (!symptomList.isEmpty()) {
-            lastLog = symptomList.get(symptomList.size() - 1).getName();
+        if (!filteredList.isEmpty()) {
+            lastLog = filteredList.get(filteredList.size() - 1).getName();
         } else {
             lastLog = "No symptoms found";
         }
