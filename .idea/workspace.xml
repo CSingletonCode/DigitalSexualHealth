@@ -4,10 +4,73 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 1st Commit - Returning user pages created">
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 2nd Commit - Returning user pages can switch to main login pages.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/app_database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localdata/loggedIn.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/loggedIn.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/sessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/sessionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Calendar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Checkmark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ClinicInfoPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RegisteredOption.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TermsAndConditions.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/appointment.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/appointmentSchedule.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/changePassword.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clinicPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentSchedulePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Clinic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/ClinicController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/DatabaseManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/OptionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/RegisteredDatabase$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/RegisteredDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomEntry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomsDatabase$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomsDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TempApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TermsAndConditionsController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/ThemeManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/changePasswordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/clinicInfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/forgotPasswordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/settingsController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/userSession.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/forgotPassword.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/high-contrast.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/homepage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/newSymptom.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/signup.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/signup2.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/symptoms.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,28 +125,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.TempApp.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "AddingPIN",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TempApp.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [compile].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;AddingPIN&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -103,7 +168,9 @@
       <workItem from="1770035545783" duration="336000" />
       <workItem from="1770988534362" duration="4344000" />
       <workItem from="1771711854593" duration="2532000" />
-      <workItem from="1771774452385" duration="10253000" />
+      <workItem from="1771774452385" duration="11583000" />
+      <workItem from="1771859833647" duration="4943000" />
+      <workItem from="1771886207039" duration="12046000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -145,16 +212,36 @@
       <option name="project" value="LOCAL" />
       <updated>1771804888738</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Calum - 2nd Commit - Returning user pages can switch to main login pages.">
+      <option name="closed" value="true" />
+      <created>1771849961033</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1771849961033</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="javafx project" />
     <MESSAGE value="Symptom log home screen update" />
     <MESSAGE value="Calum - 1st Commit - Returning user pages created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calum - 1st Commit - Returning user pages created" />
+    <MESSAGE value="Calum - 2nd Commit - Returning user pages can switch to main login pages." />
+    <option name="LAST_COMMIT_MESSAGE" value="Calum - 2nd Commit - Returning user pages can switch to main login pages." />
   </component>
 </project>

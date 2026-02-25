@@ -20,11 +20,7 @@ public class App extends Application {
 
         String[] current_session = sessionManager.getSession();
         if (current_session != null) {
-            if (current_session[1].equals("true")) {
-                page = "/LoginPIN.fxml";
-            } else {
-                page = "/LoginPassword.fxml";
-            }
+            page = "/LoginPassword.fxml";
         }
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(page));

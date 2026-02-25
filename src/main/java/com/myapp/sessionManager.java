@@ -32,6 +32,12 @@ public class sessionManager {
         }
     }
 
+    public static String getEmail() throws IOException{
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
+        return root.get("email").asText();
+    }
+
     public static void clearSession() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode root = mapper.createObjectNode();

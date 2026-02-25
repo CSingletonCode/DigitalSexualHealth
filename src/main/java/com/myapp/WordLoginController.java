@@ -30,7 +30,19 @@ public class WordLoginController {
 
     }
 
-    @FXML private void handleLogin(){}
+    @FXML private void handleLogin(ActionEvent event) throws IOException {
+        String email = sessionManager.getEmail();
+        boolean correct = DatabaseManager.validateLogin(email, passwordField.getText());
+        if (correct) {
+            DatabaseManager.fetchAndStartSession(email);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/homepage.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
 
     @FXML private void toPIN(ActionEvent event) throws IOException{
         sessionManager.clearSession();

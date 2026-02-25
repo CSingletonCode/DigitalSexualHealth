@@ -8,7 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -33,7 +35,6 @@ public class settingsController {
         switchScene(event, "/homepage.fxml");
     }
 
-
     private void switchScene(ActionEvent event, String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
@@ -47,5 +48,17 @@ public class settingsController {
             e.printStackTrace();
             System.out.println("Could not load FXML file: " + fxmlFile);
         }
+    }
+    @FXML
+    private void addPIN(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/pinPopup.fxml"));
+        Parent newSymForm = fxmlLoader.load();
+        Scene newForm = new Scene(newSymForm);
+        ThemeManager.applyTheme(newForm);
+        Stage popupStage = new Stage();
+        popupStage.setScene(newForm);
+        popupStage.initStyle(StageStyle.UNDECORATED);
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.show();
     }
 }

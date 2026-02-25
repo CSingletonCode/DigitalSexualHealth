@@ -42,7 +42,6 @@ public class LoginController {
         } else {
             showAlert("Invalid email or password");
         }
-
     }
 
     private boolean validateinputs(){

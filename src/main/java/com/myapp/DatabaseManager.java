@@ -113,14 +113,16 @@ public class DatabaseManager {
         // Argon2 argon2 = Argon2Factory.create();
 
         try (Connection con = getConnection();
+
              PreparedStatement psmt = con.prepareStatement(sql)) {
 
             // String hashedPIN = argon2.hash(10,65536,1, pin);
-
+            System.out.println("fjsduiahf");
             int id = userSession.getInstance().getUserId();
 
             psmt.setInt(1, id);
             psmt.setString(2, pin);
+            psmt.executeUpdate();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -129,6 +131,10 @@ public class DatabaseManager {
                 argon2.wipeArray(pin.toCharArray());
             }
         } */
+    }
+
+    public static boolean lockoutPIN(){
+
     }
 
     public static boolean validatePIN(String pin, boolean exists) {
