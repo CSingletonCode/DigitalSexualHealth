@@ -36,6 +36,12 @@ public class PINLoginController {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login Failed");
+            alert.setHeaderText("Login Failed");
+            alert.setContentText("PIN is Incorrect");
+            alert.showAndWait();
         }
     }
 

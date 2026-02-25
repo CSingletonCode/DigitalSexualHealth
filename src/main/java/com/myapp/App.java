@@ -28,7 +28,6 @@ public class App extends Application {
             System.out.println(current_session[1]);
         }
 
-
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(page));
         Parent root = fxmlLoader.load();
 

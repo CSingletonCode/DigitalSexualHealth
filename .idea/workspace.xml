@@ -9,16 +9,26 @@
       <change beforePath="$PROJECT_DIR$/app_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/app_database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/localdata/loggedIn.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/loggedIn.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/DatabaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/sessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/sessionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/HomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PINPopupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/SymptomEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/sessionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/sessionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/settingsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/settingsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/newSymptom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/newSymptom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/symptoms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/symptoms.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +67,10 @@
     &quot;second&quot;: &quot;276f24b3-88b8-42aa-95f4-79bf17ae1b0d&quot;
   }
 }</component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -68,7 +82,6 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="39782u2oov9RPC2QaAqKjNcd5Xv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

@@ -59,6 +59,10 @@ public class settingsController {
         popupStage.setScene(newForm);
         popupStage.initStyle(StageStyle.UNDECORATED);
         popupStage.initModality(Modality.APPLICATION_MODAL);
+
+        PINPopupController controller = fxmlLoader.getController();
+        controller.setStage(popupStage);
+
         popupStage.show();
     }
 }
