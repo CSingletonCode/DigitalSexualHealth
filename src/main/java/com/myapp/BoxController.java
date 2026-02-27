@@ -43,7 +43,7 @@ public class BoxController {
     @FXML
     private void delete(){
             try {
-                ArrayList<SymptomEntry> tracked = trackerController.symptomsDatabase.getAllSymptoms();
+                ArrayList<SymptomEntry> tracked = SymptomsDatabase.getAllSymptoms();
                 String userID = String.valueOf(userSession.getInstance().getUserId());
                 ArrayList<SymptomEntry> filteredList = new ArrayList<>();
                 for (SymptomEntry symptomEntry : tracked) {

@@ -57,7 +57,7 @@ public class PopupController {
     }
 
     @FXML
-    private void cancel() throws IOException{
+    private void cancel() {
         this.stage.close();
     }
 

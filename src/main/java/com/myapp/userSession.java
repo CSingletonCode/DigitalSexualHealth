@@ -3,12 +3,12 @@ package com.myapp;
 public class userSession {
     private static userSession instance;
 
-    private int userId;
-    private String email;
-    private String firstName;
-    private String lastName;
-    private String Dob;
-    private String gender;
+    private final int userId;
+    private final String email;
+    private final String firstName;
+    private final String lastName;
+    private final String Dob;
+    private final String gender;
     private boolean highContrast = false;
     private double myLat = 50.9097;
     private double myLon = -1.4044;

@@ -56,7 +56,7 @@ public class TrackerController{
     @FXML
     public void displaySymptoms() throws IOException{
         scrollbox.getChildren().clear();
-        ArrayList<SymptomEntry> tracked = this.symptomsDatabase.getAllSymptoms();
+        ArrayList<SymptomEntry> tracked = SymptomsDatabase.getAllSymptoms();
         String userID = String.valueOf(userSession.getInstance().getUserId());
         ArrayList<SymptomEntry> filteredList = new ArrayList<>();
         for (SymptomEntry symptomEntry : tracked) {
