@@ -10,8 +10,6 @@ import java.io.IOException;
 
 public class App extends Application {
 
-    private static Scene scene;
-
     String page = "/Login.fxml";
 
     @Override
@@ -34,7 +32,7 @@ public class App extends Application {
         DatabaseManager.initialiseDatabase();
 
         // Create the scene (Width, Height)
-        scene = new Scene(root, 335, 600);
+        Scene scene = new Scene(root, 335, 600);
 
         // Set the window title
         stage.setTitle("Home");
