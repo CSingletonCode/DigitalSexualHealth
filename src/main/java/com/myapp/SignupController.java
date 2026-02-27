@@ -145,17 +145,32 @@ public class SignupController {
         alert.showAndWait();
     }
 
+    @FXML
+    private void back(ActionEvent event) {
+        switchScene(event, "/login.fxml");
+    }
+
+    public void setText(String email, String password){
+        emailField.setText(email);
+        passwordField.setText(password);
+        passwordField1.setText(password);
+        toggleBtn.setVisible(false);
+
+    }
+
 
     private void switchScene(ActionEvent event, String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
 
-            Signup2Controller nextController = loader.getController();
-            User partialUser = new User();
-            partialUser.setEmail(emailField.getText());
-            partialUser.setPassword(passwordField.getText());
-            nextController.setUserData(partialUser);
+            if (fxmlFile.equals("/signup2.fxml")) {
+                Signup2Controller nextController = loader.getController();
+                User partialUser = new User();
+                partialUser.setEmail(emailField.getText());
+                partialUser.setPassword(passwordField.getText());
+                nextController.setUserData(partialUser);
+            }
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);

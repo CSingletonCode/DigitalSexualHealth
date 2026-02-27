@@ -120,18 +120,28 @@ public class Signup2Controller {
         alert.showAndWait();
     }
 
+    @FXML
+    private void back(ActionEvent event) {
+        switchScene(event, "/signup.fxml");
+    }
+
     // Reuse the helper method
     private void switchScene(ActionEvent event, String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
 
-            TermsAndConditionsController nextController = loader.getController();
-            currentUser.setFirstName(firstName.getText());
-            currentUser.setLastName(lastName.getText());
-            currentUser.setDob(dobBox.getValue().toString());
-            currentUser.setGender(genderBox.getValue());
-            nextController.setUserData(currentUser);
+            if (fxmlFile.equals("/TermsAndConditions.fxml")) {
+                TermsAndConditionsController nextController = loader.getController();
+                currentUser.setFirstName(firstName.getText());
+                currentUser.setLastName(lastName.getText());
+                currentUser.setDob(dobBox.getValue().toString());
+                currentUser.setGender(genderBox.getValue());
+                nextController.setUserData(currentUser);
+            } else if (fxmlFile.equals("/signup.fxml")){
+                SignupController nextController = loader.getController();
+                nextController.setText(currentUser.getEmail(), currentUser.getPassword());
+            }
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);

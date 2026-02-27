@@ -14,6 +14,7 @@ public class PINPopupController {
     @FXML private TextField firstPINField;
     @FXML private TextField secondPINField;
     @FXML private Button confirmButton;
+    @FXML private Button backButton;
     private Stage stage;
     private String error;
 
@@ -21,6 +22,7 @@ public class PINPopupController {
         firstPINField.setFocusTraversable(false);
         secondPINField.setFocusTraversable(false);
         confirmButton.setFocusTraversable(false);
+        backButton.setFocusTraversable(false);
     }
 
     public void setStage(Stage stage) {
@@ -40,6 +42,11 @@ public class PINPopupController {
             valid = false;
         }
         return valid;
+    }
+
+    @FXML
+    private void back(){
+        this.stage.close();
     }
 
     private void showAlert(String header,String message, String title) {
