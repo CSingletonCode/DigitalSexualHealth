@@ -6,12 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
+import javafx.scene.control.*;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import java.io.IOException;
-import javafx.scene.control.TextField;
 
 public class SignupController {
 
@@ -22,10 +20,28 @@ public class SignupController {
     private TextField passwordField;
 
     @FXML
+    private PasswordField passwordHiddenField;
+
+    @FXML
     private TextField passwordField1;
 
     @FXML
+    private PasswordField passwordHiddenField1;
+
+    @FXML
     private Button continueButton;
+
+    @FXML
+    private Button toggleBtn;
+
+    @FXML
+    private Button toggleBtnConfirm;
+
+    @FXML
+    private Line eyeSlash;
+
+    @FXML
+    private Line eyeSlash1;
 
     @FXML
     void handleCreateAccount(ActionEvent event) {
@@ -35,6 +51,15 @@ public class SignupController {
         }
 
         switchScene(event, "/signup2.fxml");
+    }
+
+    public void initialize(){
+        passwordField.setManaged(false);
+        passwordField.setVisible(false);
+        passwordField.textProperty().bindBidirectional(passwordHiddenField.textProperty());
+        passwordField1.setManaged(false);
+        passwordField1.setVisible(false);
+        passwordField1.textProperty().bindBidirectional(passwordHiddenField1.textProperty());
     }
 
     private boolean validateinputs() {
@@ -77,6 +102,31 @@ public class SignupController {
         }
 
         return isValid;
+    }
+
+    @FXML
+    void handleToggle(){
+        eyeSlash.setVisible(!passwordField.isVisible());
+        eyeSlash1.setVisible(!passwordField.isVisible());
+        if (passwordHiddenField.isVisible()){
+            passwordHiddenField.setVisible(false);
+            passwordHiddenField.setManaged(false);
+            passwordHiddenField1.setVisible(false);
+            passwordHiddenField1.setManaged(false);
+            passwordField.setVisible(true);
+            passwordField.setManaged(true);
+            passwordField1.setVisible(true);
+            passwordField1.setManaged(true);
+        } else {
+            passwordHiddenField.setVisible(true);
+            passwordHiddenField.setManaged(true);
+            passwordHiddenField1.setVisible(true);
+            passwordHiddenField1.setManaged(true);
+            passwordField.setVisible(false);
+            passwordField.setManaged(false);
+            passwordField1.setVisible(false);
+            passwordField1.setManaged(false);
+        }
     }
 
     private void setErrorStyle(Control node) {

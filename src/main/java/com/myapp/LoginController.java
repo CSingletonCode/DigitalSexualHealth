@@ -6,11 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Control;
+import javafx.scene.control.*;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
-import javafx.scene.control.TextField;
-import javafx.scene.control.CheckBox;
 
 import java.io.IOException;
 
@@ -23,16 +21,30 @@ public class LoginController {
     private TextField passwordField;
 
     @FXML
+    private PasswordField passwordHiddenField;
+
+    @FXML
+    private Button toggleBtn;
+
+    @FXML
+    private Line eyeSlash;
+
+    @FXML
     private CheckBox stayLoggedIn;
 
-    // 2. The Button/Hyperlink Action Methods
+    public void initialize(){
+        passwordField.setManaged(false);
+        passwordField.setVisible(false);
+        passwordField.textProperty().bindBidirectional(passwordHiddenField.textProperty());
+    }
+
     @FXML
     void handleLogin(ActionEvent event) throws IOException {
         if (!validateinputs()){
             return;
         }
         String email = emailField.getText();
-        String password = passwordField.getText();
+        String password = passwordHiddenField.getText();
         if (DatabaseManager.validateLogin(email, password)){
             DatabaseManager.fetchAndStartSession(email);
             if (stayLoggedIn.isSelected()) {
@@ -44,12 +56,28 @@ public class LoginController {
         }
     }
 
+    @FXML
+    void handleToggle(){
+        eyeSlash.setVisible(!passwordField.isVisible());
+        if (passwordHiddenField.isVisible()){
+            passwordHiddenField.setVisible(false);
+            passwordHiddenField.setManaged(false);
+            passwordField.setVisible(true);
+            passwordField.setManaged(true);
+        } else {
+            passwordHiddenField.setVisible(true);
+            passwordHiddenField.setManaged(true);
+            passwordField.setVisible(false);
+            passwordField.setManaged(false);
+        }
+    }
+
     private boolean validateinputs(){
         boolean isValid = true;
         StringBuilder Errors = new StringBuilder();
 
         String email = emailField.getText().trim();
-        String password = passwordField.getText().trim();
+        String password = passwordHiddenField.getText().trim();
         if (!email.matches("^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$")){
             setErrorStyle(emailField);
             Errors.append("Please enter a valid email address.\n");
@@ -59,11 +87,11 @@ public class LoginController {
         }
 
         if (password.isEmpty()) {
-            setErrorStyle(passwordField);
+            setErrorStyle(passwordHiddenField);
             Errors.append("Please enter a password.\n");
             isValid = false;
         } else {
-            clearErrorStyle(passwordField);
+            clearErrorStyle(passwordHiddenField);
         }
 
         if (!isValid){

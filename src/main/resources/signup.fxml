@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -39,14 +43,35 @@
                               <VBox prefHeight="66.0" prefWidth="240.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-                        
-                                    <TextField fx:id="passwordField" prefHeight="38.0" prefWidth="233.0" promptText="Create a Password" styleClass="fancy-text-field" />
+                        <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="passwordField" prefHeight="38.0" prefWidth="233.0" promptText="Create a Password" styleClass="fancy-text-field" />
+                              <PasswordField fx:id="passwordHiddenField" prefHeight="38.0" prefWidth="233.0" promptText="Create a Password" styleClass="fancy-text-field" />
+                              <Button fx:id="toggleBtn" alignment="CENTER_RIGHT" focusTraversable="false" mnemonicParsing="false" onAction="#handleToggle" style="-fx-background-color: transparent;" text="👁" />
+                              <Line fx:id="eyeSlash" endX="90.0" startX="77.0" visible="false">
+                                 <StackPane.margin>
+                                    <Insets right="7.0" />
+                                 </StackPane.margin>
+                              </Line>
+                           </children>
+                        </StackPane>
                      </children>
                   </VBox>
                   <VBox prefHeight="66.0" prefWidth="240.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm your Password" />
-                        <TextField fx:id="passwordField1" prefHeight="38.0" prefWidth="233.0" promptText="Confirm your Password" styleClass="fancy-text-field" />
+                        <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="passwordField1" prefHeight="38.0" prefWidth="233.0" promptText="Confirm your Password" styleClass="fancy-text-field" />
+                              <PasswordField fx:id="passwordHiddenField1" prefHeight="38.0" prefWidth="233.0" promptText="Confirm your Password" styleClass="fancy-text-field" />
+                              <Button fx:id="toggleBtnConfirm" alignment="CENTER_RIGHT" focusTraversable="false" mnemonicParsing="false" onAction="#handleToggle" style="-fx-background-color: transparent;" text="👁" />
+                              <Line fx:id="eyeSlash1" endX="90.0" startX="77.0" visible="false">
+                                 <StackPane.margin>
+                                    <Insets right="7.0" />
+                                 </StackPane.margin>
+                              </Line>
+                           </children>
+                        </StackPane>
                      </children>
                   </VBox>
                </children>

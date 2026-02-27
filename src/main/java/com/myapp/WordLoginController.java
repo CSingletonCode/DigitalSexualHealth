@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -16,10 +17,19 @@ public class WordLoginController {
 
     @FXML private Hyperlink switchToPIN;
 
+    @FXML private Button toggleBtn;
+
+    @FXML private PasswordField passwordHiddenField;
+
+    @FXML private Line eyeSlash;
+
     String email;
 
     public void initialize() throws IOException{
         passwordField.setFocusTraversable(false);
+        passwordField.setManaged(false);
+        passwordField.setVisible(false);
+        passwordField.textProperty().bindBidirectional(passwordHiddenField.textProperty());
         String[] current_session = sessionManager.getSession();
         if (current_session[1].equals("false")) {
             switchToPIN.setVisible(false);
@@ -29,9 +39,25 @@ public class WordLoginController {
         email = current_session[0];
     }
 
+    @FXML
+    void handleToggle(){
+        eyeSlash.setVisible(!passwordField.isVisible());
+        if (passwordHiddenField.isVisible()){
+            passwordHiddenField.setVisible(false);
+            passwordHiddenField.setManaged(false);
+            passwordField.setVisible(true);
+            passwordField.setManaged(true);
+        } else {
+            passwordHiddenField.setVisible(true);
+            passwordHiddenField.setManaged(true);
+            passwordField.setVisible(false);
+            passwordField.setManaged(false);
+        }
+    }
+
     @FXML private void handleLogin(ActionEvent event) throws IOException {
         String email = sessionManager.getEmail();
-        boolean correct = DatabaseManager.validateLogin(email, passwordField.getText());
+        boolean correct = DatabaseManager.validateLogin(email, passwordHiddenField.getText());
         if (correct) {
             DatabaseManager.fetchAndStartSession(email);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/homepage.fxml"));
@@ -50,7 +76,6 @@ public class WordLoginController {
     }
 
     @FXML private void toPIN(ActionEvent event) throws IOException{
-        sessionManager.clearSession();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/LoginPIN.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

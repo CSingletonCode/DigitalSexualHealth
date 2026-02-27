@@ -6,21 +6,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
+import javafx.scene.control.*;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import java.io.IOException;
-import javafx.scene.control.TextField;
 
 public class PINLoginController {
 
     @FXML private TextField pinField;
 
+    @FXML private PasswordField pinHiddenField;
+
+    @FXML private Button toggleBtn;
+
+    @FXML private Line eyeSlash;
+
     String email;
 
     public void initialize() throws IOException{
         pinField.setFocusTraversable(false);
+        pinField.setManaged(false);
+        pinField.setVisible(false);
+        pinField.textProperty().bindBidirectional(pinHiddenField.textProperty());
         String[] current_session = sessionManager.getSession();
         email = current_session[0];
     }
@@ -42,6 +49,22 @@ public class PINLoginController {
             alert.setHeaderText("Login Failed");
             alert.setContentText("PIN is Incorrect");
             alert.showAndWait();
+        }
+    }
+
+    @FXML
+    void handleToggle(){
+        eyeSlash.setVisible(!pinField.isVisible());
+        if (pinHiddenField.isVisible()){
+            pinHiddenField.setVisible(false);
+            pinHiddenField.setManaged(false);
+            pinField.setVisible(true);
+            pinField.setManaged(true);
+        } else {
+            pinHiddenField.setVisible(true);
+            pinHiddenField.setManaged(true);
+            pinField.setVisible(false);
+            pinField.setManaged(false);
         }
     }
 
