@@ -24,7 +24,8 @@ public class DatabaseManager {
                 "first_name TEXT," +
                 "last_name TEXT," +
                 "dob TEXT," +
-                "gender TEXT" +
+                "gender TEXT," +
+                "tutorialStatus INTEGER" +
                 ");";
 
         String clinicTable = "CREATE TABLE IF NOT EXISTS clinics (" +
