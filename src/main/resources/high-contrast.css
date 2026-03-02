@@ -258,3 +258,85 @@
     -fx-background-color: #FFFFFF !important;
     -fx-text-fill: #000000 !important;
 }
+
+.confirmation-card {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+}
+
+.header-text-small {
+    -fx-text-fill: #FFFF00 !important; /* Bright yellow for headers */
+}
+
+.detail-header {
+    -fx-text-fill: #FFFFFF !important;
+    -fx-font-weight: bold;
+}
+
+.detail-value {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+/* Red and Green Buttons become High Contrast */
+.btn-red-fixed {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FF4D6D !important; /* Keep red as border for identity */
+    -fx-border-width: 3px !important;
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.btn-green-fixed {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #4BD37B !important; /* Keep green as border for identity */
+    -fx-border-width: 3px !important;
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.btn-red-fixed:hover, .btn-green-fixed:hover {
+    -fx-background-color: #FFFFFF !important;
+    -fx-text-fill: #000000 !important;
+}
+
+/* --- Tutorial Components --- */
+.tutorial-card {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFF00 !important; /* Yellow border for tutorial focus */
+    -fx-border-width: 3px !important;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-effect: null !important;
+}
+
+.tutorial-text {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.tutorial-focus-highlight {
+    /* Glow becomes pure white for visibility on black */
+    -fx-effect: dropshadow(three-pass-box, #FFFFFF, 20, 0.5, 0, 0) !important;
+}
+
+.tutorial-btn-next {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+    -fx-background-radius: 10px;
+}
+
+.tutorial-btn-skip {
+    -fx-background-color: transparent !important;
+    -fx-text-fill: #FFFF00 !important;
+    -fx-underline: true;
+}
+
+/* --- Help Button --- */
+#helpButton {
+    -fx-background-color: transparent !important;
+    -fx-text-fill: #FFFF00 !important; /* Yellow for high-vis link */
+}
+
+#helpButton:hover {
+    -fx-text-fill: #FFFFFF !important;
+}

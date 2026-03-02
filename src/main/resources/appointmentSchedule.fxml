@@ -1,54 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" spacing="20.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.AppointmentSchedulePage">
+<StackPane prefHeight="600.0" prefWidth="335.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.AppointmentSchedulePage">
     <children>
-        <HBox>
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" spacing="20.0" styleClass="root">
             <children>
-                <Button fx:id="returnButton" mnemonicParsing="false" text="←" />
-            </children>
-        </HBox>
-        <Label styleClass="header-label" text="Appointment Schedule" wrapText="true" />
-
-        <HBox alignment="CENTER">
-            <children>
-                <Button fx:id="bookAppointmentButton" mnemonicParsing="false" styleClass="submit-button" text="Book an Appointment" />
-            </children>
-        </HBox>
-
-        <ScrollPane fitToWidth="true" styleClass="edge-to-edge-scroll" VBox.vgrow="ALWAYS">
-            <content>
-                <VBox fx:id="appointmentListContainer" spacing="15.0">
+                <HBox alignment="CENTER_LEFT">
                     <children>
-                        <VBox spacing="8.0" styleClass="schedule-card">
+                        <Button fx:id="returnButton" mnemonicParsing="false" text="←" />
+                        <Region HBox.hgrow="ALWAYS" />
+                      <Label fx:id="helpButton" styleClass="icon-purple" text="Need Help?" StackPane.alignment="TOP_RIGHT" />
+                    </children>
+                </HBox>
+                <Label maxWidth="Infinity" minHeight="-Infinity" styleClass="header-label" text="Appointment Schedule" wrapText="true" />
+                <HBox fx:id="bookButtonContainer" alignment="CENTER">
+                    <children>
+                        <Button fx:id="bookAppointmentButton" mnemonicParsing="false" styleClass="submit-button" text="Book an Appointment" />
+                    </children>
+                </HBox>
+                <ScrollPane fitToWidth="true" styleClass="edge-to-edge-scroll" VBox.vgrow="ALWAYS">
+                    <content>
+                        <VBox fx:id="appointmentListContainer" spacing="15.0">
                             <children>
-                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <VBox spacing="8.0" styleClass="schedule-card">
                                     <children>
-                                        <Label fx:id="appointmentDate" styleClass="card-date-header" text="16th December 2025" />
-                                        <Region HBox.hgrow="ALWAYS" />
-                                        <Label fx:id="appointmentStatus" styleClass="status-badge, upcoming" text="UPCOMING" />
+                                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                            <children>
+                                                <Label fx:id="appointmentDate" styleClass="card-date-header" text="2025-12-16" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="appointmentStatus" styleClass="status-badge, upcoming" text="UPCOMING" />
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="clinicName" styleClass="card-detail-text" text="Name: Clinic 1" wrapText="true" />
+                                        <Label fx:id="appointmentTime" styleClass="card-detail-text" text="Time: 14:00" />
+                                        <Label fx:id="clinicAddress" styleClass="card-detail-text" text="Address: 38, Burgess Road, SO16 5NE, Southampton" wrapText="true" />
                                     </children>
-                                </HBox>
-                                <Label fx:id="clinicName" styleClass="card-detail-text" text="Name: Clinic 1" />
-                                <Label fx:id="appointmentTime" styleClass="card-detail-text" text="Time: 14:00" />
-                                <Label fx:id="clinicAddress" styleClass="card-detail-text" text="Address: 38, Burgess Road, SO16 5NE, Southampton" wrapText="true" />
+                                    <padding>
+                                        <Insets bottom="15" left="15" right="15" top="15" />
+                                    </padding>
+                                </VBox>
                             </children>
                             <padding>
-                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                <Insets bottom="10" left="2" right="10" top="5" />
                             </padding>
                         </VBox>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="2.0" right="10.0" top="5.0" />
-                    </padding>
-                </VBox>
-            </content>
-        </ScrollPane>
+                    </content>
+                </ScrollPane>
+            </children>
+            <padding>
+                <Insets bottom="10" left="20" right="20" top="15" />
+            </padding>
+        </VBox>
+        <Pane fx:id="dimLayer" mouseTransparent="true" style="-fx-background-color: rgba(0,0,0,0.6);" visible="false" />
+        <VBox fx:id="tutorialOverlay" alignment="CENTER" spacing="20" visible="false">
+           <children>
+               <VBox alignment="CENTER" spacing="15" styleClass="tutorial-card">
+                  <children>
+                      <Label fx:id="tutorialText" styleClass="tutorial-text" text="Tutorial text" wrapText="true" />
+                      <HBox alignment="CENTER" spacing="10">
+                         <children>
+                             <Button fx:id="tutorialNextButton" styleClass="tutorial-btn-next" text="Next" />
+                             <Button fx:id="tutorialSkipButton" styleClass="tutorial-btn-skip" text="Skip" />
+                         </children>
+                      </HBox>
+                  </children>
+               </VBox>
+           </children>
+        </VBox>
+        <Button fx:id="fakeBookButton" mouseTransparent="true" styleClass="submit-button, tutorial-focus-highlight" text="Book an Appointment" visible="false" StackPane.alignment="TOP_LEFT" />
     </children>
-    <padding>
-        <Insets bottom="10.0" left="20.0" right="20.0" top="15.0" />
-    </padding>
-</VBox>
+</StackPane>

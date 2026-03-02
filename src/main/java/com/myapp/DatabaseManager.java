@@ -138,7 +138,6 @@ public class DatabaseManager {
             ResultSet rs = psmt.executeQuery();
             while (rs.next()) {
                 String appDate = rs.getString("date");
-                System.out.print(appDate);
                 String status = AppointmentSchedulePage.getAppStatus(appDate);
                 VBox card = AppointmentSchedulePage.createAppointmentCard(
                     appDate,
@@ -239,6 +238,39 @@ public class DatabaseManager {
         clinics.sort(Comparator.comparingDouble(Clinic::getDistance));
 
         return clinics;
+    }
+
+    public static void updateTutorialStatus(int userId) {
+        String sql = "UPDATE users SET tutorialStatus = 1 WHERE id = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, userId);
+            pstmt.executeUpdate();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public static boolean isAppointmentTutorialCompleted(int userId) {
+        String sql = "SELECT tutorialStatus FROM users WHERE id = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("tutorialStatus") == 1;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     public static double calculateDistance(double userLat, double userLon, double clinicLat, double clinicLon) {
