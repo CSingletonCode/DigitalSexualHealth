@@ -1,0 +1,167 @@
+/* =========================================
+   HIGH CONTRAST THEME (high-contrast.css)
+   ========================================= */
+
+/* 1. GLOBAL BACKGROUNDS */
+/* Target the root and all common layout containers to force them black */
+.root,
+.anchor-pane,
+.border-pane,
+.stack-pane,
+.vbox,
+.hbox {
+    -fx-background-color: #000000 !important;
+}
+
+/* 2. SHARED VARIABLES OVERRIDE */
+.root {
+    -fx-accent-purple: #FFFF00; /* Primary actions become bright yellow */
+    -fx-light-bg: #1A1A1A;     /* Subtle sections become dark grey */
+}
+
+/* 3. TEXT & LABELS */
+/* Force all text to white for maximum readability on black */
+.label,
+.text,
+.header-label,
+.field-label,
+.card-detail-text,
+.clinic-address {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+/* Specific yellow highlights for titles or active links */
+.clinic-name,
+.forgot-password-link,
+.clinic-distance-tag,
+.card-date-header {
+    -fx-text-fill: #FFFF00 !important;
+    -fx-font-weight: bold;
+}
+
+/* 4. CARDS & SECTIONS */
+/* Cards must have white borders to define their edges on a black background */
+.card,
+.clinic-card,
+.clinic-card-primary,
+.schedule-card,
+.clinic-dropdown-container {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: null !important; /* Shadows are invisible on black; remove them */
+}
+
+/* 5. INTERACTIVE ELEMENTS (Buttons & Inputs) */
+/* Buttons: Black text on bright Yellow */
+#appointmentSubmitButton,
+.submit-button {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 2px;
+}
+
+#appointmentSubmitButton:hover,
+.submit-button:hover {
+    -fx-background-color: #FFFFFF !important;
+}
+
+/* Text Fields: White border on Black */
+.fancy-text-field,
+.date-picker,
+.combo-box,
+.text-area {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.root .date-picker-popup > .month-year-pane {
+    -fx-background-color: #FFFF00 !important; /* High contrast yellow */
+}
+
+.fancy-text-field:focused {
+    -fx-border-color: #FFFF00 !important;
+    -fx-border-width: 3px;
+}
+
+/* 6. STATUS BADGES */
+.status-badge {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 1px;
+    -fx-text-fill: #FFFFFF !important;
+}
+
+/* 7. SCROLLING & MISC */
+.edge-to-edge-scroll,
+.edge-to-edge-scroll .viewport {
+    -fx-background-color: #000000 !important;
+}
+
+.edge-to-edge-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #FFFFFF !important;
+}
+
+/* Target the main TextArea container */
+.text-area {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+}
+
+/* Target the actual area where you type */
+.text-area .content {
+    -fx-background-color: #000000 !important;
+}
+
+/* Force the text you type to be pure white */
+.text-area .text {
+    -fx-fill: #FFFFFF !important;
+}
+
+/* Force the prompt text ("Describe the reason...") to be bright yellow */
+.text-area {
+    -fx-prompt-text-fill: #FFFF00 !important;
+}
+
+/* Ensure the cursor (caret) is white so you can see where you are typing */
+.text-area {
+    -fx-display-caret: true;
+    -fx-caret-fill: #FFFFFF !important;
+}
+
+.root .button-small {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+}
+
+.edge-to-edge-scroll,
+.edge-to-edge-scroll > .viewport,
+.edge-to-edge-scroll .content {
+    -fx-background-color: #000000 !important;
+    -fx-background: #000000 !important;
+}
+
+/* Ensure the VBox inside also turns black */
+#scrollbox {
+    -fx-background-color: #000000 !important;
+}
+
+.root .switch-button {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+}
+
+.root .switch-button:selected {
+    -fx-background-color: #FFFF00 !important; /* Yellow for 'ON' state */
+}
+
+.root .switch-button .label {
+    -fx-background-color: #FFFFFF !important;
+}

@@ -5,6 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
 
 <VBox prefHeight="844.0" prefWidth="390.0" spacing="25.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.HomeController">
@@ -48,13 +50,29 @@
         </VBox>
 
         <VBox fx:id="evaluationCard" onMouseClicked="#handleNavigation" styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="1">
-            <Label styleClass="icon-purple" text="✔️=" />
+            <Label styleClass="icon-purple">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@Checkmark.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Label>
             <Label styleClass="card-title" text="Evaluation" />
             <Label styleClass="card-desc" text="Perform an evaluation of your health" wrapText="true" />
         </VBox>
 
         <VBox fx:id="apptCard" onMouseClicked="#handleNavigation" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
-            <Label styleClass="icon-purple" text="🗓️" />
+            <Label styleClass="icon-purple">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Calendar.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+            </Label>
             <Label styleClass="card-title" text="Book Appointment" wrapText="true" />
             <Label styleClass="card-desc" text="Book your next check-up" wrapText="true" />
         </VBox>

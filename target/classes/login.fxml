@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -17,7 +18,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
-         
+
             <ImageView layoutX="78.0" layoutY="69.0">
                <image>
                   <Image url="@Avatar.png" />
@@ -51,11 +52,17 @@
                   <TextField fx:id="passwordField" prefHeight="38.0" prefWidth="233.0" promptText="Enter your Password" styleClass="fancy-text-field" />
                </children>
             </VBox>
-            <Button fx:id="loginButton" layoutX="51.0" layoutY="466.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="233.0" style="-fx-background-radius: 30; -fx-background-color: #4C039B;" text="Login" textFill="WHITE" />
-            <HBox alignment="CENTER" layoutX="68.0" layoutY="513.0" prefHeight="26.0" prefWidth="200.0">
+            <Button fx:id="loginButton" layoutX="51.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="233.0" style="-fx-background-radius: 30; -fx-background-color: #4C039B;" text="Login" textFill="WHITE" />
+            <HBox alignment="CENTER" layoutX="68.0" layoutY="534.0" prefHeight="26.0" prefWidth="200.0">
                <children>
                   <Text fill="#757575" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
                   <Hyperlink fx:id="signupLink" onAction="#handleSignUp" prefHeight="25.0" prefWidth="53.0" style="-fx-font-weight: bold; -fx-text-fill: #4C039B;" text="Sign up" textFill="#4c039b" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="68.0" layoutY="451.0" prefHeight="26.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Text fill="#757575" strokeType="OUTSIDE" strokeWidth="0.0" text="Stay Logged In?" />
+                  <CheckBox fx:id="stayLoggedIn" mnemonicParsing="false" />
                </children>
             </HBox>
 

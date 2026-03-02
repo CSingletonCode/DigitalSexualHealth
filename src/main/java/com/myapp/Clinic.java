@@ -4,14 +4,16 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Clinic {
-    private int id;
-    private String name;
-    private String address;
-    private double latitude, longitude, distance;
-    private String email;
-    private String phone;
-    private String urgentPhone;
-    private List<String> hours;
+    private final int id;
+    private final String name;
+    private final String address;
+    private final double latitude;
+    private final double longitude;
+    private final double distance;
+    private final String email;
+    private final String phone;
+    private final String urgentPhone;
+    private final List<String> hours;
 
 
     public Clinic(int id, String name, String address, double latitude, double longitude, double distance, String email, String phone, String urgentPhone, String hours) {
@@ -33,9 +35,7 @@ public class Clinic {
     public String getName() {
         return name;
     }
-    public double getLatitude() {
-        return latitude;
-    }
+    public double getLatitude() { return latitude; }
     public double getLongitude() {
         return longitude;
     }

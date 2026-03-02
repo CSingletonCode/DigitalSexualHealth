@@ -10,18 +10,29 @@ import java.io.IOException;
 
 public class App extends Application {
 
-    private static Scene scene;
+    String page = "/Login.fxml";
 
     @Override
     public void start(Stage stage) throws IOException {
         // Load the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/Login.fxml"));
+
+        String[] current_session = sessionManager.getSession();
+        if (current_session != null) {
+            if (current_session[1].equals("true")) {
+                page = "/LoginPIN.fxml";
+            } else {
+                page = "/LoginPassword.fxml";
+            }
+            System.out.println(current_session[1]);
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(page));
         Parent root = fxmlLoader.load();
 
         DatabaseManager.initialiseDatabase();
 
         // Create the scene (Width, Height)
-        scene = new Scene(root, 335, 600);
+        Scene scene = new Scene(root, 335, 600);
 
         // Set the window title
         stage.setTitle("Home");

@@ -5,6 +5,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 
 public class DatabaseManager {
     private static final String URL = "jdbc:sqlite:app_database.db";
@@ -16,8 +18,9 @@ public class DatabaseManager {
     public static void initialiseDatabase() {
         String userTable = "CREATE TABLE IF NOT EXISTS users (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "email TEXT NOT NULL," +
+                "email TEXT NOT NULL UNIQUE," +
                 "password TEXT," +
+                "pin TEXT," +
                 "first_name TEXT," +
                 "last_name TEXT," +
                 "dob TEXT," +
@@ -47,11 +50,19 @@ public class DatabaseManager {
                 "FOREIGN KEY (clinic_id) REFERENCES clinics(id)" +
                 ");";
 
+        String PINTable = "CREATE TABLE IF NOT EXISTS pin(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "user_id INTEGER," +
+                "PIN TEXT," +
+                "FOREIGN KEY (user_id) REFERENCES users(id)" +
+                ");";
+
         try (Connection con = getConnection();
             Statement smt = con.createStatement()) {
                 smt.execute(userTable);
                 smt.execute(clinicTable);
                 smt.execute(appTable);
+                smt.execute(PINTable);
                 System.out.println("Database init");
             }
         catch (Exception e){
@@ -60,19 +71,45 @@ public class DatabaseManager {
     }
 
     public static boolean saveToDatabase(User user) {
+
         String sql = "INSERT INTO users (email, password, first_name, last_name, dob, gender) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
+
+        Argon2 argon2 = Argon2Factory.create();
+
         try (Connection con = getConnection();
         PreparedStatement psmt = con.prepareStatement(sql)){
+            String hashedPassword = argon2.hash(10,65536,1, user.getPassword());
+
             psmt.setString(1,user.getEmail());
-            psmt.setString(2,user.getPassword());
+            psmt.setString(2,hashedPassword);
             psmt.setString(3, user.getFirstName());
             psmt.setString(4, user.getLastName());
             psmt.setString(5, user.getDob());
             psmt.setString(6, user.getGender());
 
             psmt.executeUpdate();
+
             return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (user.getPassword() != null) {
+                argon2.wipeArray(user.getPassword().toCharArray());
+            }
+        }
+    }
+
+    public static boolean emailExists(String email) {
+        String sql = "SELECT 1 FROM users WHERE email = ?";
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            psmt.setString(1, email);
+            try (ResultSet rs = psmt.executeQuery()) {
+                return rs.next();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -80,22 +117,101 @@ public class DatabaseManager {
     }
 
     public static boolean validateLogin(String email, String password) {
-        String sql = "SELECT count(1) FROM users WHERE email = ? AND password = ?";
+        String sql = "SELECT password FROM users where email = ?";
+        String storedHash = null;
 
         try (Connection con = getConnection();
             PreparedStatement psmt = con.prepareStatement(sql)) {
             psmt.setString(1,email);
 
-            psmt.setString(2,password);
             try (ResultSet rs = psmt.executeQuery()){
                 if (rs.next()){
-                    return rs.getInt(1) > 0;
+                    storedHash = rs.getString("password");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+
+        if (storedHash == null){ return false; }
+        Argon2 argon2 = Argon2Factory.create();
+        try{
+            return argon2.verify(storedHash,password.toCharArray());
+        } finally {
+            argon2.wipeArray(password.toCharArray());
+        }
+    }
+
+    public static void storePIN(String pin) {
+        int id = userSession.getInstance().getUserId();
+        String sql;
+        int idIdx,pinIdx;
+
+        boolean pin_exists = validatePIN(pin,true,id);
+        if (pin_exists){
+            sql = "UPDATE pin SET pin = ? WHERE user_id = ?";
+            idIdx = 2;
+            pinIdx = 1;
+        } else{
+            sql = "INSERT INTO pin (user_id, PIN) VALUES (?, ?)";
+            idIdx = 1;
+            pinIdx = 2;
+        }
+
+
+        Argon2 argon2 = Argon2Factory.create();
+
+        try (Connection con = getConnection();
+
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            String hashedPIN = argon2.hash(10,65536,1, pin);
+
+
+            psmt.setInt(idIdx, id);
+            psmt.setString(pinIdx, hashedPIN);
+            psmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (pin != null){
+                argon2.wipeArray(pin.toCharArray());
+            }
+        }
+    }
+
+    //public static boolean lockoutPIN(){}
+
+    public static boolean validatePIN(String pin, boolean exists, int id) {
+        String sql = "SELECT user_id, PIN FROM pin WHERE user_id = ? ORDER BY ROWID DESC";
+        String storedHash = null;
+
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            psmt.setInt(1, id);
+
+            try (ResultSet rs = psmt.executeQuery()){
+                if (exists) {return rs.next();}
+                else {
+                    if (rs.next()) {
+                        storedHash = rs.getString("PIN");
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (storedHash == null){ return false; }
+        Argon2 argon2 = Argon2Factory.create();
+        try{
+            return argon2.verify(storedHash,pin.toCharArray());
+        } finally {
+            argon2.wipeArray(pin.toCharArray());
+        }
+
     }
 
     public static void fetchAndStartSession(String email) {
