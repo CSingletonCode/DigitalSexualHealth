@@ -418,3 +418,133 @@
 .allergy-checkbox:selected .box {
     -fx-background-color: #7158B7;
 }
+
+.submit-button-large, .submit-button {
+    -fx-background-color: -fx-accent-purple;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+
+/* Large Submit */
+/* Large Submit */
+#appointmentSubmitButton {
+    .submit-button-large {
+        -fx-font-size: 16px;
+        -fx-background-radius: 30px;
+        -fx-padding: 8px 15px;
+    }
+}
+
+
+
+#appointmentSubmitButton:hover, .submit-button:hover {
+    .submit-button-large:hover, .submit-button:hover {
+        -fx-background-color: #5A4499;
+    }
+}
+
+
+.switch-button:selected .label {
+    .switch-button:selected .label {
+        -fx-translate-x: 12px; /* Move thumb to the right */
+        /* Move thumb to the right */
+    }
+}
+
+/* --- Updated Confirmation Page Styling --- */
+.confirmation-card {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 15px;
+    -fx-border-width: 1px;
+}
+
+/* Reduced size to fit 300px width */
+.header-text-small {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+
+.detail-header {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #555555;
+}
+
+.detail-value {
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
+}
+
+/* Red and Green Buttons with identical fixed width */
+.btn-red-fixed, .btn-green-fixed {
+    -fx-pref-width: 95px;
+    -fx-pref-height: 35px;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.btn-red-fixed {
+    -fx-background-color: #FF4D6D;
+}
+.btn-red-fixed:hover { -fx-background-color: #D63D5A; }
+
+.btn-green-fixed {
+    -fx-background-color: #4BD37B;
+}
+.btn-green-fixed:hover { -fx-background-color: #3EB868; }
+
+/* The Floating Box */
+.tutorial-card {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    /* Soft shadow to make it look floating */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 10);
+    -fx-max-width: 280;
+}
+
+/* The Tutorial Text */
+.tutorial-text {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-line-spacing: 1.2;
+}
+
+/* THE FOCUS HIGHLIGHT */
+.tutorial-focus-highlight {
+    -fx-background-radius: 30px;
+    -fx-effect: dropshadow(three-pass-box, #ffffff, 15, 0.5, 0, 0);
+}
+
+/* Standardizing Tutorial Buttons */
+.tutorial-btn-next {
+    -fx-background-color: -fx-accent-purple;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+.tutorial-btn-skip {
+    -fx-background-color: transparent;
+    -fx-text-fill: #757575;
+    -fx-font-weight: bold;
+}
+
+#helpButton {
+    -fx-background-color: transparent;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 15px;
+    -fx-cursor: hand;
+    -fx-underline: true;
+    -fx-font-weight: bold;
+}
+
+
