@@ -13,6 +13,8 @@ import java.io.File;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 
@@ -24,6 +26,7 @@ import static org.testfx.api.FxAssert.verifyThat;
 
 
 public class Sprint2Test extends ApplicationTest{
+    private static final Logger log = LoggerFactory.getLogger(Sprint2Test.class);
     private Stage primaryStage;
     private String url = "jdbc:sqlite:app_database.db";
 
@@ -61,8 +64,8 @@ public class Sprint2Test extends ApplicationTest{
         eraseText(50);
         write("example@email.com");
 
-        verifyThat("#passwordField", NodeMatchers.isVisible());
-        clickOn("#passwordField");
+        verifyThat("#passwordHiddenField", NodeMatchers.isVisible());
+        clickOn("#passwordHiddenField");
         eraseText(50);
         write("password");
 
@@ -146,6 +149,56 @@ public class Sprint2Test extends ApplicationTest{
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Test
+    @DisplayName("US9-WB-3.1")
+    void testApppointmentConfirmation(){
+        loginAsTestUser();
+
+        clickOn("#apptCard");
+        clickOn("#bookAppointmentButton");
+        clickOn("#bookBtn_1");
+
+        // 1. Fill in the form fields using fx:id selectors
+        DatePicker datePicker = lookup("#appointmentDatePicker").queryAs(DatePicker.class);
+        interact(() -> datePicker.setValue(LocalDate.of(2028, 3, 20)));
+
+        ComboBox<String> comboBox = lookup("#appointmentTimeBox").queryAs(ComboBox.class);
+        interact(() -> comboBox.setValue("14:00"));
+
+        doubleClickOn("#appointmentPurposeText");
+        eraseText(100);
+        write("Routine Checkup for Testing");
+
+        // 2. Click the Submit button
+        clickOn("#appointmentSubmitButton");
+
+        sleep(5000);
+
+        clickOn("#confirmButton");
+
+        sleep(2000);
+
+        System.out.println("Test US9-WB-3.1 passed.");
+    }
+
+    @Test
+    @DisplayName("US18-WB-1.1")
+    void testAppointmentHelp(){
+        loginAsTestUser();
+        clickOn("#apptCard");
+        clickOn("#helpButton");
+        clickOn("#tutorialNextButton");
+        sleep(1000);
+        clickOn("#tutorialNextButton");
+        sleep(1000);
+        clickOn("#tutorialNextButton");
+        sleep(1000);
+        clickOn("#tutorialNextButton");
+        sleep(2000);
+
+        System.out.println("Test US18-WB-1.1 passed.");
     }
 
     @Test
