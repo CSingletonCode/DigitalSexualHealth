@@ -275,6 +275,17 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
+    @DisplayName("US17-WB-1.3")
+    void testEmptyAllergySave() {
+        loginAsTestUser();
+        clickOn("#evaluationCard");
+        clickOn("#allergiesButton");
+        interact(() -> EvaluationData.selectedAllergies.clear());
+        clickOn("#saveAllergies");
+        verifyThat("#allergiesButton", NodeMatchers.isVisible());
+    }
+
+    @Test
     @DisplayName("US8-WB-1.1")
     void testRiskValueCalculation() {
         //Partition test of zero selections
@@ -360,6 +371,21 @@ public class Sprint2Test extends ApplicationTest{
         assertEquals("High risk", newCase.checkRisk(27));
     }
 
+    @Test
+    @DisplayName("US8-WB-1.5")
+    void testRiskCategories() {
+        EvaluationController newCase = new EvaluationController();
+        assertEquals("Low risk", newCase.checkRisk(10));
+        assertEquals("Medium risk", newCase.checkRisk(24));
+        assertEquals("High risk", newCase.checkRisk(40));
+    }
+
+    @Test
+    @DisplayName("US8-WB-1.6")
+    void negativeScore() {
+        EvaluationController newCase = new EvaluationController();
+        assertEquals("Low risk", newCase.checkRisk(-5));
+    }
 }
 
 
