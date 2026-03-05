@@ -244,6 +244,37 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
+    @DisplayName("US17-WB-1.2")
+    void testAllergyReloads() {
+        interact (() -> {
+            EvaluationData.selectedAllergies.clear();
+            EvaluationData.selectedAllergies.add("Penicillin");
+        });
+
+        loginAsTestUser();
+        clickOn("#evaluationCard");
+        sleep(400);
+        clickOn("#allergiesButton");
+
+        org.testfx.util.WaitForAsyncUtils.waitForFxEvents();
+        interact(() -> {
+            long startTime = System.currentTimeMillis();
+            while (System.currentTimeMillis() - startTime < 3000) {
+                try {
+                    CheckBox checkbox = lookup("Penicillin").queryAs(CheckBox.class);
+                    if (checkbox.isSelected()) return;
+                } catch (Exception e) {
+                    sleep(100);
+                }
+            }
+        });
+        CheckBox penicillinBox = lookup("Penicillin").queryAs(CheckBox.class);
+        assertTrue(penicillinBox.isSelected(), "Failed to load allergy data.");
+        clickOn("#saveAllergies");
+        sleep(400);
+    }
+
+    @Test
     @DisplayName("US8-WB-1.1")
     void testRiskValueCalculation() {
         //Partition test of zero selections
