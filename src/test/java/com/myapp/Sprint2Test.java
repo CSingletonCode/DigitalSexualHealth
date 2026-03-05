@@ -145,7 +145,7 @@ public class Sprint2Test extends ApplicationTest{
                 assertNotEquals("password", password);
             }
 
-        System.out.println("Test US6-WB-1.1 passed.");
+        System.out.println("Test US6-WB-6.1 passed.");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -182,7 +182,7 @@ public class Sprint2Test extends ApplicationTest{
 
         sleep(2000);
 
-        System.out.println("Test US9-WB-3.1 passed.");
+        System.out.println("Test US9-WB-9.1 passed.");
     }
 
     @Test
@@ -200,7 +200,7 @@ public class Sprint2Test extends ApplicationTest{
         clickOn("#tutorialNextButton");
         sleep(2000);
 
-        System.out.println("Test US18-WB-1.1 passed.");
+        System.out.println("Test US18-WB-18.1 passed.");
     }
 
     @Test
