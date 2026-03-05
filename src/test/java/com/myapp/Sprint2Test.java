@@ -58,12 +58,12 @@ public class Sprint2Test extends ApplicationTest{
         sleep(100);
     }
 
-    private void loginAsTestUser() {
+    private void loginAsTestUser(String email) {
         // Enter valid login details and click login
         verifyThat("#emailField", NodeMatchers.isVisible());
         clickOn("#emailField");
         eraseText(50);
-        write("example@email.com");
+        write(email);
 
         verifyThat("#passwordHiddenField", NodeMatchers.isVisible());
         clickOn("#passwordHiddenField");
@@ -191,7 +191,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US9-WB-9.1")
     void testApppointmentConfirmation(){
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
 
         clickOn("#apptCard");
         clickOn("#bookAppointmentButton");
@@ -225,7 +225,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US18-WB-18.1")
     void testAppointmentHelp(){
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         clickOn("#apptCard");
         clickOn("#helpButton");
         clickOn("#tutorialNextButton");
@@ -243,7 +243,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US17-WB-17.1")
     void testAllergyInputAndPersistence() {
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
 
         //Navigate to Evaluation
         clickOn("#evaluationCard");
@@ -287,7 +287,7 @@ public class Sprint2Test extends ApplicationTest{
             EvaluationData.selectedAllergies.add("Lidocaine");
         });
 
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         clickOn("#evaluationCard");
         sleep(400);
         clickOn("#allergiesButton");
@@ -313,7 +313,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US17-WB-17.3")
     void testEmptyAllergySave() {
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         clickOn("#evaluationCard");
         clickOn("#allergiesButton");
         interact(() -> EvaluationData.selectedAllergies.clear());
@@ -352,7 +352,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US8-WB-8.2")
     void testingEvaluationBackFunctionality() {
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         clickOn("#evaluationCard");
         verifyThat("#q1Yes", NodeMatchers.isVisible());
         clickOn("#q1Yes");
@@ -374,7 +374,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US8-WB-8.3")
     void testingEvaluation() {
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
 
         clickOn("#evaluationCard");
         for (int i=1; i <= 4; i++) {
@@ -428,13 +428,17 @@ public class Sprint2Test extends ApplicationTest{
     // User selects stay logged in, does not set a PIN.
     void testStayLoggedIn() throws TimeoutException {
         // The user logs in, selecting stay logged in
-        loginAsTestUser();
+        loginAsTestUser("examplePW@email.com");
         sleep(400);
         // The app closes
         FxToolkit.cleanupStages();
         sleep(400);
         // The app is reopened
         FxToolkit.setupApplication(App.class);
+        sleep(400);
+        if (!lookup("pinHiddenField").queryAll().isEmpty()) {
+            clickOn("#swichToPassword");
+        }
         sleep(400);
         // Check that the correct returning user page is selected
         verifyThat("#passwordHiddenField", NodeMatchers.isVisible());
@@ -453,7 +457,7 @@ public class Sprint2Test extends ApplicationTest{
     @DisplayName("US11-WB-11.2")// User selects stay logged in, and sets a valid PIN.
     void testStayLoggedInWithPIN() throws TimeoutException {
         // The user logs in
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         // The user sets a new PIN
         setPIN("1234","1234");
         verifyThat("#returnButton", NodeMatchers.isVisible());
