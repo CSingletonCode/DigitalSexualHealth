@@ -16,12 +16,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
@@ -79,6 +81,42 @@ public class Sprint2Test extends ApplicationTest{
 
         // Wait for login navigation to finish
         sleep(100);
+    }
+
+    private void loginStayLoggedOut() {
+        // Enter valid login details and click login
+        verifyThat("#emailField", NodeMatchers.isVisible());
+        clickOn("#emailField");
+        eraseText(50);
+        write("example@email.com");
+
+        verifyThat("#passwordHiddenField", NodeMatchers.isVisible());
+        clickOn("#passwordHiddenField");
+        eraseText(50);
+        write("password");
+
+        verifyThat("#loginButton", NodeMatchers.isVisible());
+        clickOn("#loginButton");
+
+        // Wait for login navigation to finish
+        sleep(100);
+    }
+
+    private void setPIN(String firstPIN, String secondPIN) {
+        verifyThat("#settings", NodeMatchers.isVisible());
+        clickOn("#settings");
+        verifyThat("#AddPINButton", NodeMatchers.isVisible());
+        clickOn("#AddPINButton");
+        verifyThat("#firstPINField", NodeMatchers.isVisible());
+        verifyThat("#secondPINField", NodeMatchers.isVisible());
+        clickOn("#firstPINField");
+        eraseText(50);
+        write(firstPIN);
+        clickOn("#secondPINField");
+        eraseText(50);
+        write(secondPIN);
+        verifyThat("#confirmButton", NodeMatchers.isVisible());
+        clickOn("#confirmButton");
     }
 
     @Test
@@ -212,7 +250,6 @@ public class Sprint2Test extends ApplicationTest{
         clickOn("#evaluationCard");
         clickOn("#allergiesButton");
         verifyThat("#allergyList", NodeMatchers.isVisible());
-
         //Select an Allergy then press Cancel
         clickOn("Latex");
         clickOn("←");
@@ -386,7 +423,64 @@ public class Sprint2Test extends ApplicationTest{
         EvaluationController newCase = new EvaluationController();
         assertEquals("Low risk", newCase.checkRisk(-5));
     }
+
+    @Test
+    @DisplayName("US11-WB-11.1")
+    // User selects stay logged in, does not set a PIN.
+    void testStayLoggedIn() throws TimeoutException {
+        // The user logs in, selecting stay logged in
+        loginAsTestUser();
+        sleep(400);
+        // The app closes
+        FxToolkit.cleanupStages();
+        sleep(400);
+        // The app is reopened
+        FxToolkit.setupApplication(App.class);
+        sleep(400);
+        // Check that the correct returning user page is selected
+        verifyThat("#passwordHiddenField", NodeMatchers.isVisible());
+        clickOn("#passwordHiddenField");
+        eraseText(50);
+        // Logs in from this page
+        write("password");
+        verifyThat("#loginButton", NodeMatchers.isVisible());
+        clickOn("#loginButton");
+        // Check the home page correctly opens
+        verifyThat("#symptomsCard", NodeMatchers.isVisible());
+        System.out.println("US11-WB-11.1 - Pass");
+    }
+
+    @Test
+    @DisplayName("US11-WB-11.2")// User selects stay logged in, and sets a valid PIN.
+    void testStayLoggedInWithPIN() throws TimeoutException {
+        // The user logs in
+        loginAsTestUser();
+        // The user sets a new PIN
+        setPIN("1234","1234");
+        verifyThat("#returnButton", NodeMatchers.isVisible());
+        clickOn("#returnButton");
+        sleep(400);
+        // The app closes
+        FxToolkit.cleanupStages();
+        sleep(400);
+        // The app is reopened
+        FxToolkit.setupApplication(App.class);
+        sleep(400);
+        verifyThat("#pinHiddenField", NodeMatchers.isVisible());
+        clickOn("#pinHiddenField");
+        eraseText(50);
+        write("1234");
+        verifyThat("#loginButton", NodeMatchers.isVisible());
+        clickOn("#loginButton");
+        // Check the home page correctly opens
+        verifyThat("#symptomsCard", NodeMatchers.isVisible());
+        System.out.println("US11-WB-11.2 - Pass");
+    }
 }
+
+
+
+
 
 
 

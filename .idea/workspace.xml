@@ -9,26 +9,39 @@
       <change beforePath="$PROJECT_DIR$/app_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/app_database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/localdata/loggedIn.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/loggedIn.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/LoginPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/LoginPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/myapp/Sprint2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/myapp/Sprint2Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/appointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appointment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/appointmentSchedule.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appointmentSchedule.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/clinicPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clinicPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentSchedulePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentSchedulePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Clinic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/Clinic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/ClinicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/ClinicController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PINPopupController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/SymptomEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TempApp.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/sessionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/sessionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/settingsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/settingsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/userSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/userSession.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/high-contrast.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/high-contrast.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/newSymptom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/newSymptom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/symptoms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/symptoms.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pinPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pinPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/signup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/signup2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/signup2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +80,10 @@
     &quot;second&quot;: &quot;276f24b3-88b8-42aa-95f4-79bf17ae1b0d&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -82,34 +95,78 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="39782u2oov9RPC2QaAqKjNcd5Xv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TempApp.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [compile].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;AddingPIN&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.TempApp.executor": "Run",
+    "JUnit.Sprint2Test.executor": "Run",
+    "JUnit.Sprint2Test.testStayLoggedIn.executor": "Run",
+    "JUnit.Sprint2Test.testStayLoggedInWithPIN.executor": "Run",
+    "Maven.demo [clean].executor": "Run",
+    "Maven.demo [compile].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "testing",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Sprint2Test.testStayLoggedIn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.myapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.myapp" />
+      <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
+      <option name="METHOD_NAME" value="testStayLoggedIn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sprint2Test.testStayLoggedInWithPIN" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.myapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.myapp" />
+      <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
+      <option name="METHOD_NAME" value="testStayLoggedInWithPIN" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Sprint2Test.testStayLoggedInWithPIN" />
+        <item itemvalue="JUnit.Sprint2Test.testStayLoggedIn" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -132,6 +189,8 @@
       <workItem from="1771774452385" duration="11583000" />
       <workItem from="1771859833647" duration="4943000" />
       <workItem from="1771886207039" duration="14275000" />
+      <workItem from="1772669517759" duration="1158000" />
+      <workItem from="1772711567975" duration="7135000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />

@@ -11,7 +11,6 @@ import java.io.IOException;
 public class App extends Application {
 
     String page = "/Login.fxml";
-
     @Override
     public void start(Stage stage) throws IOException {
         // Load the FXML file
