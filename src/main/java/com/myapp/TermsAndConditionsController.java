@@ -44,6 +44,11 @@ public class TermsAndConditionsController {
         return saveToDatabase(currentUser);
     }
 
+    @FXML
+    void cancelAccount(ActionEvent event) {
+        switchScene(event, "/login.fxml");
+    }
+
     private void switchScene(ActionEvent event, String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
