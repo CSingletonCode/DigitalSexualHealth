@@ -4,44 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 3rd Commit - New PINs can be added">
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 1st set of tests - returning user feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/app_database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localdata/loggedIn.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/loggedIn.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/LoginPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/LoginPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localdata/allergies.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/allergies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localdata/enteredSymptoms.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/enteredSymptoms.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/myapp/Sprint2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/myapp/Sprint2Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/appointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appointment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/appointmentSchedule.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appointmentSchedule.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/clinicPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/clinicPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentSchedulePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentSchedulePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Clinic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/Clinic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/ClinicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/ClinicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PINPopupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TempApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/userSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/userSession.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/high-contrast.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/high-contrast.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pinPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pinPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/settings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/signup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/signup2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/signup2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint2Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint2Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,8 +77,15 @@
     "Application.HelloApplication.executor": "Run",
     "Application.TempApp.executor": "Run",
     "JUnit.Sprint2Test.executor": "Run",
+    "JUnit.Sprint2Test.testMismatchInputs.executor": "Run",
+    "JUnit.Sprint2Test.testMissingBottomPin.executor": "Run",
+    "JUnit.Sprint2Test.testMissingTopPin.executor": "Run",
+    "JUnit.Sprint2Test.testPINHasLetters.executor": "Run",
+    "JUnit.Sprint2Test.testPINIsTooLong.executor": "Run",
+    "JUnit.Sprint2Test.testPINIsTooShort.executor": "Run",
     "JUnit.Sprint2Test.testStayLoggedIn.executor": "Run",
     "JUnit.Sprint2Test.testStayLoggedInWithPIN.executor": "Run",
+    "JUnit.Sprint2Test.testValidPIN.executor": "Run",
     "Maven.demo [clean].executor": "Run",
     "Maven.demo [compile].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -127,8 +105,8 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="Sprint2Test.testStayLoggedIn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.Sprint2Test.testValidPIN">
+    <configuration name="Sprint2Test.testMismatchInputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
@@ -138,13 +116,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.myapp" />
       <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
-      <option name="METHOD_NAME" value="testStayLoggedIn" />
+      <option name="METHOD_NAME" value="testMismatchInputs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sprint2Test.testStayLoggedInWithPIN" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Sprint2Test.testPINHasLetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
@@ -154,7 +132,55 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.myapp" />
       <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
-      <option name="METHOD_NAME" value="testStayLoggedInWithPIN" />
+      <option name="METHOD_NAME" value="testPINHasLetters" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sprint2Test.testPINIsTooLong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.myapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.myapp" />
+      <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
+      <option name="METHOD_NAME" value="testPINIsTooLong" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sprint2Test.testPINIsTooShort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.myapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.myapp" />
+      <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
+      <option name="METHOD_NAME" value="testPINIsTooShort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sprint2Test.testValidPIN" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.myapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.myapp" />
+      <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
+      <option name="METHOD_NAME" value="testValidPIN" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -162,8 +188,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Sprint2Test.testStayLoggedInWithPIN" />
-        <item itemvalue="JUnit.Sprint2Test.testStayLoggedIn" />
+        <item itemvalue="JUnit.Sprint2Test.testValidPIN" />
+        <item itemvalue="JUnit.Sprint2Test.testPINHasLetters" />
+        <item itemvalue="JUnit.Sprint2Test.testPINIsTooShort" />
+        <item itemvalue="JUnit.Sprint2Test.testPINIsTooLong" />
+        <item itemvalue="JUnit.Sprint2Test.testMismatchInputs" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +219,7 @@
       <workItem from="1771859833647" duration="4943000" />
       <workItem from="1771886207039" duration="14275000" />
       <workItem from="1772669517759" duration="1158000" />
-      <workItem from="1772711567975" duration="7135000" />
+      <workItem from="1772711567975" duration="12937000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -248,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772022187008</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Calum - 1st set of tests - returning user feature">
+      <option name="closed" value="true" />
+      <created>1772720086575</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1772720086575</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +308,7 @@
     <MESSAGE value="Calum - 1st Commit - Returning user pages created" />
     <MESSAGE value="Calum - 2nd Commit - Returning user pages can switch to main login pages." />
     <MESSAGE value="Calum - 3rd Commit - New PINs can be added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calum - 3rd Commit - New PINs can be added" />
+    <MESSAGE value="Calum - 1st set of tests - returning user feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calum - 1st set of tests - returning user feature" />
   </component>
 </project>

@@ -4,4 +4,10 @@
   "date" : "2025-10-12",
   "description" : "hi",
   "userID" : "1"
+}, {
+  "id" : "e970879b-e40e-4829-906a-93e974c34edf",
+  "name" : "Test Symptom 2",
+  "date" : "2026-03-10",
+  "description" : "asdasd",
+  "userID" : "7"
 } ]

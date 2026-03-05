@@ -16,6 +16,7 @@ public class PINPopupController {
     @FXML private Button backButton;
     private Stage stage;
     private String error;
+    private String title;
 
     public void initialize() {
         firstPINField.setFocusTraversable(false);

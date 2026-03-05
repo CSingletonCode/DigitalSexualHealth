@@ -1,9 +1,6 @@
 package com.myapp;
 
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -466,6 +463,7 @@ public class Sprint2Test extends ApplicationTest{
         // The app is reopened
         FxToolkit.setupApplication(App.class);
         sleep(400);
+        // Checks the PIN login page opens
         verifyThat("#pinHiddenField", NodeMatchers.isVisible());
         clickOn("#pinHiddenField");
         eraseText(50);
@@ -475,6 +473,85 @@ public class Sprint2Test extends ApplicationTest{
         // Check the home page correctly opens
         verifyThat("#symptomsCard", NodeMatchers.isVisible());
         System.out.println("US11-WB-11.2 - Pass");
+    }
+
+// -- PARTITION TESTS FOR SETTING A PIN -- //
+
+    @Test
+    @DisplayName("US11-WB-11.3") // User doesn't enter anything into the top box.
+    void testMissingTopPin(){
+        loginAsTestUser();
+        setPIN("","1234");
+        DialogPane dialogPane = lookup(".dialog-pane").query();
+        // Check the Alert has the correct error message.
+        assertEquals("Entry required for both fields", dialogPane.getContentText());
+        System.out.println("US11-WB-11.3 - Pass");
+    }
+
+    @Test
+    @DisplayName("US11-WB-11.4") // User doesn't enter anything into the bottom box.
+    void testMissingBottomPin() {
+        loginAsTestUser();
+        setPIN("1234","");
+        DialogPane dialogPane = lookup(".dialog-pane").query();
+        // Check the Alert has the correct error message.
+        assertEquals("Entry required for both fields", dialogPane.getContentText());
+        System.out.println("US11-WB-11.4 - Pass");
+    }
+
+    @Test
+    @DisplayName("US11-WB-11.5") // The user enters two different inputs.
+    void testMismatchInputs(){
+        loginAsTestUser();
+        setPIN("1234","1235");
+        DialogPane dialogPane = lookup(".dialog-pane").query();
+        // Check the Alert has the correct error message.
+        assertEquals("First PIN and Second PIN are not the same", dialogPane.getContentText());
+        System.out.println("US11-WB-11.5 - Pass");
+    }
+
+    @Test
+    @DisplayName("US11-WB-11.6") // The user enters two identical PINs that are more than 4 digits.
+    void testPINIsTooLong() {
+        loginAsTestUser();
+        setPIN("12345","12345");
+        DialogPane dialogPane = lookup(".dialog-pane").query();
+        // Check the Alert has the correct error message.
+        assertEquals("First PIN must be a valid 4 digit number", dialogPane.getContentText());
+        System.out.println("US11-WB-11.6 - Pass");
+    }
+
+    @Test
+    @DisplayName("US11-WB-11.7") // The user enters two identical PINs that are less than 4 digits.
+    void testPINIsTooShort() {
+        loginAsTestUser();
+        setPIN("123","123");
+        DialogPane dialogPane = lookup(".dialog-pane").query();
+        // Check the Alert has the correct error message.
+        assertEquals("First PIN must be a valid 4 digit number", dialogPane.getContentText());
+        System.out.println("US11-WB-11.7 - Pass");
+    }
+
+    @Test
+    @DisplayName("US11-WB-11.8") // The user enters two identical PINs that contain letters.
+    void testPINHasLetters() {
+        loginAsTestUser();
+        setPIN("12c4","12c4");
+        DialogPane dialogPane = lookup(".dialog-pane").query();
+        // Check the Alert has the correct error message.
+        assertEquals("First PIN must be a valid 4 digit number", dialogPane.getContentText());
+        System.out.println("US11-WB-11.8 - Pass");
+    }
+
+    @Test
+    @DisplayName("US11-WB-11.9") // The user correctly enters a 4 digit integer.
+    void testValidPIN() {
+        loginAsTestUser();
+        setPIN("1234","1234");
+        DialogPane dialogPane = lookup(".dialog-pane").query();
+        // Check the Alert is showing the success message.
+        assertEquals("PIN Successfully Added", dialogPane.getHeaderText());
+        System.out.println("US11-WB-11.9 - Pass");
     }
 }
 
