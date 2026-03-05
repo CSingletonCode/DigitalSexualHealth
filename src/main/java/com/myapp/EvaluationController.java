@@ -176,7 +176,7 @@ public class EvaluationController {
         return riskScore;
     }
 
-    private String checkRisk(int riskScore) {
+    String checkRisk(int riskScore) {
         if (riskScore < 21) {
             return "Low risk";
         } else if (riskScore < 27) {

@@ -248,7 +248,7 @@ public class Sprint2Test extends ApplicationTest{
     void testAllergyReloads() {
         interact (() -> {
             EvaluationData.selectedAllergies.clear();
-            EvaluationData.selectedAllergies.add("Penicillin");
+            EvaluationData.selectedAllergies.add("Lidocaine");
         });
 
         loginAsTestUser();
@@ -261,14 +261,14 @@ public class Sprint2Test extends ApplicationTest{
             long startTime = System.currentTimeMillis();
             while (System.currentTimeMillis() - startTime < 3000) {
                 try {
-                    CheckBox checkbox = lookup("Penicillin").queryAs(CheckBox.class);
+                    CheckBox checkbox = lookup("Lidocaine").queryAs(CheckBox.class);
                     if (checkbox.isSelected()) return;
                 } catch (Exception e) {
                     sleep(100);
                 }
             }
         });
-        CheckBox penicillinBox = lookup("Penicillin").queryAs(CheckBox.class);
+        CheckBox penicillinBox = lookup("Lidocaine").queryAs(CheckBox.class);
         assertTrue(penicillinBox.isSelected(), "Failed to load allergy data.");
         clickOn("#saveAllergies");
         sleep(400);
