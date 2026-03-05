@@ -82,7 +82,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US6-WB-1.1")
+    @DisplayName("US6-WB-6.1")
     void testHashing() {
         Random rand = new Random();
         clickOn("#signupLink");
@@ -154,7 +154,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US9-WB-3.1")
+    @DisplayName("US9-WB-9.1")
     void testApppointmentConfirmation(){
         loginAsTestUser();
 
@@ -186,7 +186,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US18-WB-1.1")
+    @DisplayName("US18-WB-18.1")
     void testAppointmentHelp(){
         loginAsTestUser();
         clickOn("#apptCard");
