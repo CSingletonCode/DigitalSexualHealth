@@ -204,7 +204,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US17-WB-1.1")
+    @DisplayName("US17-WB-17.1")
     void testAllergyInputAndPersistence() {
         loginAsTestUser();
 
@@ -244,7 +244,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US17-WB-1.2")
+    @DisplayName("US17-WB-17.2")
     void testAllergyReloads() {
         interact (() -> {
             EvaluationData.selectedAllergies.clear();
@@ -275,7 +275,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US17-WB-1.3")
+    @DisplayName("US17-WB-17.3")
     void testEmptyAllergySave() {
         loginAsTestUser();
         clickOn("#evaluationCard");
@@ -286,7 +286,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US8-WB-1.1")
+    @DisplayName("US8-WB-8.1")
     void testRiskValueCalculation() {
         //Partition test of zero selections
         interact(() -> EvaluationData.selectedAllergies.clear());
@@ -314,7 +314,7 @@ public class Sprint2Test extends ApplicationTest{
         assertTrue(finalScore >= 27, "Final score should cross high risk boundary");
     }
     @Test
-    @DisplayName("US8-WB-1.2")
+    @DisplayName("US8-WB-8.2")
     void testingEvaluationBackFunctionality() {
         loginAsTestUser();
         clickOn("#evaluationCard");
@@ -336,7 +336,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US8-WB-1.3")
+    @DisplayName("US8-WB-8.3")
     void testingEvaluation() {
         loginAsTestUser();
 
@@ -362,7 +362,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US8-WB-1.4")
+    @DisplayName("US8-WB-8.4")
     void testRiskBoundaries() {
         EvaluationController newCase = new EvaluationController();
         assertEquals("Low risk", newCase.checkRisk(20));
@@ -372,7 +372,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US8-WB-1.5")
+    @DisplayName("US8-WB-8.5")
     void testRiskCategories() {
         EvaluationController newCase = new EvaluationController();
         assertEquals("Low risk", newCase.checkRisk(10));
@@ -381,7 +381,7 @@ public class Sprint2Test extends ApplicationTest{
     }
 
     @Test
-    @DisplayName("US8-WB-1.6")
+    @DisplayName("US8-WB-8.6")
     void negativeScore() {
         EvaluationController newCase = new EvaluationController();
         assertEquals("Low risk", newCase.checkRisk(-5));
