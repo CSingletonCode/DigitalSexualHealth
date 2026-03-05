@@ -486,7 +486,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US11-WB-11.3") // User doesn't enter anything into the top box.
     void testMissingTopPin(){
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         setPIN("","1234");
         DialogPane dialogPane = lookup(".dialog-pane").query();
         // Check the Alert has the correct error message.
@@ -497,7 +497,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US11-WB-11.4") // User doesn't enter anything into the bottom box.
     void testMissingBottomPin() {
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         setPIN("1234","");
         DialogPane dialogPane = lookup(".dialog-pane").query();
         // Check the Alert has the correct error message.
@@ -508,7 +508,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US11-WB-11.5") // The user enters two different inputs.
     void testMismatchInputs(){
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         setPIN("1234","1235");
         DialogPane dialogPane = lookup(".dialog-pane").query();
         // Check the Alert has the correct error message.
@@ -519,7 +519,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US11-WB-11.6") // The user enters two identical PINs that are more than 4 digits.
     void testPINIsTooLong() {
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         setPIN("12345","12345");
         DialogPane dialogPane = lookup(".dialog-pane").query();
         // Check the Alert has the correct error message.
@@ -530,7 +530,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US11-WB-11.7") // The user enters two identical PINs that are less than 4 digits.
     void testPINIsTooShort() {
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         setPIN("123","123");
         DialogPane dialogPane = lookup(".dialog-pane").query();
         // Check the Alert has the correct error message.
@@ -541,7 +541,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US11-WB-11.8") // The user enters two identical PINs that contain letters.
     void testPINHasLetters() {
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         setPIN("12c4","12c4");
         DialogPane dialogPane = lookup(".dialog-pane").query();
         // Check the Alert has the correct error message.
@@ -552,7 +552,7 @@ public class Sprint2Test extends ApplicationTest{
     @Test
     @DisplayName("US11-WB-11.9") // The user correctly enters a 4 digit integer.
     void testValidPIN() {
-        loginAsTestUser();
+        loginAsTestUser("example@email.com");
         setPIN("1234","1234");
         DialogPane dialogPane = lookup(".dialog-pane").query();
         // Check the Alert is showing the success message.
