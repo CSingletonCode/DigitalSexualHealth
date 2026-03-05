@@ -3,6 +3,7 @@ package com.myapp;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
+import org.testfx.matcher.control.LabeledMatchers;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -269,6 +271,55 @@ public class Sprint2Test extends ApplicationTest{
         int finalScore = EvaluationData.selectedAllergies.size() * 4;
         assertTrue(finalScore >= 27, "Final score should cross high risk boundary");
     }
+    @Test
+    @DisplayName("US8-WB-1.2")
+    void testingEvaluationBackFunctionality() {
+        loginAsTestUser();
+        clickOn("#evaluationCard");
+        verifyThat("#q1Yes", NodeMatchers.isVisible());
+        clickOn("#q1Yes");
+
+        verifyThat("#q2No", NodeMatchers.isVisible());
+        clickOn("#q2No");
+
+        verifyThat("#q3Maybe", NodeMatchers.isVisible());
+        clickOn("#q3Maybe");
+
+        verifyThat("#pageIndicatorLabel", LabeledMatchers.hasText("Page 1 / 4"));
+        clickOn("#nextButton");
+        verifyThat("#pageIndicatorLabel", LabeledMatchers.hasText("Page 2 / 4"));
+        clickOn("<");
+        ToggleButton q1YesButton = lookup("#q1Yes").queryAs(ToggleButton.class);
+        assertTrue(q1YesButton.isSelected(), "Selection was lost when navigating");
+    }
+
+    @Test
+    @DisplayName("US8-WB-1.3")
+    void testingEvaluation() {
+        loginAsTestUser();
+
+        clickOn("#evaluationCard");
+        for (int i=1; i <= 4; i++) {
+            String pageNo = "Page " + i + " / 4";
+            verifyThat("#pageIndicatorLabel", LabeledMatchers.hasText(pageNo));
+            clickOn("#q1Yes");
+            clickOn("#q2No");
+            clickOn("#q3Maybe");
+
+            if (i < 4) {
+                clickOn("#nextButton");
+                sleep(400);
+            }
+        }
+        verifyThat("#pageIndicatorLabel", LabeledMatchers.hasText("Page 4 / 4"));
+        clickOn("#nextButton");
+        sleep(400);
+        clickOn("OK");
+        sleep(400);
+        verifyThat("#evaluationCard", NodeMatchers.isVisible());
+    }
 }
+
+
 
 
