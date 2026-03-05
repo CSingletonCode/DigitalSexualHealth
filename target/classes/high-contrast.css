@@ -165,3 +165,178 @@
 .root .switch-button .label {
     -fx-background-color: #FFFFFF !important;
 }
+
+.root .button-small:hover {
+    -fx-background-color: #FFFFFF !important;
+    -fx-text-fill: #000000 !important
+}
+
+.root .button-small:selected {
+    -fx-background-color: #FFFFFF !important;
+    -fx-text-fill: #000000 !important;
+    -fx-border-color: #FFFF00 !important;
+    -fx-border-width: 3px !important;
+}
+
+.evaluation-card {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+    -fx-background-radius: 25px;
+    -fx-border-radius: 25px;
+}
+
+.evaluation-sub-header {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.button-small-eval {
+    -fx-background-color: #000000 !important;
+    -fx-text-fill: #FFFFFF !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.button-small-eval:selected {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+}
+
+.icon-button {
+    -fx-background-color: #1A1A1A !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-text-fill: #FFFF00 !important;
+}
+
+
+.root .hbox .button-small-eval:hover {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+}
+
+.root .allergy-checkbox {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.root .allergy-checkbox .label {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.root .allergy-checkbox:selected .box {
+    -fx-background-color: #FFFF00 !important;
+    -fx-border-color: #FFFFFF !important;
+}
+
+.root .allergy-checkbox:selected .mark {
+    -fx-background-color: #000000 !important;
+}
+
+.root .allergy-checkbox .box {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+}
+#pageIndicatorLabel {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+
+
+#saveAllergies {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.root .button-small-eval:hover {
+    -fx-background-color: #FFFFFF !important;
+    -fx-text-fill: #000000 !important;
+}
+
+.confirmation-card {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+}
+
+.header-text-small {
+    -fx-text-fill: #FFFF00 !important; /* Bright yellow for headers */
+}
+
+.detail-header {
+    -fx-text-fill: #FFFFFF !important;
+    -fx-font-weight: bold;
+}
+
+.detail-value {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+/* Red and Green Buttons become High Contrast */
+.btn-red-fixed {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FF4D6D !important; /* Keep red as border for identity */
+    -fx-border-width: 3px !important;
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.btn-green-fixed {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #4BD37B !important; /* Keep green as border for identity */
+    -fx-border-width: 3px !important;
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.btn-red-fixed:hover, .btn-green-fixed:hover {
+    -fx-background-color: #FFFFFF !important;
+    -fx-text-fill: #000000 !important;
+}
+
+/* --- Tutorial Components --- */
+.tutorial-card {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFF00 !important; /* Yellow border for tutorial focus */
+    -fx-border-width: 3px !important;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-effect: null !important;
+}
+
+.tutorial-text {
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.tutorial-focus-highlight {
+    /* Glow becomes pure white for visibility on black */
+    -fx-effect: dropshadow(three-pass-box, #FFFFFF, 20, 0.5, 0, 0) !important;
+}
+
+.tutorial-btn-next {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+    -fx-background-radius: 10px;
+}
+
+.tutorial-btn-skip {
+    -fx-background-color: transparent !important;
+    -fx-text-fill: #FFFF00 !important;
+    -fx-underline: true;
+}
+
+/* --- Help Button --- */
+#helpButton {
+    -fx-background-color: transparent !important;
+    -fx-text-fill: #FFFF00 !important; /* Yellow for high-vis link */
+}
+
+#helpButton:hover {
+    -fx-text-fill: #FFFFFF !important;
+}

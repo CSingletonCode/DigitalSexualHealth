@@ -4,10 +4,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="172.0" prefWidth="199.0" style="-fx-border-color: #4C039B;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.PINPopupController">
+<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="199.0" style="-fx-border-color: #4C039B;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.PINPopupController">
    <children>
-      <TextField fx:id="firstPINField" layoutX="9.0" layoutY="25.0" prefHeight="26.0" prefWidth="180.0" promptText="Enter New PIN" style="-fx-border-color: #4C039B;" styleClass="fancy-text-field" />
-      <TextField fx:id="secondPINField" layoutX="10.0" layoutY="73.0" prefHeight="26.0" prefWidth="180.0" promptText="Re-enter New PIN" style="-fx-border-color: #4C039B;" styleClass="fancy-text-field" />
-      <Button fx:id="confirmButton" layoutX="50.0" layoutY="116.0" maxWidth="100.0" mnemonicParsing="false" onAction="#submit" prefHeight="33.0" prefWidth="180.0" styleClass="submit-button" text="Confirm" textAlignment="CENTER" />
+      <TextField fx:id="firstPINField" layoutX="9.0" layoutY="41.0" prefHeight="26.0" prefWidth="180.0" promptText="Enter New PIN" style="-fx-border-color: #4C039B;" styleClass="fancy-text-field" />
+      <TextField fx:id="secondPINField" layoutX="10.0" layoutY="89.0" prefHeight="26.0" prefWidth="180.0" promptText="Re-enter New PIN" style="-fx-border-color: #4C039B;" styleClass="fancy-text-field" />
+      <Button fx:id="confirmButton" layoutX="50.0" layoutY="132.0" maxWidth="100.0" mnemonicParsing="false" onAction="#submit" prefHeight="33.0" prefWidth="180.0" styleClass="submit-button" text="Confirm" textAlignment="CENTER" />
+      <Button fx:id="backButton" layoutX="166.0" layoutY="9.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: transparent;" text="X" textFill="#6c54b6" />
    </children>
 </Pane>

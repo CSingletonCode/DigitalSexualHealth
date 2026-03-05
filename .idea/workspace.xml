@@ -4,31 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 3rd Commit - New PINs can be added">
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 2nd set of tests - Valid and not valid PIN partitions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/app_database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localdata/loggedIn.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/loggedIn.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/BoxController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PINPopupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/SignupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/SymptomEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/SymptomEntry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/sessionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/sessionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/settingsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/settingsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/newSymptom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/newSymptom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/symptoms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/symptoms.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint1Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint1Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint2Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint2Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +47,10 @@
     &quot;second&quot;: &quot;276f24b3-88b8-42aa-95f4-79bf17ae1b0d&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -82,34 +62,136 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="39782u2oov9RPC2QaAqKjNcd5Xv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TempApp.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [compile].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;AddingPIN&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.TempApp.executor": "Run",
+    "JUnit.Sprint2Test.executor": "Run",
+    "JUnit.Sprint2Test.testMismatchInputs.executor": "Run",
+    "JUnit.Sprint2Test.testMissingBottomPin.executor": "Run",
+    "JUnit.Sprint2Test.testMissingTopPin.executor": "Run",
+    "JUnit.Sprint2Test.testPINHasLetters.executor": "Run",
+    "JUnit.Sprint2Test.testPINIsTooLong.executor": "Run",
+    "JUnit.Sprint2Test.testPINIsTooShort.executor": "Run",
+    "JUnit.Sprint2Test.testStayLoggedIn.executor": "Run",
+    "JUnit.Sprint2Test.testStayLoggedInWithPIN.executor": "Run",
+    "JUnit.Sprint2Test.testValidPIN.executor": "Run",
+    "Maven.demo [clean].executor": "Run",
+    "Maven.demo [compile].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "testing",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Sprint2Test.testMismatchInputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.myapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.myapp" />
+      <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
+      <option name="METHOD_NAME" value="testMismatchInputs" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sprint2Test.testPINHasLetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.myapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.myapp" />
+      <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
+      <option name="METHOD_NAME" value="testPINHasLetters" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sprint2Test.testPINIsTooLong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.myapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.myapp" />
+      <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
+      <option name="METHOD_NAME" value="testPINIsTooLong" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sprint2Test.testPINIsTooShort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.myapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.myapp" />
+      <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
+      <option name="METHOD_NAME" value="testPINIsTooShort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sprint2Test.testValidPIN" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.myapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.myapp" />
+      <option name="MAIN_CLASS_NAME" value="com.myapp.Sprint2Test" />
+      <option name="METHOD_NAME" value="testValidPIN" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Sprint2Test.testValidPIN" />
+        <item itemvalue="JUnit.Sprint2Test.testPINHasLetters" />
+        <item itemvalue="JUnit.Sprint2Test.testPINIsTooShort" />
+        <item itemvalue="JUnit.Sprint2Test.testPINIsTooLong" />
+        <item itemvalue="JUnit.Sprint2Test.testMismatchInputs" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -132,6 +214,8 @@
       <workItem from="1771774452385" duration="11583000" />
       <workItem from="1771859833647" duration="4943000" />
       <workItem from="1771886207039" duration="14275000" />
+      <workItem from="1772669517759" duration="1158000" />
+      <workItem from="1772711567975" duration="13261000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -189,7 +273,23 @@
       <option name="project" value="LOCAL" />
       <updated>1772022187008</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Calum - 1st set of tests - returning user feature">
+      <option name="closed" value="true" />
+      <created>1772720086575</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1772720086575</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Calum - 2nd set of tests - Valid and not valid PIN partitions.">
+      <option name="closed" value="true" />
+      <created>1772725939088</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1772725939088</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +312,8 @@
     <MESSAGE value="Calum - 1st Commit - Returning user pages created" />
     <MESSAGE value="Calum - 2nd Commit - Returning user pages can switch to main login pages." />
     <MESSAGE value="Calum - 3rd Commit - New PINs can be added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calum - 3rd Commit - New PINs can be added" />
+    <MESSAGE value="Calum - 1st set of tests - returning user feature" />
+    <MESSAGE value="Calum - 2nd set of tests - Valid and not valid PIN partitions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Calum - 2nd set of tests - Valid and not valid PIN partitions." />
   </component>
 </project>
