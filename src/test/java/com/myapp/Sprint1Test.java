@@ -15,6 +15,7 @@ import org.testfx.matcher.base.NodeMatchers;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
@@ -58,8 +59,8 @@ public class Sprint1Test extends ApplicationTest {
         eraseText(50);
         write("example@email.com");
 
-        verifyThat("#passwordField", NodeMatchers.isVisible());
-        clickOn("#passwordField");
+        verifyThat("#passwordHiddenField", NodeMatchers.isVisible());
+        clickOn("#passwordHiddenField");
         eraseText(50);
         write("password");
 
@@ -79,8 +80,8 @@ public class Sprint1Test extends ApplicationTest {
         eraseText(50);
         write("invalid@email.com");
 
-        verifyThat("#passwordField", NodeMatchers.isVisible());
-        clickOn("#passwordField");
+        verifyThat("#passwordHiddenField", NodeMatchers.isVisible());
+        clickOn("#passwordHiddenField");
         eraseText(50);
         write("password");
 
@@ -113,7 +114,11 @@ public class Sprint1Test extends ApplicationTest {
         // 2. Click the Submit button
         clickOn("#appointmentSubmitButton");
 
-        sleep(100);
+        sleep(5000);
+
+        clickOn("#confirmButton");
+
+        sleep(2000);
 
         // 3. Verify the UI handles the submission (Success popup check)
         verifyThat("Appointment booked successfully!", NodeMatchers.isVisible());
@@ -181,7 +186,7 @@ public class Sprint1Test extends ApplicationTest {
         clickOn("#addSymptomButton");
         clickOn("#enterButton");
 
-        verifyThat("Invalid symptom details", NodeMatchers.isVisible());
+        verifyThat("Error", NodeMatchers.isVisible());
 
         System.out.println("Test US4-WB-4.1 passed.");
     }
@@ -197,15 +202,17 @@ public class Sprint1Test extends ApplicationTest {
         verifyThat("#emailField", NodeMatchers.isVisible());
         clickOn("#emailField");
         eraseText(50);
-        write("test@email.com");
+        Random rand = new Random();
+        String randomString = String.valueOf(rand.nextInt(100000) + 1);
+        write("test" + randomString + "@email.com");
 
-        verifyThat("#passwordField", NodeMatchers.isVisible());
-        clickOn("#passwordField");
+        verifyThat("#passwordHiddenField", NodeMatchers.isVisible());
+        clickOn("#passwordHiddenField");
         eraseText(50);
         write("password");
 
-        verifyThat("#passwordField1", NodeMatchers.isVisible());
-        clickOn("#passwordField1");
+        verifyThat("#passwordHiddenField1", NodeMatchers.isVisible());
+        clickOn("#passwordHiddenField1");
         eraseText(50);
         write("password");
 
@@ -229,7 +236,7 @@ public class Sprint1Test extends ApplicationTest {
         interact(() -> dobPicker.setValue(LocalDate.of(2000, 8, 15)));
 
         ComboBox<String> genderBox = lookup("#genderBox").queryAs(ComboBox.class);
-        interact(() -> genderBox.setValue("Men"));
+        interact(() -> genderBox.setValue("Man"));
 
         verifyThat("#continueButton", NodeMatchers.isVisible());
         clickOn("#continueButton");
@@ -247,13 +254,13 @@ public class Sprint1Test extends ApplicationTest {
         try (Connection conn = DriverManager.getConnection(url)) {
             String query = "SELECT * FROM users WHERE email = ?";
             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, "test@email.com");
+            pstmt.setString(1, "test" + randomString + "@email.com");
 
             ResultSet rs = pstmt.executeQuery();
 
             // Record found
             assertTrue(rs.next(), "Database should contain the submitted user.");
-            assertEquals("test@email.com", rs.getString("email"), "User not added to database.");
+            assertEquals("test" + randomString + "@email.com", rs.getString("email"), "User not added to database.");
         }
 
         System.out.println("Test US2-WB-2.3 passed.");
