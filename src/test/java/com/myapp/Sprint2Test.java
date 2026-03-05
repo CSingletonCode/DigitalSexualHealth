@@ -204,8 +204,10 @@ public class Sprint2Test extends ApplicationTest{
         DatePicker datePicker = lookup("#appointmentDatePicker").queryAs(DatePicker.class);
         interact(() -> datePicker.setValue(LocalDate.of(2028, 3, 20)));
 
-        ComboBox<String> comboBox = lookup("#appointmentTimeBox").queryAs(ComboBox.class);
-        interact(() -> comboBox.setValue("14:00"));
+        //ComboBox<String> comboBox = lookup("#appointmentTimeBox").queryAs(ComboBox.class);
+        //interact(() -> comboBox.setValue("14:00"));
+        clickOn("#appointmentTimeBox");
+        clickOn("14:00");
 
         doubleClickOn("#appointmentPurposeText");
         eraseText(100);
