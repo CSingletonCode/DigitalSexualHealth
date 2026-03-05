@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 1st set of tests - returning user feature">
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 2nd set of tests - Valid and not valid PIN partitions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/app_database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localdata/allergies.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/allergies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localdata/enteredSymptoms.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/enteredSymptoms.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINPopupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/myapp/Sprint2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/myapp/Sprint2Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PINPopupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint1Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint1Test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint2Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint2Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +101,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.Sprint2Test.testValidPIN">
+  <component name="RunManager">
     <configuration name="Sprint2Test.testMismatchInputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -219,7 +215,7 @@
       <workItem from="1771859833647" duration="4943000" />
       <workItem from="1771886207039" duration="14275000" />
       <workItem from="1772669517759" duration="1158000" />
-      <workItem from="1772711567975" duration="12937000" />
+      <workItem from="1772711567975" duration="13261000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -285,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772720086575</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Calum - 2nd set of tests - Valid and not valid PIN partitions.">
+      <option name="closed" value="true" />
+      <created>1772725939088</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1772725939088</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +313,7 @@
     <MESSAGE value="Calum - 2nd Commit - Returning user pages can switch to main login pages." />
     <MESSAGE value="Calum - 3rd Commit - New PINs can be added" />
     <MESSAGE value="Calum - 1st set of tests - returning user feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calum - 1st set of tests - returning user feature" />
+    <MESSAGE value="Calum - 2nd set of tests - Valid and not valid PIN partitions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Calum - 2nd set of tests - Valid and not valid PIN partitions." />
   </component>
 </project>
