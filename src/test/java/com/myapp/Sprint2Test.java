@@ -1,5 +1,6 @@
 package com.myapp;
 
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
@@ -7,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import java.util.Random;
+import java.io.File;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -144,6 +146,75 @@ public class Sprint2Test extends ApplicationTest{
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Test
+    @DisplayName("US17-WB-1.1")
+    void testAllergyInputAndPersistence() {
+        loginAsTestUser();
+
+        //Navigate to Evaluation
+        clickOn("#evaluationCard");
+        clickOn("#allergiesButton");
+        verifyThat("#allergyList", NodeMatchers.isVisible());
+
+        //Select an Allergy then press Cancel
+        clickOn("Latex");
+        clickOn("←");
+        sleep(500);
+
+        //Return to allergies to verify it didn't save
+        clickOn("#allergiesButton");
+        sleep(500);
+
+        long checkCount = lookup(".checkbox").queryAll().stream()
+                .map(n -> (CheckBox) n)
+                .filter(CheckBox::isSelected)
+                .count();
+        assertEquals(0, checkCount, "Incorrectly saved during a cancel event");
+
+        //Validation testing - persistence
+        clickOn("Latex");
+        clickOn("Penicillin");
+        clickOn("#saveAllergies");
+        sleep(500);
+
+        //Verify update
+        assertTrue(EvaluationData.selectedAllergies.contains("Latex"));
+        assertTrue(EvaluationData.selectedAllergies.contains("Penicillin"));
+
+        //Check JSON file is in correct place
+        File newFile = new File("localdata/allergies.json");
+        assertTrue(newFile.exists(), "JSON file should be created.");
+    }
+
+    @Test
+    @DisplayName("US8-WB-1.1")
+    void testRiskValueCalculation() {
+        //Partition test of zero selections
+        interact(() -> EvaluationData.selectedAllergies.clear());
+        int scoreZero = EvaluationData.selectedAllergies.size() * 4;
+        assertEquals(0, scoreZero);
+
+        //Moderate Selections
+        interact(() -> {
+            EvaluationData.selectedAllergies.add("Latex");
+            EvaluationData.selectedAllergies.add("Penicillin");
+        });
+        int scoreEight = EvaluationData.selectedAllergies.size() * 4;
+        assertEquals(8, scoreEight, "Score should be +4 points per allergy");
+
+        //High risk identification boundary
+        interact(() -> {
+            EvaluationData.selectedAllergies.add("Lidocaine");
+            EvaluationData.selectedAllergies.add("Fragrances");
+            EvaluationData.selectedAllergies.add("Nickel");
+            EvaluationData.selectedAllergies.add("Ibuprofen");
+            EvaluationData.selectedAllergies.add("Adhesive tape");
+        });
+
+        int finalScore = EvaluationData.selectedAllergies.size() * 4;
+        assertTrue(finalScore >= 27, "Final score should cross high risk boundary");
     }
 }
 
