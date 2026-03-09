@@ -52,7 +52,7 @@ public class clinicInfoController {
     }
 
     private void handleReturn(ActionEvent event) {
-        switchScene(event, "/appointmentSchedule.fxml", null);
+        switchScene(event, "/clinicPage.fxml", null);
     }
 
     private void switchScene(ActionEvent event, String fxmlFile, Clinic clinic) {
