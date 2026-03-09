@@ -1,14 +1,16 @@
 package com.myapp;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,11 +19,12 @@ public class PopupController {
     private RegisteredDatabase registeredDatabase;
     private Stage stage;
     private TrackerController trackerController;
+    private EventHandler<MouseEvent> clickOutsideFilter;
 
     @FXML
     private TextField nameField;
     @FXML
-    private TextField dateField;
+    private DatePicker dateField;
     @FXML
     private TextField descriptionField;
     @FXML
@@ -32,6 +35,9 @@ public class PopupController {
     private Button cancelButton;
     @FXML
     private Button enterButton;
+    @FXML
+    private Pane root;
+
 
     public void setName(String name){
         nameField.setText(name);
@@ -40,8 +46,15 @@ public class PopupController {
     public void initialize() throws IOException{
         nameField.setFocusTraversable(false);
         dateField.setFocusTraversable(false);
+        root.setFocusTraversable(true);
         descriptionField.setFocusTraversable(false);
         this.registeredDatabase = new RegisteredDatabase();
+
+        dateField.getEditor().focusedProperty().addListener((obs, wasFocused, isFocused) -> {
+            if (!isFocused) {
+                dateField.setValue(dateField.getConverter().fromString(dateField.getEditor().getText()));
+            }
+        });
     }
 
     public void setSymptomsDatabase(SymptomsDatabase symptomsDatabase) {
@@ -66,7 +79,7 @@ public class PopupController {
         String check = checkValid();
         if (check.equals("valid")){
             String userID = String.valueOf(userSession.getInstance().getUserId());
-            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getText(), descriptionField.getText(), userID);
+            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getValue().toString(), descriptionField.getText(), userID);
             symptomsDatabase.recordSymptom(newSymptom);
             trackerController.displaySymptoms();
             this.stage.close();
@@ -81,7 +94,7 @@ public class PopupController {
         if (nameField.getText().isEmpty()){
             return "Enter a name";
         }
-        if (dateField.getText().isEmpty() || !dateField.getText().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")){
+        if (dateField.getValue().toString().isEmpty()){
             return "Enter a valid date";
         }
         if (descriptionField.getText().isEmpty()){
@@ -98,6 +111,18 @@ public class PopupController {
         optionsBox.setVisible(true);
         lockOut();
         updateOptions();
+
+        clickOutsideFilter = event -> {
+            if (!optionsScroll.getBoundsInParent().contains(event.getX(), event.getY()) &&
+                    !nameField.getBoundsInParent().contains(event.getX(), event.getY())) {
+                root.requestFocus();
+                hideDropDown();
+                nameField.setText("");
+                unlock();
+            }
+        };
+
+        nameField.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, clickOutsideFilter);
 
         nameField.textProperty().addListener((obs, oldValue, newValue) -> {
             optionsBox.getChildren().clear();
@@ -154,5 +179,6 @@ public class PopupController {
     public void hideDropDown(){
         optionsBox.setVisible(false);
         optionsScroll.setVisible(false);
+        nameField.getScene().removeEventFilter(MouseEvent.MOUSE_PRESSED, clickOutsideFilter);
     }
 }
