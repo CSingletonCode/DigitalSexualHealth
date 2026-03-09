@@ -21,7 +21,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AppointmentPage {
 
@@ -33,7 +36,7 @@ public class AppointmentPage {
     @FXML private TextArea appointmentPurposeText;
     @FXML private Button appointmentSubmitButton;
     private Clinic clinic;
-    private final List<String> allTimeSlots = List.of("09:00", "10:00", "11:00", "14:00", "15:00", "16:00");
+    private List<String> allTimeSlots;
     @FXML private VBox tutorialOverlay;
     @FXML private Label tutorialText;
     @FXML private Button tutorialNextButton;
@@ -73,6 +76,14 @@ public class AppointmentPage {
             TutorialController.getInstance().nextStep();
             startAppointmentTutorial();
         });
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        allTimeSlots = Stream.iterate(LocalTime.of(9, 0),
+                        t -> !t.isAfter(LocalTime.of(17, 0)),
+                        t -> t.plusMinutes(15))
+                .map(t -> t.format(formatter))
+                .collect(Collectors.toList());
 
         appointmentDatePicker.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
