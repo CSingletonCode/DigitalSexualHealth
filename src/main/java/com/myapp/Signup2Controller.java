@@ -36,6 +36,12 @@ public class Signup2Controller {
                 "Intersex",
                 "Prefer not to say",
                 "Another identity");
+
+        dobBox.getEditor().focusedProperty().addListener((obs, wasFocused, isFocused) -> {
+            if (!isFocused) {
+                dobBox.setValue(dobBox.getConverter().fromString(dobBox.getEditor().getText()));
+            }
+        });
     }
 
     @FXML

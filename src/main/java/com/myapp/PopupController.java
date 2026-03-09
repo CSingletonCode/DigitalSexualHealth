@@ -1,5 +1,6 @@
 package com.myapp;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -18,6 +19,7 @@ public class PopupController {
     private RegisteredDatabase registeredDatabase;
     private Stage stage;
     private TrackerController trackerController;
+    private EventHandler<MouseEvent> clickOutsideFilter;
 
     @FXML
     private TextField nameField;
@@ -36,6 +38,7 @@ public class PopupController {
     @FXML
     private Pane root;
 
+
     public void setName(String name){
         nameField.setText(name);
     }
@@ -46,6 +49,12 @@ public class PopupController {
         root.setFocusTraversable(true);
         descriptionField.setFocusTraversable(false);
         this.registeredDatabase = new RegisteredDatabase();
+
+        dateField.getEditor().focusedProperty().addListener((obs, wasFocused, isFocused) -> {
+            if (!isFocused) {
+                dateField.setValue(dateField.getConverter().fromString(dateField.getEditor().getText()));
+            }
+        });
     }
 
     public void setSymptomsDatabase(SymptomsDatabase symptomsDatabase) {
@@ -103,16 +112,17 @@ public class PopupController {
         lockOut();
         updateOptions();
 
-        Scene scene = nameField.getScene();
-
-        scene.addEventFilter(MouseEvent.MOUSE_PRESSED, event -> {
+        clickOutsideFilter = event -> {
             if (!optionsScroll.getBoundsInParent().contains(event.getX(), event.getY()) &&
                     !nameField.getBoundsInParent().contains(event.getX(), event.getY())) {
                 root.requestFocus();
                 hideDropDown();
+                nameField.setText("");
                 unlock();
             }
-        });
+        };
+
+        nameField.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, clickOutsideFilter);
 
         nameField.textProperty().addListener((obs, oldValue, newValue) -> {
             optionsBox.getChildren().clear();
@@ -169,5 +179,6 @@ public class PopupController {
     public void hideDropDown(){
         optionsBox.setVisible(false);
         optionsScroll.setVisible(false);
+        nameField.getScene().removeEventFilter(MouseEvent.MOUSE_PRESSED, clickOutsideFilter);
     }
 }

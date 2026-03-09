@@ -22,6 +22,6 @@
             <VBox fx:id="optionsBox" prefHeight="94.0" prefWidth="214.0" spacing="2.0" visible="false" />
          </content>
       </ScrollPane>
-      <DatePicker fx:id="dateField" layoutX="17.0" layoutY="47.0" prefHeight="36.0" prefWidth="196.0" styleClass="date-picker" />
+      <DatePicker fx:id="dateField" layoutX="17.0" layoutY="47.0" prefHeight="36.0" prefWidth="196.0" promptText="DD-MM-YYYY" styleClass="date-picker" />
    </children>
 </Pane>
