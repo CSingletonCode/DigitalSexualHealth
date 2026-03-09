@@ -69,6 +69,7 @@ public class WordLoginController {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
+            ThemeManager.applyTheme(scene,null);
             stage.setScene(scene);
             stage.show();
         } else {
@@ -85,6 +86,7 @@ public class WordLoginController {
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+        ThemeManager.applyTheme(scene,sessionManager.isHighContrast());
         stage.setScene(scene);
         stage.show();
     }

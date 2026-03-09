@@ -88,6 +88,10 @@
     -fx-border-width: 3px;
 }
 
+.text-field {
+    -fx-text-fill: #FFFF00;
+}
+
 /* 6. STATUS BADGES */
 .status-badge {
     -fx-background-color: #000000 !important;

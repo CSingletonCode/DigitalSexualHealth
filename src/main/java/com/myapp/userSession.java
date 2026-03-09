@@ -1,5 +1,7 @@
 package com.myapp;
 
+import java.io.IOException;
+
 public class userSession {
     private static userSession instance;
 
@@ -22,8 +24,9 @@ public class userSession {
         this.gender = gender;
     }
 
-    public static void login(int UserId, String email, String firstName, String lastName, String Dob, String gender) {
+    public static void login(int UserId, String email, String firstName, String lastName, String Dob, String gender) throws IOException {
         instance = new userSession(UserId,email,firstName,lastName,Dob,gender);
+        instance.setHighContrast(sessionManager.isHighContrast());
     }
 
     public static userSession getInstance() {

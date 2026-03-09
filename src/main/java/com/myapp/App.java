@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class App extends Application {
 
+    boolean isHighContrast = false;
     String page = "/Login.fxml";
     @Override
     public void start(Stage stage) throws IOException {
@@ -23,6 +24,9 @@ public class App extends Application {
                 page = "/LoginPassword.fxml";
             }
             System.out.println(current_session[1]);
+            if (current_session[3].equals("true")) {
+                isHighContrast = true;
+            }
         }
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(page));
@@ -32,6 +36,7 @@ public class App extends Application {
 
         // Create the scene (Width, Height)
         Scene scene = new Scene(root, 335, 600);
+        ThemeManager.applyTheme(scene,isHighContrast);
 
         // Set the window title
         stage.setTitle("Home");

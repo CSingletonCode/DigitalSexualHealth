@@ -11,6 +11,7 @@ public class sessionManager {
     public static void setSession() throws IOException{
         String email = userSession.getInstance().getEmail();
         int id = userSession.getInstance().getUserId();
+        boolean isHighContrast = userSession.getInstance().isHighContrast();
         boolean has_PIN = validatePIN(null,true,id);
 
         ObjectMapper mapper = new ObjectMapper();
@@ -18,6 +19,7 @@ public class sessionManager {
         root.put("email", email);
         root.put("has_PIN",has_PIN);
         root.put("id", id);
+        root.put("isHighContrast", isHighContrast);
         mapper.writeValue(new File("localdata/loggedIn.json"),root);
     }
 
@@ -27,8 +29,9 @@ public class sessionManager {
         try {
             String email = root.get("email").asText();
             boolean has_PIN = root.get("has_PIN").asBoolean();
+            boolean isHighContrast = root.get("isHighContrast").asBoolean();
 
-            return new String[]{email, String.valueOf(has_PIN),String.valueOf(root.get("id"))};
+            return new String[]{email, String.valueOf(has_PIN),String.valueOf(root.get("id")), String.valueOf(isHighContrast)};
         } catch (Exception e) {
             return null;
         }
@@ -44,6 +47,12 @@ public class sessionManager {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
         return root.get("id").asInt();
+    }
+
+    public static boolean isHighContrast() throws IOException{
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
+        return root.get("isHighContrast").asBoolean();
     }
 
     public static void clearSession() throws IOException {

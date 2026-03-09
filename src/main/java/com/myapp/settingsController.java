@@ -28,7 +28,12 @@ public class settingsController {
 
         highContrastToggle.selectedProperty().addListener((obs, oldVal, newVal) -> {
             userSession.getInstance().setHighContrast(newVal);
-            ThemeManager.applyTheme(highContrastToggle.getScene());
+            try {
+                sessionManager.setSession();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            ThemeManager.applyTheme(highContrastToggle.getScene(),null);
         });
     }
     private void handleReturn(ActionEvent event) {
@@ -41,7 +46,7 @@ public class settingsController {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
-            ThemeManager.applyTheme(scene);
+            ThemeManager.applyTheme(scene,null);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -54,7 +59,7 @@ public class settingsController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/pinPopup.fxml"));
         Parent newSymForm = fxmlLoader.load();
         Scene newForm = new Scene(newSymForm);
-        ThemeManager.applyTheme(newForm);
+        ThemeManager.applyTheme(newForm,null);
         Stage popupStage = new Stage();
         popupStage.setScene(newForm);
         popupStage.initStyle(StageStyle.UNDECORATED);
