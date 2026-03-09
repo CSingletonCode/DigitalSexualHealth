@@ -2,7 +2,10 @@ package com.myapp;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
@@ -30,6 +33,8 @@ public class PopupController {
     private Button cancelButton;
     @FXML
     private Button enterButton;
+    @FXML
+    private Pane root;
 
     public void setName(String name){
         nameField.setText(name);
@@ -38,6 +43,7 @@ public class PopupController {
     public void initialize() throws IOException{
         nameField.setFocusTraversable(false);
         dateField.setFocusTraversable(false);
+        root.setFocusTraversable(true);
         descriptionField.setFocusTraversable(false);
         this.registeredDatabase = new RegisteredDatabase();
     }
@@ -96,6 +102,17 @@ public class PopupController {
         optionsBox.setVisible(true);
         lockOut();
         updateOptions();
+
+        Scene scene = nameField.getScene();
+
+        scene.addEventFilter(MouseEvent.MOUSE_PRESSED, event -> {
+            if (!optionsScroll.getBoundsInParent().contains(event.getX(), event.getY()) &&
+                    !nameField.getBoundsInParent().contains(event.getX(), event.getY())) {
+                root.requestFocus();
+                hideDropDown();
+                unlock();
+            }
+        });
 
         nameField.textProperty().addListener((obs, oldValue, newValue) -> {
             optionsBox.getChildren().clear();
