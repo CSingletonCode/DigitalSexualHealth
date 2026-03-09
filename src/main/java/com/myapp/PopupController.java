@@ -2,13 +2,11 @@ package com.myapp;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -21,7 +19,7 @@ public class PopupController {
     @FXML
     private TextField nameField;
     @FXML
-    private TextField dateField;
+    private DatePicker dateField;
     @FXML
     private TextField descriptionField;
     @FXML
@@ -66,7 +64,7 @@ public class PopupController {
         String check = checkValid();
         if (check.equals("valid")){
             String userID = String.valueOf(userSession.getInstance().getUserId());
-            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getText(), descriptionField.getText(), userID);
+            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getValue().toString(), descriptionField.getText(), userID);
             symptomsDatabase.recordSymptom(newSymptom);
             trackerController.displaySymptoms();
             this.stage.close();
@@ -81,7 +79,7 @@ public class PopupController {
         if (nameField.getText().isEmpty()){
             return "Enter a name";
         }
-        if (dateField.getText().isEmpty() || !dateField.getText().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")){
+        if (dateField.getValue().toString().isEmpty()){
             return "Enter a valid date";
         }
         if (descriptionField.getText().isEmpty()){
