@@ -37,7 +37,8 @@ public class DatabaseManager {
                 "email TEXT," +
                 "phone TEXT," +
                 "urgentPhone TEXT," +
-                "hours TEXT" +
+                "hours TEXT," +
+                "cost INTEGER" +
                 ");";
 
         String appTable = "CREATE TABLE IF NOT EXISTS appointments(" +
@@ -343,7 +344,8 @@ public class DatabaseManager {
                         rs.getString("email"),
                         rs.getString("phone"),
                         rs.getString("urgentPhone"),
-                        rs.getString("hours")
+                        rs.getString("hours"),
+                        rs.getInt("cost")
                 );
 
                 clinics.add(c);

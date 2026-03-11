@@ -26,7 +26,12 @@ public class userSession {
 
     public static void login(int UserId, String email, String firstName, String lastName, String Dob, String gender) throws IOException {
         instance = new userSession(UserId,email,firstName,lastName,Dob,gender);
-        instance.setHighContrast(sessionManager.isHighContrast());
+        String[] current_session = sessionManager.getSession();
+        if (current_session != null) {
+            instance.setHighContrast(sessionManager.isHighContrast());
+        } else {
+            instance.setHighContrast(false);
+        }
     }
 
     public static userSession getInstance() {

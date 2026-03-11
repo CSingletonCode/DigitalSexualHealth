@@ -18,7 +18,7 @@ public class clinicInfoController {
     private Button returnButton,bookButton;
 
     @FXML
-    Label clinicName,clinicUrgentPhone,clinicPhone,clinicEmail,clinicAddress;
+    Label clinicName,clinicUrgentPhone,clinicPhone,clinicEmail,clinicAddress,clinicCost;
 
     @FXML
     Label Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
@@ -33,6 +33,7 @@ public class clinicInfoController {
             clinicPhone.setText(clinic.getPhone());
             clinicEmail.setText(clinic.getEmail());
             clinicAddress.setText(clinic.getAddress());
+            clinicCost.setText(clinic.getCost());
 
             List<String> hoursList = clinic.getHours();
             Label[] dayLabels = {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
