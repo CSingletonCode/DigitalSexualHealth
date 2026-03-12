@@ -22,7 +22,7 @@
          </font></Label>
       <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="295.0" styleClass="fancy-text-field">
          <children>
-            <Label prefHeight="28.0" prefWidth="70.0" text="Notifications" />
+            <Label prefHeight="28.0" prefWidth="169.0" styleClass="Settings_Page_Labels" text="Notifications" />
          </children>
          <padding>
             <Insets left="15.0" right="15.0" />
@@ -33,7 +33,8 @@
             <Insets left="15.0" right="15.0" />
          </padding>
          <children>
-            <Label prefHeight="28.0" prefWidth="70.0" text="Text Size" />
+            <Label prefHeight="28.0" prefWidth="207.0" styleClass="Settings_Page_Labels" text="Use Large Text Size" />
+            <ToggleButton fx:id="TextSizeToggle" mnemonicParsing="false" prefHeight="23.0" prefWidth="55.0" styleClass="switch-button" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="295.0" styleClass="fancy-text-field">
@@ -41,7 +42,7 @@
             <Insets left="15.0" right="15.0" />
          </padding>
          <children>
-            <Label prefHeight="28.0" prefWidth="81.0" text="Screen Reader" />
+            <Label prefHeight="28.0" prefWidth="81.0" styleClass="Settings_Page_Labels" text="Screen Reader" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="295.0" styleClass="fancy-text-field">
@@ -49,7 +50,7 @@
             <Insets left="15.0" right="15.0" />
          </padding>
          <children>
-            <Label prefHeight="28.0" prefWidth="154.0" text="Update Contact Information" />
+            <Label prefHeight="28.0" prefWidth="154.0" styleClass="Settings_Page_Labels" text="Update Contact Information" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="295.0" styleClass="fancy-text-field">
@@ -57,7 +58,7 @@
             <Insets left="15.0" right="15.0" />
          </padding>
          <children>
-            <Label prefHeight="28.0" prefWidth="157.0" text="Update Location Preferences" />
+            <Label prefHeight="28.0" prefWidth="157.0" styleClass="Settings_Page_Labels" text="Update Location Preferences" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="295.0" styleClass="fancy-text-field">
@@ -65,7 +66,7 @@
             <Insets left="15.0" right="15.0" />
          </padding>
          <children>
-            <Label prefHeight="28.0" prefWidth="113.0" text="High-Contrast Mode" />
+            <Label prefHeight="28.0" prefWidth="113.0" styleClass="Settings_Page_Labels" text="High-Contrast Mode" />
             <Region prefHeight="41.0" prefWidth="102.0" />
             <ToggleButton fx:id="highContrastToggle" mnemonicParsing="false" prefHeight="23.0" prefWidth="55.0" styleClass="switch-button" />
          </children>
@@ -75,7 +76,7 @@
             <Insets left="15.0" right="15.0" />
          </padding>
          <children>
-            <Label prefHeight="28.0" prefWidth="188.0" text="PIN Settings" />
+            <Label prefHeight="28.0" prefWidth="188.0" styleClass="Settings_Page_Labels" text="PIN Settings" />
             <Button fx:id="AddPINButton" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addPIN" prefHeight="28.0" styleClass="button-small" text="Set New PIN" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </HBox>

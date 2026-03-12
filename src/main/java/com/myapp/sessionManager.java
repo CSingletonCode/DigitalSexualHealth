@@ -12,6 +12,7 @@ public class sessionManager {
         String email = userSession.getInstance().getEmail();
         int id = userSession.getInstance().getUserId();
         boolean isHighContrast = userSession.getInstance().isHighContrast();
+        boolean isLargeText = userSession.getInstance().isLargeText();
         boolean has_PIN = validatePIN(null,true,id);
 
         ObjectMapper mapper = new ObjectMapper();
@@ -20,6 +21,7 @@ public class sessionManager {
         root.put("has_PIN",has_PIN);
         root.put("id", id);
         root.put("isHighContrast", isHighContrast);
+        root.put("isLargeText", isLargeText);
         mapper.writeValue(new File("localdata/loggedIn.json"),root);
     }
 
@@ -30,8 +32,9 @@ public class sessionManager {
             String email = root.get("email").asText();
             boolean has_PIN = root.get("has_PIN").asBoolean();
             boolean isHighContrast = root.get("isHighContrast").asBoolean();
+            boolean isLargeText = root.get("isLargeText").asBoolean();
 
-            return new String[]{email, String.valueOf(has_PIN),String.valueOf(root.get("id")), String.valueOf(isHighContrast)};
+            return new String[]{email, String.valueOf(has_PIN),String.valueOf(root.get("id")), String.valueOf(isHighContrast), String.valueOf(isLargeText)};
         } catch (Exception e) {
             return null;
         }
@@ -53,6 +56,12 @@ public class sessionManager {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
         return root.get("isHighContrast").asBoolean();
+    }
+
+    public static boolean isLargeText() throws IOException{
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
+        return root.get("isLargeText").asBoolean();
     }
 
     public static void clearSession() throws IOException {

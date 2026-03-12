@@ -38,6 +38,7 @@
 
 .text-silent {
     -fx-text-fill: #757575;
+    -fx-font-size: 12px;
 }
 
 .icon-purple {

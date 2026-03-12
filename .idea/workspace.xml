@@ -4,11 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 2nd set of tests - Valid and not valid PIN partitions.">
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 2nd set of tests - Valid and not valid PIN partitions - doesn't contain the fix for 11.1.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/largeText.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/app_database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint1Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint1Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint2Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/myapp/Sprint2Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localdata/loggedIn.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/loggedIn.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/sessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/sessionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/userSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/userSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/homepage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TermsAndConditions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TermsAndConditions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AllergiesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AllergiesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentSchedulePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AppointmentSchedulePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/ClinicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/ClinicController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/EvaluationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/EvaluationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PINLoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/PopupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/Signup2Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TermsAndConditionsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/TermsAndConditionsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/ThemeManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/ThemeManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/TrackerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/WordLoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/clinicInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/clinicInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/sessionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/sessionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/settingsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/settingsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/userSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/userSession.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/high-contrast.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/high-contrast.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/homepage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/newSymptom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/newSymptom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pinPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pinPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +53,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -86,9 +120,10 @@
     "Maven.demo [compile].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "testing",
+    "git-widget-placeholder": "TextSizeBranch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -215,7 +250,9 @@
       <workItem from="1771859833647" duration="4943000" />
       <workItem from="1771886207039" duration="14275000" />
       <workItem from="1772669517759" duration="1158000" />
-      <workItem from="1772711567975" duration="13261000" />
+      <workItem from="1772711567975" duration="15203000" />
+      <workItem from="1773058707726" duration="2506000" />
+      <workItem from="1773232306856" duration="4300000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -289,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772725939088</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Calum - 2nd set of tests - Valid and not valid PIN partitions - doesn't contain the fix for 11.1.">
+      <option name="closed" value="true" />
+      <created>1772726685430</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1772726685430</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,6 +359,7 @@
     <MESSAGE value="Calum - 3rd Commit - New PINs can be added" />
     <MESSAGE value="Calum - 1st set of tests - returning user feature" />
     <MESSAGE value="Calum - 2nd set of tests - Valid and not valid PIN partitions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Calum - 2nd set of tests - Valid and not valid PIN partitions." />
+    <MESSAGE value="Calum - 2nd set of tests - Valid and not valid PIN partitions - doesn't contain the fix for 11.1." />
+    <option name="LAST_COMMIT_MESSAGE" value="Calum - 2nd set of tests - Valid and not valid PIN partitions - doesn't contain the fix for 11.1." />
   </component>
 </project>

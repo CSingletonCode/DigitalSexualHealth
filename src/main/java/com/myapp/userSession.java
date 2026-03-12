@@ -12,6 +12,7 @@ public class userSession {
     private final String Dob;
     private final String gender;
     private boolean highContrast = false;
+    private boolean largeText = false;
     private double myLat = 50.9097;
     private double myLon = -1.4044;
 
@@ -57,6 +58,8 @@ public class userSession {
     }
     public boolean isHighContrast() { return highContrast; }
     public void setHighContrast(boolean highContrast) { this.highContrast = highContrast; }
+    public boolean isLargeText() { return largeText; }
+    public void setLargeText(boolean largeText) { this.largeText = largeText; }
     public double getMyLat() { return myLat; }
     public double getMyLon() { return myLon; }
     public void setMyLat(double myLat) { this.myLat = myLat; }

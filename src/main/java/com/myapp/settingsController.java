@@ -20,6 +20,8 @@ public class settingsController {
 
     @FXML private ToggleButton highContrastToggle;
 
+    @FXML private ToggleButton TextSizeToggle;
+
     @FXML
     public void initialize() {
         returnButton.setOnAction(this::handleReturn);
