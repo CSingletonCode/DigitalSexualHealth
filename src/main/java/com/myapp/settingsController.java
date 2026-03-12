@@ -35,7 +35,19 @@ public class settingsController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            ThemeManager.applyTheme(highContrastToggle.getScene(),null);
+            ThemeManager.applyTheme(highContrastToggle.getScene(),null, null);
+        });
+
+        TextSizeToggle.setSelected(userSession.getInstance().isLargeText());
+        TextSizeToggle.selectedProperty().addListener((obs, oldVal, newVal) -> {
+            userSession.getInstance().setLargeText(newVal);
+            try {
+                sessionManager.setSession();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            ThemeManager.applyTheme(TextSizeToggle.getScene(),null, null);
+
         });
     }
     private void handleReturn(ActionEvent event) {
@@ -48,7 +60,7 @@ public class settingsController {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
-            ThemeManager.applyTheme(scene,null);
+            ThemeManager.applyTheme(scene,null, null);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -61,7 +73,7 @@ public class settingsController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/pinPopup.fxml"));
         Parent newSymForm = fxmlLoader.load();
         Scene newForm = new Scene(newSymForm);
-        ThemeManager.applyTheme(newForm,null);
+        ThemeManager.applyTheme(newForm,null, null);
         Stage popupStage = new Stage();
         popupStage.setScene(newForm);
         popupStage.initStyle(StageStyle.UNDECORATED);

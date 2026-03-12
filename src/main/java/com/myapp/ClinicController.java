@@ -137,7 +137,7 @@ public class ClinicController {
             }
 
             Scene scene = new Scene(root);
-            ThemeManager.applyTheme(scene,null);
+            ThemeManager.applyTheme(scene,null, null);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

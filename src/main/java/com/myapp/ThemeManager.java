@@ -4,7 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 
 public class ThemeManager {
-    public static void applyTheme(Scene scene, Boolean highContrast) {
+    public static void applyTheme(Scene scene, Boolean highContrast, Boolean largeText) {
         ObservableList<String> sheets = scene.getStylesheets();
         sheets.clear();
 
@@ -22,6 +22,17 @@ public class ThemeManager {
         } else {
             scene.setFill(javafx.scene.paint.Color.WHITE);
         }
+        if (largeText == null) {
+            System.out.println("dasf");
+            if (userSession.getInstance().isLargeText()) {
+                sheets.add(ThemeManager.class.getResource("/largeText.css").toExternalForm());
+            }
+        } else if (largeText) {
+            sheets.add(ThemeManager.class.getResource("/largeText.css").toExternalForm());
+        }
+    }
+
+    public static void applyThemeLT(Scene scene, Boolean textSize) {
 
     }
 }

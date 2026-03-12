@@ -77,7 +77,7 @@ public class HomeController {
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             if (!fxml.equals("/login.fxml")){
-                ThemeManager.applyTheme(scene,null);
+                ThemeManager.applyTheme(scene,null, null);
             }
 
             stage.setScene(scene);

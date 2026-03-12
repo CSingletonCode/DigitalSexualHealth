@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.net.URL?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
-
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="844.0" prefWidth="390.0" spacing="25.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.HomeController">
     <stylesheets>
-        <URL value="@style.css"/>
+        <URL value="@style.css" />
     </stylesheets>
     <padding>
         <Insets bottom="30.0" left="25.0" right="25.0" top="40.0" />
@@ -20,7 +23,7 @@
     <HBox alignment="CENTER_LEFT">
         <Label fx:id="logOut" onMouseClicked="#handleNavigation" styleClass="text-silent" text="Log Out" />
         <Region HBox.hgrow="ALWAYS" />
-        <Label fx:id="settings" onMouseClicked="#handleNavigation" styleClass="icon-purple" text="⚙" >
+        <Label fx:id="settings" onMouseClicked="#handleNavigation" styleClass="icon-purple" text="⚙">
             <HBox.margin><Insets left="15.0" /></HBox.margin>
         </Label>
     </HBox>
@@ -76,6 +79,10 @@
             <Label styleClass="card-title" text="Book Appointment" wrapText="true" />
             <Label styleClass="card-desc" text="Book your next check-up" wrapText="true" />
         </VBox>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
     </GridPane>
 
     <VBox spacing="8.0">
