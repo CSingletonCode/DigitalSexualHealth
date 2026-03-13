@@ -322,9 +322,16 @@ public class DatabaseManager {
         return "No upcoming appointments";
     }
 
-        public static List<Clinic> getClinics() {
+    public static List<Clinic> getClinics(String filter) {
         List<Clinic> clinics = new ArrayList<>();
+
         String sql = "SELECT * FROM clinics";
+        if ("Charged".equals(filter)) {
+            sql += " WHERE cost > 0";
+        } else if ("Free".equals(filter)) {
+            sql += " WHERE cost = -1";
+        }
+
         double userLat = userSession.getInstance().getMyLat();
         double userLon = userSession.getInstance().getMyLon();
 

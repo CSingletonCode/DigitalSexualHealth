@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.application.Platform;
@@ -32,6 +33,7 @@ public class ClinicController {
     @FXML private Button fakeBookButton;
     @FXML private Button fakeInfoButton;
     @FXML private Label helpButton;
+    @FXML private ComboBox<String> costFilter;
 
     @FXML
     public void initialize() {
@@ -41,8 +43,13 @@ public class ClinicController {
             TutorialController.getInstance().nextStep();
             startClinicTutorial();
         });
+        costFilter.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+            if (newValue != null) {
+                loadClinics(costFilter.getSelectionModel().getSelectedItem());
+            }
+        });
 
-        loadClinics();
+        loadClinics(null);
 
         if (TutorialController.getInstance().isActive()
                 && TutorialController.getInstance().getStep() >= 1
@@ -52,12 +59,17 @@ public class ClinicController {
         }
     }
 
-    private void loadClinics() {
+    private void loadClinics(String filter) {
         if (clinicListContainer != null) {
             clinicListContainer.getChildren().clear();
         }
 
-        List<Clinic> clinics = DatabaseManager.getClinics();
+        List<Clinic> clinics;
+        if (filter == null || filter.isEmpty() || filter.equals("All")) {
+            clinics = DatabaseManager.getClinics(null);
+        } else {
+            clinics = DatabaseManager.getClinics(filter);
+        }
 
         for (Clinic clinic : clinics) {
             VBox card = createClinicCard(clinic, this);
@@ -266,6 +278,5 @@ public class ClinicController {
             actionRow.getChildren().get(2).setVisible(true); // Info
         }
     }
-
 
 }
