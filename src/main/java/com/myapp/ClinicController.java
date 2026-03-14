@@ -43,13 +43,14 @@ public class ClinicController {
             TutorialController.getInstance().nextStep();
             startClinicTutorial();
         });
+
         costFilter.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             if (newValue != null) {
-                loadClinics(costFilter.getSelectionModel().getSelectedItem());
+                loadClinics(newValue);
             }
         });
 
-        loadClinics(null);
+        costFilter.getSelectionModel().select("All");
 
         if (TutorialController.getInstance().isActive()
                 && TutorialController.getInstance().getStep() >= 1
