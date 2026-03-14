@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
 
 <StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.ClinicController">
    <children>
@@ -17,6 +19,20 @@
                   </children>
               </HBox>
               <Label prefHeight="34.0" prefWidth="204.0" styleClass="header-label" text="Clinics Nearby " wrapText="true" />
+            <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="295.0">
+               <children>
+                  <Label styleClass="clinic-name" text="Filter: " />
+                  <ComboBox fx:id="costFilter" prefHeight="34.0" prefWidth="150.0">
+                       <items>
+                           <FXCollections fx:factory="observableArrayList">
+                               <String fx:value="All" />
+                               <String fx:value="Free" />
+                               <String fx:value="Charged" />
+                           </FXCollections>
+                       </items>
+                    </ComboBox>
+               </children>
+            </HBox>
       
               <HBox alignment="CENTER" />
       
@@ -52,7 +68,7 @@
               <Insets bottom="10.0" left="20.0" right="20.0" top="15.0" />
           </padding>
       </VBox>
-       <VBox fx:id="tutorialOverlay" alignment="CENTER" spacing="20" style="-fx-background-color: rgba(0,0,0,0.6); -fx-padding: 100 0 0 0;" visible="false">
+       <VBox fx:id="tutorialOverlay" alignment="CENTER" spacing="20" style="-fx-background-color: rgba(0,0,0,0.6); -fx-padding: 150 0 0 0;" visible="false">
           <children>
               <VBox alignment="CENTER" spacing="15" styleClass="tutorial-card">
                  <children>
