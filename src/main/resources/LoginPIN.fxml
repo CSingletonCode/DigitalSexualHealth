@@ -15,19 +15,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="539.0" prefWidth="327.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.PINLoginController">
+<AnchorPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.PINLoginController">
    <children>
-      <ImageView layoutX="74.0" layoutY="71.0">
+      <ImageView layoutX="90.0" layoutY="71.0">
          <image>
             <Image url="@Avatar.png" />
          </image>
       </ImageView>
-      <Text layoutX="91.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RETURNING USER">
+      <Text layoutX="103.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RETURNING USER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <VBox layoutX="48.0" layoutY="295.0" prefHeight="66.0" prefWidth="240.0">
+      <VBox layoutX="59.0" layoutY="294.0" prefHeight="66.0" prefWidth="240.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="16.0" prefWidth="240.0" />
             <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
@@ -44,8 +44,8 @@
             </StackPane>
          </children>
       </VBox>
-      <Button fx:id="loginButton" layoutX="47.0" layoutY="401.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="233.0" styleClass="button-small" text="Login" textFill="WHITE" />
-      <Hyperlink fx:id="switchToPassword" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="105.0" layoutY="355.0" onAction="#toPassword" prefHeight="25.0" prefWidth="117.0" style="-fx-font-weight: bold; -fx-font-size: 10;" styleClass="text-field" text="Use Password" textAlignment="CENTER" textFill="#4c039b" textOverrun="CLIP" />
-      <Hyperlink fx:id="changeAccount" alignment="CENTER" layoutX="104.0" layoutY="468.0" onAction="#changeAccount" prefHeight="26.0" prefWidth="126.0" style="-fx-font-weight: bold;" styleClass="text-field" text="Change Account" textFill="#4c039b" />
+      <Button fx:id="loginButton" layoutX="62.0" layoutY="411.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="233.0" styleClass="button-small" text="Login" textFill="WHITE" />
+      <Hyperlink fx:id="switchToPassword" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="120.0" layoutY="360.0" onAction="#toPassword" prefHeight="25.0" prefWidth="117.0" styleClass="text-link" text="Use Password" textAlignment="CENTER" textFill="#4c039b" textOverrun="CLIP" />
+      <Hyperlink fx:id="changeAccount" alignment="CENTER" layoutX="70.0" layoutY="471.0" onAction="#changeAccount" prefHeight="26.0" prefWidth="220.0" styleClass="large-text-link" text="Change Account" textFill="#4c039b" />
    </children>
 </AnchorPane>

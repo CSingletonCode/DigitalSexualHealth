@@ -39,7 +39,7 @@ public class App extends Application {
         DatabaseManager.initialiseDatabase();
 
         // Create the scene (Width, Height)
-        Scene scene = new Scene(root, 335, 600);
+        Scene scene = new Scene(root, 360, 640);
         ThemeManager.applyTheme(scene,isHighContrast, isLargeText);
 
         // Set the window title

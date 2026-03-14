@@ -4,24 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 1st text size commit, functions and variables added to userSession and sessionManager. New field for loggedIn.json.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/largeText.css" afterDir="false" />
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 2nd text size commit, text size button functionality added, new check in applyTheme function - tries to apply high contrast and new text if valid">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/AllergiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/AllergiesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/app_database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localdata/loggedIn.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/loggedIn.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/AppointmentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/AppointmentPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/AppointmentSchedulePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/AppointmentSchedulePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/ClinicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/ClinicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/EvaluationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/EvaluationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PINLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/ThemeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/ThemeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/TrackerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/TrackerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/WordLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/clinicInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/clinicInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/settingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/userSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/userSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/LoginPIN.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/LoginPIN.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/LoginPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/LoginPassword.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/homepage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/largeText.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/largeText.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TermsAndConditions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TermsAndConditions.fxml" afterDir="false" />
@@ -109,41 +105,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.TempApp.executor": "Run",
-    "JUnit.Sprint2Test.executor": "Run",
-    "JUnit.Sprint2Test.testMismatchInputs.executor": "Run",
-    "JUnit.Sprint2Test.testMissingBottomPin.executor": "Run",
-    "JUnit.Sprint2Test.testMissingTopPin.executor": "Run",
-    "JUnit.Sprint2Test.testPINHasLetters.executor": "Run",
-    "JUnit.Sprint2Test.testPINIsTooLong.executor": "Run",
-    "JUnit.Sprint2Test.testPINIsTooShort.executor": "Run",
-    "JUnit.Sprint2Test.testStayLoggedIn.executor": "Run",
-    "JUnit.Sprint2Test.testStayLoggedInWithPIN.executor": "Run",
-    "JUnit.Sprint2Test.testValidPIN.executor": "Run",
-    "Maven.demo [clean].executor": "Run",
-    "Maven.demo [compile].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "TextSizeBranch",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TempApp.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Sprint2Test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Sprint2Test.testMismatchInputs.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Sprint2Test.testMissingBottomPin.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Sprint2Test.testMissingTopPin.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Sprint2Test.testPINHasLetters.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Sprint2Test.testPINIsTooLong.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Sprint2Test.testPINIsTooShort.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Sprint2Test.testStayLoggedIn.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Sprint2Test.testStayLoggedInWithPIN.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Sprint2Test.testValidPIN.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [compile].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;TextSizeBranch&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Sprint2Test.testMismatchInputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
@@ -260,7 +256,8 @@
       <workItem from="1772669517759" duration="1158000" />
       <workItem from="1772711567975" duration="15203000" />
       <workItem from="1773058707726" duration="2506000" />
-      <workItem from="1773232306856" duration="8371000" />
+      <workItem from="1773232306856" duration="8609000" />
+      <workItem from="1773407855792" duration="13535000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -350,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773346403700</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Calum - 2nd text size commit, text size button functionality added, new check in applyTheme function - tries to apply high contrast and new text if valid">
+      <option name="closed" value="true" />
+      <created>1773358306696</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1773358306696</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +382,7 @@
     <MESSAGE value="Calum - 2nd set of tests - Valid and not valid PIN partitions." />
     <MESSAGE value="Calum - 2nd set of tests - Valid and not valid PIN partitions - doesn't contain the fix for 11.1." />
     <MESSAGE value="Calum - 1st text size commit, functions and variables added to userSession and sessionManager. New field for loggedIn.json." />
-    <option name="LAST_COMMIT_MESSAGE" value="Calum - 1st text size commit, functions and variables added to userSession and sessionManager. New field for loggedIn.json." />
+    <MESSAGE value="Calum - 2nd text size commit, text size button functionality added, new check in applyTheme function - tries to apply high contrast and new text if valid" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calum - 2nd text size commit, text size button functionality added, new check in applyTheme function - tries to apply high contrast and new text if valid" />
   </component>
 </project>

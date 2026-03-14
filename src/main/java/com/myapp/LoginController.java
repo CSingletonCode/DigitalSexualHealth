@@ -1,5 +1,6 @@
 package com.myapp;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -135,6 +136,9 @@ public class LoginController {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
+            ObservableList<String> sheets = scene.getStylesheets();
+            sheets.clear();
+            sheets.add(ThemeManager.class.getResource("/style.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

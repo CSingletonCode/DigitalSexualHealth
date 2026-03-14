@@ -25,14 +25,11 @@ public class ThemeManager {
         if (largeText == null) {
             System.out.println("dasf");
             if (userSession.getInstance().isLargeText()) {
+                System.out.println("abc");
                 sheets.add(ThemeManager.class.getResource("/largeText.css").toExternalForm());
             }
         } else if (largeText) {
             sheets.add(ThemeManager.class.getResource("/largeText.css").toExternalForm());
         }
-    }
-
-    public static void applyThemeLT(Scene scene, Boolean textSize) {
-
     }
 }

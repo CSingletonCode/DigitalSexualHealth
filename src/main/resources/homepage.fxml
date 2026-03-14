@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -12,12 +11,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="844.0" prefWidth="390.0" spacing="25.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.HomeController">
-    <stylesheets>
-        <URL value="@style.css" />
-    </stylesheets>
+<VBox prefHeight="640.0" prefWidth="360.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.HomeController">
     <padding>
-        <Insets bottom="30.0" left="25.0" right="25.0" top="40.0" />
+        <Insets bottom="30.0" left="25.0" right="25.0" top="25.0" />
     </padding>
 
     <HBox alignment="CENTER_LEFT">
@@ -36,20 +32,18 @@
 
     <GridPane hgap="15.0" vgap="15.0">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
         </columnConstraints>
 
-        <VBox fx:id="symptomsCard" onMouseClicked="#handleNavigation" styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <VBox fx:id="symptomsCard" onMouseClicked="#handleNavigation" prefHeight="73.0" prefWidth="148.0" styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="0">
             <Label styleClass="icon-purple" text="📈" />
-            <Label styleClass="card-title" text="Symptoms Tracker" wrapText="true" />
-            <Label styleClass="card-desc" text="Track your symptoms" wrapText="true" />
+            <Label alignment="TOP_CENTER" prefHeight="125.0" prefWidth="148.0" styleClass="regular-text" text="Track Your Symptoms" textAlignment="CENTER" wrapText="true" />
         </VBox>
 
         <VBox fx:id="adviceCard" onMouseClicked="#handleNavigation" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="0">
             <Label styleClass="icon-purple" text="💬" />
-            <Label styleClass="card-title" text="Advice" />
-            <Label styleClass="card-desc" text="Some external available advice" wrapText="true" />
+            <Label alignment="TOP_CENTER" prefHeight="37.0" prefWidth="148.0" styleClass="regular-text" text="External Advice" wrapText="true" />
         </VBox>
 
         <VBox fx:id="evaluationCard" onMouseClicked="#handleNavigation" styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="1">
@@ -62,11 +56,10 @@
                     </ImageView>
                 </graphic>
             </Label>
-            <Label styleClass="card-title" text="Evaluation" />
-            <Label styleClass="card-desc" text="Perform an evaluation of your health" wrapText="true" />
+            <Label alignment="TOP_CENTER" prefHeight="47.0" prefWidth="148.0" styleClass="regular-text" text="Evaluate Your Health" textAlignment="CENTER" wrapText="true" />
         </VBox>
 
-        <VBox fx:id="apptCard" onMouseClicked="#handleNavigation" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <VBox fx:id="apptCard" onMouseClicked="#handleNavigation" prefHeight="64.0" prefWidth="151.0" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <Label styleClass="icon-purple">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -76,18 +69,17 @@
                         </ImageView>
                     </graphic>
             </Label>
-            <Label styleClass="card-title" text="Book Appointment" wrapText="true" />
-            <Label styleClass="card-desc" text="Book your next check-up" wrapText="true" />
+            <Label alignment="TOP_CENTER" prefHeight="41.0" prefWidth="148.0" styleClass="regular-text" text="Book Your Next Check-up" textAlignment="CENTER" wrapText="true" />
         </VBox>
       <rowConstraints>
-         <RowConstraints />
-         <RowConstraints />
+         <RowConstraints percentHeight="50.0" />
+         <RowConstraints percentHeight="50.0" />
       </rowConstraints>
     </GridPane>
 
-    <VBox spacing="8.0">
+    <VBox prefHeight="149.0" prefWidth="341.0" spacing="8.0">
         <Label styleClass="sub-header" text="Quick status" />
-        <Label fx:id="symptom_log_label" styleClass="status-text" text="Last symptom log: {time of last symptom log}" />
-        <Label fx:id="next_appt_label" styleClass="status-text" text="Next appointment: {date of next appt}" />
+        <Label fx:id="symptom_log_label" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="310.0" styleClass="regular-text" text="Last symptom log: {time of last symptom log}" wrapText="true" />
+        <Label fx:id="next_appt_label" alignment="TOP_LEFT" prefHeight="81.0" prefWidth="310.0" styleClass="regular-text" text="Next appointment: {date of next appt}" wrapText="true" />
     </VBox>
 </VBox>

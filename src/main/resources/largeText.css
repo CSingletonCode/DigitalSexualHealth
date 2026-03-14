@@ -1,0 +1,10 @@
+.large-text-link,
+.text-silent,
+.regular-text {
+    -fx-font-size: 16px;
+}
+
+.text-link  {
+    -fx-font-size: 14px;
+}
+
