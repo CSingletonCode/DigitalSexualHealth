@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox spacing="25" alignment="TOP_CENTER" prefWidth="400" prefHeight="700"
-      styleClass="root" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.AllergiesController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" spacing="25" styleClass="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.myapp.AllergiesController">
     <padding>
-        <Insets top="40" right="20" bottom="20" left="20" />
+        <Insets bottom="20" left="20" right="20" top="40" />
     </padding>
 
     <HBox alignment="CENTER_LEFT" spacing="15">
-        <Button text="←" onAction="#handleCancel"
-                style="-fx-background-color: transparent; -fx-text-fill: #7158B7; -fx-font-size: 24px; -fx-font-weight: bold; -fx-cursor: hand;"/>
-        <Label text="Allergies" style="-fx-font-size: 26px; -fx-font-weight: 900; -fx-text-fill:black;"/>
+        <Button onAction="#handleCancel" style="-fx-background-color: transparent; -fx-text-fill: #7158B7; -fx-font-size: 24px; -fx-font-weight: bold; -fx-cursor: hand;" text="←" />
+      <Region prefHeight="13.0" prefWidth="25.0" />
+        <Label style="-fx-font-size: 26px; -fx-font-weight: 900; -fx-text-fill:black;" text="Allergies" />
     </HBox>
 
-    <Label text="Please select any known allergies:"
-           wrapText="true" style="-fx-text-fill: #666666; -fx-font-size: 14px;" textAlignment="CENTER"/>
+    <Label style="-fx-text-fill: #666666;" styleClass="allergy-header" text="Please select any known allergies:" textAlignment="CENTER" wrapText="true" />
 
     <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
         <VBox fx:id="allergyList" spacing="15" styleClass="evaluation-card">
-            <CheckBox text="Latex" styleClass="allergy-checkbox"/>
-            <CheckBox text="Penicillin" styleClass="allergy-checkbox"/>
-            <CheckBox text="Lidocaine" styleClass="allergy-checkbox"/>
-            <CheckBox text="Fragrances" styleClass="allergy-checkbox"/>
-            <CheckBox text="Adhesive tape" styleClass="allergy-checkbox"/>
-            <CheckBox text="Nickel" styleClass="allergy-checkbox"/>
-            <CheckBox text="Ibuprofen" styleClass="allergy-checkbox"/>
+            <CheckBox styleClass="allergy-checkbox" text="Latex" />
+            <CheckBox styleClass="allergy-checkbox" text="Penicillin" />
+            <CheckBox styleClass="allergy-checkbox" text="Lidocaine" />
+            <CheckBox styleClass="allergy-checkbox" text="Fragrances" />
+            <CheckBox styleClass="allergy-checkbox" text="Adhesive tape" />
+            <CheckBox styleClass="allergy-checkbox" text="Nickel" />
+            <CheckBox styleClass="allergy-checkbox" text="Ibuprofen" />
         </VBox>
     </ScrollPane>
 
-    <Button fx:id="saveAllergies" text="Save &amp; Return" onAction="#handleBacktoEvaluation"
-            styleClass="button-small-eval" prefWidth="200" prefHeight="45" style="fx-font-weight: bold;" />
+    <Button fx:id="saveAllergies" onAction="#handleBacktoEvaluation" prefHeight="45" prefWidth="200" style="fx-font-weight: bold;" styleClass="button-small-eval" text="Save &amp; Return" />
 </VBox>

@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 3rd text size commit, new home page layout, large text feature functional for home page, PIN and password login pages.">
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 4th text size commit, large font option implemented for the symptom tracker.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/PopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/PopupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/localdata/allergies.json" beforeDir="false" afterPath="$PROJECT_DIR$/localdata/allergies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/LoginPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/LoginPassword.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SymptomBox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SymptomBox.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/allergies.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/allergies.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/evaluation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/evaluation.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/largeText.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/largeText.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/newSymptom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/newSymptom.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/symptoms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/symptoms.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TermsAndConditions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TermsAndConditions.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/AllergiesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/AllergiesController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/myapp/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/myapp/App.class" afterDir="false" />
@@ -44,6 +45,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/pinPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pinPopup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/settings.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/symptoms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/symptoms.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +127,7 @@
     &quot;git-widget-placeholder&quot;: &quot;TextSizeBranch&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/calum/Documents/SoftwareDevCoursework/digitalsexualhealth/src/main/resources/evaluation.fxml&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -221,11 +224,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Sprint2Test.testMismatchInputs" />
         <item itemvalue="JUnit.Sprint2Test.testValidPIN" />
         <item itemvalue="JUnit.Sprint2Test.testPINHasLetters" />
         <item itemvalue="JUnit.Sprint2Test.testPINIsTooShort" />
         <item itemvalue="JUnit.Sprint2Test.testPINIsTooLong" />
-        <item itemvalue="JUnit.Sprint2Test.testMismatchInputs" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +258,8 @@
       <workItem from="1772711567975" duration="15203000" />
       <workItem from="1773058707726" duration="2506000" />
       <workItem from="1773232306856" duration="8609000" />
-      <workItem from="1773407855792" duration="18479000" />
+      <workItem from="1773407855792" duration="18990000" />
+      <workItem from="1773594190763" duration="4368000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -361,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773522443297</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Calum - 4th text size commit, large font option implemented for the symptom tracker.">
+      <option name="closed" value="true" />
+      <created>1773593739710</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1773593739710</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,6 +402,7 @@
     <MESSAGE value="Calum - 1st text size commit, functions and variables added to userSession and sessionManager. New field for loggedIn.json." />
     <MESSAGE value="Calum - 2nd text size commit, text size button functionality added, new check in applyTheme function - tries to apply high contrast and new text if valid" />
     <MESSAGE value="Calum - 3rd text size commit, new home page layout, large text feature functional for home page, PIN and password login pages." />
-    <option name="LAST_COMMIT_MESSAGE" value="Calum - 3rd text size commit, new home page layout, large text feature functional for home page, PIN and password login pages." />
+    <MESSAGE value="Calum - 4th text size commit, large font option implemented for the symptom tracker." />
+    <option name="LAST_COMMIT_MESSAGE" value="Calum - 4th text size commit, large font option implemented for the symptom tracker." />
   </component>
 </project>

@@ -1,10 +1,23 @@
 .large-text-link,
+.button-small-eval,
 .text-silent,
+.fancy-text-field,
+.button-small,
+.card-detail-text,
+.submit-button,
+.eval-low-label,
 .regular-text {
     -fx-font-size: 16px;
 }
 
-.text-link  {
+.text-link,
+.date-picker {
     -fx-font-size: 14px;
+}
+
+.evaluation-sub-header,
+.allergy-checkbox,
+.allergy-header {
+    -fx-font-size: 18px;
 }
 

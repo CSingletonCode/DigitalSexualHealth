@@ -186,7 +186,7 @@
 .evaluation-card {
     -fx-background-color: white;
     -fx-background-radius: 25;
-    -fx-padding: 20 25 20 25;
+    -fx-padding: 10 20 10 20;
     -fx-min-height: -1;
     -fx-pref-height: -1;
     -fx-max-height: -1;
@@ -201,6 +201,31 @@
     -fx-wrap-text: true;
     -fx-line-spacing: 2px;
     -fx-padding: 5 0 5 0;
+}
+
+.eval-low-label {
+    -fx-font-size: 14px;
+}
+
+.eval-home-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #7158B7;
+    -fx-font-size: 24px;
+
+}
+
+.allergy-button {
+    -fx-background-color: #EBE8F7;
+    -fx-background-radius: 15;
+    -fx-text-fill: #555555;
+    -fx-font-size: 16px;
+    -fx-min-width: 85;
+    -fx-min-height: 35;
+    -fx-cursor: hand;
+}
+
+.allergy-header {
+    -fx-font-size: 14px;
 }
 
 .button-small-eval {
@@ -333,10 +358,10 @@
 .icon-button {
     -fx-background-color: white;
     -fx-background-radius: 12;
-    -fx-min-width: 60;
-    -fx-min-height: 60;
-    -fx-max-width: 60;
-    -fx-max-height: 60;
+    -fx-min-width: 50;
+    -fx-min-height: 50;
+    -fx-max-width: 50;
+    -fx-max-height: 50;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
     -fx-text-fill: #7A59C1;
     -fx-padding: 0;

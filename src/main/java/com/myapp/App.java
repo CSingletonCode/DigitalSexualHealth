@@ -37,7 +37,6 @@ public class App extends Application {
         Parent root = fxmlLoader.load();
 
         DatabaseManager.initialiseDatabase();
-
         // Create the scene (Width, Height)
         Scene scene = new Scene(root, 360, 640);
         ThemeManager.applyTheme(scene,isHighContrast, isLargeText);
