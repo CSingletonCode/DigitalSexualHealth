@@ -70,6 +70,7 @@
     -fx-border-color: #cccccc;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
+    -fx-font-size: 12px;
 }
 
 .text-link {
@@ -239,7 +240,7 @@
 }
 
 .card-detail-text {
-    -fx-font-size: 13px;
+    -fx-font-size: 12px;
     -fx-text-fill: #333333;
 }
 

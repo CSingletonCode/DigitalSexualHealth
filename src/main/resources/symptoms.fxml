@@ -8,19 +8,19 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.TrackerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.TrackerController">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="120.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="640.0" prefWidth="360.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="addSymptomButton" contentDisplay="CENTER" layoutX="79.0" layoutY="141.0" mnemonicParsing="false" onAction="#addNew" prefHeight="31.0" prefWidth="178.0" styleClass="button-small" text="Enter New Symptom" textAlignment="CENTER" textFill="WHITE" />
-            <ScrollPane fx:id="scroll" hbarPolicy="NEVER" layoutY="197.0" prefHeight="402.0" prefWidth="335.0" styleClass="edge-to-edge-scroll" vbarPolicy="ALWAYS">
+            <Button fx:id="addSymptomButton" contentDisplay="CENTER" layoutX="105.0" layoutY="133.0" minHeight="30.0" minWidth="150.0" mnemonicParsing="false" onAction="#addNew" styleClass="button-small" text="New Symptom" textAlignment="CENTER" textFill="WHITE" />
+            <ScrollPane fx:id="scroll" hbarPolicy="NEVER" layoutY="197.0" prefHeight="442.0" prefWidth="360.0" styleClass="edge-to-edge-scroll" vbarPolicy="ALWAYS">
                <content>
-                  <VBox fx:id="scrollbox" alignment="TOP_CENTER" prefHeight="453.0" prefWidth="322.0" spacing="10.0" style="-fx-border-color: #4c039b;">
+                  <VBox fx:id="scrollbox" alignment="TOP_CENTER" prefHeight="444.0" prefWidth="360.0" spacing="10.0" style="-fx-border-color: #4c039b;">
                      <padding>
                         <Insets bottom="10.0" top="10.0" />
                      </padding></VBox>
                </content></ScrollPane>
-            <Label alignment="TOP_LEFT" layoutX="16.0" layoutY="59.0" prefHeight="74.0" prefWidth="157.0" styleClass="header-label" text="Track your Symptoms" wrapText="true" />
+            <Label alignment="CENTER" layoutX="27.0" layoutY="50.0" prefHeight="74.0" prefWidth="306.0" styleClass="header-label" text="Track your Symptoms" wrapText="true" />
             <Button fx:id="returnButton" mnemonicParsing="false" onAction="#goHome" text="←" />
          </children>
       </AnchorPane>

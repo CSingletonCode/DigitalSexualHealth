@@ -26,7 +26,7 @@ public class PopupController {
     @FXML
     private DatePicker dateField;
     @FXML
-    private TextField descriptionField;
+    private TextArea descriptionField;
     @FXML
     private VBox optionsBox;
     @FXML

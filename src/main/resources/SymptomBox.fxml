@@ -5,9 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="80.0" prefHeight="132.0" prefWidth="305.0" spacing="5.0" style="-fx-border-color: #6C54B6; -fx-border-radius: 15;" styleClass="card" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.BoxController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="132.0" minWidth="80.0" prefWidth="305.0" spacing="5.0" style="-fx-border-color: #6C54B6; -fx-border-radius: 15;" styleClass="card" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.BoxController">
    <children>
-      <Label fx:id="nameLabel" contentDisplay="CENTER" maxWidth="298.0" minWidth="76.0" prefHeight="18.0" prefWidth="298.0" styleClass="card-detail-text" text="Label">
+      <Label fx:id="nameLabel" contentDisplay="CENTER" maxWidth="298.0" minWidth="76.0" prefHeight="18.0" prefWidth="260.0" styleClass="card-detail-text" text="Label" wrapText="true">
          <VBox.margin>
             <Insets />
          </VBox.margin>
@@ -15,12 +15,11 @@
             <Insets left="5.0" right="5.0" />
          </padding>
       </Label>
-      <Label fx:id="dateLabel" maxWidth="298.0" minWidth="177.0" prefHeight="26.0" prefWidth="298.0" styleClass="card-detail-text" text="Label">
+      <Label fx:id="dateLabel" maxWidth="298.0" minWidth="177.0" prefHeight="26.0" prefWidth="298.0" styleClass="card-detail-text" text="Label" wrapText="true">
          <padding>
             <Insets left="5.0" right="5.0" />
          </padding></Label>
-      <VBox />
-      <Label fx:id="descriptionLabel" alignment="TOP_LEFT" maxWidth="306.0" minWidth="293.0" prefHeight="32.0" prefWidth="293.0" styleClass="card-detail-text" text="Label">
+      <Label fx:id="descriptionLabel" alignment="TOP_LEFT" maxWidth="306.0" minHeight="30.0" minWidth="293.0" prefWidth="293.0" styleClass="card-detail-text" text="Label" wrapText="true">
          <padding>
             <Insets left="5.0" right="5.0" />
          </padding>
