@@ -31,7 +31,7 @@
                     <content>
                         <VBox fx:id="appointmentListContainer" spacing="15.0">
                             <children>
-                                <VBox alignment="CENTER_LEFT" maxWidth="279.0" prefWidth="279.0" spacing="8.0" styleClass="schedule-card" VBox.vgrow="ALWAYS">
+                                <VBox alignment="CENTER_LEFT" maxWidth="317.0" prefHeight="142.0" prefWidth="317.0" spacing="8.0" styleClass="schedule-card" VBox.vgrow="ALWAYS">
                                     <children>
                                         <HBox alignment="CENTER_LEFT" spacing="10.0">
                                             <children>

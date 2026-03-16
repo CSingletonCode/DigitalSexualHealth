@@ -73,8 +73,8 @@ public class ClinicController {
         VBox card = new VBox();
         card.setSpacing(8);
         card.getStyleClass().add("schedule-card");
-        card.setPadding(new Insets(15, 15, 15, 15));
-        card.setPrefSize(282, 125);
+        card.setPadding(new Insets(10, 10, 10, 10));
+        //card.setPrefSize(282, 125);
 
         HBox header = new HBox();
         header.setAlignment(Pos.CENTER_LEFT);
@@ -82,9 +82,12 @@ public class ClinicController {
 
         Label nameLabel = new Label(clinic.getName());
         nameLabel.getStyleClass().add("card-date-header");
+        nameLabel.setWrapText(true);
 
         Label distanceLabel = new Label(clinic.getStringDistance() + " miles away");
         distanceLabel.setTextFill(Color.BLACK);
+        distanceLabel.getStyleClass().add("clinic-distance");
+        distanceLabel.setWrapText(true);
         header.getChildren().addAll(nameLabel);
 
         Label addressLabel = new Label(clinic.getAddress());
@@ -93,8 +96,8 @@ public class ClinicController {
 
         HBox actionRow = new HBox();
         actionRow.setAlignment(Pos.CENTER_RIGHT);
-        actionRow.setSpacing(10.0);
-        actionRow.setPrefHeight(38.0);
+        actionRow.setSpacing(5.0);
+        // actionRow.setPrefHeight(38.0);
 
         Button bookBtn = new Button("Book");
         bookBtn.getStyleClass().add("button-small");

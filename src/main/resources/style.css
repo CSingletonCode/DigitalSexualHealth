@@ -62,6 +62,10 @@
     -fx-font-size: 12px;
 }
 
+.wrap-addition {
+    -fx-wrap-text: true;
+}
+
 /* =========================================
    3. FORM INPUTS & SELECTORS
    ========================================= */
@@ -291,6 +295,10 @@
     -fx-text-fill: white;
     -fx-padding: 3px 8px;
     -fx-background-radius: 10px;
+}
+
+.clinic-distance {
+    -fx-font-size: 12px;
 }
 
 .upcoming { -fx-background-color: #4BD37B; }
