@@ -259,14 +259,30 @@
 }
 
 .card-date-header {
-    -fx-font-size: 17px;
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #6C54B6;
+}
+
+.help-button {
+    -fx-text-fill: #6f5fb8;
+    -fx-background-color: transparent;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 15px;
+    -fx-cursor: hand;
+    -fx-underline: true;
+    -fx-font-weight: bold;
 }
 
 .card-detail-text {
     -fx-font-size: 12px;
     -fx-text-fill: #333333;
+}
+
+.appointment-card-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #333333;
+    -fx-wrap-text: true;
 }
 
 .status-badge {
@@ -579,13 +595,5 @@
     -fx-font-weight: bold;
 }
 
-#helpButton {
-    -fx-background-color: transparent;
-    -fx-font-family: "Segoe UI", sans-serif;
-    -fx-font-size: 15px;
-    -fx-cursor: hand;
-    -fx-underline: true;
-    -fx-font-weight: bold;
-}
 
 

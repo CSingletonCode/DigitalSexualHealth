@@ -148,13 +148,13 @@ public class AppointmentSchedulePage {
         header.getChildren().addAll(dateLabel, spacer, statusBadge);
 
         Label nameLabel = new Label("Name: " + name);
-        nameLabel.getStyleClass().add("card-detail-text");
+        nameLabel.getStyleClass().add("appointment-card-text");
 
         Label timeLabel = new Label("Time: " + time);
-        timeLabel.getStyleClass().add("card-detail-text");
+        timeLabel.getStyleClass().add("appointment-card-text");
 
         Label addressLabel = new Label("Address: " + address);
-        addressLabel.getStyleClass().add("card-detail-text");
+        addressLabel.getStyleClass().add("appointment-card-text");
         addressLabel.setWrapText(true);
 
         card.getChildren().addAll(header, nameLabel, timeLabel, addressLabel);
