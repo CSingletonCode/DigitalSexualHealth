@@ -7,22 +7,22 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.clinicInfoController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.clinicInfoController">
     <children>
         <HBox prefHeight="34.0" prefWidth="295.0">
             <children>
                 <Button fx:id="returnButton" mnemonicParsing="false" text="←" />
             </children>
         </HBox>
-        <Label fx:id="clinicName" prefHeight="34.0" prefWidth="307.0" styleClass="header-label" text="Clinic Name" wrapText="true" />
+        <Label fx:id="clinicName" alignment="TOP_CENTER" styleClass="header-label" text="Clinic Name" wrapText="true" />
       <Region prefHeight="22.0" prefWidth="295.0" />
           <VBox fx:id="clinicListContainer" spacing="10.0">
               <children>
-                  <VBox prefHeight="40.0" prefWidth="282.0" styleClass="schedule-card">
+                  <VBox prefWidth="282.0" styleClass="schedule-card">
                       <children>
                           <HBox alignment="CENTER_LEFT" spacing="10.0">
                               <children>
-                                  <Label styleClass="card-date-header" text="Phone" />
+                                  <Label styleClass="card-date-header" text="Phone" wrapText="true" />
                               </children>
                           </HBox>
                           <Label fx:id="clinicUrgentPhone" styleClass="card-detail-text" text="Urgent: N/A" wrapText="true" />
@@ -32,11 +32,11 @@
                           <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
                       </padding>
                   </VBox>
-            <VBox prefHeight="40.0" prefWidth="282.0" styleClass="schedule-card">
+            <VBox prefWidth="282.0" styleClass="schedule-card">
                <children>
                   <HBox alignment="CENTER_LEFT" spacing="10.0">
                      <children>
-                        <Label styleClass="card-date-header" text="Email" />
+                        <Label styleClass="card-date-header" text="Email" wrapText="true" />
                      </children>
                   </HBox>
                   <Label fx:id="clinicEmail" styleClass="card-detail-text" text="N/A" wrapText="true" />
@@ -45,11 +45,11 @@
                   <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="40.0" prefWidth="282.0" styleClass="schedule-card">
+            <VBox prefWidth="282.0" styleClass="schedule-card" VBox.vgrow="ALWAYS">
                <children>
                   <HBox alignment="CENTER_LEFT" spacing="10.0">
                      <children>
-                        <Label styleClass="card-date-header" text="Address" />
+                        <Label styleClass="card-date-header" text="Address" wrapText="true" />
                      </children>
                   </HBox>
                   <Label fx:id="clinicAddress" styleClass="card-detail-text" text="N/A" wrapText="true" />
@@ -64,43 +64,43 @@
                   <HBox prefHeight="16.0" prefWidth="252.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="110.0" styleClass="card-detail-text" text="Monday" wrapText="true" />
-                        <Label fx:id="Monday" text="N/A" />
+                        <Label fx:id="Monday" styleClass="card-detail-text" text="N/A" wrapText="true" />
                      </children>
                   </HBox>
                   <HBox prefHeight="16.0" prefWidth="252.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="110.0" styleClass="card-detail-text" text="Tuesday" wrapText="true" />
-                        <Label fx:id="Tuesday" text="N/A" />
+                        <Label fx:id="Tuesday" styleClass="card-detail-text" text="N/A" wrapText="true" />
                      </children>
                   </HBox>
                   <HBox prefHeight="16.0" prefWidth="252.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="110.0" styleClass="card-detail-text" text="Wednesday" wrapText="true" />
-                        <Label fx:id="Wednesday" text="N/A" />
+                        <Label fx:id="Wednesday" styleClass="card-detail-text" text="N/A" wrapText="true" />
                      </children>
                   </HBox>
                   <HBox prefHeight="16.0" prefWidth="252.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="110.0" styleClass="card-detail-text" text="Thursday" wrapText="true" />
-                        <Label fx:id="Thursday" text="N/A" />
+                        <Label fx:id="Thursday" styleClass="card-detail-text" text="N/A" wrapText="true" />
                      </children>
                   </HBox>
                   <HBox prefHeight="16.0" prefWidth="252.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="110.0" styleClass="card-detail-text" text="Friday" wrapText="true" />
-                        <Label fx:id="Friday" text="N/A" />
+                        <Label fx:id="Friday" styleClass="card-detail-text" text="N/A" wrapText="true" />
                      </children>
                   </HBox>
                   <HBox prefHeight="16.0" prefWidth="252.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="110.0" styleClass="card-detail-text" text="Saturday" wrapText="true" />
-                        <Label fx:id="Saturday" text="N/A" />
+                        <Label fx:id="Saturday" styleClass="card-detail-text" text="N/A" wrapText="true" />
                      </children>
                   </HBox>
                   <HBox prefHeight="16.0" prefWidth="252.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="110.0" styleClass="card-detail-text" text="Sunday" wrapText="true" />
-                        <Label fx:id="Sunday" text="N/A" />
+                        <Label fx:id="Sunday" styleClass="card-detail-text" text="N/A" wrapText="true" />
                      </children>
                   </HBox>
                </children>

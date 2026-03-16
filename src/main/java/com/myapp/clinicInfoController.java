@@ -48,7 +48,6 @@ public class clinicInfoController {
     public void initialize() {
         returnButton.setOnAction(this::handleReturn);
         bookButton.setOnAction(event -> switchScene(event, "/appointment.fxml", clinic));
-
     }
 
     private void handleReturn(ActionEvent event) {
