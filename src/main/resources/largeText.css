@@ -1,12 +1,20 @@
 .large-text-link,
 .button-small-eval,
 .text-silent,
+.combo-box,
 .fancy-text-field,
 .button-small,
 .card-detail-text,
 .submit-button,
+.btn-red-fixed,
+.btn-green-fixed,
 .eval-low-label,
 .appointment-card-text,
+.clinic-tag,
+.detail-header,
+.detail-value,
+.tutorial-btn-next,
+.tutorial-btn-skip,
 .regular-text {
     -fx-font-size: 16px;
 }
@@ -33,4 +41,8 @@
 
 .clinic-distance {
     -fx-font-size: 15px;
+}
+
+.tutorial-text {
+    -fx-font-size: 17px;
 }

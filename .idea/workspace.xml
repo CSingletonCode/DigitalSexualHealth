@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 7th text size commit, large font option implemented for the clinic page">
+    <list default="true" id="4c7b1e6c-cd74-4852-b7e4-5b2dbae2a443" name="Changes" comment="Calum - 8th text size commit, large font option implemented for the clinic info page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myapp/clinicInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myapp/clinicInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ClinicInfoPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ClinicInfoPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/app_database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/appointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appointment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/largeText.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/largeText.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ClinicInfoPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ClinicInfoPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPIN.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoginPassword.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SymptomBox.fxml" afterDir="false" />
@@ -259,7 +262,7 @@
       <workItem from="1773058707726" duration="2506000" />
       <workItem from="1773232306856" duration="8609000" />
       <workItem from="1773407855792" duration="18990000" />
-      <workItem from="1773594190763" duration="16289000" />
+      <workItem from="1773594190763" duration="22296000" />
     </task>
     <task id="LOCAL-00001" summary="javafx project">
       <option name="closed" value="true" />
@@ -397,7 +400,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773689323832</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Calum - 8th text size commit, large font option implemented for the clinic info page">
+      <option name="closed" value="true" />
+      <created>1773691639138</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1773691639138</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,6 +441,7 @@
     <MESSAGE value="Calum - 5th text size commit, large font option implemented for the evaluation and allergy pages." />
     <MESSAGE value="Calum - 6th text size commit, large font option implemented for the first appointment page and the PIN popup." />
     <MESSAGE value="Calum - 7th text size commit, large font option implemented for the clinic page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calum - 7th text size commit, large font option implemented for the clinic page" />
+    <MESSAGE value="Calum - 8th text size commit, large font option implemented for the clinic info page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calum - 8th text size commit, large font option implemented for the clinic info page" />
   </component>
 </project>

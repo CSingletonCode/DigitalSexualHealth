@@ -546,12 +546,13 @@
 
 /* Red and Green Buttons with identical fixed width */
 .btn-red-fixed, .btn-green-fixed {
-    -fx-pref-width: 95px;
-    -fx-pref-height: 35px;
+    -fx-min-width: 95px;
+    -fx-min-height: 35px;
     -fx-background-radius: 10px;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-cursor: hand;
+    -fx-font-size: 12px;
 }
 
 .btn-red-fixed {
@@ -563,6 +564,10 @@
     -fx-background-color: #4BD37B;
 }
 .btn-green-fixed:hover { -fx-background-color: #3EB868; }
+
+.clinic-tag {
+    -fx-font-size: 12px;
+}
 
 /* The Floating Box */
 .tutorial-card {
