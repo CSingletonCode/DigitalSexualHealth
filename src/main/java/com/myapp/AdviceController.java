@@ -91,15 +91,15 @@ public class AdviceController {
     }
 
     private static class AdviceResource {
-        private final String title, descriptiion, category;
-        public AdviceResource(String title, String descriptiion, String category) {
+        private final String title, description, category;
+        public AdviceResource(String title, String description, String category) {
             this.title = title;
-            this.descriptiion = descriptiion;
+            this.description = description;
             this.category = category;
         }
 
         public String getTitle() { return title; }
-        public String getDescription() { return descriptiion; }
+        public String getDescription() { return description; }
         public String getCategory() { return category; }
 
     }
