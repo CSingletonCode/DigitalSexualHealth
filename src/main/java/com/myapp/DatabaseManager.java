@@ -58,12 +58,23 @@ public class DatabaseManager {
                 "FOREIGN KEY (user_id) REFERENCES users(id)" +
                 ");";
 
+        String notificationTable = "CREATE TABLE IF NOT EXISTS notifications (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "user_id INTEGER NOT NULL," +
+                "title TEXT NOT NULL," +
+                "message TEXT NOT NULL," +
+                "is_read INTEGER NOT NULL DEFAULT 0," +
+                "created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP," +
+                "FOREIGN KEY (user_id) REFERENCES users(id)" +
+                ");";
+
         try (Connection con = getConnection();
             Statement smt = con.createStatement()) {
                 smt.execute(userTable);
                 smt.execute(clinicTable);
                 smt.execute(appTable);
                 smt.execute(PINTable);
+                smt.execute(notificationTable);
                 System.out.println("Database init");
             }
         catch (Exception e){
@@ -401,5 +412,92 @@ public class DatabaseManager {
 
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         return earthRadius * c;
+    }
+
+    public static boolean addNotification(int userId, String title, String message) {
+        String sql = "INSERT INTO notifications (user_id, title, message) VALUES (?, ?, ?)";
+
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            psmt.setInt(1, userId);
+            psmt.setString(2, title);
+            psmt.setString(3, message);
+
+            psmt.executeUpdate();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static List<NotificationItem> pullNotifications() {
+        int currentId = userSession.getInstance().getUserId();
+        List<NotificationItem> notifications = new ArrayList<>();
+
+        String sql = "SELECT id, title, message, is_read, created_at " +
+                "FROM notifications " +
+                "WHERE user_id = ? " +
+                "ORDER BY datetime(created_at) DESC";
+
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            psmt.setInt(1, currentId);
+            ResultSet rs = psmt.executeQuery();
+
+            while (rs.next()) {
+                notifications.add(new NotificationItem(
+                        rs.getInt("id"),
+                        rs.getString("title"),
+                        rs.getString("message"),
+                        rs.getInt("is_read") == 1,
+                        rs.getString("created_at")
+                ));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return notifications;
+    }
+
+
+    public static void markAllNotificationsAsRead(int userId) {
+        String sql = "UPDATE notifications SET is_read = 1 WHERE user_id = ? AND is_read = 0";
+
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            psmt.setInt(1, userId);
+            psmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static int getUnreadNotificationCount(int userId) {
+
+        String sql = "SELECT COUNT(*) FROM notifications WHERE user_id = ? AND is_read = 0";
+
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+
+            psmt.setInt(1, userId);
+            ResultSet rs = psmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 }

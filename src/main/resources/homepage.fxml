@@ -20,6 +20,29 @@
     <HBox alignment="CENTER_LEFT">
         <Label fx:id="logOut" onMouseClicked="#handleNavigation" styleClass="text-silent" text="Log Out" />
         <Region HBox.hgrow="ALWAYS" />
+
+        <StackPane>
+            <ImageView fx:id="notificationBell"
+                       fitHeight="22"
+                       fitWidth="22"
+                       pickOnBounds="true"
+                       preserveRatio="true"
+                       onMouseClicked="#handleNavigation">
+                <image>
+                    <Image url="@notifications.png"/>
+                </image>
+            </ImageView>
+
+            <!-- badge -->
+            <Label fx:id="notificationBadge"
+                   text="0"
+                   styleClass="notification-badge"
+                   StackPane.alignment="TOP_RIGHT"/>
+            <HBox.margin>
+                <Insets left="15.0"/>
+            </HBox.margin>
+        </StackPane>
+
         <Label fx:id="settings" onMouseClicked="#handleNavigation" styleClass="icon-purple" text="⚙" >
             <HBox.margin><Insets left="15.0" /></HBox.margin>
         </Label>

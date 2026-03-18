@@ -135,6 +135,12 @@ public class AppointmentPage {
 
         // Show the Overlay
         confirmationOverlay.setVisible(true);
+
+        DatabaseManager.addNotification(
+                userSession.getInstance().getUserId(),
+                "Booking Confirmed",
+                "Your appointment at " + currentClinic.getText() + " on " + appointmentDatePicker.getValue().toString() + " has been booked successfully."
+        );
     }
 
     private boolean validateFields() {
