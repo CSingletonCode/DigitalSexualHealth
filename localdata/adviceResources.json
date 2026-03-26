@@ -1,0 +1,56 @@
+[
+  {
+    "title": "General guide to STIs and testing.",
+    "source": "NHS Sexual Health",
+    "category": "General",
+    "url": "https://www.nhs.uk/conditions/sexually-transmitted-infections-stis/"
+  },
+  {
+    "title": "General advice and articles with a wide range of topics.",
+    "source": "World Health Organisation",
+    "category": "General",
+    "url": "https://www.who.int/health-topics/sexual-health#tab=tab_1"
+  },
+  {
+    "title": "Advice about abortions.",
+    "source": "British Pregnancy Advisory Service",
+    "category": "General",
+    "url": "https://www.bpas.org/"
+  },
+  {
+    "title": "Sexual Wellbeing Advice.",
+    "source": "LGBT Hero",
+    "category": "LGBTQ+",
+    "url": "https://www.lgbthero.org.uk/Pages/Category/sexualwellbeing"
+  },
+  {
+    "title": "Information on sexual health for transgender and non-binary people.",
+    "source": "Terrence Higgins Trust",
+    "category": "LGBTQ+",
+    "url": "https://tht.org.uk/sexual-health/trans-people"
+  },
+  {
+    "title": "Information on sexual health for members of LGBTQ community from the UK government.",
+    "source": "UKHSA - Sexual Orientation and Gender Identity Data",
+    "category": "LGBTQ+",
+    "url": "https://ukhsa.blog.gov.uk/category/hwb/sexual-health-hwb/"
+  },
+  {
+    "title": "Advice for young people.",
+    "source": "Brook",
+    "category": "Youth",
+    "url": "https://www.brook.org.uk/"
+  },
+  {
+    "title": "Articles on sexual health for young people.",
+    "source": "Scarleteen",
+    "category": "Youth",
+    "url": "https://www.scarleteen.com/read"
+  },
+  {
+    "title": "Navigating sexual health in the digital age.",
+    "source": "Fumble",
+    "category": "Youth",
+    "url": "https://fumble.org.uk/"
+  }
+]

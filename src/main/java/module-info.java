@@ -8,6 +8,8 @@ module com.myapp {
     requires com.fasterxml.jackson.databind;
     requires de.mkammerer.argon2.nolibs;
 
-    opens com.myapp to javafx.fxml, com.fasterxml.jackson.databind;
+    requires com.google.gson;
+
+    opens com.myapp to javafx.fxml, com.fasterxml.jackson.databind, com.google.gson;
     exports com.myapp;
 }

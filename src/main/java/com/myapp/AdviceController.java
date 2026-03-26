@@ -1,77 +1,93 @@
 package com.myapp;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.List;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdviceController {
-    @FXML private VBox adviceListContainer;
+    @FXML private VBox adviceList;
     @FXML private ToggleGroup filterGroup;
-    @FXML private Label infoLabel;
 
-    private final List<AdviceResource> resources = new ArrayList<>();
+    private List<HealthResource> resources = new ArrayList<>();
+
     public void initialize() {
-        resources.add(new AdviceResource("Sexual Health FAQ", "General guidance on symptoms, testing, and common concerns,", "All"));
-        resources.add(new AdviceResource("LGBTQ+ support", "Resources for inclusive healthcare and community support groups.", "LGBTQ+"));
-        resources.add(new AdviceResource("Youth Services", "Confidential help and clinics specifically for those under 25.", "Youth"));
-        resources.add(new AdviceResource("PrEP Information", "A guide to Pre-Exposure Prophylaxis for HIV prevention", "LGBTQ+"));
-        resources.add(new AdviceResource("Consent & Relationships", "Simple and informative guide on communication and safety.", "All"));
-
-        renderAdvice("All");
-
-        filterGroup.selectedToggleProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal != null) {
-                renderAdvice(((ToggleButton) newVal).getText());
-            }
-        });
+        loadResources();
+        displayResources("All");
     }
 
-     private void renderAdvice(String category) {
-        adviceListContainer.getChildren().clear();
-        for (AdviceResource res : resources) {
-            if (category.equals("All") || res.getCategory().equals(category)) {
-                adviceListContainer.getChildren().add(createAdviceCard(res));
-            }
+    public void loadResources() {
+        String filePath = "localdata/adviceResources.json";
+        java.io.File jsonFile = new java.io.File(filePath);
+
+        if (!jsonFile.exists()) {
+            System.err.println("JSON NOT FOUND AT: " + jsonFile.getAbsolutePath());
+            return;
         }
 
-        if (infoLabel != null) {
-            infoLabel.setText("Showing: " + category);
+        try (Reader reader = new java.io.FileReader(jsonFile)) {
+            resources = new Gson().fromJson(reader, new TypeToken<List<HealthResource>>() {}.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void handleFilter(ActionEvent event) {
+        ToggleButton selected = (ToggleButton) filterGroup.getSelectedToggle();
+        if (selected != null) {
+            displayResources(selected.getText());
+        }
+    }
+    @FXML
+     private void displayResources(String category) {
+        adviceList.getChildren().clear();
+        for (HealthResource res : resources) {
+            if (category.equals("All") || res.category.equals(category)) {
+                adviceList.getChildren().add(createAdviceCard(res));
+            }
         }
      }
 
-     private VBox createAdviceCard(AdviceResource res) {
+     private VBox createAdviceCard(HealthResource res) {
         VBox card = new VBox(10);
         card.getStyleClass().add("evaluation-card");
 
-        Label title = new Label(res.getTitle());
+        HBox header = new HBox(10);
+        header.setAlignment(Pos.CENTER_LEFT);
+
+        Label title = new Label(res.title);
         title.getStyleClass().add("evaluation-sub-header");
 
-        Label description = new Label(res.getDescription());
-        description.setWrapText(true);
-        description.getStyleClass().add("text-silent");
+        header.getChildren().addAll(title);
 
-        card.getChildren().addAll(title, description);
+        Label source = new Label(res.source);
+        source.setWrapText(true);
+        source.getStyleClass().add("text-silent");
+
+        Label urlLabel = new Label("Website: " + res.url);
+        urlLabel.getStyleClass().add("text-silent");
+        urlLabel.setWrapText(true);
+
+        card.getChildren().addAll(header, source, urlLabel);
         return card;
      }
 
+
      @FXML
-     private void handleFilter(ActionEvent event) {
-        ToggleButton selected = (ToggleButton) filterGroup.getSelectedToggle();
-        if (selected != null) {
-            renderAdvice(selected.getText());
-        }
-     }
-     @FXML
-    private void handleBackToHome(ActionEvent event) {
+     private void handleBackToHome(ActionEvent event) {
         handleBackNavigation(event, "/homepage.fxml");
     }
 
@@ -88,20 +104,6 @@ public class AdviceController {
             e.printStackTrace();
             System.out.println("Could not load FXML file: " + fxmlFile);
         }
-    }
-
-    private static class AdviceResource {
-        private final String title, description, category;
-        public AdviceResource(String title, String description, String category) {
-            this.title = title;
-            this.description = description;
-            this.category = category;
-        }
-
-        public String getTitle() { return title; }
-        public String getDescription() { return description; }
-        public String getCategory() { return category; }
-
     }
 }
 
