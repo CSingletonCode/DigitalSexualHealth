@@ -9,7 +9,7 @@
 <?import javafx.scene.image.Image?>
 
 
-<VBox prefHeight="844.0" prefWidth="390.0" spacing="25.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.HomeController">
+<VBox prefHeight="844.0" prefWidth="390.0" spacing="25.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.HomeController">
     <stylesheets>
         <URL value="@style.css"/>
     </stylesheets>

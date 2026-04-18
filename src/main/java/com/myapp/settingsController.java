@@ -70,4 +70,28 @@ public class settingsController {
 
         popupStage.show();
     }
+
+    @FXML
+    private void changePos(ActionEvent event) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/clinicMap.fxml"));
+                Parent root = loader.load();
+
+                ClinicMap controller = loader.getController();
+                controller.setMapMode("picker");
+                controller.setReturningPage("/settings.fxml");
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                ThemeManager.applyTheme(stage.getScene(), null);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
+    @FXML
+    private void updateInfo(ActionEvent event) {
+        switchScene(event, "/updateInfo.fxml");
+    }
 }

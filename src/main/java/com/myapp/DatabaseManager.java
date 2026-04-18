@@ -25,7 +25,9 @@ public class DatabaseManager {
                 "last_name TEXT," +
                 "dob TEXT," +
                 "gender TEXT," +
-                "tutorialStatus INTEGER" +
+                "tutorialStatus INTEGER," +
+                "lat REAL," +
+                "long REAL" +
                 ");";
 
         String clinicTable = "CREATE TABLE IF NOT EXISTS clinics (" +
@@ -74,8 +76,8 @@ public class DatabaseManager {
 
     public static boolean saveToDatabase(User user) {
 
-        String sql = "INSERT INTO users (email, password, first_name, last_name, dob, gender) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users (email, password, first_name, last_name, dob, gender, lat, lng) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         Argon2 argon2 = Argon2Factory.create();
 
@@ -89,6 +91,8 @@ public class DatabaseManager {
             psmt.setString(4, user.getLastName());
             psmt.setString(5, user.getDob());
             psmt.setString(6, user.getGender());
+            psmt.setDouble(7,50.9097);
+            psmt.setDouble(8,-1.4044);
 
             psmt.executeUpdate();
 
@@ -100,6 +104,23 @@ public class DatabaseManager {
             if (user.getPassword() != null) {
                 argon2.wipeArray(user.getPassword().toCharArray());
             }
+        }
+    }
+
+    public static void changePassword(String trim, String email) {
+        String sql = "UPDATE users SET password = ? WHERE email = ?";
+
+        Argon2 argon2 = Argon2Factory.create();
+
+        try (Connection con = getConnection();
+        PreparedStatement psmt = con.prepareStatement(sql)){
+            String hashedPassword = argon2.hash(10,65536,1, trim);
+            psmt.setString(1,hashedPassword);
+            psmt.setString(2,email);
+            psmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -144,6 +165,23 @@ public class DatabaseManager {
         }
     }
 
+    public static void changeLocation(double lat, double lng) {
+        int id = userSession.getInstance().getUserId();
+        String sql;
+
+        sql = "UPDATE users SET lat = ?, lng = ? WHERE id = ?";
+
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+            psmt.setDouble(1, lat);
+            psmt.setDouble(2, lng);
+            psmt.setInt(3, id);
+            psmt.executeUpdate();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void storePIN(String pin) {
         int id = userSession.getInstance().getUserId();
         String sql;
@@ -183,7 +221,20 @@ public class DatabaseManager {
         }
     }
 
-    //public static boolean lockoutPIN(){}
+    public static boolean updateData(String newData, String dataType){
+        String sql = "UPDATE users SET "+dataType+" = ? WHERE id = ?";
+        try (Connection con = getConnection();
+             PreparedStatement psmt = con.prepareStatement(sql)) {
+            psmt.setString(1, newData);
+            psmt.setInt(2, userSession.getInstance().getUserId());
+            psmt.executeUpdate();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public static boolean validatePIN(String pin, boolean exists, int id) {
         String sql = "SELECT user_id, PIN FROM pin WHERE user_id = ? ORDER BY ROWID DESC";
@@ -217,7 +268,7 @@ public class DatabaseManager {
     }
 
     public static void fetchAndStartSession(String email) {
-        String sql = "SELECT id, email, first_name, last_name, dob, gender FROM users WHERE email = ?";
+        String sql = "SELECT id, email, first_name, last_name, dob, gender, lat, lng FROM users WHERE email = ?";
 
         try (Connection con = getConnection();
              PreparedStatement psmt = con.prepareStatement(sql)) {
@@ -232,7 +283,9 @@ public class DatabaseManager {
                         rs.getString("first_name"),
                         rs.getString("last_name"),
                         rs.getString("dob"),
-                        rs.getString("gender")
+                        rs.getString("gender"),
+                        rs.getDouble("lat"),
+                        rs.getDouble("lng")
                 );
             }
         } catch (Exception e) {

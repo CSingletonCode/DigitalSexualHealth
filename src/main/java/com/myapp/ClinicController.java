@@ -34,10 +34,12 @@ public class ClinicController {
     @FXML private Button fakeInfoButton;
     @FXML private Label helpButton;
     @FXML private ComboBox<String> costFilter;
+    @FXML private Button showMap;
 
     @FXML
     public void initialize() {
         returnButton.setOnAction(this::handleReturn);
+        showMap.setOnAction(this::openMapPage);
         helpButton.setOnMouseClicked(event -> {
             TutorialController.getInstance().start();
             TutorialController.getInstance().nextStep();
@@ -132,6 +134,10 @@ public class ClinicController {
         card.getChildren().addAll(header, addressLabel, actionRow);
 
         return card;
+    }
+
+    private void openMapPage(ActionEvent event) {
+        switchScene(event, "/clinicMap.fxml", null);
     }
 
     private void switchScene(ActionEvent event, String fxmlFile, Clinic clinic) {

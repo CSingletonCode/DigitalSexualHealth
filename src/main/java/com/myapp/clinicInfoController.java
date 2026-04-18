@@ -25,6 +25,12 @@ public class clinicInfoController {
 
     private Clinic clinic;
 
+    String returningPage = "/clinicInfo.fxml";
+
+    public void setReturningPage(String returningPage) {
+        this.returningPage = returningPage;
+    }
+
     public void setClinicData(Clinic cl) {
         this.clinic = cl;
         if (clinic != null){
@@ -53,7 +59,7 @@ public class clinicInfoController {
     }
 
     private void handleReturn(ActionEvent event) {
-        switchScene(event, "/clinicPage.fxml", null);
+        switchScene(event, returningPage, null);
     }
 
     private void switchScene(ActionEvent event, String fxmlFile, Clinic clinic) {

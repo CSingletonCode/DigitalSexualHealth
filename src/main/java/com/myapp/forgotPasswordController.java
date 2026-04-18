@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -21,12 +22,22 @@ public class forgotPasswordController {
     @FXML
     private TextField codeField;
 
+    @FXML private Button returnButton;
+
     @FXML
     void handleContinue(ActionEvent event) {
         if (!validateinputs()){
             return;
         }
         switchScene(event, "/changePassword.fxml");
+    }
+
+    public void initialize() {
+        returnButton.setOnAction(this::handleReturn);
+    }
+
+    private void handleReturn(ActionEvent event) {
+        switchScene(event, "/login.fxml");
     }
 
     @FXML
@@ -85,6 +96,10 @@ public class forgotPasswordController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
+            if (fxmlFile.equals("/changePassword.fxml")) {
+                changePasswordController nextController = loader.getController();
+                nextController.setEmail(emailField.getText());
+            }
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
