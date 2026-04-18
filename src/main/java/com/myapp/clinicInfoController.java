@@ -25,7 +25,7 @@ public class clinicInfoController {
 
     private Clinic clinic;
 
-    String returningPage = "/clinicInfo.fxml";
+    String returningPage = "/clinicPage.fxml";
 
     public void setReturningPage(String returningPage) {
         this.returningPage = returningPage;

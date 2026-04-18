@@ -138,9 +138,9 @@ public class ClinicMap {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             if (!(clinic == null)){
-                Object nextController = loader.getController();
-                ((clinicInfoController) nextController).setClinicData(clinic);
-                ((clinicInfoController) nextController).setReturningPage("/clinicMap.fxml");
+                clinicInfoController nextController = loader.getController();
+                nextController.setClinicData(clinic);
+                nextController.setReturningPage("/clinicMap.fxml");
             }
 
             Scene scene = new Scene(root);
