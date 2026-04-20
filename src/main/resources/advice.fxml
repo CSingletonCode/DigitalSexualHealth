@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainContainer" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" spacing="10.0" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.AdviceController">
+<VBox fx:id="mainContainer" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" spacing="10.0" styleClass="root" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.AdviceController">
     <padding>
         <Insets left="10.0" right="10.0" top="10.0" />
     </padding>

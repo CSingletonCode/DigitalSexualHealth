@@ -134,7 +134,7 @@ public class TrackerController{
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            ThemeManager.applyTheme(scene, null);
+            ThemeManager.applyTheme(scene, null, null);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

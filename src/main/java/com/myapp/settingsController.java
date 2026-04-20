@@ -97,7 +97,7 @@ public class settingsController {
 
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
-                ThemeManager.applyTheme(stage.getScene(), null);
+                ThemeManager.applyTheme(stage.getScene(), null,null);
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
