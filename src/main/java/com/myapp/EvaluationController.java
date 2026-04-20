@@ -158,14 +158,14 @@ public class EvaluationController {
             if (answer == null) continue;
             switch (questionNum) {
                 //Questions where Yes = 1, Not sure = 2 and No = 3
-                case 1: case 4: case 6: case 7: case 8: case 10: case 11: case 12:
+                case 1: case 4: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
                     if (answer.equals("Yes")) riskScore += 1;
                     else if (answer.equals("Not Sure")) riskScore += 2;
                     else if (answer.equals("No")) riskScore += 3;
                     break;
 
                     //Questions where Yes = 3, Not sure = 2 and No = 1
-                case 2: case 3: case 5: case 9:
+                case 2: case 3: case 5:
                     if (answer.equals("Yes")) riskScore += 3;
                     else if (answer.equals("Not Sure")) riskScore += 2;
                     else if (answer.equals("No")) riskScore += 1;
