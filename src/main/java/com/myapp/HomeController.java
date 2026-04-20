@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -19,6 +20,8 @@ public class HomeController {
     @FXML private Label symptom_log_label;
     @FXML private Label next_appt_label;
     @FXML private VBox symptomsCard, adviceCard, evaluationCard, apptCard;
+    @FXML private ImageView notificationBell;
+    @FXML private Label notificationBadge;
 
     public void initialize() throws IOException {
         String firstName = userSession.getInstance().getFirstName();
@@ -43,6 +46,7 @@ public class HomeController {
         symptom_log_label.setText("Last symptom log: " + lastLog);
         next_appt_label.setText("Next appointment: " + nextAppt);
 
+        updateNotificationBadge();
     }
     @FXML
     private void handleNavigation(MouseEvent event) throws IOException {
@@ -63,6 +67,8 @@ public class HomeController {
             targetFxml = "/login.fxml";
         } else if(source == settings){
             targetFxml = "/settings.fxml";
+        } else if (source == notificationBell) {
+            targetFxml = "/notifications.fxml";
         }
 
         if (!targetFxml.isEmpty()) {
@@ -85,6 +91,20 @@ public class HomeController {
         } catch (IOException e) {
             System.err.println("Could not load " + fxml + ". Make sure the file exists.");
             e.printStackTrace();
+        }
+    }
+
+    private void updateNotificationBadge() {
+
+        int count = DatabaseManager.getUnreadNotificationCount(
+                userSession.getInstance().getUserId()
+        );
+
+        if (count <= 0) {
+            notificationBadge.setVisible(false);
+        } else {
+            notificationBadge.setVisible(true);
+            notificationBadge.setText(String.valueOf(count));
         }
     }
 }
