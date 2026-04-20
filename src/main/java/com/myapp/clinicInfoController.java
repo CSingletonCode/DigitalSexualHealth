@@ -18,12 +18,18 @@ public class clinicInfoController {
     private Button returnButton,bookButton;
 
     @FXML
-    Label clinicName,clinicUrgentPhone,clinicPhone,clinicEmail,clinicAddress;
+    Label clinicName,clinicUrgentPhone,clinicPhone,clinicEmail,clinicAddress,clinicCost;
 
     @FXML
     Label Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
 
     private Clinic clinic;
+
+    String returningPage = "/clinicPage.fxml";
+
+    public void setReturningPage(String returningPage) {
+        this.returningPage = returningPage;
+    }
 
     public void setClinicData(Clinic cl) {
         this.clinic = cl;
@@ -33,6 +39,7 @@ public class clinicInfoController {
             clinicPhone.setText(clinic.getPhone());
             clinicEmail.setText(clinic.getEmail());
             clinicAddress.setText(clinic.getAddress());
+            clinicCost.setText(clinic.getCost());
 
             List<String> hoursList = clinic.getHours();
             Label[] dayLabels = {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
@@ -51,7 +58,7 @@ public class clinicInfoController {
     }
 
     private void handleReturn(ActionEvent event) {
-        switchScene(event, "/clinicPage.fxml", null);
+        switchScene(event, returningPage, null);
     }
 
     private void switchScene(ActionEvent event, String fxmlFile, Clinic clinic) {

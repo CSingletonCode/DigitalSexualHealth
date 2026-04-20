@@ -79,7 +79,7 @@ public class PopupController {
         String check = checkValid();
         if (check.equals("valid")){
             String userID = String.valueOf(userSession.getInstance().getUserId());
-            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getValue().toString(), descriptionField.getText(), userID);
+            SymptomEntry newSymptom = new SymptomEntry(nameField.getText(), dateField.getValue().toString(), descriptionField.getText(), userID,false);
             symptomsDatabase.recordSymptom(newSymptom);
             trackerController.displaySymptoms();
             this.stage.close();

@@ -7,6 +7,8 @@ module com.myapp {
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
     requires de.mkammerer.argon2.nolibs;
+    requires javafx.web;
+    requires jdk.jsobject;
 
     requires com.google.gson;
 

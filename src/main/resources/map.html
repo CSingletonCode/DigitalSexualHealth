@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>#map { height: 100vh; width: 100%; margin: 0; } body { margin: 0; }</style>
+</head>
+<body>
+<div id="map"></div>
+<style>
+    {
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+<script>
+
+    var map;
+    var currentMode = "clinic";
+    var pickerMarker;
+
+    try {
+        if (typeof L !== 'undefined') {
+            map = L.map('map').setView([50.9097, -1.4044], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap'
+            }).addTo(map);
+            console.log("JS: Leaflet Map Initialized");
+        } else {
+            console.error("JS: Leaflet library (L) not found. Check internet connection.");
+        }
+    } catch (e) {
+        console.error("JS: Map init failed: " + e);
+    }
+
+    var infoBox = L.control({position: 'topright'});
+    infoBox.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'map-instruction');
+        this.update();
+        return this._div;
+    };
+
+    infoBox.update = function (mode) {
+        if (mode === "picker") {
+            this._div.innerHTML = "Double-click map to select new location";
+            this._div.style.display = "block";
+        } else if (mode === "clinic") {
+            this._div.innerHTML = "Double-click a marker for details";
+            this._div.style.display = "block";
+        } else {
+            this._div.style.display = "none";
+        }
+    };
+    infoBox.addTo(map);
+
+    window.setMapMode = function(mode) {
+        currentMode = mode;
+        infoBox.update(mode);
+    };
+
+    window.addMarker = function(lat, lng, title, clinicId) {
+        if (!map) return;
+        var marker = L.marker([lat, lng]).addTo(map);
+        marker.bindPopup("<b>" + title + "</b>");
+        marker.on('dblclick', function() {
+            if (currentMode === "clinic" && window.javaConnector) {
+                window.javaConnector.onClinicClick(clinicId);
+            }
+        });
+    };
+
+    if (map) {
+        map.on('dblclick', function(e) {
+            if (currentMode === "picker") {
+                if (pickerMarker) {
+                    map.removeLayer(pickerMarker);
+                }
+                var lat = e.latlng.lat.toFixed(5);
+                var lng = e.latlng.lng.toFixed(5);
+                var msg = "New Location: " + lat + ", " + lng;
+
+
+                pickerMarker = L.marker(e.latlng).addTo(map)
+                    .bindPopup("<b>" + msg + "</b>")
+                    .openPopup();
+
+                if (window.javaConnector) {
+                    window.javaConnector.onMapClick(e.latlng.lat, e.latlng.lng);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

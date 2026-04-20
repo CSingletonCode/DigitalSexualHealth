@@ -14,9 +14,10 @@ public class Clinic {
     private final String phone;
     private final String urgentPhone;
     private final List<String> hours;
+    private final String cost;
 
 
-    public Clinic(int id, String name, String address, double latitude, double longitude, double distance, String email, String phone, String urgentPhone, String hours) {
+    public Clinic(int id, String name, String address, double latitude, double longitude, double distance, String email, String phone, String urgentPhone, String hours, int cost) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -27,6 +28,11 @@ public class Clinic {
         this.phone = phone;
         this.urgentPhone = urgentPhone;
         this.hours = Arrays.asList(hours.split(","));
+        if (cost == -1){
+            this.cost = "Free";
+        } else {
+            this.cost = "£"+String.format("%.2f", (float) cost/100);
+        }
     }
 
     public int getId() {
@@ -52,4 +58,5 @@ public class Clinic {
     public String getPhone() {return phone;}
     public String getUrgentPhone() {return urgentPhone;}
     public List<String> getHours() {return hours;}
+    public String getCost() {return cost;}
 }

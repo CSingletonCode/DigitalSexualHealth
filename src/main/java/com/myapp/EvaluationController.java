@@ -107,6 +107,10 @@ public class EvaluationController {
         alert.setTitle("Evaluation Complete");
         alert.setHeaderText("These are your results");
 
+        javafx.scene.control.ButtonType appointmentButton = new javafx.scene.control.ButtonType("Book an appointment here.");
+        if (score > 26) {
+            alert.getButtonTypes().setAll(appointmentButton, javafx.scene.control.ButtonType.OK);
+        }
         javafx.scene.control.DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         dialogPane.getStyleClass().add("root");
@@ -125,7 +129,18 @@ public class EvaluationController {
                 levelRisk, allergy
         );
         alert.setContentText(msgOutput);
-        alert.showAndWait();
+        if (score > 26) {
+            java.util.Optional<javafx.scene.control.ButtonType> result = alert.showAndWait();
+            javafx.event.ActionEvent event = new javafx.event.ActionEvent(
+                    nextButton,
+                    javafx.event.Event.NULL_SOURCE_TARGET
+            );
+            if (result.isPresent() && result.get() == appointmentButton) {
+                handleBackNavigation(event, "/clinicPage.fxml");
+            }
+        } else {
+            alert.showAndWait();
+        }
 
     }
 

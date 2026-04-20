@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" spacing="10.0" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.settingsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" spacing="10.0" styleClass="root" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.settingsController">
     <children>
         <HBox>
             <children>
@@ -42,15 +42,9 @@
             <Insets left="15.0" right="15.0" />
          </padding>
          <children>
-            <Label prefHeight="28.0" prefWidth="289.0" styleClass="regular-text" text="Screen Reader" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="295.0" styleClass="fancy-text-field">
-         <padding>
-            <Insets left="15.0" right="15.0" />
-         </padding>
-         <children>
-            <Label prefHeight="28.0" prefWidth="268.0" styleClass="regular-text" text="Update Contact Information" />
+            <Label prefHeight="28.0" prefWidth="268.0" text="Update Contact Information" />
+            <Region prefHeight="40.0" prefWidth="16.0" />
+            <Button fx:id="UpdateInfo" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateInfo" prefHeight="28.0" styleClass="button-small" text="Update Info" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="295.0" styleClass="fancy-text-field">
@@ -59,6 +53,8 @@
          </padding>
          <children>
             <Label prefHeight="28.0" prefWidth="287.0" styleClass="regular-text" text="Update Location Preferences" />
+            <Region prefHeight="40.0" prefWidth="16.0" />
+            <Button fx:id="ChangePos" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#changePos" prefHeight="28.0" styleClass="button-small" text="Change Pos" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="295.0" styleClass="fancy-text-field">

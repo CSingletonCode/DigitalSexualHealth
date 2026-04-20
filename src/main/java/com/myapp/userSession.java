@@ -7,28 +7,36 @@ public class userSession {
 
     private final int userId;
     private final String email;
-    private final String firstName;
+    private String firstName;
     private final String lastName;
     private final String Dob;
     private final String gender;
     private boolean highContrast = false;
     private boolean largeText = false;
-    private double myLat = 50.9097;
-    private double myLon = -1.4044;
+    private double myLat;
+    private double myLon;
 
-    private userSession(int userId,String email, String firstName, String lastName, String Dob, String gender) {
+    private userSession(int userId,String email, String firstName, String lastName, String Dob, String gender, double myLat, double myLon) {
         this.userId = userId;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.Dob = Dob;
         this.gender = gender;
+        this.myLat = myLat;
+        this.myLon = myLon;
     }
 
-    public static void login(int UserId, String email, String firstName, String lastName, String Dob, String gender) throws IOException {
-        instance = new userSession(UserId,email,firstName,lastName,Dob,gender);
-        instance.setHighContrast(sessionManager.isHighContrast());
-        instance.setLargeText(sessionManager.isLargeText());
+    public static void login(int UserId, String email, String firstName, String lastName, String Dob, String gender, double lat , double lng) throws IOException {
+        instance = new userSession(UserId,email,firstName,lastName,Dob,gender,lat,lng);
+        String[] current_session = sessionManager.getSession();
+        if (current_session != null) {
+            instance.setHighContrast(sessionManager.isHighContrast());
+            instance.setLargeText(sessionManager.isLargeText());
+        } else {
+            instance.setHighContrast(false);
+            instance.setLargeText(false);
+        }
     }
 
     public static userSession getInstance() {

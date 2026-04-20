@@ -6,9 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,13 +22,44 @@ public class changePasswordController {
     private TextField passwordField;
 
     @FXML
-    private TextField password1Field;
+    private TextField passwordHiddenField;
+
+    @FXML
+    private TextField passwordField1;
+
+    @FXML
+    private TextField passwordHiddenField1;
+
+    @FXML
+    private Line eyeSlash,eyeSlash1;
+
+    private String email;
+
+    @FXML private Button returnButton;
 
     @FXML
     void handleChange(ActionEvent event) {
-        if (!validateinputs()){
-            return;
+        if (validateinputs()){
+            DatabaseManager.changePassword(passwordHiddenField.getText().trim(),email);
+            switchScene(event, "/login.fxml");
         }
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void initialize() {
+        returnButton.setOnAction(this::handleReturn);
+        passwordField.setManaged(false);
+        passwordField.setVisible(false);
+        passwordField.textProperty().bindBidirectional(passwordHiddenField.textProperty());
+        passwordField1.setManaged(false);
+        passwordField1.setVisible(false);
+        passwordField1.textProperty().bindBidirectional(passwordHiddenField1.textProperty());
+    }
+
+    private void handleReturn(ActionEvent event) {
         switchScene(event, "/login.fxml");
     }
 
@@ -34,21 +68,21 @@ public class changePasswordController {
         StringBuilder Errors = new StringBuilder();
 
 
-        String password = passwordField.getText().trim();
+        String password = passwordHiddenField.getText().trim();
         if (password.length() < 8){
-            setErrorStyle(passwordField);
+            setErrorStyle(passwordHiddenField);
             Errors.append("Password must be at least 8 characters.\n");
             isValid = false;
         } else {
-            clearErrorStyle(passwordField);
+            clearErrorStyle(passwordHiddenField);
         }
-        String password1 = password1Field.getText().trim();
+        String password1 = passwordHiddenField1.getText().trim();
         if (!password1.equals(password)){
-            setErrorStyle(password1Field);
+            setErrorStyle(passwordHiddenField1);
             Errors.append("Passwords do not match.\n");
             isValid = false;
         } else {
-            clearErrorStyle(password1Field);
+            clearErrorStyle(passwordHiddenField1);
         }
 
         if (!isValid){
@@ -57,6 +91,31 @@ public class changePasswordController {
             showAlert("Password Change Successful!","Please login again.");
         }
         return isValid;
+    }
+
+    @FXML
+    void handleToggle(){
+        eyeSlash.setVisible(!passwordField.isVisible());
+        eyeSlash1.setVisible(!passwordField.isVisible());
+        if (passwordHiddenField.isVisible()){
+            passwordHiddenField.setVisible(false);
+            passwordHiddenField.setManaged(false);
+            passwordField.setVisible(true);
+            passwordField.setManaged(true);
+            passwordHiddenField1.setVisible(false);
+            passwordHiddenField1.setManaged(false);
+            passwordField1.setVisible(true);
+            passwordField1.setManaged(true);
+        } else {
+            passwordHiddenField.setVisible(true);
+            passwordHiddenField.setManaged(true);
+            passwordField.setVisible(false);
+            passwordField.setManaged(false);
+            passwordHiddenField1.setVisible(true);
+            passwordHiddenField1.setManaged(true);
+            passwordField1.setVisible(false);
+            passwordField1.setManaged(false);
+        }
     }
 
     private void setErrorStyle(Control node) {
