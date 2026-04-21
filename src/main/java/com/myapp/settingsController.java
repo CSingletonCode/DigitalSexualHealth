@@ -22,9 +22,13 @@ public class settingsController {
 
     @FXML private ToggleButton TextSizeToggle;
 
+    @FXML private Button notificationToggle;
+
     @FXML
     public void initialize() {
         returnButton.setOnAction(this::handleReturn);
+
+        updateNotificationButtonText();
 
         highContrastToggle.setSelected(userSession.getInstance().isHighContrast());
 
@@ -50,6 +54,32 @@ public class settingsController {
 
         });
     }
+
+    @FXML
+    private void toggleNotifications(ActionEvent event) {
+        boolean stateCheck = userSession.getInstance().isNotificationsActive();
+        userSession.getInstance().setNotificationsActive(!stateCheck);
+
+        updateNotificationButtonText();
+        saveSession();
+    }
+
+    private void updateNotificationButtonText() {
+        if (userSession.getInstance().isNotificationsActive()) {
+            notificationToggle.setText("On");
+        } else {
+            notificationToggle.setText("Off");
+        }
+    }
+
+    private void saveSession() {
+        try {
+            sessionManager.setSession();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void handleReturn(ActionEvent event) {
         switchScene(event, "/homepage.fxml");
     }

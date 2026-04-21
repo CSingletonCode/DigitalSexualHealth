@@ -344,3 +344,18 @@
 #helpButton:hover {
     -fx-text-fill: #FFFFFF !important;
 }
+
+/* notifications */
+.main-container { -fx-background-color: #000000 !important; }
+
+.notification-card {
+    -fx-background-color: #000000 !important;
+    -fx-border-color: #FFFFFF !important;
+    -fx-border-width: 2px !important;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.notification-title { -fx-text-fill: #FFFF00 !important; }
+.notification-message { -fx-text-fill: #FFFFFF !important; }
+.notifications-time { -fx-text-fill: #FFFFFF !important; }

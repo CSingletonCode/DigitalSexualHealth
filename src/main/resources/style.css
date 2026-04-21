@@ -608,5 +608,21 @@
     -fx-font-weight: bold;
 }
 
+/* notifications css */
+.main-container { -fx-background-color: #FFFFFF; }
 
+.notification-card {
+    -fx-background-color: #F7F8FA;
+    -fx-background-radius: 12;
+    -fx-border-color: #E2E6EA;
+    -fx-border-radius: 12;
+}
 
+.notification-card.unread {
+    -fx-background-color: #EAF4FF;
+    -fx-border-color: #B9D8FF;
+}
+
+.notification-title { -fx-text-fill: #6C54B6; -fx-font-weight: bold; }
+.notification-message { -fx-text-fill: #444444; }
+.notification-time { -fx-text-fill: #666666; }

@@ -13,6 +13,7 @@ public class userSession {
     private final String gender;
     private boolean highContrast = false;
     private boolean largeText = false;
+    private boolean notificationsActive = true;
     private double myLat;
     private double myLon;
 
@@ -69,6 +70,8 @@ public class userSession {
     public void setHighContrast(boolean highContrast) { this.highContrast = highContrast; }
     public boolean isLargeText() { return largeText; }
     public void setLargeText(boolean largeText) { this.largeText = largeText; }
+    public boolean isNotificationsActive() {return notificationsActive; }
+    public void setNotificationsActive(boolean active) { this.notificationsActive = active; }
     public double getMyLat() { return myLat; }
     public double getMyLon() { return myLon; }
     public void setMyLat(double myLat) { this.myLat = myLat; }

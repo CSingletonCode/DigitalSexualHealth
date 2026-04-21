@@ -57,7 +57,7 @@ public class NotificationsController {
         messageLabel.setMaxHeight(36);
 
         Label timeLabel = new Label(time);
-        timeLabel.setStyle("-fx-font-size: 11px; -fx-text-fill: #666666;");
+        timeLabel.getStyleClass().add("notification-time");
 
         card.getChildren().addAll(titleLabel, messageLabel, timeLabel);
 
@@ -73,7 +73,8 @@ public class NotificationsController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            /*Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();*/
 
             if (clinic != null) {
                 Object nextController = loader.getController();
@@ -83,6 +84,9 @@ public class NotificationsController {
                     ((clinicInfoController) nextController).setClinicData(clinic);
                 }
             }
+
+            Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
 
             Scene scene = new Scene(root);
             ThemeManager.applyTheme(scene, null,null);
@@ -97,6 +101,12 @@ public class NotificationsController {
 
     private void loadNotifications() {
         notificationsContainer.getChildren().clear();
+
+        if (!userSession.getInstance().isNotificationsActive()) {
+            Label message = new Label("Notifications are turned off");
+            notificationsContainer.getChildren().add(message);
+            return;
+        }
 
         List<NotificationItem> notifications = DatabaseManager.pullNotifications();
 
@@ -125,28 +135,23 @@ public class NotificationsController {
         card.setPadding(new Insets(12));
         card.setMaxWidth(260);
 
-        String backgroundColor = isRead ? "#F7F8FA" : "#EAF4FF";
-        String borderColor = isRead ? "#E2E6EA" : "#B9D8FF";
-
-        card.setStyle(
-                "-fx-background-color: " + backgroundColor + ";" +
-                        "-fx-background-radius: 12;" +
-                        "-fx-border-color: " + borderColor + ";" +
-                        "-fx-border-radius: 12;"
-        );
+        card.getStyleClass().add("notification-card");
+        if (!isRead) {
+            card.getStyleClass().add("unread");
+        }
 
         Label titleLabel = new Label(title);
-        titleLabel.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #6C54B6;");
+        titleLabel.getStyleClass().add("notification-title");
         titleLabel.setWrapText(true);
         titleLabel.setMaxWidth(236); // a bit less than card width because of padding
 
         Label messageLabel = new Label(message);
-        messageLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #555555;");
+        messageLabel.getStyleClass().add("notification-message");
         messageLabel.setWrapText(true);
         messageLabel.setMaxWidth(236);
 
         Label timeLabel = new Label(formatNotificationTime(createdAt));
-        timeLabel.setStyle("-fx-font-size: 11px; -fx-text-fill: #777777;");
+        timeLabel.getStyleClass().add("notification-time");
 
         card.getChildren().addAll(titleLabel, messageLabel, timeLabel);
 
@@ -161,11 +166,13 @@ public class NotificationsController {
             java.time.LocalDateTime dateTime =
                     java.time.LocalDateTime.parse(createdAt, inputFormatter);
 
+            java.time.LocalDateTime adjustedTime = dateTime.plusHours(1);
+
             java.time.LocalDate today = java.time.LocalDate.now();
-            java.time.LocalDate notificationDate = dateTime.toLocalDate();
+            java.time.LocalDate notificationDate = adjustedTime.toLocalDate();
 
             if (notificationDate.equals(today)) {
-                return "Today at " + dateTime.toLocalTime().withSecond(0).withNano(0);
+                return "Today at " + adjustedTime.toLocalTime().withSecond(0).withNano(0);
             } else if (notificationDate.equals(today.minusDays(1))) {
                 return "Yesterday";
             } else {

@@ -496,6 +496,10 @@ public class DatabaseManager {
     }
 
     public static List<NotificationItem> pullNotifications() {
+        if (!userSession.getInstance().isNotificationsActive()) {
+            return new ArrayList<>();
+        }
+
         int currentId = userSession.getInstance().getUserId();
         List<NotificationItem> notifications = new ArrayList<>();
 
@@ -529,6 +533,10 @@ public class DatabaseManager {
 
 
     public static void markAllNotificationsAsRead(int userId) {
+        if (!userSession.getInstance().isNotificationsActive()) {
+            return;
+        }
+
         String sql = "UPDATE notifications SET is_read = 1 WHERE user_id = ? AND is_read = 0";
 
         try (Connection con = getConnection();
@@ -543,7 +551,9 @@ public class DatabaseManager {
     }
 
     public static int getUnreadNotificationCount(int userId) {
-
+        if (!userSession.getInstance().isNotificationsActive()) {
+            return 0;
+        }
         String sql = "SELECT COUNT(*) FROM notifications WHERE user_id = ? AND is_read = 0";
 
         try (Connection con = getConnection();

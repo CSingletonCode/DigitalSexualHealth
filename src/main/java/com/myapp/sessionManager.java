@@ -13,6 +13,7 @@ public class sessionManager {
         int id = userSession.getInstance().getUserId();
         boolean isHighContrast = userSession.getInstance().isHighContrast();
         boolean isLargeText = userSession.getInstance().isLargeText();
+        boolean notificationsActive = userSession.getInstance().isNotificationsActive();
         boolean has_PIN = validatePIN(null,true,id);
 
         ObjectMapper mapper = new ObjectMapper();
@@ -22,6 +23,7 @@ public class sessionManager {
         root.put("id", id);
         root.put("isHighContrast", isHighContrast);
         root.put("isLargeText", isLargeText);
+        root.put("notificationsActive", notificationsActive);
         mapper.writeValue(new File("localdata/loggedIn.json"),root);
     }
 
@@ -33,8 +35,9 @@ public class sessionManager {
             boolean has_PIN = root.get("has_PIN").asBoolean();
             boolean isHighContrast = root.get("isHighContrast").asBoolean();
             boolean isLargeText = root.get("isLargeText").asBoolean();
+            boolean notificationsActive = root.get("notificationsActive").asBoolean();
 
-            return new String[]{email, String.valueOf(has_PIN),String.valueOf(root.get("id")), String.valueOf(isHighContrast), String.valueOf(isLargeText)};
+            return new String[]{email, String.valueOf(has_PIN),String.valueOf(root.get("id")), String.valueOf(isHighContrast), String.valueOf(isLargeText), String.valueOf(notificationsActive)};
         } catch (Exception e) {
             return null;
         }
@@ -62,6 +65,12 @@ public class sessionManager {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
         return root.get("isLargeText").asBoolean();
+    }
+
+    public static boolean isNotificationsActive() throws IOException{
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(new File("localdata/loggedIn.json"));
+        return root.get("isNotificationsActive").asBoolean();
     }
 
     public static void clearSession() throws IOException {
