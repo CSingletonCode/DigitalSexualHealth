@@ -21,12 +21,14 @@
             <Font size="15.0" />
          </font></Label>
       <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="295.0" styleClass="fancy-text-field">
-         <children>
-            <Label prefHeight="28.0" prefWidth="169.0" styleClass="regular-text" text="Notifications" />
-         </children>
          <padding>
-            <Insets left="15.0" right="15.0" />
+             <Insets left="15.0" right="15.0" />
          </padding>
+          <children>
+            <Label prefHeight="28.0" prefWidth="220.0" styleClass="regular-text" text="Notifications" />
+            <Region prefHeight="40.0" prefWidth="16.0" />
+            <Button fx:id="notificationToggle" alignment="CENTER" mnemonicParsing="false" onAction="#toggleNotifications" prefHeight="20.0" styleClass="button-small" text="On" />
+          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="295.0" styleClass="fancy-text-field">
          <padding>
