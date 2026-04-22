@@ -15,6 +15,9 @@
 .detail-value,
 .tutorial-btn-next,
 .tutorial-btn-skip,
+.notification-title,
+.notification-message,
+.notification-time,
 .regular-text {
     -fx-font-size: 16px;
 }

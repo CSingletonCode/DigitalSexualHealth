@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -32,38 +33,33 @@ public class NotificationsController {
         loadNotifications();
     }
 
-    private void addNotificationCard(String title, String message, String time) {
-        VBox card = new VBox(8);
-        card.setPadding(new Insets(14));
-        card.setStyle(
-                "-fx-background-color: #F7F8FA;" +
-                        "-fx-background-radius: 12;" +
-                        "-fx-border-color: #E2E6EA;" +
-                        "-fx-border-radius: 12;"
-        );
-        card.setMaxWidth(Double.MAX_VALUE);
-
-        Label titleLabel = new Label(title);
-        titleLabel.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #6C54B6;");
-        titleLabel.setWrapText(true);
-        titleLabel.setMaxWidth(220);
-        titleLabel.setMaxHeight(36);
-
-        Label messageLabel = new Label(message);
-        messageLabel.setWrapText(true);
-        messageLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #444444;");
-        messageLabel.setWrapText(true);
-        messageLabel.setMaxWidth(220);
-        messageLabel.setMaxHeight(36);
-
-        Label timeLabel = new Label(time);
-        timeLabel.getStyleClass().add("notification-time");
-
-        card.getChildren().addAll(titleLabel, messageLabel, timeLabel);
-
-        notificationsContainer.getChildren().add(card);
-        VBox.setVgrow(card, Priority.NEVER);
-    }
+//    private void addNotificationCard(String title, String message, String time) {
+//        VBox card = new VBox(8);
+//        card.setPadding(new Insets(14));
+//        card.getStyleClass().add("notification-card");
+//        card.setMaxWidth(Double.MAX_VALUE);
+//
+//        Label titleLabel = new Label(title);
+//        titleLabel.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #6C54B6;");
+//        titleLabel.setWrapText(true);
+//        titleLabel.setMaxWidth(220);
+//        titleLabel.setMaxHeight(36);
+//
+//        Label messageLabel = new Label(message);
+//        messageLabel.setWrapText(true);
+//        messageLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: #444444;");
+//        messageLabel.setWrapText(true);
+//        // messageLabel.setWidth(220);
+//        // messageLabel.setMaxHeight(36);
+//
+//        Label timeLabel = new Label(time);
+//        timeLabel.getStyleClass().add("notification-time");
+//
+//        card.getChildren().addAll(titleLabel, messageLabel, timeLabel);
+//
+//        notificationsContainer.getChildren().add(card);
+//        VBox.setVgrow(card, Priority.NEVER);
+//    }
 
     private void handleReturn(ActionEvent event) {
         switchScene(event, "/homepage.fxml", null);
@@ -133,7 +129,8 @@ public class NotificationsController {
     private VBox createNotificationCard(String title, String message, String createdAt, boolean isRead) {
         VBox card = new VBox(6);
         card.setPadding(new Insets(12));
-        card.setMaxWidth(260);
+        // card.setMaxWidth(300);
+
 
         card.getStyleClass().add("notification-card");
         if (!isRead) {
@@ -143,12 +140,12 @@ public class NotificationsController {
         Label titleLabel = new Label(title);
         titleLabel.getStyleClass().add("notification-title");
         titleLabel.setWrapText(true);
-        titleLabel.setMaxWidth(236); // a bit less than card width because of padding
+        // titleLabel.setMaxWidth(236); // a bit less than card width because of padding
 
         Label messageLabel = new Label(message);
         messageLabel.getStyleClass().add("notification-message");
         messageLabel.setWrapText(true);
-        messageLabel.setMaxWidth(236);
+        // messageLabel.setMaxWidth(236);
 
         Label timeLabel = new Label(formatNotificationTime(createdAt));
         timeLabel.getStyleClass().add("notification-time");

@@ -623,6 +623,6 @@
     -fx-border-color: #B9D8FF;
 }
 
-.notification-title { -fx-text-fill: #6C54B6; -fx-font-weight: bold; }
-.notification-message { -fx-text-fill: #444444; }
-.notification-time { -fx-text-fill: #666666; }
+.notification-title { -fx-font-size: 12px; -fx-text-fill: #6C54B6; -fx-font-weight: bold; }
+.notification-message { -fx-font-size: 12px; -fx-text-fill: #444444; }
+.notification-time { -fx-font-size: 12px; -fx-text-fill: #666666; }
