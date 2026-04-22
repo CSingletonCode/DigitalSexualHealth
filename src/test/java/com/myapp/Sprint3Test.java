@@ -5,11 +5,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
+import org.testfx.matcher.control.LabeledMatchers;
+import javafx.scene.layout.VBox;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
 
 public class Sprint3Test extends ApplicationTest {
@@ -100,5 +105,66 @@ public class Sprint3Test extends ApplicationTest {
         write(secondPIN);
         verifyThat("#confirmButton", NodeMatchers.isVisible());
         clickOn("#confirmButton");
+    }
+    @Test
+    @DisplayName("US12-WB-12.1")
+    void testAdviceLoad() {
+        loginAsTestUser("example@email.com");
+        verifyThat("#adviceCard", NodeMatchers.isVisible());
+        clickOn("#adviceCard");
+        sleep(500);
+        verifyThat(".header-text", LabeledMatchers.hasText("Advice"));
+
+        VBox adviceList = lookup("#adviceList").queryAs(VBox.class);
+        assertEquals(9, adviceList.getChildren().size(), "All 9 resources should be loaded");
+    }
+
+    @Test
+    @DisplayName("US12-WB-12.2")
+    void adviceContentTest() {
+        loginAsTestUser("example@email.com");
+        clickOn("#adviceCard");
+        sleep(400);
+
+        verifyThat("NHS Sexual Health", NodeMatchers.isVisible());
+        verifyThat("World Health Organisation", NodeMatchers.isVisible());
+        verifyThat("Website: https://www.bpas.org/", NodeMatchers.isVisible());
+    }
+
+    @Test
+    @DisplayName("US12-WB-12.3")
+    void testBackToHome() {
+        loginAsTestUser("example@email.com");
+        clickOn("#adviceCard");
+        sleep(400);
+
+        verifyThat("#returnButton", NodeMatchers.isVisible());
+        clickOn("#returnButton");
+        sleep(400);
+
+        verifyThat("#adviceCard", NodeMatchers.isVisible());
+    }
+
+    @Test
+    @DisplayName("US13-WB-13.1")
+    void adviceFilterTest() {
+        loginAsTestUser("example@email.com");
+        clickOn("#adviceCard");
+        sleep(400);
+
+        clickOn("LGBTQ+");
+        sleep(400);
+        VBox adviceList = lookup("#adviceList").queryAs(VBox.class);
+        assertEquals(3, adviceList.getChildren().size(), "LGBTQ+ filter shows 3 items");
+        verifyThat("LGBT Hero", NodeMatchers.isVisible());
+
+        clickOn("Youth");
+        sleep(400);
+        assertEquals(3, adviceList.getChildren().size(), "Youth filter shows 3 items");
+        verifyThat("Brook", NodeMatchers.isVisible());
+
+        clickOn("All");
+        sleep(400);
+        assertEquals(9, adviceList.getChildren().size(), "All filter shows 9 items");
     }
 }
