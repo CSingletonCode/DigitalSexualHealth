@@ -84,7 +84,7 @@ public class NotificationsController {
             Node source = (Node) event.getSource();
             Stage stage = (Stage) source.getScene().getWindow();
 
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ThemeManager.applyTheme(scene, null,null);
             stage.setScene(scene);
             stage.show();

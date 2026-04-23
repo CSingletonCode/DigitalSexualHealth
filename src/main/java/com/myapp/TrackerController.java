@@ -123,7 +123,7 @@ public class TrackerController{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/homepage.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 360, 640);
         ThemeManager.applyTheme(scene,null, null);
         stage.setScene(scene);
         stage.show();
@@ -133,7 +133,7 @@ public class TrackerController{
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ThemeManager.applyTheme(scene, null, null);
             stage.setScene(scene);
             stage.show();

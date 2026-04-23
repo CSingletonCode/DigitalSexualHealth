@@ -41,7 +41,7 @@ public class AllergiesController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/evaluation.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ThemeManager.applyTheme(scene,null, null);
             stage.setScene(scene);
             stage.show();
@@ -58,7 +58,7 @@ public class AllergiesController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/evaluation.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ThemeManager.applyTheme(scene,null, null);
             stage.setScene(scene);
             stage.show();

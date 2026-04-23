@@ -89,6 +89,7 @@ public class forgotPasswordController {
         alert.setTitle("Registration Error");
         alert.setHeaderText("Please Rectify the Following:");
         alert.setContentText(message);
+        alert.getDialogPane().setPrefWidth(250);
         alert.showAndWait();
     }
 
@@ -101,7 +102,7 @@ public class forgotPasswordController {
                 nextController.setEmail(emailField.getText());
             }
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
