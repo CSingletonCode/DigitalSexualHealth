@@ -170,7 +170,10 @@ public class Sprint1Test extends ApplicationTest {
             clickOn("#nameField");
             verifyThat("#optionsScroll", NodeMatchers.isVisible());
             clickOn("Test Symptom 1");
-            clickOn("#dateField").write("10-02-2026");
+            DatePicker datePicker = lookup("#dateField").queryAs(DatePicker.class);
+            interact(() -> {
+                datePicker.setValue(LocalDate.of(2026, 4, 10));
+            });
             clickOn("#descriptionField").write("test");
             clickOn("#enterButton");
 
