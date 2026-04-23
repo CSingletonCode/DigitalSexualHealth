@@ -278,6 +278,12 @@
     -fx-font-weight: bold;
 }
 
+.card-detail-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+
 .card-detail-text {
     -fx-font-size: 12px;
     -fx-text-fill: #333333;

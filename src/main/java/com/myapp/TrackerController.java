@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
@@ -30,6 +31,8 @@ public class TrackerController{
 
     @FXML
     private Button returnButton;
+    @FXML
+    private Pane dimLayer;
 
     @FXML
     public void initialize() throws IOException{
@@ -39,6 +42,7 @@ public class TrackerController{
 
     @FXML
     private void addNew() throws IOException{
+        dimLayer.setVisible(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/newSymptom.fxml"));
         Parent newSymForm = fxmlLoader.load();
         Scene newForm = new Scene(newSymForm);
@@ -141,5 +145,9 @@ public class TrackerController{
             System.err.println("Could not load FXML: " + fxmlFile);
             e.printStackTrace();
         }
+    }
+
+    public void setDimLayerVisible(boolean visible) {
+        dimLayer.setVisible(visible);
     }
 }
