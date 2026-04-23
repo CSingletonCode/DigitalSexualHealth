@@ -79,7 +79,7 @@ public class EvaluationController {
         if (currentPage == 3) {
             nextLabel.setText("Finish");
             nextButton.setText(">");
-            nextButton.setStyle("-fx-background-color: #9444E5;");
+            nextButton.setStyle("-fx-background-color: #c485ff;");
         } else {
             nextButton.setText("Next");
             nextButton.setText(">");
