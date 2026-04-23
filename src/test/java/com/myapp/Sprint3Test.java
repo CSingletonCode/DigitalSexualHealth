@@ -1,8 +1,12 @@
 package com.myapp;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +17,8 @@ import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
 import javafx.scene.layout.VBox;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
@@ -166,5 +172,98 @@ public class Sprint3Test extends ApplicationTest {
         clickOn("All");
         sleep(400);
         assertEquals(9, adviceList.getChildren().size(), "All filter shows 9 items");
+    }
+
+    @Test
+    @DisplayName("US16-WB-16.1")
+    void tesNotificationLoad() {
+        loginAsTestUser("example@email.com");
+
+        verifyThat("#notificationBell", NodeMatchers.isVisible());
+        clickOn("#notificationBell");
+        sleep(500);
+
+        verifyThat("Notifications", LabeledMatchers.hasText("Notifications"));
+    }
+
+    @Test
+    @DisplayName("US16-WB-16.2")
+    void testDisabledNotifications() {
+        loginAsTestUser("example@email.com");
+        clickOn("#settings");
+        sleep(400);
+
+        clickOn("#notificationToggle");
+        clickOn("#returnButton");
+        sleep(400);
+        clickOn("#notificationBell");
+        sleep(400);
+
+        verifyThat("Notifications are turned off", LabeledMatchers.hasText("Notifications are turned off"));
+    }
+
+ @Test
+    @DisplayName("US16-WB-16.3")
+    void notificationAfterBooking() {
+        loginAsTestUser("example@email.com");
+        TutorialController.getInstance().stop();
+        clickOn("#apptCard");
+        clickOn("#bookAppointmentButton");
+        clickOn("#bookBtn_1");
+
+        DatePicker datePicker = lookup("#appointmentDatePicker").queryAs(DatePicker.class);
+        interact(() -> datePicker.setValue(LocalDate.of(2027, 8, 8)));
+
+        ComboBox<String> timeBox = lookup("#appointmentTimeBox").queryAs(ComboBox.class);
+        interact(() -> {
+            timeBox.show();
+            timeBox.getSelectionModel().clearSelection();
+            timeBox.getSelectionModel().select("09:45");
+        });
+        sleep(500);
+        doubleClickOn("#appointmentPurposeText");
+        eraseText(100);
+
+        write("Routine Checkup for Testing");
+        clickOn("#appointmentSubmitButton");
+
+        sleep(5000);
+        clickOn("#confirmButton");
+
+        sleep(400);
+        clickOn("OK");
+
+        sleep(800);
+        clickOn("#returnButton");
+        clickOn("#notificationBell");
+        sleep(400);
+        VBox notifContainer = lookup("#notificationsContainer").queryAs(VBox.class);
+
+        assertFalse(notifContainer.getChildren().isEmpty(), "Container should contain new appointment");
+        Node firstChild  = notifContainer.getChildren().get(0);
+        assertTrue(firstChild instanceof VBox, "The first child should be a notification card");
+        assertTrue(firstChild.getStyleClass().contains("unread"), "New notification should be marked unread");
+    }
+
+    @Test
+    @DisplayName("US16-WB-16.4")
+    void notificationsReturnButtonTest() {
+        loginAsTestUser("example@email.com");
+        clickOn("#notificationBell");
+        sleep(400);
+
+        verifyThat("#returnButton", NodeMatchers.isVisible());
+        clickOn("#returnButton");
+        sleep(400);
+        verifyThat("#notificationBell", NodeMatchers.isVisible());
+    }
+
+    @Test
+    @DisplayName("US16-WB-16.5")
+    void testNotificationBadge() {
+        loginAsTestUser("example@email.com");
+        sleep(500);
+        assertNotNull(lookup("#notificationBadge").query(), "Badge should exist in the scene");
+        verifyThat("#notificationBadge", LabeledMatchers.hasText("0"));
     }
 }
