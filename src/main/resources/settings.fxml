@@ -26,7 +26,7 @@
          </padding>
           <children>
             <Label prefHeight="28.0" prefWidth="220.0" styleClass="regular-text" text="Notifications" />
-            <Region prefHeight="40.0" prefWidth="16.0" />
+            <Region HBox.hgrow="ALWAYS" prefHeight="40.0" prefWidth="16.0" />
             <Button fx:id="notificationToggle" alignment="CENTER" mnemonicParsing="false" onAction="#toggleNotifications" prefHeight="20.0" styleClass="button-small" text="On" />
           </children>
       </HBox>
@@ -36,6 +36,7 @@
          </padding>
          <children>
             <Label prefHeight="28.0" prefWidth="207.0" styleClass="regular-text" text="Large Text" />
+             <Region HBox.hgrow="ALWAYS" prefHeight="42.0" prefWidth="29.0" />
             <ToggleButton fx:id="TextSizeToggle" mnemonicParsing="false" prefHeight="23.0" prefWidth="55.0" styleClass="switch-button" />
          </children>
       </HBox>
@@ -45,7 +46,7 @@
          </padding>
          <children>
             <Label prefHeight="28.0" prefWidth="268.0" text="Update Contact Information" />
-            <Region prefHeight="40.0" prefWidth="16.0" />
+            <Region HBox.hgrow="ALWAYS" prefHeight="40.0" prefWidth="16.0" />
             <Button fx:id="UpdateInfo" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateInfo" prefHeight="28.0" styleClass="button-small" text="Update Info" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </HBox>
@@ -55,7 +56,7 @@
          </padding>
          <children>
             <Label prefHeight="28.0" prefWidth="287.0" styleClass="regular-text" text="Update Location Preferences" />
-            <Region prefHeight="40.0" prefWidth="16.0" />
+            <Region HBox.hgrow="ALWAYS" prefHeight="40.0" prefWidth="16.0" />
             <Button fx:id="ChangePos" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#changePos" prefHeight="28.0" styleClass="button-small" text="Change Pos" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </HBox>
@@ -65,7 +66,7 @@
          </padding>
          <children>
             <Label prefHeight="28.0" prefWidth="173.0" styleClass="regular-text" text="High-Contrast" />
-            <Region prefHeight="42.0" prefWidth="29.0" />
+            <Region HBox.hgrow="ALWAYS" prefHeight="42.0" prefWidth="29.0" />
             <ToggleButton fx:id="highContrastToggle" mnemonicParsing="false" prefHeight="23.0" prefWidth="55.0" styleClass="switch-button" />
          </children>
       </HBox>
@@ -75,6 +76,7 @@
          </padding>
          <children>
             <Label prefHeight="28.0" prefWidth="188.0" styleClass="regular-text" text="PIN Settings" />
+             <Region HBox.hgrow="ALWAYS" prefHeight="42.0" prefWidth="29.0" />
             <Button fx:id="AddPINButton" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addPIN" prefHeight="28.0" styleClass="button-small" text="Set New PIN" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </HBox>

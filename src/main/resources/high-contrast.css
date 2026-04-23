@@ -60,7 +60,7 @@
 .submit-button {
     -fx-background-color: #FFFF00 !important;
     -fx-text-fill: #000000 !important;
-    -fx-border-color: #FFFFFF;
+    /*-fx-border-color: #FFFFFF;*/
     -fx-border-width: 2px;
 }
 
@@ -141,7 +141,7 @@
 .root .button-small {
     -fx-background-color: #FFFF00 !important;
     -fx-text-fill: #000000 !important;
-    -fx-border-color: #FFFFFF !important;
+    /*-fx-border-color: #FFFFFF !important;*/
 }
 
 .edge-to-edge-scroll,
