@@ -177,7 +177,7 @@ public class Sprint3Test extends ApplicationTest {
 
     @Test
     @DisplayName("US16-WB-16.1")
-    void tesNotificationLoad() {
+    void testNotificationLoad() {
         loginAsTestUser("example@email.com");
 
         verifyThat("#notificationBell", NodeMatchers.isVisible());
