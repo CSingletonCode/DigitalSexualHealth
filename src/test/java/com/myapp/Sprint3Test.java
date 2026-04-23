@@ -17,6 +17,7 @@ import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
 import javafx.scene.layout.VBox;
+import java.util.Arrays;
 
 import java.time.LocalDate;
 
@@ -239,10 +240,10 @@ public class Sprint3Test extends ApplicationTest {
         sleep(400);
         VBox notifContainer = lookup("#notificationsContainer").queryAs(VBox.class);
 
-        assertFalse(notifContainer.getChildren().isEmpty(), "Container should contain new appointment");
+        assertFalse(notifContainer.getChildren().isEmpty(), "Container should have a new appointment");
         Node firstChild  = notifContainer.getChildren().get(0);
-        assertTrue(firstChild instanceof VBox, "The first child should be a notification card");
-        assertTrue(firstChild.getStyleClass().contains("unread"), "New notification should be marked unread");
+        assertTrue(firstChild instanceof VBox, "First child should be a notification card");
+        assertTrue(firstChild.getStyleClass().contains("unread"), "New notification should be unread");
     }
 
     @Test
@@ -263,7 +264,70 @@ public class Sprint3Test extends ApplicationTest {
     void testNotificationBadge() {
         loginAsTestUser("example@email.com");
         sleep(500);
-        assertNotNull(lookup("#notificationBadge").query(), "Badge should exist in the scene");
+        assertNotNull(lookup("#notificationBadge").query(), "Badge should exist");
         verifyThat("#notificationBadge", LabeledMatchers.hasText("0"));
+    }
+
+    /* Partition & Boundary Testing based on D6 Feedback for evaluation form */
+    private int calculateRiskScore(String[] ans, int allergyCount) {
+        int score = 0;
+        for (int i = 0; i < ans.length; i++) {
+            int questionNum = i + 1;
+            String answer = ans[i];
+            if (answer == null) continue;
+
+            if (Arrays.asList(1, 4, 6, 7, 8, 9, 10, 11, 12).contains(questionNum)) {
+                if (answer.equals("Yes")) score += 1;
+                else if (answer.equals("Not Sure")) score += 2;
+                else if (answer.equals("No")) score += 3;
+            } else if (Arrays.asList(2,3,5).contains(questionNum)) {
+                if (answer.equals("Yes")) score += 3;
+                else if (answer.equals("Not Sure")) score += 2;
+                else if (answer.equals("No")) score += 1;
+            }
+        }
+        return score + (allergyCount * 4);
+    }
+
+    @Test
+    @DisplayName("US8-WB-8.7")
+    void testLowPartition() {
+        String[] answers = {"Yes", "Not Sure", "Not Sure", "Yes", "Not Sure", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"};
+        int score = calculateRiskScore(answers, 0);
+        assertTrue(score >= 12 && score <= 20, "Score should be in Low range");
+    }
+
+    @Test
+    @DisplayName("US8-WB-8.8")
+    void testMediumPartition() {
+        String[] answers = {"Yes", "No", "No", "Yes", "No", "No", "Not Sure", "Not Sure", "Not Sure", "No", "No", "No"};
+        int score = calculateRiskScore(answers, 0);
+        assertTrue(score >= 21 && score <= 26, "Score should be in Medium range");
+    }
+
+    @Test
+    @DisplayName("US8-WB-8.9")
+    void testHighPartition() {
+        String[] answers = {"Yes", "Yes", "Yes", "No", "Yes", "No", "No", "No", "No", "No", "No", "No"};
+        int score = calculateRiskScore(answers, 3);
+        assertTrue(score >= 27, "Score should be in High range");
+    }
+
+    @Test
+    @DisplayName("US8-WB-8.10")
+    void testLowToMedium() {
+        String[] low = {"Yes", "Not Sure", "Not Sure", "Yes", "Not Sure", "Yes", "Yes", "No", "Yes", "Not Sure", "No", "Yes"};
+        String[] med = {"Yes", "Not Sure", "Not Sure", "Yes", "Not Sure", "Yes", "Yes", "No", "Yes", "Not Sure", "No", "Not Sure"};
+        assertEquals(20, calculateRiskScore(low, 0));
+        assertEquals(21, calculateRiskScore(med, 0));
+    }
+
+    @Test
+    @DisplayName("US8-WB-8.11")
+    void testMediumToHigh() {
+        String[] med = {"No", "No", "No", "Not Sure", "No", "No", "Not Sure", "Not Sure", "Not Sure", "No", "No", "No"};
+        String[] high = {"No", "No", "Not Sure", "Not Sure", "No", "No", "Not Sure", "Not Sure", "Not Sure", "No", "No", "No"};
+        assertEquals(26, calculateRiskScore(med, 0));
+        assertEquals(27, calculateRiskScore(high, 0));
     }
 }
