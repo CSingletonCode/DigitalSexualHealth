@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -490,5 +491,23 @@ public class Sprint3Test extends ApplicationTest {
 
         assertEquals(50.123, userSession.getInstance().getMyLat(), 0.001);
         assertEquals(-1.456, userSession.getInstance().getMyLon(), 0.001);
+    }
+
+    @Test
+    @DisplayName("US7-WB-7.1")
+    void testFontWorksOnAndOff(){
+        loginAsTestUser("example@email.com");
+        clickOn("#settings");
+        Label node = lookup("#SizeLabel").query();
+        double size = node.getFont().getSize();
+        assertEquals(12, size);
+        verifyThat("#TextSizeToggle", NodeMatchers.isVisible());
+        clickOn("#TextSizeToggle");
+        size = node.getFont().getSize();
+        assertEquals(16, size);
+        clickOn("#TextSizeToggle");
+        size = node.getFont().getSize();
+        assertEquals(12, size);
+        System.out.println("Test US7-WB-7.1 passed.");
     }
 }
