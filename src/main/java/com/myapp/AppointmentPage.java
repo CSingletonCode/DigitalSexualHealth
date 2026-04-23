@@ -135,12 +135,6 @@ public class AppointmentPage {
 
         // Show the Overlay
         confirmationOverlay.setVisible(true);
-
-        DatabaseManager.addNotification(
-                userSession.getInstance().getUserId(),
-                "Booking Confirmed",
-                "Your appointment at " + currentClinic.getText() + " on " + appointmentDatePicker.getValue().toString() + " has been booked successfully."
-        );
     }
 
     private boolean validateFields() {
@@ -316,6 +310,12 @@ public class AppointmentPage {
         alert.setContentText("Appointment booked successfully!");
         alert.getDialogPane().setPrefWidth(250);
         alert.showAndWait();
+
+        DatabaseManager.addNotification(
+                userSession.getInstance().getUserId(),
+                "Booking Confirmed",
+                "Your appointment at " + currentClinic.getText() + " on " + appointmentDatePicker.getValue().toString() + " has been booked successfully."
+        );
 
         switchScene(event,"/appointmentSchedule.fxml");
     }
