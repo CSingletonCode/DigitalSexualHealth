@@ -100,6 +100,8 @@ public class NotificationsController {
 
         if (!userSession.getInstance().isNotificationsActive()) {
             Label message = new Label("Notifications are turned off");
+            message.getStyleClass().add("sub-header");
+            message.setStyle("-fx-text-fill: black;");
             notificationsContainer.getChildren().add(message);
             return;
         }
