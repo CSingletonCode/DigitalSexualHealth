@@ -33,6 +33,8 @@
 /* Specific yellow highlights for titles or active links */
 .clinic-name,
 .forgot-password-link,
+.large-text-link,
+.text-link,
 .clinic-distance-tag,
 .card-date-header {
     -fx-text-fill: #FFFF00 !important;
