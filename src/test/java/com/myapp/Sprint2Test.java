@@ -404,10 +404,12 @@ public class Sprint2Test extends ApplicationTest{
     @DisplayName("US8-WB-8.4")
     void testRiskBoundaries() {
         EvaluationController newCase = new EvaluationController();
+        assertEquals("Low risk", newCase.checkRisk(12));
         assertEquals("Low risk", newCase.checkRisk(20));
         assertEquals("Medium risk", newCase.checkRisk(21));
         assertEquals("Medium risk", newCase.checkRisk(26));
         assertEquals("High risk", newCase.checkRisk(27));
+        assertEquals("High risk", newCase.checkRisk(64));
     }
 
     @Test
