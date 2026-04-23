@@ -24,6 +24,7 @@
     var map;
     var currentMode = "clinic";
     var pickerMarker;
+    var markers = [];
 
     try {
         if (typeof L !== 'undefined') {
@@ -68,6 +69,7 @@
         if (!map) return;
         var marker = L.marker([lat, lng]).addTo(map);
         marker.bindPopup("<b>" + title + "</b>");
+        markers.push({ id: clinicId, title: title, lat: lat, lng: lng })
         marker.on('dblclick', function() {
             if (currentMode === "clinic" && window.javaConnector) {
                 window.javaConnector.onClinicClick(clinicId);

@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.input.KeyCode;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -17,9 +19,14 @@ import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
 import javafx.scene.layout.VBox;
+
+import java.sql.*;
 import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
+import javafx.application.Platform;
 
 import java.time.LocalDate;
+import java.util.concurrent.Callable;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
@@ -113,6 +120,7 @@ public class Sprint3Test extends ApplicationTest {
         verifyThat("#confirmButton", NodeMatchers.isVisible());
         clickOn("#confirmButton");
     }
+
     @Test
     @DisplayName("US12-WB-12.1")
     void testAdviceLoad() {
@@ -203,7 +211,7 @@ public class Sprint3Test extends ApplicationTest {
         verifyThat("Notifications are turned off", LabeledMatchers.hasText("Notifications are turned off"));
     }
 
- @Test
+    @Test
     @DisplayName("US16-WB-16.3")
     void notificationAfterBooking() {
         loginAsTestUser("example@email.com");
@@ -241,7 +249,7 @@ public class Sprint3Test extends ApplicationTest {
         VBox notifContainer = lookup("#notificationsContainer").queryAs(VBox.class);
 
         assertFalse(notifContainer.getChildren().isEmpty(), "Container should have a new appointment");
-        Node firstChild  = notifContainer.getChildren().get(0);
+        Node firstChild = notifContainer.getChildren().get(0);
         assertTrue(firstChild instanceof VBox, "First child should be a notification card");
         assertTrue(firstChild.getStyleClass().contains("unread"), "New notification should be unread");
     }
@@ -280,7 +288,7 @@ public class Sprint3Test extends ApplicationTest {
                 if (answer.equals("Yes")) score += 1;
                 else if (answer.equals("Not Sure")) score += 2;
                 else if (answer.equals("No")) score += 3;
-            } else if (Arrays.asList(2,3,5).contains(questionNum)) {
+            } else if (Arrays.asList(2, 3, 5).contains(questionNum)) {
                 if (answer.equals("Yes")) score += 3;
                 else if (answer.equals("Not Sure")) score += 2;
                 else if (answer.equals("No")) score += 1;
@@ -329,5 +337,158 @@ public class Sprint3Test extends ApplicationTest {
         String[] high = {"No", "No", "Not Sure", "Not Sure", "No", "No", "Not Sure", "Not Sure", "Not Sure", "No", "No", "No"};
         assertEquals(26, calculateRiskScore(med, 0));
         assertEquals(27, calculateRiskScore(high, 0));
+    }
+
+    @Test
+    @DisplayName("US15-WB-15.1")
+    void testingEvaluation() {
+        loginAsTestUser("example@email.com");
+
+        clickOn("#evaluationCard");
+        verifyThat("#pageIndicatorLabel", LabeledMatchers.hasText("Page 1 / 4"));
+        clickOn("#q1No");
+        clickOn("#q2Yes");
+        clickOn("#q3Yes");
+        clickOn("#nextButton");
+        sleep(400);
+        verifyThat("#pageIndicatorLabel", LabeledMatchers.hasText("Page 2 / 4"));
+        clickOn("#q1No");
+        clickOn("#q2Yes");
+        clickOn("#q3No");
+        clickOn("#nextButton");
+        sleep(400);
+        verifyThat("#pageIndicatorLabel", LabeledMatchers.hasText("Page 3 / 4"));
+        clickOn("#q1No");
+        clickOn("#q2No");
+        clickOn("#q3No");
+        clickOn("#nextButton");
+        sleep(400);
+        clickOn("#q1No");
+        clickOn("#q2No");
+        clickOn("#q3No");
+
+        verifyThat("#pageIndicatorLabel", LabeledMatchers.hasText("Page 4 / 4"));
+        clickOn("#nextButton");
+        sleep(400);
+        clickOn("Book an appointment here.");
+        sleep(400);
+    }
+
+    @Test
+    @DisplayName("US15-WB-15.2")
+    void testSubmitSymptom() {
+        loginAsTestUser("example@email.com");
+
+        clickOn("#symptomsCard");
+        clickOn("#addSymptomButton");
+        sleep(1000);
+        clickOn("#nameField");
+        verifyThat("#optionsScroll", NodeMatchers.isVisible());
+        clickOn("Test Symptom 1");
+        DatePicker datePicker = lookup("#dateField").queryAs(DatePicker.class);
+        interact(() -> {
+            datePicker.setValue(LocalDate.of(2026, 4, 10));
+        });
+        clickOn("#descriptionField").write("test");
+        clickOn("#enterButton");
+        sleep(400);
+        clickOn("#addSymptomButton");
+        sleep(1000);
+        clickOn("#nameField");
+        verifyThat("#optionsScroll", NodeMatchers.isVisible());
+        clickOn("Test Symptom 1");
+        DatePicker datePicker2 = lookup("#dateField").queryAs(DatePicker.class);
+        interact(() -> {
+            datePicker2.setValue(LocalDate.of(2026, 4, 10));
+        });
+        clickOn("#descriptionField").write("test");
+        clickOn("#enterButton");
+        sleep(400);
+        clickOn("#addSymptomButton");
+        sleep(1000);
+        clickOn("#nameField");
+        verifyThat("#optionsScroll", NodeMatchers.isVisible());
+        clickOn("Test Symptom 1");
+        DatePicker datePicker3 = lookup("#dateField").queryAs(DatePicker.class);
+        interact(() -> {
+            datePicker3.setValue(LocalDate.of(2026, 4, 10));
+        });
+        clickOn("#descriptionField").write("test");
+        clickOn("#enterButton");
+        sleep(400);
+        clickOn("Book an appointment here.");
+        sleep(400);
+        System.out.println("Test US15-WB-15.2 passed.");
+    }
+
+    @Test
+    @DisplayName("US15.3-WB-15.3")
+    void testClinicCost() {
+        loginAsTestUser("example@email.com");
+        clickOn("#apptCard");
+        clickOn("#bookAppointmentButton");
+        clickOn("#infoBtn_1");
+        sleep(400);
+        verifyThat("#clinicCost", NodeMatchers.isVisible());
+        sleep(1000);
+        System.out.println("Test US15-WB-15.3 passed.");
+    }
+
+    @Test
+    @DisplayName("US5.3-WB-3.1")
+    void testClinicMap() {
+        loginAsTestUser("example@email.com");
+        clickOn("#apptCard");
+        clickOn("#bookAppointmentButton");
+        clickOn("#showMap");
+        sleep(2000);
+        WebView webView = lookup("#webView").queryAs(WebView.class);
+        WebEngine engine = webView.getEngine();
+        int dbCount = DatabaseManager.getClinics(null).size();
+
+        Callable<Integer> query = () -> {
+            Object result = engine.executeScript("markers.length");
+            return (result instanceof Number) ? ((Number) result).intValue() : 0;
+        };
+
+        CompletableFuture<Integer> futureCount = new CompletableFuture<>();
+        Platform.runLater(() -> {
+            try {
+                Object result = engine.executeScript("markers.length");
+                int count = (result instanceof Number) ? ((Number) result).intValue() : 0;
+                futureCount.complete(count);
+            } catch (Exception e) {
+                futureCount.completeExceptionally(e);
+            }
+        });
+
+        int mapCount = futureCount.join();
+        assertEquals(dbCount, mapCount);
+    }
+    @Test
+    @DisplayName("US5.3-WB-3.2")
+    void testLocationChange() throws SQLException {
+        loginAsTestUser("example@email.com");
+        clickOn("#settings");
+        clickOn("#ChangePos");
+        sleep(2000);
+        doubleClickOn("#webView");
+
+        WebView webView = lookup("#webView").queryAs(WebView.class);
+        interact(() -> {
+            String jsScript =
+                    "if (window.javaConnector) {" +
+                            "    window.javaConnector.onMapClick(50.123, -1.456);" +
+                            "} else {" +
+                            "    console.error('Java Connector not found!');" +
+                            "}";
+
+            webView.getEngine().executeScript(jsScript);
+        });
+        sleep(500);
+        clickOn("#saveButton");
+
+        assertEquals(50.123, userSession.getInstance().getMyLat(), 0.001);
+        assertEquals(-1.456, userSession.getInstance().getMyLon(), 0.001);
     }
 }

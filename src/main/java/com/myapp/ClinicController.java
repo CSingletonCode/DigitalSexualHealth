@@ -131,6 +131,7 @@ public class ClinicController {
         infoBtn.getStyleClass().add("button-small");
         infoBtn.setStyle("-fx-background-color: #5e6b70;");
         infoBtn.setOnAction(event -> controller.switchScene(event, "/clinicInfoPage.fxml", clinic));
+        infoBtn.setId("infoBtn_" + clinic.getId());
 
         actionRow.getChildren().addAll(distanceLabel, bookBtn, infoBtn);
 

@@ -102,7 +102,7 @@ public class EvaluationController {
         }
     }
 
-    private void evaluationCompletionAlert(int score) {
+    private boolean evaluationCompletionAlert(int score) {
         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Evaluation Complete");
         alert.setHeaderText("These are your results");
@@ -137,11 +137,12 @@ public class EvaluationController {
             );
             if (result.isPresent() && result.get() == appointmentButton) {
                 handleBackNavigation(event, "/clinicPage.fxml");
+                return false;
             }
         } else {
             alert.showAndWait();
         }
-
+        return true;
     }
 
     @FXML
@@ -155,12 +156,12 @@ public class EvaluationController {
             int userRiskScore = calculateRiskScore();
             EvaluationData.riskScore = userRiskScore;
             EvaluationData.saveDataToFile();
-            evaluationCompletionAlert(userRiskScore);
+            boolean apt = evaluationCompletionAlert(userRiskScore);
             System.out.println("Data saved to JSON.");
             System.out.println("Evaluation Completed. Answers: " + Arrays.toString(userAnswers));
             System.out.println("Final Risk Score: " + userRiskScore);
             System.out.println("Risk level: " + checkRisk(userRiskScore));
-            handleBackNavigation(event, "/homepage.fxml");
+            if (apt){handleBackNavigation(event, "/homepage.fxml");}
         }
     }
 
