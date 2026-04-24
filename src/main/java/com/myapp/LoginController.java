@@ -121,7 +121,7 @@ public class LoginController {
 
     @FXML
     void handleSignUp(ActionEvent event) {
-        System.out.println("User clicked Sign Up!");
+        System.out.println("User clicked Sign Up");
         switchScene(event, "/signup.fxml");
     }
 

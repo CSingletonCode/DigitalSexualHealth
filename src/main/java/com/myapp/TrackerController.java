@@ -95,7 +95,6 @@ public class TrackerController{
                     }
                 }
             }
-            System.out.println("count: " + count);
             if (count > 2){
                 firstInstance.setChecked(true);
                 displayHelp(name);
