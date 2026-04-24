@@ -538,5 +538,23 @@ public class Sprint3Test extends ApplicationTest {
         size = node.getFont().getSize();
         assertEquals(16, size);
         clickOn("#TextSizeToggle");
+        System.out.println("Test US7-WB-7.2 passed.");
+    }
+
+    @Test
+    @DisplayName("US7-WB-7.3")
+    void testFontOtherPage(){
+        loginAsTestUser("example@email.com");
+        clickOn("#settings");
+        clickOn("#TextSizeToggle");
+        Label node = lookup("#SizeLabel").query();
+        double size = node.getFont().getSize();
+        assertEquals(16, size);
+        clickOn("#returnButton");
+        Label homenode = lookup("#symptom_log_label").query();
+        double homesize = homenode.getFont().getSize();
+        assertEquals(16, homesize);
+        clickOn("#settings");
+        clickOn("#TextSizeToggle");
     }
 }
