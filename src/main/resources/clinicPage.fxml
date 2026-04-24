@@ -76,7 +76,7 @@
               <Insets bottom="10.0" left="20.0" right="20.0" top="15.0" />
           </padding>
       </VBox>
-       <VBox fx:id="tutorialOverlay" alignment="CENTER" spacing="20" style="-fx-background-color: rgba(0,0,0,0.6); -fx-padding: 150 0 0 0;" visible="false">
+       <VBox fx:id="tutorialOverlay" alignment="CENTER" spacing="20" style="-fx-background-color: rgba(0,0,0,0.6); -fx-padding: 200 0 0 0;" visible="false">
           <children>
               <VBox alignment="CENTER" spacing="15" styleClass="tutorial-card">
                  <children>

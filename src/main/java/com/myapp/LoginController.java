@@ -115,12 +115,13 @@ public class LoginController {
         alert.setTitle("Registration Error");
         alert.setHeaderText("Please Rectify the Following:");
         alert.setContentText(message);
+        alert.getDialogPane().setPrefWidth(250);
         alert.showAndWait();
     }
 
     @FXML
     void handleSignUp(ActionEvent event) {
-        System.out.println("User clicked Sign Up!");
+        System.out.println("User clicked Sign Up");
         switchScene(event, "/signup.fxml");
     }
 
@@ -135,7 +136,7 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ObservableList<String> sheets = scene.getStylesheets();
             sheets.clear();
             sheets.add(ThemeManager.class.getResource("/style.css").toExternalForm());

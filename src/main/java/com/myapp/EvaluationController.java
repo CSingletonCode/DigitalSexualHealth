@@ -79,7 +79,7 @@ public class EvaluationController {
         if (currentPage == 3) {
             nextLabel.setText("Finish");
             nextButton.setText(">");
-            nextButton.setStyle("-fx-background-color: #9444E5;");
+            nextButton.setStyle("-fx-background-color: #c485ff;");
         } else {
             nextButton.setText("Next");
             nextButton.setText(">");
@@ -228,7 +228,7 @@ public class EvaluationController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/allergies.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ThemeManager.applyTheme(scene,null, null);
             stage.setScene(scene);
             stage.show();
@@ -247,7 +247,7 @@ public class EvaluationController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ThemeManager.applyTheme(scene,null, null);
             stage.setScene(scene);
             stage.show();

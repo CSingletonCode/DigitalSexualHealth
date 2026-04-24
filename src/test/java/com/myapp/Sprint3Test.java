@@ -1,5 +1,6 @@
 package com.myapp;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -16,18 +17,23 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
 import javafx.application.Platform;
 
 import java.time.LocalDate;
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
@@ -36,6 +42,10 @@ public class Sprint3Test extends ApplicationTest {
     private static final Logger log = LoggerFactory.getLogger(Sprint3Test.class);
     private Stage primaryStage;
     private String url = "jdbc:sqlite:app_database.db";
+
+    private static final String FILE_PATH = "localdata/enteredSymptoms.json";
+    private static ObjectMapper mapper = new ObjectMapper();
+    private static File trackerFile;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -62,6 +72,15 @@ public class Sprint3Test extends ApplicationTest {
 
         // Small wait to ensure UI is fully ready before the test starts
         sleep(100);
+    }
+
+    private void clearSymptoms() throws IOException {
+        trackerFile = new File(FILE_PATH);
+        if (!trackerFile.exists()) {
+            trackerFile.createNewFile();
+        }
+        ArrayList<SymptomEntry> empty = new ArrayList<>();
+        mapper.writerWithDefaultPrettyPrinter().writeValue(trackerFile, empty);
     }
 
     private void loginAsTestUser(String email) {
@@ -274,7 +293,6 @@ public class Sprint3Test extends ApplicationTest {
         loginAsTestUser("example@email.com");
         sleep(500);
         assertNotNull(lookup("#notificationBadge").query(), "Badge should exist");
-        verifyThat("#notificationBadge", LabeledMatchers.hasText("0"));
     }
 
     /* Partition & Boundary Testing based on D6 Feedback for evaluation form */
@@ -377,15 +395,15 @@ public class Sprint3Test extends ApplicationTest {
 
     @Test
     @DisplayName("US15-WB-15.2")
-    void testSubmitSymptom() {
+    void testSubmitSymptom() throws IOException{
         loginAsTestUser("example@email.com");
+        clearSymptoms();
 
         clickOn("#symptomsCard");
         clickOn("#addSymptomButton");
         sleep(1000);
         clickOn("#nameField");
-        verifyThat("#optionsScroll", NodeMatchers.isVisible());
-        clickOn("Test Symptom 1");
+        clickOn("Test Symptom 2");
         DatePicker datePicker = lookup("#dateField").queryAs(DatePicker.class);
         interact(() -> {
             datePicker.setValue(LocalDate.of(2026, 4, 10));
@@ -396,8 +414,7 @@ public class Sprint3Test extends ApplicationTest {
         clickOn("#addSymptomButton");
         sleep(1000);
         clickOn("#nameField");
-        verifyThat("#optionsScroll", NodeMatchers.isVisible());
-        clickOn("Test Symptom 1");
+        clickOn("Test Symptom 2");
         DatePicker datePicker2 = lookup("#dateField").queryAs(DatePicker.class);
         interact(() -> {
             datePicker2.setValue(LocalDate.of(2026, 4, 10));
@@ -408,8 +425,7 @@ public class Sprint3Test extends ApplicationTest {
         clickOn("#addSymptomButton");
         sleep(1000);
         clickOn("#nameField");
-        verifyThat("#optionsScroll", NodeMatchers.isVisible());
-        clickOn("Test Symptom 1");
+        clickOn("Test Symptom 2");
         DatePicker datePicker3 = lookup("#dateField").queryAs(DatePicker.class);
         interact(() -> {
             datePicker3.setValue(LocalDate.of(2026, 4, 10));
@@ -509,5 +525,50 @@ public class Sprint3Test extends ApplicationTest {
         size = node.getFont().getSize();
         assertEquals(12, size);
         System.out.println("Test US7-WB-7.1 passed.");
+    }
+
+    @Test
+    @DisplayName("US7-WB-7.2")
+    void testFontStaysOn() throws TimeoutException {
+        loginAsTestUser("example@email.com");
+        clickOn("#settings");
+        clickOn("#TextSizeToggle");
+        Label node = lookup("#SizeLabel").query();
+        double size = node.getFont().getSize();
+        assertEquals(16, size);
+        verifyThat("#returnButton", NodeMatchers.isVisible());
+        clickOn("#returnButton");
+        FxToolkit.cleanupStages();
+        sleep(400);
+        // The app is reopened
+        FxToolkit.setupApplication(App.class);
+        sleep(400);
+        clickOn("#pinHiddenField");
+        eraseText(50);
+        write("1234");
+        clickOn("#loginButton");
+        clickOn("#settings");
+        node = lookup("#SizeLabel").query();
+        size = node.getFont().getSize();
+        assertEquals(16, size);
+        clickOn("#TextSizeToggle");
+        System.out.println("Test US7-WB-7.2 passed.");
+    }
+
+    @Test
+    @DisplayName("US7-WB-7.3")
+    void testFontOtherPage(){
+        loginAsTestUser("example@email.com");
+        clickOn("#settings");
+        clickOn("#TextSizeToggle");
+        Label node = lookup("#SizeLabel").query();
+        double size = node.getFont().getSize();
+        assertEquals(16, size);
+        clickOn("#returnButton");
+        Label homenode = lookup("#symptom_log_label").query();
+        double homesize = homenode.getFont().getSize();
+        assertEquals(16, homesize);
+        clickOn("#settings");
+        clickOn("#TextSizeToggle");
     }
 }

@@ -54,6 +54,7 @@ public class PINPopupController {
         alert.setTitle(title);
         alert.setHeaderText(header);
         alert.setContentText(message);
+        alert.getDialogPane().setPrefWidth(250);
         alert.showAndWait();
     }
 
