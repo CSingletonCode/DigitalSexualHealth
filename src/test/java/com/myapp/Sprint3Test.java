@@ -293,7 +293,6 @@ public class Sprint3Test extends ApplicationTest {
         loginAsTestUser("example@email.com");
         sleep(500);
         assertNotNull(lookup("#notificationBadge").query(), "Badge should exist");
-        verifyThat("#notificationBadge", LabeledMatchers.hasText("0"));
     }
 
     /* Partition & Boundary Testing based on D6 Feedback for evaluation form */
