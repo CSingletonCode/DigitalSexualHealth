@@ -69,6 +69,9 @@
     -fx-background-color: #FFFFFF !important;
 }
 
+.upcoming { -fx-background-color: #00FF00 !important; }
+.past { -fx-background-color: #FF4D6D !important; }
+
 /* Text Fields: White border on Black */
 .fancy-text-field,
 .date-picker,
@@ -94,7 +97,7 @@
 
 /* 6. STATUS BADGES */
 .status-badge {
-    -fx-background-color: #000000 !important;
+    -fx-background-color: #000000;
     -fx-border-color: #FFFFFF !important;
     -fx-border-width: 1px;
     -fx-text-fill: #FFFFFF !important;
