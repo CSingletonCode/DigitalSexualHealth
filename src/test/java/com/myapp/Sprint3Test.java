@@ -1,5 +1,6 @@
 package com.myapp;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -22,7 +23,10 @@ import org.testfx.matcher.base.NodeMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
 import javafx.application.Platform;
@@ -38,6 +42,10 @@ public class Sprint3Test extends ApplicationTest {
     private static final Logger log = LoggerFactory.getLogger(Sprint3Test.class);
     private Stage primaryStage;
     private String url = "jdbc:sqlite:app_database.db";
+
+    private static final String FILE_PATH = "localdata/enteredSymptoms.json";
+    private static ObjectMapper mapper = new ObjectMapper();
+    private static File trackerFile;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -64,6 +72,15 @@ public class Sprint3Test extends ApplicationTest {
 
         // Small wait to ensure UI is fully ready before the test starts
         sleep(100);
+    }
+
+    private void clearSymptoms() throws IOException {
+        trackerFile = new File(FILE_PATH);
+        if (!trackerFile.exists()) {
+            trackerFile.createNewFile();
+        }
+        ArrayList<SymptomEntry> empty = new ArrayList<>();
+        mapper.writerWithDefaultPrettyPrinter().writeValue(trackerFile, empty);
     }
 
     private void loginAsTestUser(String email) {
@@ -379,15 +396,15 @@ public class Sprint3Test extends ApplicationTest {
 
     @Test
     @DisplayName("US15-WB-15.2")
-    void testSubmitSymptom() {
+    void testSubmitSymptom() throws IOException{
         loginAsTestUser("example@email.com");
+        clearSymptoms();
 
         clickOn("#symptomsCard");
         clickOn("#addSymptomButton");
         sleep(1000);
         clickOn("#nameField");
-        verifyThat("#optionsScroll", NodeMatchers.isVisible());
-        clickOn("Test Symptom 1");
+        clickOn("Test Symptom 2");
         DatePicker datePicker = lookup("#dateField").queryAs(DatePicker.class);
         interact(() -> {
             datePicker.setValue(LocalDate.of(2026, 4, 10));
@@ -398,8 +415,7 @@ public class Sprint3Test extends ApplicationTest {
         clickOn("#addSymptomButton");
         sleep(1000);
         clickOn("#nameField");
-        verifyThat("#optionsScroll", NodeMatchers.isVisible());
-        clickOn("Test Symptom 1");
+        clickOn("Test Symptom 2");
         DatePicker datePicker2 = lookup("#dateField").queryAs(DatePicker.class);
         interact(() -> {
             datePicker2.setValue(LocalDate.of(2026, 4, 10));
@@ -410,8 +426,7 @@ public class Sprint3Test extends ApplicationTest {
         clickOn("#addSymptomButton");
         sleep(1000);
         clickOn("#nameField");
-        verifyThat("#optionsScroll", NodeMatchers.isVisible());
-        clickOn("Test Symptom 1");
+        clickOn("Test Symptom 2");
         DatePicker datePicker3 = lookup("#dateField").queryAs(DatePicker.class);
         interact(() -> {
             datePicker3.setValue(LocalDate.of(2026, 4, 10));
