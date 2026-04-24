@@ -31,7 +31,7 @@ public class settingsController {
         updateNotificationButtonText();
 
         highContrastToggle.setSelected(userSession.getInstance().isHighContrast());
-
+        highContrastToggle.setText(userSession.getInstance().isHighContrast() ? "On" : "Off");
         highContrastToggle.selectedProperty().addListener((obs, oldVal, newVal) -> {
             userSession.getInstance().setHighContrast(newVal);
             try {
@@ -40,9 +40,11 @@ public class settingsController {
                 throw new RuntimeException(e);
             }
             ThemeManager.applyTheme(highContrastToggle.getScene(),null, null);
+            highContrastToggle.setText(newVal ? "On" : "Off");
         });
 
         TextSizeToggle.setSelected(userSession.getInstance().isLargeText());
+        TextSizeToggle.setText(userSession.getInstance().isLargeText() ? "On" : "Off");
         TextSizeToggle.selectedProperty().addListener((obs, oldVal, newVal) -> {
             userSession.getInstance().setLargeText(newVal);
             try {
@@ -51,7 +53,7 @@ public class settingsController {
                 throw new RuntimeException(e);
             }
             ThemeManager.applyTheme(TextSizeToggle.getScene(),null, null);
-
+            TextSizeToggle.setText(newVal ? "On" : "Off");
         });
     }
 

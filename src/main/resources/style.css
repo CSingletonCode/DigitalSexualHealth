@@ -112,7 +112,7 @@
 
 .date-picker > .arrow-button > .button-content > .arrow,
 .combo-box > .arrow-button > .arrow {
-    -fx-background-color: #6C54B6; /* Use the hex code directly */
+    -fx-background-color: #6C54B6;
 }
 
 /* =========================================
@@ -438,10 +438,11 @@
 }
 
 .switch-button {
-    -fx-background-color: #7056a1; /* The purple background */
+    -fx-background-color: #6C54B6; /* The purple background */
     -fx-background-radius: 20;
     -fx-cursor: hand;
     -fx-padding: 0;
+    -fx-text-fill: white;
 }
 
 /* Creating the white circle (thumb) using a nested background */
@@ -456,7 +457,7 @@
 
 /* When the toggle is selected (ON) */
 .switch-button:selected {
-    -fx-background-color: #4c039b; /* Darker purple when on */
+    -fx-background-color: #6C54B6;
 }
 
 .switch-button:selected .label {

@@ -160,10 +160,12 @@
     -fx-background-color: #000000 !important;
     -fx-border-color: #FFFFFF !important;
     -fx-border-width: 2px !important;
+    -fx-text-fill: white;
 }
 
 .root .switch-button:selected {
     -fx-background-color: #FFFF00 !important; /* Yellow for 'ON' state */
+    -fx-text-fill: black;
 }
 
 .root .switch-button .label {
