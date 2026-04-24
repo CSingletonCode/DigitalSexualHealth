@@ -34,7 +34,7 @@ public class settingsController {
         updateNotificationButtonText();
 
         highContrastToggle.setSelected(userSession.getInstance().isHighContrast());
-
+        highContrastToggle.setText(userSession.getInstance().isHighContrast() ? "On" : "Off");
         highContrastToggle.selectedProperty().addListener((obs, oldVal, newVal) -> {
             userSession.getInstance().setHighContrast(newVal);
             try {
@@ -43,9 +43,11 @@ public class settingsController {
                 throw new RuntimeException(e);
             }
             ThemeManager.applyTheme(highContrastToggle.getScene(),null, null);
+            highContrastToggle.setText(newVal ? "On" : "Off");
         });
 
         TextSizeToggle.setSelected(userSession.getInstance().isLargeText());
+        TextSizeToggle.setText(userSession.getInstance().isLargeText() ? "On" : "Off");
         TextSizeToggle.selectedProperty().addListener((obs, oldVal, newVal) -> {
             userSession.getInstance().setLargeText(newVal);
             try {
@@ -54,7 +56,7 @@ public class settingsController {
                 throw new RuntimeException(e);
             }
             ThemeManager.applyTheme(TextSizeToggle.getScene(),null, null);
-
+            TextSizeToggle.setText(newVal ? "On" : "Off");
         });
     }
 
@@ -92,7 +94,7 @@ public class settingsController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ThemeManager.applyTheme(scene,null, null);
             stage.setScene(scene);
             stage.show();

@@ -40,7 +40,7 @@ public class PINLoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/homepage.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ThemeManager.applyTheme(scene,null, null);
             stage.setScene(scene);
             stage.show();
@@ -73,7 +73,7 @@ public class PINLoginController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/LoginPassword.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 360, 640);
         ThemeManager.applyTheme(scene,sessionManager.isHighContrast(), sessionManager.isLargeText());
         stage.setScene(scene);
         stage.show();
@@ -84,7 +84,7 @@ public class PINLoginController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Login.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 360, 640);
         stage.setScene(scene);
         stage.show();
     }

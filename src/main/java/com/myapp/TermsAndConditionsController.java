@@ -37,6 +37,7 @@ public class TermsAndConditionsController {
         alert.setTitle("Registration");
         alert.setHeaderText(title);
         alert.setContentText(message);
+        alert.getDialogPane().setPrefWidth(250);
         alert.showAndWait();
     }
 
@@ -54,7 +55,7 @@ public class TermsAndConditionsController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

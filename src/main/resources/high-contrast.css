@@ -62,7 +62,6 @@
 .submit-button {
     -fx-background-color: #FFFF00 !important;
     -fx-text-fill: #000000 !important;
-    -fx-border-color: #FFFFFF;
     -fx-border-width: 2px;
 }
 
@@ -70,6 +69,9 @@
 .submit-button:hover {
     -fx-background-color: #FFFFFF !important;
 }
+
+.upcoming { -fx-background-color: #00FF00 !important; }
+.past { -fx-background-color: #FF4D6D !important; }
 
 /* Text Fields: White border on Black */
 .fancy-text-field,
@@ -96,8 +98,8 @@
 
 /* 6. STATUS BADGES */
 .status-badge {
-    -fx-background-color: #000000 !important;
-    -fx-border-color: #FFFFFF !important;
+    -fx-background-color: #000000;
+    /*-fx-border-color: #FFFFFF !important;*/
     -fx-border-width: 1px;
     -fx-text-fill: #FFFFFF !important;
 }
@@ -143,7 +145,6 @@
 .root .button-small {
     -fx-background-color: #FFFF00 !important;
     -fx-text-fill: #000000 !important;
-    -fx-border-color: #FFFFFF !important;
 }
 
 .edge-to-edge-scroll,
@@ -158,14 +159,21 @@
     -fx-background-color: #000000 !important;
 }
 
+.allergy-button {
+    -fx-background-color: #FFFF00;
+}
+
 .root .switch-button {
     -fx-background-color: #000000 !important;
     -fx-border-color: #FFFFFF !important;
     -fx-border-width: 2px !important;
+    -fx-text-fill: white;
 }
 
 .root .switch-button:selected {
     -fx-background-color: #FFFF00 !important; /* Yellow for 'ON' state */
+    -fx-text-fill: black;
+    -fx-border-color: None !important;
 }
 
 .root .switch-button .label {
@@ -288,15 +296,15 @@
 
 /* Red and Green Buttons become High Contrast */
 .btn-red-fixed {
-    -fx-background-color: #000000 !important;
-    -fx-border-color: #FF4D6D !important; /* Keep red as border for identity */
+    -fx-background-color: #FF4D6D !important;
+    /*-fx-border-color: #FF4D6D !important; !* Keep red as border for identity *!*/
     -fx-border-width: 3px !important;
     -fx-text-fill: #FFFFFF !important;
 }
 
 .btn-green-fixed {
-    -fx-background-color: #000000 !important;
-    -fx-border-color: #4BD37B !important; /* Keep green as border for identity */
+    -fx-background-color: #4BD37B !important;
+    /*-fx-border-color: #4BD37B !important; !* Keep green as border for identity *!*/
     -fx-border-width: 3px !important;
     -fx-text-fill: #FFFFFF !important;
 }

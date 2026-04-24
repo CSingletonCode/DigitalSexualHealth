@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
@@ -30,6 +31,8 @@ public class TrackerController{
 
     @FXML
     private Button returnButton;
+    @FXML
+    private Pane dimLayer;
 
     @FXML
     public void initialize() throws IOException{
@@ -39,6 +42,7 @@ public class TrackerController{
 
     @FXML
     private void addNew() throws IOException{
+        dimLayer.setVisible(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/newSymptom.fxml"));
         Parent newSymForm = fxmlLoader.load();
         Scene newForm = new Scene(newSymForm);
@@ -123,7 +127,7 @@ public class TrackerController{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/homepage.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 360, 640);
         ThemeManager.applyTheme(scene,null, null);
         stage.setScene(scene);
         stage.show();
@@ -133,7 +137,7 @@ public class TrackerController{
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ThemeManager.applyTheme(scene, null, null);
             stage.setScene(scene);
             stage.show();
@@ -141,5 +145,9 @@ public class TrackerController{
             System.err.println("Could not load FXML: " + fxmlFile);
             e.printStackTrace();
         }
+    }
+
+    public void setDimLayerVisible(boolean visible) {
+        dimLayer.setVisible(visible);
     }
 }

@@ -159,7 +159,7 @@ public class ClinicController {
                 }
             }
 
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 360, 640);
             ThemeManager.applyTheme(scene,null, null);
             stage.setScene(scene);
             stage.show();

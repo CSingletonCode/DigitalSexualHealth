@@ -38,7 +38,6 @@ public class PopupController {
     @FXML
     private Pane root;
 
-
     public void setName(String name){
         nameField.setText(name);
     }
@@ -72,6 +71,7 @@ public class PopupController {
     @FXML
     private void cancel() {
         this.stage.close();
+        trackerController.setDimLayerVisible(false);
     }
 
     @FXML
