@@ -81,6 +81,26 @@
     -fx-text-fill: #FFFFFF !important;
 }
 
+.combo-box .list-cell {
+    -fx-background-color: #000000 !important;
+    -fx-text-fill: #FFFF00 !important;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF !important;
+    -fx-border-color: #000000 !important;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #FFFFFF !important;
+    -fx-text-fill: #000000 !important;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #FFFF00 !important;
+    -fx-text-fill: #000000 !important;
+}
+
 .root .date-picker-popup > .month-year-pane {
     -fx-background-color: #FFFF00 !important; /* High contrast yellow */
 }
