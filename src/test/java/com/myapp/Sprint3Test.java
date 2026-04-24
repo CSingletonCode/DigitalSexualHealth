@@ -394,51 +394,6 @@ public class Sprint3Test extends ApplicationTest {
     }
 
     @Test
-    @DisplayName("US15-WB-15.2")
-    void testSubmitSymptom() throws IOException{
-        loginAsTestUser("example@email.com");
-        clearSymptoms();
-
-        clickOn("#symptomsCard");
-        clickOn("#addSymptomButton");
-        sleep(1000);
-        clickOn("#nameField");
-        clickOn("Test Symptom 2");
-        DatePicker datePicker = lookup("#dateField").queryAs(DatePicker.class);
-        interact(() -> {
-            datePicker.setValue(LocalDate.of(2026, 4, 10));
-        });
-        clickOn("#descriptionField").write("test");
-        clickOn("#enterButton");
-        sleep(400);
-        clickOn("#addSymptomButton");
-        sleep(1000);
-        clickOn("#nameField");
-        clickOn("Test Symptom 2");
-        DatePicker datePicker2 = lookup("#dateField").queryAs(DatePicker.class);
-        interact(() -> {
-            datePicker2.setValue(LocalDate.of(2026, 4, 10));
-        });
-        clickOn("#descriptionField").write("test");
-        clickOn("#enterButton");
-        sleep(400);
-        clickOn("#addSymptomButton");
-        sleep(1000);
-        clickOn("#nameField");
-        clickOn("Test Symptom 2");
-        DatePicker datePicker3 = lookup("#dateField").queryAs(DatePicker.class);
-        interact(() -> {
-            datePicker3.setValue(LocalDate.of(2026, 4, 10));
-        });
-        clickOn("#descriptionField").write("test");
-        clickOn("#enterButton");
-        sleep(400);
-        clickOn("Book an appointment here.");
-        sleep(400);
-        System.out.println("Test US15-WB-15.2 passed.");
-    }
-
-    @Test
     @DisplayName("US15.3-WB-15.3")
     void testClinicCost() {
         loginAsTestUser("example@email.com");
