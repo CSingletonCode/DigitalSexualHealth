@@ -16,6 +16,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 import org.testfx.matcher.control.LabeledMatchers;
@@ -28,6 +29,7 @@ import javafx.application.Platform;
 
 import java.time.LocalDate;
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
@@ -509,5 +511,32 @@ public class Sprint3Test extends ApplicationTest {
         size = node.getFont().getSize();
         assertEquals(12, size);
         System.out.println("Test US7-WB-7.1 passed.");
+    }
+
+    @Test
+    @DisplayName("US7-WB-7.2")
+    void testFontStaysOn() throws TimeoutException {
+        loginAsTestUser("example@email.com");
+        clickOn("#settings");
+        clickOn("#TextSizeToggle");
+        Label node = lookup("#SizeLabel").query();
+        double size = node.getFont().getSize();
+        assertEquals(16, size);
+        verifyThat("#returnButton", NodeMatchers.isVisible());
+        clickOn("#returnButton");
+        FxToolkit.cleanupStages();
+        sleep(400);
+        // The app is reopened
+        FxToolkit.setupApplication(App.class);
+        sleep(400);
+        clickOn("#pinHiddenField");
+        eraseText(50);
+        write("1234");
+        clickOn("#loginButton");
+        clickOn("#settings");
+        node = lookup("#SizeLabel").query();
+        size = node.getFont().getSize();
+        assertEquals(16, size);
+        clickOn("#TextSizeToggle");
     }
 }
