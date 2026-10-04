@@ -3,7 +3,7 @@
 A Java based prototype tool which assists the user in managing their sexual health. Featuring a personal symptom tracker, a user evaluation with key questions to analyse their health, an appointment booking system, an advice page with links to many different external resources, A log in system which supports multiple accounts with a remember me option, a database and json file to save any recorded information and several accessibility settings.
 
 ## Features
-- The UI is designed with JavaFX and contains several pages and other features including a map and calendars. The different features are located in separate areas which the user can navigate between. The UI was designed with accessibility in mind so pictures and symbols are used as well as labels.
+- The UI was built with JavaFX, the layout of the pages was constructed using SceneBuilder and the style was added using stylesheets which allowed easily change between different designs. The UI contains several pages and other features including maps and calendars. The different features are located in separate areas which the user can navigate between. The UI was designed with accessibility in mind so pictures and symbols are used as well as labels.
   
 - The accessibility settings are located in the settings page which allow the user to change the font size or choose a high contrast colour scheme for those who would otherwise struggle to see or read the pages.
 
@@ -16,4 +16,16 @@ A Java based prototype tool which assists the user in managing their sexual heal
  
   - The advice page where users can find many different external resources designed to help them. These can be filtered to be made more relevant to people of different ages, genders and sexual orientations.
 
-  A login system which allows the user to change between a PIN and a password, can remember multiple accounts 
+- Other features include:
+  
+  - A login system which allows the user to change between a PIN and a password, can remember multiple accounts and contains a clear and concise consent form.
+ 
+  - Tutorials designed to help a first time user navigate the different pages and utilise all of the features correctly.
+ 
+  - A notification system to alert the user if an appointment is approaching.
+
+  - Data privacy features which encrypt any sensitive data before it is stored.
+
+ ## Technologies Used:
+ - **Main Language**: Java
+ - **Main Libraries**: JavaFx, Jackson, argon2-jvm, SQLite JDBC
