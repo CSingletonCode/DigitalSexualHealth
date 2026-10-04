@@ -10,8 +10,10 @@ A Java based prototype tool which assists the user in managing their sexual heal
 - The main four features, accessed via four central buttons on the home page are:
   - The symptom tracker where the user can add and remove any potential symptoms they many have. They can record the date it was found and a description of what the symptom is.
   
-- A health evaluator which contains several key questions designed to analyse the quality of the users sexual health.
+  - The health evaluator where the user can answer key questions designed to analyse the quality of the users sexual health. The results are used to rate the risk level of the users sexual health. The user can also record any allergies they may have which are also taken into consideration.
 
-- A clinic booking system which uses the user's location, or a location designated with a world map, to identify several clinics nearby.
+  - The clinic booking system where the user can select a clinic from a list of those nearby and book an appointment. The user is able to filter between free and paid clinics and see the clinics' location on an interactable map.
+ 
+  - The advice page where users can find many different external resources designed to help them. These can be filtered to be made more relevant to people of different ages, genders and sexual orientations.
 
-- A login system which allows the user to change between a PIN and a password, can remember multiple accounts 
+  A login system which allows the user to change between a PIN and a password, can remember multiple accounts 
